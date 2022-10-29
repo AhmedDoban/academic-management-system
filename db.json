@@ -1,0 +1,26 @@
+{
+  "students": [
+    {
+      "firstName": "Ahmed",
+      "lastName": "Doban",
+      "email": "ahmedheshamdoban@gmail.com",
+      "password": "Ahmed123456789Doban",
+      "re_password": "Ahmed123456789Doban",
+      "phone": "01156526706",
+      "date": "2002-03-16",
+      "courses": [],
+      "id": 1
+    },
+    {
+      "firstName": "Mohamed",
+      "lastName": "Doban",
+      "email": "mohamedheshamdoban@gmail.com",
+      "password": "Ahmed123456789Doban",
+      "re_password": "Ahmed123456789Doban",
+      "phone": "01156526706",
+      "date": "2002-03-16",
+      "courses": [],
+      "id": 1
+    }
+  ]
+}

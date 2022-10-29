@@ -1,0 +1,9 @@
+npm install --save bootstrap
+npm install --save reactstrap react react-dom
+
+npm i --save @fortawesome/fontawesome-svg-core
+npm install --save @fortawesome/free-solid-svg-icons
+npm install --save @fortawesome/react-fontawesome
+npm install --save @fortawesome/fontawesome-free
+
+json-server --watch db.json
