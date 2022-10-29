@@ -35,11 +35,13 @@ class Signin extends React.Component {
     const error = {};
     let state = { ...this.props.state };
     for (let i = 0; i < state.students.length; i++) {
-      if (state.students.at(i).email !== this.state.email.trim()) {
+      if (
+        state.students.at(i).email !== this.state.email.trim() &&
+        state.students.at(i).password !== this.state.password
+      ) {
         error.email = "please check your email";
-      }
-      if (state.students.at(i).password !== this.state.password) {
         error.password = "please check your password";
+        return;
       }
       if (
         state.students.at(i).email === this.state.email.trim() &&

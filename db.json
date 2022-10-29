@@ -9,33 +9,74 @@
       "phone": "01156526706",
       "date": "2002-03-16",
       "courses": [],
-      "id": 1
+      "id": 1,
+      "pa_password": "pa-0000",
+      "stu_password": "stu-0000"
     },
     {
       "firstName": "Mohamed",
       "lastName": "Doban",
-      "email": "mohamedheshamdoban@gmail.com",
+      "email": "mohamed@gmail.com",
       "password": "Ahmed123456789Doban",
       "re_password": "Ahmed123456789Doban",
-      "phone": "01156526706",
-      "date": "2002-03-16",
+      "phone": "01090186708",
+      "date": "2022-10-13",
       "courses": [],
-      "id": 1
+      "id": 2,
+      "pa_password": "pa-0000",
+      "stu_password": "stu-0000"
+    },
+    {
+      "firstName": "Alii",
+      "lastName": "Essam",
+      "email": "Ali@gmail.com",
+      "password": "Ahmed123456789Doban",
+      "re_password": "Ahmed123456789Doban",
+      "phone": "01090186708",
+      "date": "2022-10-15",
+      "courses": [],
+      "pa_password": "pa-0000",
+      "stu_password": "stu-0000",
+      "id": 3
+    },
+    {
+      "firstName": "Mahmoud",
+      "lastName": "Doban",
+      "email": "mahmoudheshamdoban@gmail.com",
+      "password": "Ahmed123456789Doban",
+      "re_password": "Ahmed123456789Doban",
+      "phone": "01090186708",
+      "date": "2022-10-13",
+      "courses": [],
+      "pa_password": "pa-0000",
+      "stu_password": "stu-0000",
+      "id": 4
+    },
+    {
+      "firstName": "Mohamed",
+      "lastName": "Doban",
+      "email": "mo@gmail.com",
+      "password": "Ahmed123456789Doban",
+      "re_password": "Ahmed123456789Doban",
+      "phone": "01090186708",
+      "date": "2022-10-07",
+      "courses": [],
+      "pa_password": "pa-0000",
+      "stu_password": "stu-0000",
+      "id": 5
     }
   ],
-  "student": [
-    {
-      "firstName": "Ahmed",
-      "lastName": "Doban",
-      "email": "ahmedheshamdoban@gmail.com",
-      "password": "Ahmed123456789Doban",
-      "re_password": "Ahmed123456789Doban",
-      "phone": "01156526706",
-      "date": "2002-03-16",
-      "courses": [],
-      "id": 1,
-      "stu-pass":"123456", 
-      "pa-pass":"pas123456"
-    }
-  ]
+  "student": {
+    "firstName": "Mohamed",
+    "lastName": "Doban",
+    "email": "mo@gmail.com",
+    "password": "Ahmed123456789Doban",
+    "re_password": "Ahmed123456789Doban",
+    "phone": "01090186708",
+    "date": "2022-10-07",
+    "courses": [],
+    "pa_password": "pa-0000",
+    "stu_password": "stu-0000",
+    "id": 5
+  }
 }

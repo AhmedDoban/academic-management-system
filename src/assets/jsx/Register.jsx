@@ -32,7 +32,7 @@ class Register extends React.Component {
       return;
     }
     // upload to json file if it true validation or in other hand errors is null
-    const obj = { ...this.state };
+    const obj = { ...this.state , pa_password : "pa-0000",  stu_password : "stu-0000"};
     delete obj.error;
     await axios.post("http://localhost:3000/students", obj);
   };

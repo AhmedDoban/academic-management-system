@@ -5,9 +5,12 @@ import "./assets/css/style.css";
 import Register from "./assets/jsx/Register";
 import Signin from "./assets/jsx/Signin";
 import NotFounded from "./assets/jsx/NotFounded";
+
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import Home from "./assets/jsx/home";
+import Parent from "./assets/jsx/parent";
+import Student from "./assets/jsx/student";
 class App extends React.Component {
   state = {
     students: [],
@@ -42,6 +45,8 @@ class App extends React.Component {
             <Route path="/Signin" element={<Signin state={this.state} />} />
             <Route path="/home" element={<Home />} />
             <Route path="/" element={<Register />} />
+            <Route path="/home/parent" element={<Parent />} />
+            <Route path="/home/student" element={<Student />} />
             <Route path="*" element={<NotFounded to="/NotFounded" />} />
           </Routes>
         </div>
