@@ -343,6 +343,9 @@ p {
   max-width: 100%;
   overflow: hidden;
 }
+.landing.home {
+  height: 100vh;
+}
 .landing::before {
   position: absolute;
   content: "";
@@ -588,33 +591,15 @@ p {
   color: var(--main-color);
   font-weight: bold;
 }
-.Signin .container input {
+.Signin .container input,
+.landing.home .input-section input {
   padding: 10px;
   width: 100%;
   border: none;
   border-bottom: var(--main-border);
   background-color: transparent;
 }
-.Signin .container > form button {
-  background: rgb(163, 132, 236);
-  background: linear-gradient(
-    15deg,
-    rgba(163, 132, 236, 1) 22%,
-    rgba(195, 132, 202, 1) 37%,
-    rgba(199, 132, 198, 1) 48%,
-    rgba(224, 132, 171, 1) 66%
-  );
-  color: #fff;
-  padding: 10px;
-  border-radius: var(--main-border-radius);
-  width: 100%;
-  text-align: center;
-  border: none;
-  cursor: pointer;
-}
-.Signin .container > form > button:hover {
-  opacity: 0.8;
-}
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # wrapper
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -636,4 +621,10 @@ p {
 }
 .wrapper .box button {
   cursor: pointer;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Landing home
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.landing.home .input-section {
+  width: 300px;
 }

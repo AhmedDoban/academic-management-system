@@ -26,14 +26,15 @@ class Register extends React.Component {
     this.setState(state);
   };
   HandleSubmit = async (e) => {
-    e.preventDefault();
     const error = this.Validate();
-    if (error) return;
+    if (error) {
+      e.preventDefault();
+      return;
+    }
     // upload to json file if it true validation or in other hand errors is null
     const obj = { ...this.state };
     delete obj.error;
     await axios.post("http://localhost:3000/students", obj);
-    this.history.push("/Signin");
   };
 
   Validate = () => {
@@ -206,14 +207,21 @@ class Register extends React.Component {
                   )}
                 </div>
               </div>
-
-              <button
-                type="submit"
-                className="center-flex gap-20"
-                onClick={this.HandleSubmit}
+              <Link
+                to={{
+                  pathname: "/Signin",
+                }}
+                className="width-full"
+                replace
               >
-                <i className="fas fa-arrow-right-to-bracket "></i> Register
-              </button>
+                <button
+                  type="submit"
+                  className="center-flex gap-20 main-btn width-full"
+                  onClick={this.HandleSubmit}
+                >
+                  <i className="fas fa-arrow-right-to-bracket "></i> Register
+                </button>
+              </Link>
             </form>
 
             <p>

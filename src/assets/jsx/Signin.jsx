@@ -1,7 +1,7 @@
 import React from "react";
 import Blobs from "./Blobs";
-import { Link, Route } from "react-router-dom";
-import Home from "./home";
+import { Link } from "react-router-dom";
+import axios from "axios";
 class Signin extends React.Component {
   state = {
     email: "",
@@ -27,7 +27,8 @@ class Signin extends React.Component {
       return;
     }
     // else
-    console.log("submit");
+    const obj = { ...this.new_data };
+    await axios.post("http://localhost:3000/student", obj);
   };
 
   Validate = () => {
@@ -49,7 +50,6 @@ class Signin extends React.Component {
       }
     }
     this.setState({ error });
-    console.log(this.new_data);
     return this.isEmptyObject(error) ? null : error;
   };
 
@@ -104,14 +104,13 @@ class Signin extends React.Component {
               <Link
                 to={{
                   pathname: "/home",
-                  state: { state: this.new_data },
                 }}
                 className="width-full"
                 replace
               >
                 <button
                   type="submit"
-                  className="center-flex gap-20 "
+                  className="center-flex gap-20 main-btn width-full"
                   onClick={this.HandleSubmit}
                 >
                   <i className="fas fa-arrow-right-to-bracket "></i> Continue

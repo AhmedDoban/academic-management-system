@@ -199,7 +199,7 @@
 .bg-gray {
   background-color: var(--grey-color);
 }
-.bg-215{
+.bg-215 {
   background-color: rgb(215, 215, 215);
 }
 
@@ -292,4 +292,23 @@
 .btn-shape {
   padding: 4px 10px;
   border-radius: 6px;
+}
+.main-btn {
+  background: rgb(163, 132, 236);
+  background: linear-gradient(
+    15deg,
+    rgba(163, 132, 236, 1) 22%,
+    rgba(195, 132, 202, 1) 37%,
+    rgba(199, 132, 198, 1) 48%,
+    rgba(224, 132, 171, 1) 66%
+  );
+  color: #fff;
+  padding: 10px;
+  border-radius: var(--main-border-radius);
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+.main-btn:hover {
+  opacity: 0.8;
 }
