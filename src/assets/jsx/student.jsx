@@ -9,7 +9,7 @@ import { Posts } from "../../dummyData";
 const Student = (props) => {
   return (
     <React.Fragment>
-      <div className="page">
+      <div className="page p-relative">
         <SideBar />
         <div className="content">
           <Head />

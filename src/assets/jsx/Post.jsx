@@ -11,7 +11,7 @@ function Post(props) {
   };
 
   return (
-    <div className="width-full bg-fff p-20 box-Shadow mb-25 mt-20">
+    <div className="width-full bg-fff p-20 box-Shadow mb-25 mt-20 rd-10 ">
       <div className="post-top between-flex">
         <div className="left center-flex gap-20">
           <img

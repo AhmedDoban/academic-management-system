@@ -221,14 +221,13 @@ p {
 .content {
   width: 100%;
   position: relative;
-  overflow: hidden;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # sidebar
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .sidebar {
   position: relative;
-  background-color: #fff;
+  background-color: rgba(153, 153, 153, 0.2);
   box-shadow: var(--main-box-shadow);
   padding: 20px;
   width: 250px;
@@ -312,7 +311,8 @@ p {
 .content .head {
   position: relative;
   width: 100%;
-  background-color: #fff;
+  background-color: rgba(250, 250, 250, 0.5);
+  box-shadow: var(--main-box-shadow);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -693,12 +693,13 @@ p {
   }
 }
 .StudentBox {
-  overflow: hidden;
-  width: 300px;
-  height: fit-content;
+  width: 600px;
   text-align: center;
   box-shadow: var(--main-box-shadow);
   border-radius: var(--main-border-radius);
+  color: #fff;
+  background-color: #29415939;
+  height: fit-content;
 }
 @media (max-width: 992px) {
   .StudentBox {
@@ -706,12 +707,18 @@ p {
     flex-direction: row;
     width: 100%;
     gap: 20px;
+    position: relative !important;
+    margin-bottom: 20px;
+  }
+  .StudentBox img {
+    width: 50px;
+    height: 50px;
   }
 }
 .Share {
   height: fit-content;
   border-radius: var(--main-border-radius);
-  background-color: #fff;
+  background-color: #f59f0b3c;
 }
 @media (max-width: 992px) {
   .Share .icons {

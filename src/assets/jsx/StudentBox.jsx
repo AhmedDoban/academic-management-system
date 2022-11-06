@@ -1,7 +1,7 @@
 import user from "../img/user.png";
 function StudentBox(props) {
   return (
-    <div className="StudentBox p-20 section-box">
+    <div className="StudentBox p-20 p-sticky">
       <img src={user} alt="user avatar" className="img-medium  mb-20" />
       <table>
         <tr>

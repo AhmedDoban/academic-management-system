@@ -6,7 +6,7 @@ const SideBar = (props) => {
     <React.Fragment>
       <div class="sidebar">
         <h3>academic management system </h3>
-        <ul>
+        <ul className="p-sticky">
           <li>
             <Link to="home">
               <i class="fa-solid fa-house"></i>
