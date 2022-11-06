@@ -9,7 +9,10 @@
 :root {
   --blue-color: #0075ff;
   --blue-alt-color: #0d69d5;
+  --dark-blue: #19324f;
   --orange-color: #f59e0b;
+  --orange-alt: #f59f0b6c;
+  --orange-transparent: #f59f0b3c;
   --green-color: #22c55e;
   --red-color: #f44336;
   --grey-color: #888;
@@ -227,7 +230,7 @@ p {
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .sidebar {
   position: relative;
-  background-color: rgba(153, 153, 153, 0.2);
+  background-color: var(--orange-alt);
   box-shadow: var(--main-box-shadow);
   padding: 20px;
   width: 250px;
@@ -311,7 +314,7 @@ p {
 .content .head {
   position: relative;
   width: 100%;
-  background-color: rgba(250, 250, 250, 0.5);
+  background-color: var(--dark-blue);
   box-shadow: var(--main-box-shadow);
   display: flex;
   align-items: center;
@@ -325,6 +328,7 @@ p {
   gap: 10px;
   font-size: 20px;
   cursor: pointer;
+  color: #fff;
 }
 .content .head .notification {
   position: relative;
@@ -356,8 +360,8 @@ p {
   color: var(--gray-color);
 }
 .content .head input {
-  padding: 10px 0 10px 50px;
-  border: 1px solid #ccc;
+  padding: 8px 0 8px 50px;
+  border: none;
   border-radius: var(--main-border-radius);
   width: 160px;
   transition: var(--main-transition);
@@ -698,8 +702,9 @@ p {
   box-shadow: var(--main-box-shadow);
   border-radius: var(--main-border-radius);
   color: #fff;
-  background-color: #29415939;
+  background-color: transparent;
   height: fit-content;
+  /* padding: 20px; */
 }
 @media (max-width: 992px) {
   .StudentBox {

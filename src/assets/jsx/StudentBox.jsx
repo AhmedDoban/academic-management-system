@@ -1,8 +1,8 @@
 import user from "../img/user.png";
 function StudentBox(props) {
   return (
-    <div className="StudentBox p-20 p-sticky">
-      <img src={user} alt="user avatar" className="img-medium  mb-20" />
+    <div className="StudentBox  p-sticky">
+      {/* <img src={user} alt="user avatar" className="img-medium  mb-20" />
       <table>
         <tr>
           <h3 className="align-center display-flex  gap-20">
@@ -24,7 +24,7 @@ function StudentBox(props) {
             n.of.courses : <p>25</p>
           </h3>
         </tr>
-      </table>
+      </table> */}
     </div>
   );
 }
