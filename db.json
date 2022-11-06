@@ -67,16 +67,16 @@
     }
   ],
   "student": {
-    "firstName": "Mohamed",
+    "firstName": "Ahmed",
     "lastName": "Doban",
-    "email": "mo@gmail.com",
+    "email": "ahmedheshamdoban@gmail.com",
     "password": "Ahmed123456789Doban",
     "re_password": "Ahmed123456789Doban",
-    "phone": "01090186708",
-    "date": "2022-10-07",
+    "phone": "01156526706",
+    "date": "2002-03-16",
     "courses": [],
+    "id": 1,
     "pa_password": "pa-0000",
-    "stu_password": "stu-0000",
-    "id": 5
+    "stu_password": "stu-0000"
   }
 }

@@ -5,7 +5,6 @@ import "./assets/css/style.css";
 import Register from "./assets/jsx/Register";
 import Signin from "./assets/jsx/Signin";
 import NotFounded from "./assets/jsx/NotFounded";
-
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import Home from "./assets/jsx/home";

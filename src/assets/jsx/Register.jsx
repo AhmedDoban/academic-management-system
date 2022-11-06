@@ -91,7 +91,7 @@ class Register extends React.Component {
                     value={this.state.firstName}
                     type="text"
                     name="firstName"
-                    id=""
+                    id="firstName"
                     placeholder="first name"
                     required
                   />
@@ -107,7 +107,7 @@ class Register extends React.Component {
                     value={this.state.lastName}
                     type="text"
                     name="lastName"
-                    id=""
+                    id="lastName"
                     placeholder="last name"
                     required
                   />
@@ -124,7 +124,7 @@ class Register extends React.Component {
                   value={this.state.email}
                   type="email"
                   name="email"
-                  id=""
+                  id="email"
                   placeholder="Enter Your Email"
                   required
                 />
@@ -140,7 +140,7 @@ class Register extends React.Component {
                   value={this.state.password}
                   type="password"
                   name="password"
-                  id=""
+                  id="password"
                   placeholder="Enter Your password"
                   required
                 />
@@ -162,7 +162,7 @@ class Register extends React.Component {
                   value={this.state.re_password}
                   type="password"
                   name="re_password"
-                  id=""
+                  id="re_password"
                   placeholder="re-enter Your password"
                   required
                 />
@@ -179,7 +179,7 @@ class Register extends React.Component {
                     onChange={this.HandleChange}
                     type="date"
                     name="date"
-                    id=""
+                    id="date"
                     value={this.state.date}
                     required
                   />
