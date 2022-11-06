@@ -8,9 +8,9 @@ const SideBar = (props) => {
         <h3>academic management system </h3>
         <ul>
           <li>
-            <Link to="home/student">
-              <i class="fa-regular fa-chart-bar fa-fw"></i>
-              <span>Dashbord</span>
+            <Link to="home">
+              <i class="fa-solid fa-house"></i>
+              <span>Home</span>
             </Link>
           </li>
           <li>
@@ -62,6 +62,3 @@ const SideBar = (props) => {
 };
 
 export default SideBar;
-
-
-
