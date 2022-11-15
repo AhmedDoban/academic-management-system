@@ -8,12 +8,27 @@
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="academic system management for students and teachers" />
   <title>academic management system</title>
+  <link rel="styleSheet" href="pre-loder.css">
 </head>
 
 <body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
-
+  <div class="dots-container ">
+    <img src="./Book.gif" alt="">
+    <div class="dots">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <p>academic management system</p>
+  </div>
+  <div id="root"> </div>
+  <script>
+    window.onload = () => {
+      setTimeout(() => {
+        document.querySelector(".dots-container").style.display = "none"
+      }, 2000)
+    }
+  </script>
 </body>
 
 </html>

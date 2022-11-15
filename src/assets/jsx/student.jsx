@@ -1,8 +1,7 @@
 import React from "react";
 import SideBar from "./SideBar";
 import Head from "./Head";
-import Share from "./Share";
-import StudentBox from "./StudentBox";
+import Share from "./Share";  
 import Post from "./Post";
 import { Posts } from "../../dummyData";
 
@@ -20,7 +19,6 @@ const Student = (props) => {
                 <Post key={p.id} Post={p} />
               ))}
             </div>
-            <StudentBox />
           </div>
         </div>
       </div>
