@@ -10,12 +10,6 @@
   flex-direction: column;
   gap: 10px;
 }
-
-.dots-container > img {
-  width: 100px;
-  filter: grayscale(100%);
-}
-
 .dots-container p {
   color: #f59e0b;
   font-size: 20px;
