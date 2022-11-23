@@ -16,6 +16,7 @@
   --green-color: #22c55e;
   --red-color: #f44336;
   --grey-color: #888;
+  --grey-alt-color: #8b8b8b;
   --main-color: #ff9800;
   --red-color: #ff5f60;
   --main-transition: all 0.5s ease-in-out;
@@ -230,11 +231,10 @@ p {
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .sidebar {
   position: relative;
-  background-color: var(--orange-alt);
+  background-color: var(--dark-blue);
   box-shadow: var(--main-box-shadow);
   padding: 20px;
   width: 250px;
-  z-index: 1;
 }
 
 .sidebar > h3 {
@@ -248,7 +248,7 @@ p {
   .sidebar > h3::after {
     position: absolute;
     content: "";
-    background-color: #000;
+    background-color: var(--main-p-color);
     left: 50%;
     transform: translateX(-50%);
   }
@@ -273,7 +273,7 @@ p {
   display: flex;
   align-items: center;
   font-size: 14px;
-  color: #000;
+  color: var(--orange-color);
   border-radius: var(--main-border-radius);
   padding: 10px;
   transition: var(--main-transition);
@@ -599,11 +599,16 @@ p {
   width: 80%;
   height: fit-content;
   border-radius: var(--main-border-radius);
-  background-color: #f59f0b3c;
+  background: rgba(241, 245, 249, 0.22);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.5px);
 }
 .Post {
   width: 80%;
   overflow: hidden;
+  background: rgba(241, 245, 249, 0.22);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.5px);
 }
 @media (max-width: 992px) {
   .Share {
