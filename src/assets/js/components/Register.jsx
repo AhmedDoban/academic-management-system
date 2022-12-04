@@ -8,13 +8,19 @@ function Register() {
   const navigate = useNavigate();
 
   const { http, setToken } = AuthUser();
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [First_Name, setFirst_Name] = useState();
+  const [Last_Name, SetLast_Name] = useState();
+  const [Email, setEmail] = useState();
+  const [Password, setPassword] = useState();
 
   const HandleSubmit = (e) => {
     http
-      .post("/register", { email: email, password: password, name: name })
+      .post("/register", {
+        Email: Email,
+        Password: Password,
+        First_Name: First_Name,
+        Last_Name: Last_Name,
+      })
       .then((res) => {
         navigate("/login");
       });
@@ -31,11 +37,22 @@ function Register() {
             <div className="width-full">
               <input
                 type="text"
-                name="name"
-                id="name"
-                placeholder="Enter Your Name"
+                name="First_Name"
+                id="First_Name"
+                placeholder="Enter Your First Name"
                 required
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => setFirst_Name(e.target.value)}
+                className="form-control"
+              />
+            </div>
+            <div className="width-full">
+              <input
+                type="text"
+                name="Last_Name"
+                id="Last_Name"
+                placeholder="Enter Your Last Name"
+                required
+                onChange={(e) => SetLast_Name(e.target.value)}
                 className="form-control"
               />
             </div>
