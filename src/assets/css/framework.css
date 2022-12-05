@@ -317,7 +317,10 @@
   cursor: pointer;
 }
 .main-btn:hover {
-  opacity: 0.8;
+  background: var(--red-color);
+  box-shadow: 0 4px 30px #0000005a;
+  backdrop-filter: blur(50px);
+  transition: all 0.3s ease-in-out;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # spritters

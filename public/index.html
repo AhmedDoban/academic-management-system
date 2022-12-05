@@ -13,7 +13,7 @@
 
 <body>
   <div class="dots-container ">
-    <img src="./Book.gif" alt="">
+    <img src="./book.png" alt="">
     <div class="dots">
       <div></div>
       <div></div>
@@ -21,13 +21,30 @@
     </div>
     <p>academic management system</p>
   </div>
-  <div id="root"> </div>
+  <i class="fas fa-arrow-up back-to-top" style="display: none;"></i>
+  <div id="root">
+  </div>
   <script>
     window.onload = () => {
       setTimeout(() => {
         document.querySelector(".dots-container").style.display = "none"
       }, 2000)
     }
+    let btn = document.querySelector(".back-to-top");
+    btn.addEventListener("click", (e) => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    });
+    window.onscroll = (e) => {
+      if (window.scrollY >= 150) {
+        btn.style.cssText = "display : flex";
+      } else {
+        btn.style.cssText = "display : none";
+      }
+    };
   </script>
 </body>
 

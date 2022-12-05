@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import AuthUser from "./AuthUser";
 
 const SideBar = (props) => {
@@ -11,60 +11,60 @@ const SideBar = (props) => {
   };
   return (
     <React.Fragment>
-      <div class="sidebar">
+      <div className="sidebar">
         <h3>academic management system </h3>
         <ul className="p-sticky">
           <li>
-            <Link to="home">
-              <i class="fa-solid fa-house"></i>
+            <NavLink to="home">
+              <i className="fa-solid fa-house"></i>
               <span>Home</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="setting">
-              <i class="fa-solid fa-gear fa-fw"></i>
+            <NavLink to="setting">
+              <i className="fa-solid fa-gear fa-fw"></i>
               <span>Setting</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="profile">
-              <i class="fa-solid fa-user fa-fw"></i>
+            <NavLink to="profile">
+              <i className="fa-solid fa-user fa-fw"></i>
               <span>Profile</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="projects">
-              <i class="fa-solid fa-diagram-project fa-fw"></i>
+            <NavLink to="projects">
+              <i className="fa-solid fa-diagram-project fa-fw"></i>
               <span>Project</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="courses">
-              <i class="fa-solid fa-graduation-cap fa-fw"></i>
+            <NavLink to="courses">
+              <i className="fa-solid fa-graduation-cap fa-fw"></i>
               <span>courses</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="Friends">
-              <i class="fa-regular fa-circle-user fa-fw"></i>
+            <NavLink to="Friends">
+              <i className="fa-regular fa-circle-user fa-fw"></i>
               <span>Friends</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="Files">
-              <i class="fa-regular fa-file fa-fw"></i>
+            <NavLink to="Files">
+              <i className="fa-regular fa-file fa-fw"></i>
               <span>Files</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="plans">
-              <i class="fa-regular fa-credit-card fa-fw"></i>
+            <NavLink to="plans">
+              <i className="fa-regular fa-credit-card fa-fw"></i>
               <span>plans</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
             <Link onClick={logoutUser} to="/">
-              <i class="fa-solid fa-right-from-bracket"></i>
+              <i className="fa-solid fa-right-from-bracket"></i>
               <span>log-out </span>
             </Link>
           </li>
