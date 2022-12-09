@@ -88,6 +88,7 @@ function StudentHomePage(props) {
           </div>
         </div>
       </AutoplaySlider>
+      <div className="spikes-rotated"></div>
       <div className="m-20">
         <Share />
         {Posts.map((p) => (

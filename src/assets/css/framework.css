@@ -352,7 +352,7 @@
 # slider_Setting
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .slider_Setting {
-  height: calc(100vh - 55px);
+  height: calc(100vh - 65px);
   position: relative;
 }
 .slider_Setting div {

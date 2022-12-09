@@ -1,6 +1,6 @@
 <svg viewBox="0 0 800 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
   <g transform="translate(361, -66)">
-    <path  fill="#31676b">
+    <path  fill="#f59e0b">
         <animate attributeName="d" dur="10s" repeatCount="indefinite"
         values="M425.5,315Q429,380,370,408.5Q311,437,245,453Q179,469,138,415Q97,361,81.5,305.5Q66,250,66,183Q66,116,128,91.5Q190,67,246,78Q302,89,355.5,111.5Q409,134,415.5,192Q422,250,425.5,315Z;
                 M428.5,304Q399,358,357.5,406.5Q316,455,247,464Q178,473,149.5,408Q121,343,75.5,296.5Q30,250,58.5,190.5Q87,131,134,84Q181,37,251,33.5Q321,30,355,89.5Q389,149,423.5,199.5Q458,250,428.5,304Z;
