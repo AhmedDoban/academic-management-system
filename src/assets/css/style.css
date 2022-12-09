@@ -221,7 +221,6 @@ p {
 .sidebar {
   position: relative;
   background-color: var(--dark-blue);
-  box-shadow: var(--main-box-shadow);
   backdrop-filter: blur(50px);
   padding: 20px;
   width: 250px;

@@ -26,7 +26,7 @@ const Student = (props) => {
         <SideBar />
         <div className="content">
           <Head />
-          <div className="pagewrapper m-20 display-flex gap-10">
+          <div className="pagewrapper display-flex gap-10">
             <div className="postContainer width-full">
               <Routes>
                 <Route exact path="/home" element={<StudentHomePage />} />
