@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import AuthUser from "./AuthUser";
 
 const SideBar = (props) => {
+  const [active, setActive] = useState("fa-solid fa-lock");
+  const open = () => {
+    const open = document.querySelector(".sidebar");
+    open.classList.toggle("open");
+    open.classList.contains("open")
+      ? setActive("fa-solid fa-lock-open")
+      : setActive("fa-solid fa-lock");
+  };
   const { token, logOut } = AuthUser();
   const logoutUser = () => {
     if (token !== undefined) {
@@ -13,6 +21,9 @@ const SideBar = (props) => {
     <React.Fragment>
       <div className="sidebar">
         <h3>academic management system </h3>
+        <div className="bullet" onClick={open}>
+          <i className={active}></i>
+        </div>
         <ul className="p-sticky">
           <li>
             <NavLink to="home">
@@ -26,12 +37,7 @@ const SideBar = (props) => {
               <span>Setting</span>
             </NavLink>
           </li>
-          <li>
-            <NavLink to="profile">
-              <i className="fa-solid fa-user fa-fw"></i>
-              <span>Profile</span>
-            </NavLink>
-          </li>
+
           <li>
             <NavLink to="projects">
               <i className="fa-solid fa-diagram-project fa-fw"></i>
