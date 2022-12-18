@@ -222,6 +222,7 @@ p {
   display: flex;
   min-height: 100vh;
   background-color: #f1f5f9;
+  overflow: hidden;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Content 
