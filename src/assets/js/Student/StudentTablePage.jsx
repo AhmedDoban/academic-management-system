@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import ReactToPrint from "react-to-print";
 import { useReactToPrint } from "react-to-print";
 import Footer from "./../components/Footer";
 class StudentTable extends React.PureComponent {
