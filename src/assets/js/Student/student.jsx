@@ -13,7 +13,7 @@ import StudentCourses from "./StudentCourses";
 import StudentProjectsPage from "./StudentProjectsPage";
 import StudentFriends from "./StudentFriends";
 import StudentFilesPage from "./StudentFilesPage";
-import StudentPlansPage from "./StudentPlansPage";
+import StudentTablePage from "./StudentTablePage";
 
 const Student = (props) => {
   useEffect(() => {
@@ -36,7 +36,7 @@ const Student = (props) => {
                 <Route path="/courses" element={<StudentCourses />} />
                 <Route path="/Friends" element={<StudentFriends />} />
                 <Route path="/Files" element={<StudentFilesPage />} />
-                <Route path="/plans" element={<StudentPlansPage />} />
+                <Route path="/table" element={<StudentTablePage />} />
                 <Route exact path="/" element={<StudentHomePage />} />
                 <Route path="*" element={<NotFounded to="/NotFounded" />} />
               </Routes>

@@ -963,6 +963,80 @@ remove this comment if you want it to be sticy
   }
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# StudentPlansPage
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.StudentTablePage {
+  position: relative;
+  min-width: 100%;
+  min-height: 70vh;
+  overflow: hidden;
+  background: rgb(27, 87, 91);
+  background: linear-gradient(
+    212deg,
+    rgba(27, 87, 91, 1) 28%,
+    rgba(104, 122, 195, 1) 100%
+  );
+}
+
+.StudentTablePage h1 {
+  text-align: center;
+  color: var(--main-background-color);
+  font-weight: bold;
+}
+.StudentTablePage .StudentTablePageContainer {
+  overflow-x: auto;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+}
+.StudentTablePage table {
+  position: relative;
+  min-width: 1000px;
+  height: auto;
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.StudentTablePage table th,
+.StudentTablePage table td {
+  margin: 0;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  height: 50px;
+  border-bottom: 0.5px solid #eee;
+  border-left: 0.5px solid #eee;
+}
+.StudentTablePage table th {
+  text-align: left;
+}
+.StudentTablePage table thead th {
+  position: relative;
+  background-color: #55608f;
+}
+.StudentTablePage table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.toolbar {
+  position: relative;
+}
+.toolbar button {
+  position: absolute;
+  top: 0;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  z-index: 999;
+  cursor: pointer;
+  top: 18px;
+  right: 18px;
+  transition: var(--main-transition);
+}
+.toolbar button:hover {
+  background-color: var(--orange-color);
+  color: #fff;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Footer
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .footer {

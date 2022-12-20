@@ -63,9 +63,9 @@ const SideBar = (props) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="plans">
-              <i className="fa-regular fa-credit-card fa-fw"></i>
-              <span>plans</span>
+            <NavLink to="table">
+              <i class="fa-solid fa-table"></i>
+              <span>Table</span>
             </NavLink>
           </li>
           <li>
