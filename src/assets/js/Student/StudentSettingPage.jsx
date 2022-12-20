@@ -7,7 +7,7 @@ function StudentSettingPage(props) {
         <div className="container">
           <div className="img-name-settingpage">
             <img src={require("../../img/avatars/1.jpeg")} alt="slide 1 " />
-            <h1>Ahmed Doban</h1>
+            <h1>Omnia El-barbary</h1>
           </div>
         </div>
       </div>
