@@ -26,44 +26,44 @@ const SideBar = (props) => {
         </div>
         <ul className="p-sticky">
           <li>
-            <NavLink to="home">
+            <NavLink to="home" onClick={open}>
               <i className="fa-solid fa-house"></i>
               <span>Home</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to="setting">
+            <NavLink to="setting" onClick={open}>
               <i className="fa-solid fa-gear fa-fw"></i>
               <span>Setting</span>
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="projects">
+            <NavLink to="projects" onClick={open}>
               <i className="fa-solid fa-diagram-project fa-fw"></i>
               <span>Project</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to="courses">
+            <NavLink to="courses" onClick={open}>
               <i className="fa-solid fa-graduation-cap fa-fw"></i>
               <span>courses</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to="Friends">
+            <NavLink to="Friends" onClick={open}>
               <i className="fa-regular fa-circle-user fa-fw"></i>
               <span>Friends</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to="Files">
+            <NavLink to="Files" onClick={open}>
               <i className="fa-regular fa-file fa-fw"></i>
               <span>Files</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to="table">
+            <NavLink to="table" onClick={open}>
               <i class="fa-solid fa-table"></i>
               <span>Table</span>
             </NavLink>
