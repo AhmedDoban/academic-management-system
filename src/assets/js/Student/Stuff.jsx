@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 function Stuff(props) {
@@ -83,7 +83,7 @@ function Stuff(props) {
           </div>
           {/******************** End ********************************/}
         </div>
-        <Link to="">Show More</Link>
+        <Link to="/courses">Show More</Link>
       </div>
     </React.Fragment>
   );
