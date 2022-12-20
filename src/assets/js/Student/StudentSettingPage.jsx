@@ -3,7 +3,14 @@ import React, { Component } from "react";
 function StudentSettingPage(props) {
   return (
     <React.Fragment>
-      <h1>Setting page</h1>
+      <div className="StudentSettingPage">
+        <div className="container">
+          <div className="img-name-settingpage">
+            <img src={require("../../img/avatars/1.jpeg")} alt="slide 1 " />
+            <h1>Ahmed Doban</h1>
+          </div>
+        </div>
+      </div>
     </React.Fragment>
   );
 }

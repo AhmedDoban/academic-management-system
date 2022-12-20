@@ -1037,6 +1037,46 @@ remove this comment if you want it to be sticy
   color: #fff;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# StudentSettingPage
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.StudentSettingPage {
+  position: relative;
+}
+.StudentSettingPage::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 20vh;
+  background: rgb(127, 186, 226);
+  background: linear-gradient(
+    15deg,
+    rgba(127, 186, 226, 1) 0%,
+    rgba(181, 61, 254, 1) 35%,
+    rgba(253, 231, 129, 1) 100%
+  );
+}
+.StudentSettingPage .container {
+  position: relative;
+}
+.StudentSettingPage .container .img-name-settingpage > img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: calc(10vh);
+  margin-left: 2.5%;
+  transition: var(--main-transition);
+}
+.StudentSettingPage .container .img-name-settingpage h1 {
+  color: var(--red-color);
+  text-shadow: 2px 2px 8px #ff000050;
+}
+@media (max-width: 767px) {
+  .StudentSettingPage .container .img-name-settingpage {
+    text-align: center;
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Footer
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .footer {
