@@ -1077,6 +1077,106 @@ remove this comment if you want it to be sticy
   }
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# StudentSettingPage student details
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.StudentSettingPage .setting-name {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #c0c0c0;
+  margin-bottom: 20px;
+}
+.StudentSettingPage .setting-name li a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  font-weight: 500;
+  height: 100%;
+  height: 50px;
+  position: relative;
+  padding: 0 20px;
+  overflow: hidden;
+}
+.StudentSettingPage .setting-name li a::before {
+  position: absolute;
+  content: "";
+  width: calc(100% - 30px);
+  bottom: 0%;
+  background-color: #000;
+  height: 1px;
+  transition: var(--main-transition);
+  left: -100%;
+}
+.StudentSettingPage .setting-name li a.active::before {
+  left: 15%;
+}
+.StudentProfile {
+  position: relative;
+  padding-top: calc(var(--main-padding-top) / 4);
+  padding-bottom: var(--main-padding-bottom);
+}
+.StudentProfile .box:not(:first-child) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+.StudentProfile .box {
+  padding: 20px;
+}
+.StudentProfile .box:not(:last-child) {
+  border-bottom: 1px solid #c0c0c0;
+}
+.StudentProfile .box h5 {
+  font-size: 18px;
+  width: 30%;
+  color: #000002c3;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  opacity: 0.7;
+}
+.StudentProfile .box:first-child h5 {
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+.StudentProfile .box input {
+  width: 100%;
+  color: var(--grey-color);
+  padding: 10px 20px;
+  border-radius: var(--main-border-radius);
+  box-shadow: var(--main-box-shadow);
+  border: none;
+  cursor: default;
+}
+
+.StudentProfile .box input[type="button"] {
+  background-color: #000;
+  width: fit-content;
+  color: #fff;
+  display: flex;
+  margin: 0 0 0 auto;
+  cursor: pointer;
+}
+@media (max-width: 767px) {
+  .StudentProfile .box {
+    text-align: center;
+    flex-direction: column;
+    gap: 10px !important;
+  }
+
+  .StudentProfile .box h5 {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  .StudentProfile .box input {
+    text-align: center;
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Footer
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .footer {

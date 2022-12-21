@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
 import SideBar from "../components/SideBar";
 import Head from "../Header/Head";
-import Share from "./Share";
-import Post from "./Post";
-import { Posts } from "../../../dummyData";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import StudentHomePage from "./StudentHomePage";
 import StudentSettingPage from "./StudentSettingPage";
 import NotFounded from "./../components/NotFounded";
@@ -30,14 +27,18 @@ const Student = (props) => {
             <div className="postContainer width-full">
               <Routes>
                 <Route exact path="/home" element={<StudentHomePage />} />
-                <Route path="/setting" element={<StudentSettingPage />} />
-                <Route path="/profile" element={<StudentProfile />} />
                 <Route path="/projects" element={<StudentProjectsPage />} />
                 <Route path="/courses" element={<StudentCourses />} />
                 <Route path="/Friends" element={<StudentFriends />} />
                 <Route path="/Files" element={<StudentFilesPage />} />
                 <Route path="/table" element={<StudentTablePage />} />
                 <Route exact path="/" element={<StudentHomePage />} />
+                <Route path="setting" element={<StudentSettingPage />}>
+                  <Route path="student-setting-details" />
+                  <Route path="student-setting-password" />
+                  <Route path="student-setting-email" />
+                  <Route path="*" render={() => <Navigate to="/" />} />
+                </Route>
                 <Route path="*" element={<NotFounded to="/NotFounded" />} />
               </Routes>
             </div>
