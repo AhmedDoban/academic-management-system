@@ -10,7 +10,11 @@ function Stuff(props) {
         data-aos-easing="ease-in-out"
         data-aos-duration="1000"
       >
-        <h1 className="main-titel">Course categories</h1>
+        <h1 className="main-titel">
+          <div className="div-circle"></div>
+          <div className="div-circle"></div>
+          <span>Course categories</span>
+        </h1>
         <div className="container">
           {/******************** Card1 ********************************/}
           <div

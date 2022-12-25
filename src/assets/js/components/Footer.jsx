@@ -6,7 +6,7 @@ function Footer(props) {
     <React.Fragment>
       <div
         className="footer"
-        data-aos="fade-up"
+        data-aos="flip-up"
         data-aos-easing="ease-in-out"
         data-aos-duration="1000"
       >

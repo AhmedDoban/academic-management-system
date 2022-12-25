@@ -137,3 +137,35 @@ export const Posts = [
     comment: 12,
   },
 ];
+export const CourcesDB = [
+  {
+    id: 1,
+    CourcesName: "HTML",
+    photo: require("./assets/img/Courses/html.png"),
+    CourcesTeacher: "ALi Esmaiel",
+  },
+  {
+    id: 2,
+    CourcesName: "CSS",
+    photo: require("./assets/img/Courses/css.png"),
+    CourcesTeacher: "ALi Esmaiel",
+  },
+  {
+    id: 3,
+    CourcesName: "PHP",
+    photo: require("./assets/img/Courses/php.png"),
+    CourcesTeacher: "ALi Esmaiel",
+  },
+  {
+    id: 4,
+    CourcesName: "PHP",
+    photo: require("./assets/img/Courses/php.png"),
+    CourcesTeacher: "ALi Esmaiel",
+  },
+  {
+    id: 5,
+    CourcesName: "HTML",
+    photo: require("./assets/img/Courses/html.png"),
+    CourcesTeacher: "ALi Esmaiel",
+  },
+];

@@ -11,7 +11,11 @@ function WhatOffer(props) {
         data-aos-easing="ease-in-out"
         data-aos-duration="1000"
       >
-        <h1 className="main-titel">What We Offer ?</h1>
+        <h1 className="main-titel">
+          <div className="div-circle"></div>
+          <div className="div-circle"></div>
+          <span>What We Offer ?</span>
+        </h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
           asperiores eligendi odit impedit quas est cum tempora, animi commodi

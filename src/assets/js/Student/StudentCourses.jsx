@@ -3,11 +3,13 @@ import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import Footer from "./../components/Footer";
+import Cources from "./Cources";
 
 function StudentCourses(props) {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
   return (
     <React.Fragment>
+      {/* some coursec swiper  */}
       <AutoplaySlider
         className="slider_Setting courses"
         play={true}
@@ -107,7 +109,15 @@ function StudentCourses(props) {
           </div>
         </div>
       </AutoplaySlider>
+      {/* End some coursec swiper  */}
+      {/******************************************************/}
+      {/* start Cources  */}
+      <Cources />
+      {/* End Cources  */}
+      {/******************************************************/}
+      {/* start Footer  */}
       <Footer />
+      {/* End Footer  */}
     </React.Fragment>
   );
 }
