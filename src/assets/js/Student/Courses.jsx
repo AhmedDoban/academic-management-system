@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 // install Virtual module
 SwiperCore.use([Virtual, Navigation, Pagination]);
 
-function Cources() {
+function Courses() {
   const [swiperRef, setSwiperRef] = useState(null);
   const [input, setInput] = useState();
 
@@ -67,13 +67,13 @@ function Cources() {
         <h1 className="main-titel">
           <div className="div-circle"></div>
           <div className="div-circle"></div>
-          <span> Student Course</span>{" "}
+          <span> Student Courses</span>{" "}
         </h1>
         <div className="header between-flex">
           <input
             type="text"
             className="width-full"
-            placeholder="Enter The Cource ID"
+            placeholder="Enter The Course ID"
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
@@ -128,4 +128,4 @@ function Cources() {
     </React.Fragment>
   );
 }
-export default Cources;
+export default Courses;

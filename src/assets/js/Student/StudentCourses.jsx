@@ -3,7 +3,7 @@ import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import Footer from "./../components/Footer";
-import Cources from "./Cources";
+import Courses from "./Courses";
 
 function StudentCourses(props) {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
@@ -112,7 +112,7 @@ function StudentCourses(props) {
       {/* End some coursec swiper  */}
       {/******************************************************/}
       {/* start Cources  */}
-      <Cources />
+      <Courses />
       {/* End Cources  */}
       {/******************************************************/}
       {/* start Footer  */}

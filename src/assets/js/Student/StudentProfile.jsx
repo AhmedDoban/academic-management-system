@@ -47,7 +47,7 @@ function StudentProfile(props) {
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
           >
-            <h5>Number of courses</h5>
+            <h5>Number of Courses</h5>
             <input type="text" readOnly value="5655" />
           </div>
           <div

@@ -1,9 +1,6 @@
 import React from "react";
 import Footer from "./../components/Footer";
 import { NavLink, Routes, Route, Navigate } from "react-router-dom";
-import StudentCourses from "./StudentCourses";
-import StudentFilesPage from "./StudentFilesPage";
-import StudentTablePage from "./StudentTablePage";
 import NotFounded from "./../components/NotFounded";
 import StudentProfile from "./StudentProfile";
 import StudentPasswordpage from "./StudentPasswordpage";

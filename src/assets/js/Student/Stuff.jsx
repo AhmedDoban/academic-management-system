@@ -46,7 +46,7 @@ function Stuff(props) {
               />
             </div>
             <div className="number-courses">
-              <p>4 Course</p>
+              <p>4 Courses</p>
             </div>
             <h1>Business Courses</h1>
           </div>
