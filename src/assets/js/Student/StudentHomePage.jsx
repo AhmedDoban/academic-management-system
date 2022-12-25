@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { Posts } from "../../../dummyData";
 import Post from "./Post";
 import Share from "./Share";
+import { Link } from "react-router-dom";
 
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import Stuff from "./Stuff";
-import { Link } from "react-router-dom";
 import WhatOffer from "./WhatOffer";
 import SammaryData from "./SammaryData";
 import Footer from "./../components/Footer";

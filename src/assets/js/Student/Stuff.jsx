@@ -83,7 +83,9 @@ function Stuff(props) {
           </div>
           {/******************** End ********************************/}
         </div>
-        <Link to="/courses">Show More</Link>
+        <Link to="/courses" className="btn-shape_2">
+          Show More
+        </Link>
       </div>
     </React.Fragment>
   );

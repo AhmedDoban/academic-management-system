@@ -788,38 +788,7 @@ remove this comment if you want it to be sticy
   text-transform: capitalize;
   color: #000000b8;
 }
-.our-stuff a {
-  position: relative;
-  display: flex;
-  margin: 50px auto 15px auto;
-  width: fit-content;
-  border: 2px solid var(--red-color);
-  border-radius: var(--main-border-radius);
-  padding: 10px 15px;
-  color: var(--red-color);
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 1;
-  transition: var(--main-transition);
-}
-.our-stuff a::before {
-  position: absolute;
-  content: "";
-  left: 0;
-  top: 0;
-  width: 0%;
-  height: 101%;
-  background-color: var(--red-color);
-  z-index: -1;
-  transition: var(--main-transition);
-}
-.our-stuff a:hover {
-  color: #fff;
-}
-.our-stuff a:hover::before {
-  width: 100%;
-}
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Student  home page Student sammaryData
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
