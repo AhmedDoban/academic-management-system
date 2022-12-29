@@ -1220,7 +1220,7 @@ remove this comment if you want it to be sticy
   height: 50vh;
 }
 .student-courses-container .swiper .swiper-wrapper .swiper-slide {
-  width: 350px !important;
+  width: 300px !important;
 }
 .swiper-pagination {
   text-align: left !important;
@@ -1234,11 +1234,12 @@ remove this comment if you want it to be sticy
 }
 .student-courses-container .swiper .swiper-wrapper .swiper-slide .card {
   position: relative;
-  width: 350px;
+  padding: 12px;
+  width: 300px;
   overflow: hidden;
   background-color: #fff;
-  box-shadow: var(--main-box-shadow-shadow);
-  border-radius: 8px;
+  box-shadow: 0px 10px 8px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
   height: calc(50vh - 30px);
   display: flex;
   flex-direction: column;
@@ -1246,7 +1247,6 @@ remove this comment if you want it to be sticy
   align-items: center;
 }
 .student-courses-container .swiper .swiper-wrapper .swiper-slide .card .info {
-  padding: 15px;
   position: relative;
   width: 100%;
   display: flex;
@@ -1275,12 +1275,6 @@ remove this comment if you want it to be sticy
   cursor: pointer;
 }
 
-@media (max-width: 776px) {
-  .student-courses-container .swiper .swiper-wrapper .swiper-slide,
-  .student-courses-container .swiper .swiper-wrapper .swiper-slide .card {
-    width: 100% !important;
-  }
-}
 .student-courses-container .swiper .swiper-wrapper .swiper-slide .card img {
   width: 100%;
   height: 100%;
@@ -1288,6 +1282,7 @@ remove this comment if you want it to be sticy
   max-height: 50%;
   margin: 0;
   padding: 0;
+  border-radius: 18px;
 }
 .append-buttons {
   display: flex;

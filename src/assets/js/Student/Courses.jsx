@@ -15,7 +15,7 @@ function Courses() {
   const [swiperRef, setSwiperRef] = useState(null);
   const [input, setInput] = useState();
 
-  const appendNumber = useRef(CourcesDB.length + 1);
+  let appendNumber = useRef(CourcesDB.length + 1);
   // Create array with student cources slides
   const [slides, setSlides] = useState(
     CourcesDB.map((p, index) => (
@@ -50,6 +50,9 @@ function Courses() {
         </div>
       </React.Fragment>,
     ]);
+    {
+      appendNumber.current++;
+    }
   };
 
   const slideTo = (index) => {
@@ -96,7 +99,7 @@ function Courses() {
               spaceBetween: 10,
             },
             "@1.00": {
-              slidesPerView: 3,
+              slidesPerView: 2,
               spaceBetween: 10,
             },
             "@1.50": {
@@ -118,7 +121,7 @@ function Courses() {
             <i class="fa-solid fa-arrow-left rd-half color-white"></i>
           </button>
           <button
-            onClick={() => slideTo(CourcesDB.length)}
+            onClick={() => slideTo(appendNumber.current)}
             className="slide-250"
           >
             <i class="fa-solid fa-arrow-right rd-half color-white"></i>

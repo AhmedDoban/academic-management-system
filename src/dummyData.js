@@ -158,13 +158,13 @@ export const CourcesDB = [
   },
   {
     id: 4,
-    CourcesName: "PHP",
+    CourcesName: "my PHP",
     photo: require("./assets/img/Courses/php.png"),
     CourcesTeacher: "ALi Esmaiel",
   },
   {
     id: 5,
-    CourcesName: "HTML",
+    CourcesName: "laravel",
     photo: require("./assets/img/Courses/html.png"),
     CourcesTeacher: "ALi Esmaiel",
   },
