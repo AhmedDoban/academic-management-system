@@ -6,7 +6,7 @@ function Footer(props) {
     <React.Fragment>
       <div
         className="footer"
-        data-aos="flip-up"
+        data-aos="fade-down"
         data-aos-easing="ease-in-out"
         data-aos-duration="1000"
       >
@@ -14,7 +14,7 @@ function Footer(props) {
           {/******************** Box1 Contact social ********************************/}
           <div
             className="contact"
-            data-aos="fade-right"
+            data-aos="fade-down"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
           >
@@ -41,7 +41,7 @@ function Footer(props) {
           {/******************** Box2 Apps ********************************/}
           <div
             className="contact"
-            data-aos="zoom-out-right"
+            data-aos="fade-down"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
           >
@@ -67,7 +67,7 @@ function Footer(props) {
           {/******************** Box3 map ********************************/}
           <div
             className="contact"
-            data-aos="fade-right"
+            data-aos="fade-down"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
           >

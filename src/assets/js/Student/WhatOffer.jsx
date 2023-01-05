@@ -17,10 +17,12 @@ function WhatOffer(props) {
           <span>What We Offer ?</span>
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-          asperiores eligendi odit impedit quas est cum tempora, animi commodi
-          nemo illum sed aliquid natus debitis! Harum veritatis facere
-          laudantium veniam.
+          One of the most oft-used terms after the pandemic is the term “new
+          normal.” The new normal in education is the increased use of online
+          learning tools. The COVID-19 pandemic has triggered new ways of
+          learning. All around the world, educational institutions are looking
+          toward online learning platforms to continue with the process of
+          educating students
         </p>
         <div className="container">
           {/******************** Box1 ********************************/}
@@ -33,10 +35,12 @@ function WhatOffer(props) {
             >
               <h1 className="box-titel">General Courses</h1>
               <p className="color-black mt-25 mb-25 ">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-                doloribus ipsam magnam suscipit? Distinctio dolor voluptate quod
-                eum deleniti earum tenetur at praesentium laudantium! Sed,
-                mollitia! Ipsa porro ad dolorem.
+                Most colleges and universities require their students to take
+                general education courses, such as psychology, social sciences,
+                and foreign language. You may be thinking gen ed courses are a
+                waste of time, and honestly, some of them may feel like that.
+                But, there are important reasons why college students are
+                required to take gen ed courses
               </p>
               <ul>
                 <li>Speak English more confidently.</li>
@@ -77,10 +81,11 @@ function WhatOffer(props) {
             >
               <h1 className="box-titel">Language for Business</h1>
               <p className="color-black mt-25 mb-25 ">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-                doloribus ipsam magnam suscipit? Distinctio dolor voluptate quod
-                eum deleniti earum tenetur at praesentium laudantium! Sed,
-                mollitia! Ipsa porro ad dolorem.
+                You may have the most advanced widget or the sexiest new
+                service, but if you can’t talk about it, you lose out on
+                millions of potential customers. Even with the explosive growth
+                of translation technology, you’re still at a disadvantage if you
+                only speak a single language.
               </p>
             </div>
           </div>
@@ -95,10 +100,16 @@ function WhatOffer(props) {
             >
               <h1 className="box-titel">Online Learning</h1>
               <p className="color-black mt-25 mb-25 ">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-                doloribus ipsam magnam suscipit? Distinctio dolor voluptate quod
-                eum deleniti earum tenetur at praesentium laudantium! Sed,
-                mollitia! Ipsa porro ad dolorem.
+                The new normal now is a transformed concept of education with
+                online learning at the core of this transformation. Today,
+                digital learning has emerged as a necessary resource for
+                students and schools all over the world. For many educational
+                institutes, this is an entirely new way of education that they
+                have had to adopt. Online learning is now applicable not just to
+                learn academics but it also extends to learning extracurricular
+                activities for students as well. In recent months, the demand
+                for online learning has risen significantly, and it will
+                continue doing so in the future.
               </p>
               <Link to="">
                 Try Now <i class="fa-solid fa-rocket"></i>
@@ -116,7 +127,12 @@ function WhatOffer(props) {
           {/******************** End ********************************/}
         </div>
       </div>
-      <div className="spikes"></div>
+      <div
+        className="spikes"
+        data-aos="fade-down"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="1000"
+      ></div>
     </React.Fragment>
   );
 }

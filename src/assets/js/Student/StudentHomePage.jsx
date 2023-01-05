@@ -38,11 +38,11 @@ function StudentHomePage(props) {
             </div>
             <div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto
-                labore quibusdam aspernatur. Necessitatibus, quis neque? Cumque,
-                illum temporibus adipisci iste aspernatur facilis corrupti
-                maxime dicta consectetur error voluptas consequatur
-                necessitatibus?
+                “ There is no end to education. It is not that you read a book,
+                pass an examination, and finish with education. The whole of
+                life, from the moment you are born to the moment you die, is a
+                process of learning. ” —{" "}
+                <span className="color-red ">Jiddu Krishnamurti</span>
               </p>
             </div>
           </div>
@@ -71,11 +71,12 @@ function StudentHomePage(props) {
             </div>
             <div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto
-                labore quibusdam aspernatur. Necessitatibus, quis neque? Cumque,
-                illum temporibus adipisci iste aspernatur facilis corrupti
-                maxime dicta consectetur error voluptas consequatur
-                necessitatibus?
+                “One hour per day of study in your chosen field is all it takes.
+                One hour per day of study will put you at the top of your field
+                within three years. Within five years you’ll be a national
+                authority. In seven years, you can be one of the best people in
+                the world at what you do.” —{" "}
+                <span className="color-red ">Earl Nightingale</span>
               </p>
             </div>
           </div>
@@ -104,11 +105,11 @@ function StudentHomePage(props) {
             </div>
             <div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto
-                labore quibusdam aspernatur. Necessitatibus, quis neque? Cumque,
-                illum temporibus adipisci iste aspernatur facilis corrupti
-                maxime dicta consectetur error voluptas consequatur
-                necessitatibus?
+                “Research shows that you begin learning in the womb and go right
+                on learning until the moment you pass on. Your brain has a
+                capacity for learning that is virtually limitless, which makes
+                every human a potential genius.” —{" "}
+                <span className="color-red ">Michael J. Gelb</span>
               </p>
             </div>
           </div>
@@ -137,11 +138,11 @@ function StudentHomePage(props) {
             </div>
             <div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto
-                labore quibusdam aspernatur. Necessitatibus, quis neque? Cumque,
-                illum temporibus adipisci iste aspernatur facilis corrupti
-                maxime dicta consectetur error voluptas consequatur
-                necessitatibus?
+                “True teachers are those who use themselves as bridges over
+                which they invite their students to cross; then, having
+                facilitated their crossing, joyfully collapse, encouraging them
+                to create their own.” —{" "}
+                <span className="color-red ">Nikos Kazantzakis</span>
               </p>
             </div>
           </div>
@@ -170,11 +171,10 @@ function StudentHomePage(props) {
             </div>
             <div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto
-                labore quibusdam aspernatur. Necessitatibus, quis neque? Cumque,
-                illum temporibus adipisci iste aspernatur facilis corrupti
-                maxime dicta consectetur error voluptas consequatur
-                necessitatibus?
+                “You can teach a student a lesson for a day; but if you can
+                teach him to learn by creating curiosity, he will continue the
+                learning process as long as he lives.” —{" "}
+                <span className="color-red ">Clay P. Bedford</span>
               </p>
             </div>
           </div>

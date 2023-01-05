@@ -546,6 +546,8 @@
 .slider_Setting div .left-content .left-content-titel > p {
   color: #eee;
   text-transform: capitalize;
+  font-size: 18px;
+  font-weight: bold;
 }
 .slider_Setting div .left-content .left-content-titel h1 {
   font-size: 50px;
@@ -562,6 +564,7 @@
 }
 .slider_Setting div .left-content div p {
   color: #bdbdbd;
+  font-weight: bold;
 }
 .awssld__bullets {
   bottom: 15px !important;

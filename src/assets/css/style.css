@@ -347,7 +347,7 @@ remove this comment if you want it to be sticy
 .sidebar > h3::after {
   position: absolute;
   content: "";
-  background-color: var(--main-p-color);
+
   left: 50%;
   transform: translateX(-50%);
 }
@@ -355,13 +355,13 @@ remove this comment if you want it to be sticy
   width: 80%;
   height: 2px;
   bottom: -20px;
+  background-color: var(--main-p-color);
 }
 .sidebar > h3::after {
-  width: 15px;
-  height: 15px;
-  border: 3px solid #fff;
-  border-radius: 50%;
   bottom: -29px;
+  font-weight: 900;
+  content: "\f19d";
+  font-family: "Font Awesome 5 Free";
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # sidebar links
@@ -379,9 +379,9 @@ remove this comment if you want it to be sticy
 
 .sidebar ul li a:hover,
 .sidebar ul li a.active {
-  background: rgba(255, 255, 255, 0.19);
+  background: rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 30px #0bb3f550;
-  backdrop-filter: blur(9px);
+  color: var(--red-color);
 }
 .sidebar ul li a span {
   font-size: 14px;
@@ -1058,13 +1058,15 @@ remove this comment if you want it to be sticy
   content: "";
   width: 100%;
   height: 20vh;
-  background: rgb(127, 186, 226);
+  /* background: rgb(127, 186, 226);
   background: linear-gradient(
     15deg,
     rgba(127, 186, 226, 1) 0%,
     rgba(181, 61, 254, 1) 35%,
     rgba(253, 231, 129, 1) 100%
-  );
+  ); */
+  background: linear-gradient(290deg, #43b5c1 10%, #000002 69%);
+  opacity: 0.9;
 }
 .StudentSettingPage .container {
   position: relative;
