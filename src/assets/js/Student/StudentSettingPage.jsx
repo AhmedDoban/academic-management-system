@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "./../components/Footer";
-import { NavLink, Routes, Route, Navigate } from "react-router-dom";
+import { NavLink, Routes, Route } from "react-router-dom";
 import NotFounded from "./../components/NotFounded";
 import StudentProfile from "./StudentProfile";
 import StudentPasswordpage from "./StudentPasswordpage";

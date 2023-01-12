@@ -4,12 +4,7 @@ import { Link } from "react-router-dom";
 function Footer(props) {
   return (
     <React.Fragment>
-      <div
-        className="footer"
-        data-aos="fade-down"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="1000"
-      >
+      <div className="footer">
         <div className="container p-relative grid-30-350px">
           {/******************** Box1 Contact social ********************************/}
           <div

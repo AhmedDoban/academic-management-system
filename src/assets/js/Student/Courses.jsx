@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 import { CourcesDB } from "../../../dummyData";
 
 function Courses() {
+  /**************** to change style from grid to list ***********************/
   const [show, setShow] = useState("grid");
   const style = (e) => {
     let btn = document.querySelectorAll(
@@ -15,6 +16,9 @@ function Courses() {
     e.target.classList.add("active");
     setShow(e.target.dataset.style);
   };
+  /**************** End *******************************************************/
+
+  /**************** Get data and save it in state  ***********************/
   const [input, setInput] = useState();
   let appendNumber = useRef(CourcesDB.length + 1);
   // Create array with student cources slides
@@ -45,7 +49,9 @@ function Courses() {
       </React.Fragment>
     ))
   );
+  /**************** End***********************/
 
+  /**************** to add course ***********************/
   const append = () => {
     setSlides([
       ...slides,
@@ -78,6 +84,7 @@ function Courses() {
       theme: "colored",
     });
   };
+  /**************** End ***********************/
 
   return (
     <React.Fragment>
@@ -96,6 +103,7 @@ function Courses() {
         <div className="dots-img dots-bottom"></div>
 
         <div className="container">
+          {/**************************Start input and soe options ****************************/}
           <div className="header between-flex">
             <div className="input-absulote">
               <input
@@ -130,9 +138,13 @@ function Courses() {
               data-style="list"
             ></i>
           </div>
+          {/**************** End *******************************/}
+
+          {/**************** Show data from state *******************************/}
           <div className={`container-courses ${show}`}>
             {slides.map((slideContent) => slideContent)}
           </div>
+          {/**************** End *******************************/}
         </div>
       </div>
       <ToastContainer />

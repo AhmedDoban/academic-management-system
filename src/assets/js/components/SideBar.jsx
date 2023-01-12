@@ -32,7 +32,7 @@ const SideBar = (props) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="setting" onClick={open}>
+            <NavLink to="setting/student-setting-details" onClick={open}>
               <i className="fa-solid fa-gear fa-fw"></i>
               <span>Setting</span>
             </NavLink>
