@@ -92,8 +92,8 @@ function Courses() {
           <div className="div-circle"></div>
           <span> Student Courses</span>{" "}
         </h1>
-        <div className="dots dots-top"></div>
-        <div className="dots dots-bottom"></div>
+        <div className="dots-img dots-top"></div>
+        <div className="dots-img dots-bottom"></div>
 
         <div className="container">
           <div className="header between-flex">

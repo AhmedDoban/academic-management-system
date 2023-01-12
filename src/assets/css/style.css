@@ -120,7 +120,7 @@ body {
   background-size: 30px 30px;
   transform: rotate(180deg) translateY(30px);
 }
-.dots {
+.dots-img {
   position: absolute;
   width: 204px;
   height: 186px;
@@ -128,16 +128,16 @@ body {
   background-repeat: no-repeat;
 }
 @media (max-width: 768px) {
-  .dots{
+  .dots-img {
     width: 100px;
     height: 100px;
   }
 }
-.dots.dots-top {
+.dots-img.dots-top {
   left: 0;
   top: 50px;
 }
-.dots.dots-bottom {
+.dots-img.dots-bottom {
   bottom: 50px;
   right: 15px;
 }
