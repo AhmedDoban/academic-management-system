@@ -3,13 +3,13 @@ import { NavLink, Link } from "react-router-dom";
 import AuthUser from "./AuthUser";
 
 const SideBar = (props) => {
-  const [active, setActive] = useState("fa-solid fa-lock");
+  const [active, setActive] = useState("fa-solid fa-bars");
   const open = () => {
     const open = document.querySelector(".sidebar");
     open.classList.toggle("open");
     open.classList.contains("open")
-      ? setActive("fa-solid fa-lock-open")
-      : setActive("fa-solid fa-lock");
+      ? setActive("fa-solid fa-xmark")
+      : setActive("fa-solid fa-bars");
   };
   const { token, logOut } = AuthUser();
   const logoutUser = () => {

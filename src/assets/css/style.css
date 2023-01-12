@@ -306,6 +306,8 @@ p {
   color: #fff;
   z-index: 1000;
   cursor: pointer;
+  border-top-right-radius: 25%;
+  border-bottom-right-radius: 25%;
 }
 
 .sidebar > h3 {
