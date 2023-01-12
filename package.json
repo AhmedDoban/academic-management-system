@@ -22,6 +22,7 @@
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
     "react-to-print": "^2.14.10",
+    "react-toastify": "^9.1.1",
     "reactstrap": "^9.1.4",
     "swiper": "^8.4.5",
     "typewriter-effect": "^2.19.0",

@@ -1,32 +1,44 @@
 import React, { useRef, useState } from "react";
-import SwiperCore, { Virtual, Navigation, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 import { CourcesDB } from "../../../dummyData";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-
-// install Virtual module
-SwiperCore.use([Virtual, Navigation, Pagination]);
-
 function Courses() {
-  const [swiperRef, setSwiperRef] = useState(null);
+  const [show, setShow] = useState("grid");
+  const style = (e) => {
+    let btn = document.querySelectorAll(
+      ".student-courses-container .header .style"
+    );
+    btn.forEach((btn) => {
+      btn.classList.remove("active");
+    });
+    e.target.classList.add("active");
+    setShow(e.target.dataset.style);
+  };
   const [input, setInput] = useState();
-
   let appendNumber = useRef(CourcesDB.length + 1);
   // Create array with student cources slides
   const [slides, setSlides] = useState(
     CourcesDB.map((p, index) => (
       <React.Fragment>
         <div className="card">
-          <img src={p.photo} alt={p.CourcesName} />
+          <div className="card-overlay">
+            <img src={p.photo} alt={p.CourcesName} />
+          </div>
           <div className="info">
-            <h5>{p.CourcesName}</h5>
-            <div className="box-footer between-flex width-full">
-              <p>DR : {p.CourcesTeacher}</p>
-              <i class="fa-solid fa-arrow-right rd-half color-white"></i>
+            <img
+              src={p.teacher ? p.teacher : require("../../img/user.png")}
+              alt=""
+            />
+            <div className="footer-container-cousres width-full">
+              <h5>{p.CourcesName}</h5>
+              <div className="box-footer between-flex width-full">
+                <p>
+                  <span>DR : </span>
+                  {p.CourcesTeacher}
+                </p>
+                <i class="fa-solid fa-arrow-right rd-half color-white"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -39,12 +51,19 @@ function Courses() {
       ...slides,
       <React.Fragment>
         <div className="card">
-          <img src={require("../../img/Courses/html.png")} alt="" />
+          <div className="card-overlay">
+            <img src={require("../../img/Courses/html.png")} alt="" />
+          </div>
           <div className="info">
-            <h5>{input}</h5>
-            <div className="box-footer between-flex width-full">
-              <p>DR : AHMED</p>
-              <i class="fa-solid fa-arrow-right rd-half color-white"></i>
+            <img src={require("../../img/avatars/1.jpeg")} alt="" />
+            <div className="footer-container-cousres width-full">
+              <h5>{input}</h5>
+              <div className="box-footer between-flex width-full">
+                <p>
+                  <span>DR : </span> AHMED
+                </p>
+                <i class="fa-solid fa-arrow-right rd-half color-white"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -53,10 +72,11 @@ function Courses() {
     {
       appendNumber.current++;
     }
-  };
-
-  const slideTo = (index) => {
-    swiperRef.slideTo(index - 1, 0);
+    setInput("");
+    toast.success("Couse added successfly", {
+      autoClose: 15000,
+      theme: "colored",
+    });
   };
 
   return (
@@ -72,62 +92,50 @@ function Courses() {
           <div className="div-circle"></div>
           <span> Student Courses</span>{" "}
         </h1>
-        <div className="header between-flex">
-          <input
-            type="text"
-            className="width-full"
-            placeholder="Enter The Course ID"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-          />
-          <i class="fa-solid fa-plus" onClick={() => append()}></i>
-        </div>
-        <Swiper
-          onSwiper={setSwiperRef}
-          slidesPerView={1}
-          spaceBetween={10}
-          pagination={{
-            clickable: true,
-          }}
-          breakpoints={{
-            "@0.00": {
-              slidesPerView: 1,
-              spaceBetween: 10,
-            },
-            "@0.75": {
-              slidesPerView: 2,
-              spaceBetween: 10,
-            },
-            "@1.00": {
-              slidesPerView: 2,
-              spaceBetween: 10,
-            },
-            "@1.50": {
-              slidesPerView: 4,
-              spaceBetween: 10,
-            },
-          }}
-          modules={[Pagination]}
-        >
-          {slides.map((slideContent, index) => (
-            <SwiperSlide key={slideContent} virtualIndex={index}>
-              {slideContent}
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <div className="dots dots-top"></div>
+        <div className="dots dots-bottom"></div>
 
-        <div className="append-buttons">
-          <button onClick={() => slideTo(1)} className="prepend-slide">
-            <i class="fa-solid fa-arrow-left rd-half color-white"></i>
-          </button>
-          <button
-            onClick={() => slideTo(appendNumber.current)}
-            className="slide-250"
-          >
-            <i class="fa-solid fa-arrow-right rd-half color-white"></i>
-          </button>
+        <div className="container">
+          <div className="header between-flex">
+            <div className="input-absulote">
+              <input
+                type="text"
+                className="width-full"
+                placeholder="Enter The Course ID"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+              />
+              <i
+                class="fa-solid fa-plus"
+                onClick={
+                  input
+                    ? () => append()
+                    : () =>
+                        toast.error("You must enter id of course first", {
+                          autoClose: 15000,
+                          theme: "dark",
+                        })
+                }
+              ></i>
+            </div>
+
+            <i
+              class="fa-solid fa-border-all style active"
+              onClick={style}
+              data-style="grid"
+            ></i>
+            <i
+              class="fa-solid fa-grip-lines style"
+              onClick={style}
+              data-style="list"
+            ></i>
+          </div>
+          <div className={`container-courses ${show}`}>
+            {slides.map((slideContent) => slideContent)}
+          </div>
         </div>
       </div>
+      <ToastContainer />
     </React.Fragment>
   );
 }

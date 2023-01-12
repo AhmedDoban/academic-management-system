@@ -120,7 +120,27 @@ body {
   background-size: 30px 30px;
   transform: rotate(180deg) translateY(30px);
 }
-
+.dots {
+  position: absolute;
+  width: 204px;
+  height: 186px;
+  background-image: url("../img/dots.png");
+  background-repeat: no-repeat;
+}
+@media (max-width: 768px) {
+  .dots{
+    width: 100px;
+    height: 100px;
+  }
+}
+.dots.dots-top {
+  left: 0;
+  top: 50px;
+}
+.dots.dots-bottom {
+  bottom: 50px;
+  right: 15px;
+}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # main-titel
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -1196,18 +1216,38 @@ remove this comment if you want it to be sticy
 # cources page
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .student-courses-container {
+  position: relative;
   padding-top: var(--main-padding-top);
-  padding-bottom: var(--main-padding-bottom);
-}
-.student-courses-container .header {
-  margin: 20px 10px;
-  gap: 20px;
+  padding-bottom: calc(var(--main-padding-bottom) * 2);
 }
 
-.student-courses-container .header input {
+.student-courses-container .header {
+  position: relative;
+  width: 100%;
+  margin: 20px 0px;
+  gap: 5px;
+}
+
+.student-courses-container .header .input-absulote {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--main-border-radius);
+  box-shadow: 0px 15px 15px -3px rgba(184, 184, 184, 1);
+}
+.student-courses-container .header .input-absulote input {
   padding: 10px 8px;
   border: none;
   border-radius: var(--main-border-radius);
+}
+.student-courses-container .header .input-absulote i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-color: rgba(206, 206, 206, 0.685);
+  color: #000;
+  border-radius: 0;
 }
 .student-courses-container .header i {
   width: 35px;
@@ -1215,96 +1255,216 @@ remove this comment if you want it to be sticy
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--purple-color);
+  background-color: #09729c;
   color: #fff;
-  border-radius: var(--main-border-radius);
+  border-radius: calc(var(--main-border-radius) / 2);
   cursor: pointer;
+  font-size: large;
+  box-shadow: 0px 15px 15px -3px rgba(184, 184, 184, 1);
 }
-.student-courses-container .swiper {
-  height: 50vh;
+.student-courses-container .header i.active {
+  background-color: var(--green-color);
 }
-.student-courses-container .swiper .swiper-wrapper .swiper-slide {
-  width: 300px !important;
-}
-.swiper-pagination {
-  text-align: left !important;
-  margin-left: 10px;
-}
-.swiper-pagination-bullet {
-  border-radius: 1px !important;
-  width: 25px !important;
-  height: 5px !important;
-  background-color: var(--main-page-color) !important;
-}
-.student-courses-container .swiper .swiper-wrapper .swiper-slide .card {
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# student-courses-container container-courses.grid card
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.student-courses-container .container-courses.grid {
   position: relative;
-  padding: 12px;
-  width: 300px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+}
+.student-courses-container .container-courses.grid .card {
+  position: relative;
+  width: 100%;
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0px 10px 8px 4px rgba(0, 0, 0, 0.1);
   border-radius: 18px;
-  height: calc(50vh - 30px);
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.student-courses-container .swiper .swiper-wrapper .swiper-slide .card .info {
+.student-courses-container .container-courses.grid .card .info {
   position: relative;
   width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
   flex-direction: column;
-  gap: 10px;
-  flex-basis: 50%;
 }
 .student-courses-container
-  .swiper
-  .swiper-wrapper
-  .swiper-slide
+  .container-courses.grid
   .card
   .info
+  .footer-container-cousres
   h5 {
   font-size: 30px;
+  color: #fff;
+  margin: 0 0 10px 0;
+  position: relative;
+  text-align: center;
 }
-.box-footer i {
-  width: 35px;
-  height: 35px;
-  background-color: var(--main-page-color);
+.student-courses-container .container-courses.grid .card .info > img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 15px auto;
+}
+.student-courses-container .container-courses.grid .card .box-footer {
+  padding: 12px;
+  position: relative;
+  margin-bottom: 25px;
+}
+.student-courses-container .container-courses.grid .card .box-footer::before,
+.student-courses-container .container-courses.grid .card .box-footer::after {
+  position: absolute;
+  content: "";
+  background-color: rgba(206, 206, 206, 0.685);
+  width: 105%;
+  height: 100%;
+  top: 0;
+}
+.student-courses-container .container-courses.grid .card .box-footer::after {
+  transform: rotate(3deg) translateX(-5px);
+  left: 0;
+}
+.student-courses-container .container-courses.grid .card .box-footer::before {
+  transform: rotate(-3deg) translateX(5px);
+  right: 0;
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# student-courses-container container-courses.grid list
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.student-courses-container .container-courses.list {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.student-courses-container .container-courses.list .card {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0px 10px 8px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+  min-height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 }
-
-.student-courses-container .swiper .swiper-wrapper .swiper-slide .card img {
+.student-courses-container .container-courses.list .card .info {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 5px 20px;
+}
+.student-courses-container
+  .container-courses.list
+  .card
+  .info
+  .footer-container-cousres
+  h5 {
+  position: relative;
+  font-size: 30px;
+  color: #fff;
+  margin: 0px auto;
+  z-index: 5;
+}
+.student-courses-container .container-courses.list .card .info > img {
+  max-width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0px auto;
+  object-fit: cover;
+  z-index: 5;
+}
+.student-courses-container
+  .container-courses.list
+  .card
+  .footer-container-cousres {
+  position: relative;
+}
+.student-courses-container
+  .container-courses.list
+  .card
+  .footer-container-cousres::after {
+  position: absolute;
+  content: "";
+  background-color: rgba(206, 206, 206, 0.685);
+  width: 150%;
+  height: 100%;
+  transform: rotate(-2deg) translateX(80px);
+  right: 0;
+  top: 0;
+}
+.student-courses-container .container-courses.list .card .box-footer p {
+  color: #000;
+  z-index: 5;
+  font-weight: bold;
+}
+.student-courses-container .container-courses.list .card .card-overlay::after {
+  left: 0;
+  background-image: url("../img/blob/course.svg");
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# student-courses-container container-courses general
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.student-courses-container .container-courses .card .box-footer p {
+  color: #000;
+  z-index: 5;
+  font-weight: bold;
+}
+.student-courses-container .container-courses .card .box-footer p span {
+  color: #09729c;
+  font-weight: bold;
+}
+.student-courses-container .container-courses .card .card-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.student-courses-container .container-courses .card .card-overlay::before,
+.student-courses-container .container-courses .card .card-overlay::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+}
+.student-courses-container .container-courses .card .card-overlay::before {
+  background-color: rgba(0, 0, 0, 0.65);
+}
+.student-courses-container .container-courses .card .card-overlay::after {
+  background-image: url("../img/blob/blobmob2.svg");
+  background-repeat: no-repeat;
+  object-position: center center;
+  width: 50%;
+  top: 0;
+  right: 0;
+}
+.student-courses-container .container-courses .card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  max-height: 50%;
-  margin: 0;
-  padding: 0;
-  border-radius: 18px;
+  box-shadow: 0px 0px 15px 3px rgba(184, 184, 184, 1);
 }
-.append-buttons {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 10px;
-  margin-right: 20px;
-}
-.append-buttons button {
+.student-courses-container .container-courses .card .box-footer i {
   width: 35px;
   height: 35px;
+  background-color: var(--main-page-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--main-page-color);
-  border-radius: 50%;
-  border: none;
   cursor: pointer;
+  z-index: 5;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Footer
