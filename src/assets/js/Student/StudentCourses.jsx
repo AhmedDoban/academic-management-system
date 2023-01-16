@@ -4,12 +4,14 @@ import "react-awesome-slider/dist/styles.css";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import Footer from "./../components/Footer";
 import Courses from "./Courses";
+import TopInstructor from "./TopInstructor";
+import RounDomQuote from "./RounDomQuote";
 
 function StudentCourses(props) {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
   return (
     <React.Fragment>
-      {/* some coursec swiper  */}
+      {/************************************* some coursec swiper  ********************************/}
       <AutoplaySlider
         className="slider_Setting courses"
         play={true}
@@ -109,15 +111,23 @@ function StudentCourses(props) {
           </div>
         </div>
       </AutoplaySlider>
-      {/* End some coursec swiper  */}
-      {/******************************************************/}
-      {/* start Cources  */}
+      {/************************************* End some coursec swiper  ****************************/}
+
+      {/************************************* start Cources ***************************************/}
       <Courses />
-      {/* End Cources  */}
-      {/******************************************************/}
-      {/* start Footer  */}
+      {/************************************* END Cources *****************************************/}
+
+      {/************************************* start TOP instructor ********************************/}
+      <TopInstructor />
+      {/************************************* END Cources *****************************************/}
+
+      {/************************************* start RounDomQuote ********************************/}
+      <RounDomQuote />
+      {/************************************* END RounDomQuote *****************************************/}
+
+      {/************************************* start Footer  ***************************************/}
       <Footer />
-      {/* End Footer  */}
+      {/************************************* End Footer  *****************************************/}
     </React.Fragment>
   );
 }

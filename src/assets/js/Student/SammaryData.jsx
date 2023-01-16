@@ -74,6 +74,7 @@ function SammaryData(props) {
         </div>
         {/******************** End container ********************************/}
       </div>
+      <div className="spikes-rotated"></div>
     </React.Fragment>
   );
 }

@@ -457,6 +457,9 @@
 .btn-shape_2:hover {
   color: #fff;
 }
+.btn-shape_2.no:hover {
+  color: var(--ant-error-color-active);
+}
 .btn-shape_2:hover::before {
   width: 100%;
 }

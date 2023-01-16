@@ -1,9 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { CourcesDB } from "../../../dummyData";
 
 function Courses() {
+  const [visible, setVisible] = useState(4);
+  const showMore = () => setVisible((p) => p + 3);
   /**************** to change style from grid to list ***********************/
   const [show, setShow] = useState("grid");
   const style = (e) => {
@@ -23,7 +25,7 @@ function Courses() {
   let appendNumber = useRef(CourcesDB.length + 1);
   // Create array with student cources slides
   const [slides, setSlides] = useState(
-    CourcesDB.map((p, index) => (
+    CourcesDB.map((p) => (
       <React.Fragment>
         <div className="card">
           <div className="card-overlay">
@@ -142,8 +144,14 @@ function Courses() {
 
           {/**************** Show data from state *******************************/}
           <div className={`container-courses ${show}`}>
-            {slides.map((slideContent) => slideContent)}
+            {slides.slice(0, visible).map((slideContent) => slideContent)}
           </div>
+          <input
+            type="button"
+            value="Show More"
+            onClick={showMore}
+            className="btn-shape_2 m-0 no"
+          />
           {/**************** End *******************************/}
         </div>
       </div>

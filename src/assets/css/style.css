@@ -105,9 +105,6 @@ body {
     linear-gradient(225deg, #fff 25%, transparent 25%);
   background-size: 30px 30px;
 }
-.spikes2 {
-  position: relative;
-}
 .spikes-rotated {
   position: absolute;
   content: "";
@@ -995,7 +992,7 @@ remove this comment if you want it to be sticy
   }
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# StudentPlansPage
+# Student Plan Page
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .StudentTablePage {
   position: relative;
@@ -1067,7 +1064,7 @@ remove this comment if you want it to be sticy
   background-color: var(--grey-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# StudentSettingPage
+# Student Setting Page
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .StudentSettingPage {
   position: relative;
@@ -1109,7 +1106,7 @@ remove this comment if you want it to be sticy
   }
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# StudentSettingPage student details
+# Student Setting Page student details
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .StudentSettingPage .setting-name {
   position: relative;
@@ -1462,6 +1459,198 @@ remove this comment if you want it to be sticy
   align-items: center;
   cursor: pointer;
   z-index: 5;
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# top instructor
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.top_instructor {
+  position: relative;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  background-color: #fff;
+}
+.top_instructor::before {
+  position: absolute;
+  content: "";
+  background-image: linear-gradient(290deg, #43b5c1 10%, #000002 69%);
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+}
+.top_instructor .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+}
+
+.top_instructor_header {
+  padding: 20px;
+  color: var(--main-background-color);
+  margin: 20px auto;
+  text-align: center;
+  position: relative;
+  width: fit-content;
+  transition: var(--main-transition);
+}
+.top_instructor_header::before {
+  position: absolute;
+  content: "\f521";
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free";
+  fill: none;
+  color: rgb(252, 189, 0);
+  width: 100%;
+  height: 100%;
+  top: -5px;
+  transform: rotate(-8deg);
+  left: 0;
+  transition: var(--main-transition);
+  animation: drop 1s alternate infinite;
+}
+
+@keyframes drop {
+  from {
+    top: -15%;
+  }
+}
+.top_instructor .container .card {
+  position: relative;
+  background-color: #060707;
+  width: 100%;
+  height: 300px;
+  border-radius: var(--main-border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0px 3px 24px -4px rgba(247, 247, 247, 0.75);
+}
+.top_instructor .container .card-img {
+  position: relative;
+}
+.top_instructor .container .card-img::before {
+  position: absolute;
+  content: "";
+  width: calc(100% * 2);
+  height: calc(100% * 2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../img/Courses/card_crown.png");
+  top: 0;
+  left: 0;
+  z-index: 9;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translate(-25%, -25%);
+  transition: var(--main-transition);
+}
+.top_instructor .container .card img {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.top_instructor .container .stars i {
+  color: var(--orange-color);
+  margin: 20px auto;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# RounDom Quote
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.RounDomQuote {
+  position: relative;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  overflow: hidden;
+}
+.RounDomQuote .container > h1 {
+  position: relative;
+  color: var(--main-page-color);
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  z-index: 3;
+  width: fit-content;
+}
+
+.RounDomQuote .container {
+  position: relative;
+}
+.RounDomQuote .container::before,
+.RounDomQuote .container::after {
+  position: absolute;
+  content: "";
+  background-color: var(--orange-color);
+  width: 250px;
+  height: 250%;
+  border-radius: var(--main-border-radius);
+  transform: rotate(45deg) translateY(-150px);
+  transition: var(--main-transition);
+}
+.RounDomQuote .container::before {
+  top: 0;
+  right: -120px;
+}
+.RounDomQuote .container::after {
+  top: -100%;
+  left: -250px;
+  transform: rotate(45deg);
+}
+.quote_container {
+  position: relative;
+  background-color: #fff;
+  border-radius: var(--main-border-radius);
+  padding: 20px;
+  z-index: 5;
+  box-shadow: var(--main-box-shadow);
+}
+.RounDomQuote .quote_container h1 {
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  font-size: 25px;
+  color: rgb(0, 0, 0);
+  width: 100%;
+}
+.RounDomQuote .quote_container h1::before,
+.RounDomQuote .quote_container h1::after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "\f10e";
+  font-weight: 900;
+  font-family: "Font awesome 5 free";
+  color: var(--orange-color);
+}
+.RounDomQuote .container h1::before {
+  left: -50%;
+  top: -30px;
+}
+.RounDomQuote .container h1::after {
+  right: -50%;
+  top: 100%;
+}
+.RounDomQuote p {
+  position: relative;
+  text-align: center;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 1.2px;
+  width: fit-content;
+  margin: 0 auto;
+}
+.RounDomQuote p::before {
+  position: absolute;
+  color: var(--orange-color);
+  content: "\f52d";
+  right: -20%;
+  font-weight: 900;
+  font-family: "Font awesome 5 free";
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Footer

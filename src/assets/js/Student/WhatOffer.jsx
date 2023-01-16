@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 function WhatOffer(props) {
   return (
     <React.Fragment>
-      <div className="spikes-rotated"></div>
       <div
         className="WhatOffer"
         data-aos="fade-up"
@@ -127,12 +126,7 @@ function WhatOffer(props) {
           {/******************** End ********************************/}
         </div>
       </div>
-      <div
-        className="spikes"
-        data-aos="fade-down"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="1000"
-      ></div>
+      <div className="spikes"></div>
     </React.Fragment>
   );
 }

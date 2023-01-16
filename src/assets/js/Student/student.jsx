@@ -5,7 +5,6 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import StudentHomePage from "./StudentHomePage";
 import StudentSettingPage from "./StudentSettingPage";
 import NotFounded from "./../components/NotFounded";
-import StudentProfile from "./StudentProfile";
 import StudentCourses from "./StudentCourses";
 import StudentProjectsPage from "./StudentProjectsPage";
 import StudentFriends from "./StudentFriends";
