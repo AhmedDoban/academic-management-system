@@ -16,6 +16,8 @@ function Stuff(props) {
           <span>Course categories</span>
         </h1>
         <div className="container">
+          <div className="dots-img dots-top"></div>
+          <div className="dots-img dots-bottom"></div>
           {/******************** Card1 ********************************/}
           <div
             className="card"
