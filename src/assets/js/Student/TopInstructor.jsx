@@ -35,8 +35,20 @@ function Top_Instructor(props) {
   return (
     <React.Fragment>
       <div className="top_instructor">
-        <h1 className="top_instructor_header">Top Instructor</h1>
-        <div className="container">
+        <h1
+          className="top_instructor_header"
+          data-aos="fade-down"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+        >
+          Top Instructor
+        </h1>
+        <div
+          className="container"
+          data-aos="fade-down"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+        >
           {Users.filter((p) => p.rate >= 4)
             .slice(0, 4)
             .map((p) => (

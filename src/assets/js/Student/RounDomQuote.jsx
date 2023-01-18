@@ -14,8 +14,19 @@ function RounDomQuote(props) {
     <React.Fragment>
       <div className="RounDomQuote">
         <div className="container">
-          <h1>Quote Of The Day</h1>
-          <div className="quote_container">
+          <h1
+            data-aos="fade-down"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1000"
+          >
+            Quote Of The Day
+          </h1>
+          <div
+            className="quote_container"
+            data-aos="fade-down"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1000"
+          >
             <h1>{items.content}</h1>
             <p>{items.author}</p>
           </div>

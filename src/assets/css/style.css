@@ -434,10 +434,8 @@ remove this comment if you want it to be sticy
 .content .head {
   position: relative;
   width: 100%;
-  /* background-color: var(--dark-blue); */
-  /* box-shadow: var(--main-box-shadow); */
   background-color: #1b575b;
-  box-shadow: 0 10px 40px #1b575b, 0 0 0 20px #ffffffeb;
+  box-shadow: 0 10px 40px #1b575b, 0 0 0 20px transparent;
   margin: 0 0 10px 0;
   display: flex;
   align-items: center;
@@ -1074,13 +1072,6 @@ remove this comment if you want it to be sticy
   content: "";
   width: 100%;
   height: 20vh;
-  /* background: rgb(127, 186, 226);
-  background: linear-gradient(
-    15deg,
-    rgba(127, 186, 226, 1) 0%,
-    rgba(181, 61, 254, 1) 35%,
-    rgba(253, 231, 129, 1) 100%
-  ); */
   background: linear-gradient(290deg, #43b5c1 10%, #000002 69%);
   opacity: 0.9;
 }
@@ -1097,8 +1088,8 @@ remove this comment if you want it to be sticy
   transition: var(--main-transition);
 }
 .StudentSettingPage .container .img-name-settingpage h1 {
-  color: var(--red-color);
-  text-shadow: 2px 2px 8px #ff000050;
+  color: var(--dark-blue);
+  text-shadow: 2px 2px 8px rgb(207, 207, 207);
 }
 @media (max-width: 767px) {
   .StudentSettingPage .container .img-name-settingpage {
@@ -1518,7 +1509,6 @@ remove this comment if you want it to be sticy
 }
 .top_instructor .container .card {
   position: relative;
-  background-color: #060707;
   width: 100%;
   height: 300px;
   border-radius: var(--main-border-radius);
@@ -1526,7 +1516,9 @@ remove this comment if you want it to be sticy
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  box-shadow: 0px 3px 24px -4px rgba(247, 247, 247, 0.75);
+  background: rgba(242, 245, 245, 0.58);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
 }
 .top_instructor .container .card-img {
   position: relative;
