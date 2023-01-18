@@ -60,7 +60,7 @@ function Stuff(props) {
           >
             <div className="img-container">
               <img
-                src={require("../../img/Courses/Graphics-Courses.jpg")}
+                src={require("../../img/Courses/Graphics-Courses.png")}
                 alt=""
               />
             </div>

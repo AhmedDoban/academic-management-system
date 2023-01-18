@@ -816,11 +816,18 @@ remove this comment if you want it to be sticy
 .our-stuff .container .card:hover::after {
   width: 100%;
 }
-.our-stuff .container .card img {
-  max-width: 85%;
+.our-stuff .container .card .img-container {
+  width: 150px;
   height: 150px;
-  object-fit: fill;
-  border-radius: var(--main-border-radius);
+  margin-left: 15px;
+  border: 15px solid var(--main-background-color);
+  border-radius: 50%;
+}
+.our-stuff .container .card img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
   transition: var(--main-transition);
 }
 @media (max-width: 767px) {
@@ -834,7 +841,7 @@ remove this comment if you want it to be sticy
 }
 .our-stuff .container .card .number-courses p {
   padding: 8px 20px;
-  background-color: var(--red-color);
+  background-color: #f4b44b;
   width: fit-content;
   margin: 20px auto;
   color: #fff;
