@@ -5,7 +5,7 @@ import withAutoplay from "react-awesome-slider/dist/autoplay";
 import Footer from "./../components/Footer";
 import Courses from "./Courses";
 import TopInstructor from "./TopInstructor";
-import RounDomQuote from "./RounDomQuote";
+import RanDomQuote from "./RanDomQuote";
 
 function StudentCourses(props) {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
@@ -122,7 +122,7 @@ function StudentCourses(props) {
       {/************************************* END Cources *****************************************/}
 
       {/************************************* start RounDomQuote ********************************/}
-      <RounDomQuote />
+      <RanDomQuote />
       {/************************************* END RounDomQuote *****************************************/}
 
       {/************************************* start Footer  ***************************************/}

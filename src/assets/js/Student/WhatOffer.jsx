@@ -4,18 +4,17 @@ import { Link } from "react-router-dom";
 function WhatOffer(props) {
   return (
     <React.Fragment>
-      <div
-        className="WhatOffer"
-        data-aos="fade-up"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="1000"
-      >
+      <div className="WhatOffer">
         <h1 className="main-titel">
           <div className="div-circle"></div>
           <div className="div-circle"></div>
           <span>What We Offer ?</span>
         </h1>
-        <p>
+        <p
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+        >
           One of the most oft-used terms after the pandemic is the term “new
           normal.” The new normal in education is the increased use of online
           learning tools. The COVID-19 pandemic has triggered new ways of

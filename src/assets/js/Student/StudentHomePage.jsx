@@ -1,9 +1,4 @@
-import React, { Component } from "react";
-import { Posts } from "../../../dummyData";
-import Post from "./Post";
-import Share from "./Share";
-import { Link } from "react-router-dom";
-
+import React from "react";
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
@@ -11,6 +6,7 @@ import Stuff from "./Stuff";
 import WhatOffer from "./WhatOffer";
 import SammaryData from "./SammaryData";
 import Footer from "./../components/Footer";
+import RanDomQuote from "./RanDomQuote";
 
 function StudentHomePage(props) {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
@@ -195,6 +191,7 @@ function StudentHomePage(props) {
           <Post key={p.id} Post={p} />
         ))}
       </div> */}
+      <RanDomQuote />
       <Stuff />
       <SammaryData />
       <WhatOffer />

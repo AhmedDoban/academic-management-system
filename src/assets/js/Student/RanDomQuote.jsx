@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-function RounDomQuote(props) {
+function RanDomQuote(props) {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -35,4 +35,4 @@ function RounDomQuote(props) {
     </React.Fragment>
   );
 }
-export default RounDomQuote;
+export default RanDomQuote;
