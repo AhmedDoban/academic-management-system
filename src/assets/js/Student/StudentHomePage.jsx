@@ -191,8 +191,8 @@ function StudentHomePage(props) {
           <Post key={p.id} Post={p} />
         ))}
       </div> */}
-      <RanDomQuote />
       <Stuff />
+      <RanDomQuote />
       <SammaryData />
       <WhatOffer />
       <Footer />

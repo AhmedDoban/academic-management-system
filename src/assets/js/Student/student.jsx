@@ -33,7 +33,7 @@ const Student = (props) => {
                 <Route path="/table" element={<StudentTablePage />} />
                 <Route exact path="/" element={<StudentHomePage />} />
                 <Route path="setting" element={<StudentSettingPage />}>
-                  <Route path="student-setting-details" />
+                  <Route path="" exact />
                   <Route path="student-setting-password" />
                   <Route path="student-setting-email" />
                   <Route path="*" render={() => <Navigate to="/" />} />

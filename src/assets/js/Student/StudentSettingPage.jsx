@@ -17,7 +17,7 @@ function StudentSettingPage(props) {
           </div>
           <ul className="setting-name">
             <li>
-              <NavLink to="/setting/student-setting-details">
+              <NavLink to="/setting" end>
                 My Details
               </NavLink>
             </li>
@@ -30,8 +30,7 @@ function StudentSettingPage(props) {
           </ul>
         </div>
         <Routes>
-          <Route exact path="/" element={<StudentProfile />} />
-          <Route path="student-setting-details" element={<StudentProfile />} />
+          <Route exact path="" element={<StudentProfile />} />
           <Route
             path="student-setting-password"
             element={<StudentPasswordpage />}
