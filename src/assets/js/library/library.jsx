@@ -3,6 +3,8 @@ import "./Library.css";
 import BookCard from "./bookCard";
 import Footer from "./../components/Footer";
 import RanDomQuote from "./../Student/RanDomQuote";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 function Library(props) {
   let [search, setSearch] = useState("");
@@ -25,17 +27,7 @@ function Library(props) {
   oneCall();
 
   const searchButton = (e) => {
-    fetch(
-      "https://www.googleapis.com/books/v1/volumes?q=" +
-        search +
-        "&key=AIzaSyB1kPV9WkbAyngXClEvg3BBXN6ahnD-Nag" +
-        "&maxResults=40"
-    )
-      .then((res) => res.json())
-      .then((data) => setItems(data.items));
-  };
-  const searchBox = (e) => {
-    if (e.key === "Enter") {
+    if (search) {
       fetch(
         "https://www.googleapis.com/books/v1/volumes?q=" +
           search +
@@ -44,6 +36,30 @@ function Library(props) {
       )
         .then((res) => res.json())
         .then((data) => setItems(data.items));
+    } else {
+      toast.error("You must Enter Book Name", {
+        autoClose: 15000,
+        theme: "colored",
+      });
+    }
+  };
+  const searchBox = (e) => {
+    if (e.key === "Enter") {
+      if (search) {
+        fetch(
+          "https://www.googleapis.com/books/v1/volumes?q=" +
+            search +
+            "&key=AIzaSyB1kPV9WkbAyngXClEvg3BBXN6ahnD-Nag" +
+            "&maxResults=40"
+        )
+          .then((res) => res.json())
+          .then((data) => setItems(data.items));
+      } else {
+        toast.error("You Must Enter Book Name", {
+          autoClose: 15000,
+          theme: "colored",
+        });
+      }
     }
   };
   return (
@@ -80,6 +96,7 @@ function Library(props) {
       </div>
       <RanDomQuote />
       <Footer />
+      <ToastContainer />
     </React.Fragment>
   );
 }

@@ -24,7 +24,7 @@ function Modal(props) {
               <h3>{props.item.volumeInfo.authors}</h3>
               <br />
               <h4>
-                {props.item.volumeInfo.publisher}{" "}
+                {props.item.volumeInfo.publisher}
                 <span>{props.item.volumeInfo.publishedDate}</span>
               </h4>
               <br />
