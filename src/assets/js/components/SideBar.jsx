@@ -58,14 +58,20 @@ const SideBar = (props) => {
           </li>
           <li>
             <NavLink to="Files" onClick={open}>
-              <i className="fa-regular fa-file fa-fw"></i>
+              <i class="fa-solid fa-database"></i>
               <span>Files</span>
             </NavLink>
           </li>
           <li>
             <NavLink to="table" onClick={open}>
-              <i class="fa-solid fa-table"></i>
+              <i class="fa-solid fa-calendar-days"></i>
               <span>Table</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="library" onClick={open}>
+              <i class="fa-solid fa-book"></i>
+              <span>Library</span>
             </NavLink>
           </li>
           <li>

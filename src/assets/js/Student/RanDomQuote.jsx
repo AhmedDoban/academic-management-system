@@ -7,7 +7,6 @@ function RanDomQuote(props) {
     fetch("https://api.quotable.io/random?minLength=100&maxLength=140")
       .then((res) => res.json())
       .then((data) => setItems(data));
-    console.log(items.length);
   }, []);
 
   return (

@@ -1,0 +1,324 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+:root {
+  --blue-color: #0075ff;
+  --blue-alt-color: #0d69d5;
+  --dark-blue: #19324f;
+  --orange-color: #f59e0b;
+  --orange-alt: #f59f0b6c;
+  --orange-transparent: #f59f0b3c;
+  --green-color: #22c55e;
+  --red-color: #f44336;
+  --grey-color: #888;
+  --grey-alt-color: #8b8b8b;
+  --main-color: #ff9800;
+  --red-color: #ff5f60;
+  --purple-color: #1b575b;
+  --main-transition: all 0.5s ease-in-out;
+  --main-padding-top: 50px;
+  --main-padding-bottom: 50px;
+  --main-background-color: #f5f5f5;
+  --main-box-shadow: 0px 0px 30px rgba(184, 184, 184, 0.19);
+  --box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
+  --main-p-color: #777;
+  --main-border: 1px solid var(--main-color);
+  --main-overlay: rgba(0, 0, 0, 0.7);
+  --main-border-radius: 8px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Library head-Section
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Library .head-Section {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-color: var(--main-page-color);
+  box-shadow: 0 5px 10px var(--purple-color);
+  overflow: hidden;
+}
+
+.Library .head-Section::before {
+  position: absolute;
+  content: "";
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../img/Library/books.jpg");
+  clip-path: circle(60% at left 300px);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.head-Section .container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 20px;
+  z-index: 3;
+}
+.head-Section .container .right,
+.head-Section .container .left {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.head-Section .container .right p {
+  font-size: 28px;
+  text-align: left;
+  color: #fff;
+  font-weight: bold;
+  text-transform: capitalize;
+  width: 60%;
+}
+
+.head-Section .container .left img {
+  width: 700px;
+}
+.head-Section .container .search {
+  width: 100%;
+  position: relative;
+  flex-wrap: nowrap;
+  display: flex;
+}
+.head-Section .container .search button {
+  padding: 8px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid var(--main-color);
+  background-color: var(--orange-color);
+  border-radius: calc(var(--main-border-radius) * 1.5);
+  color: #fff;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  cursor: pointer;
+}
+.head-Section .container .search button:focus {
+  outline: none;
+}
+.head-Section .container .search input {
+  padding: 8px 12px;
+  width: fit-content;
+  width: 200px;
+  border: 3px solid var(--main-color);
+  border-right: none;
+  cursor: pointer;
+  border-radius: calc(var(--main-border-radius) * 1.5);
+  transition: var(--main-transition);
+  background-color: rgba(233, 233, 233, 0.284);
+  color: var(--main-color);
+  font-size: 18px;
+  outline: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.head-Section .container .search input:focus {
+  width: 50%;
+}
+.head-Section .container .search input::placeholder {
+  color: rgb(182, 182, 182);
+  font-size: 16px;
+}
+@media (max-width: 992px) {
+  .head-Section .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .head-Section .container .right p {
+    width: 100%;
+    font-size: 20px;
+  }
+  .head-Section .container .left {
+    display: none;
+  }
+  .Library .head-Section::before {
+    clip-path: circle(90% at left 100px);
+  }
+  .head-Section .container .search input:focus {
+    width: 80%;
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Library Content
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Library .content {
+  position: relative;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  box-shadow: 0 5px 10px var(--purple-color);
+}
+.Library .content::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(290deg, #43b5c1 10%, #000002 69%);
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+}
+.Library .content .container {
+  position: relative !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 0.5fr));
+  gap: 20px;
+}
+.Library .content .container .card {
+  position: relative;
+  background-color: var(--grey-alt-color);
+  width: 100%;
+  height: 100%;
+  border-radius: var(--main-border-radius);
+  /* overflow: hidden; */
+  cursor: pointer;
+  padding: 10px;
+  transition: var(--main-transition);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Library .content .container .card:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: scale(0.9);
+}
+.Library .content .container .card img {
+  position: relative;
+  min-width: 100%;
+  height: 200px;
+  border-radius: var(--main-border-radius);
+}
+.Library .content .container .card .bottom-card {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.Library .content .container .card .bottom-card h1 {
+  font-size: 18px;
+  text-align: center;
+  color: #dadade;
+  font-weight: bold;
+  transition: var(--main-transition);
+}
+.Library .content .container .card:hover .bottom-card h1 {
+  color: #000002;
+}
+.Library .content .container .card .bottom-card p {
+  width: 100%;
+  background-color: var(--purple-color);
+  padding: 5px 10px;
+  color: var(--main-background-color);
+  border-radius: var(--main-border-radius);
+}
+.Library .content .container .card .bottom-card p span {
+  padding-right: 20px;
+  color: var(--red-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Library modal
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.modal {
+  min-height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.modal .overlay {
+  position: relative;
+  background-color: var(--purple-color);
+  width: 700px;
+  height: calc(100% - 50px);
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: var(--main-border-radius);
+  text-overflow: ellipsis;
+}
+
+.modal .overlay > button {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: 0px;
+  top: 0px;
+  background-color: var(--orange-color);
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: var(--main-border-radius);
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0;
+  cursor: pointer;
+}
+.modal .overlay .data {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.modal .overlay .data img {
+  width: 250px;
+  height: 280px;
+  background-color: #000002;
+  border-radius: var(--main-border-radius);
+}
+.modal .overlay .data .info h1 {
+  color: #fff;
+}
+.modal .overlay .data .info h3,
+.modal .overlay .data .info h4 {
+  color: #777;
+}
+.modal .overlay .data .info a button {
+  padding: 6px 20px;
+  background-color: var(--orange-color);
+  color: #fff;
+  border-radius: var(--main-border-radius);
+  cursor: pointer;
+  border: none;
+}
+.modal .overlay .description {
+  position: relative;
+  margin: 20px 0;
+  padding: 20px;
+  text-overflow: ellipsis;
+  height: 100%;
+  overflow-y: scroll;
+}
+.modal .overlay .description p {
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+  text-align: justify;
+}
+@media (max-width: 776px) {
+  .modal .overlay {
+    width: calc(100% - 20px);
+  }
+  .modal .overlay .data .info h1 {
+    font-size: 20px;
+  }
+  .modal .overlay .data img {
+    width: 150px;
+    height: 200px;
+  }
+}

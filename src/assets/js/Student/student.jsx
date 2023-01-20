@@ -10,6 +10,7 @@ import StudentProjectsPage from "./StudentProjectsPage";
 import StudentFriends from "./StudentFriends";
 import StudentFilesPage from "./StudentFilesPage";
 import StudentTablePage from "./StudentTablePage";
+import Library from "./../library/library";
 
 const Student = (props) => {
   useEffect(() => {
@@ -26,18 +27,19 @@ const Student = (props) => {
             <div className="postContainer width-full">
               <Routes>
                 <Route exact path="/home" element={<StudentHomePage />} />
-                <Route path="/projects" element={<StudentProjectsPage />} />
-                <Route path="/courses" element={<StudentCourses />} />
-                <Route path="/Friends" element={<StudentFriends />} />
-                <Route path="/Files" element={<StudentFilesPage />} />
-                <Route path="/table" element={<StudentTablePage />} />
-                <Route exact path="/" element={<StudentHomePage />} />
                 <Route path="setting" element={<StudentSettingPage />}>
                   <Route path="" exact />
                   <Route path="student-setting-password" />
                   <Route path="student-setting-email" />
                   <Route path="*" render={() => <Navigate to="/" />} />
                 </Route>
+                <Route path="/projects" element={<StudentProjectsPage />} />
+                <Route path="/courses" element={<StudentCourses />} />
+                <Route path="/Friends" element={<StudentFriends />} />
+                <Route path="/Files" element={<StudentFilesPage />} />
+                <Route path="/table" element={<StudentTablePage />} />
+                <Route path="/library" element={<Library />} />
+                <Route exact path="/" element={<StudentHomePage />} />
                 <Route path="*" element={<NotFounded to="/NotFounded" />} />
               </Routes>
             </div>
