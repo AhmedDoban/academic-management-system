@@ -12,7 +12,7 @@ function Library(props) {
     if (Empty) {
       if (items) {
         fetch(
-          "https://www.googleapis.com/books/v1/volumes?q=react" +
+          "https://www.googleapis.com/books/v1/volumes?q=Vue js" +
             "&key=AIzaSyB1kPV9WkbAyngXClEvg3BBXN6ahnD-Nag" +
             "&maxResults=40"
         )
