@@ -1343,6 +1343,11 @@ remove this comment if you want it to be sticy
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 10px;
 }
+@media (max-width: 776px) {
+  .student-courses-container .container-courses.grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 0.5fr));
+  }
+}
 .student-courses-container .container-courses.grid .card {
   position: relative;
   width: 100%;

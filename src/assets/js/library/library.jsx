@@ -90,7 +90,12 @@ function Library(props) {
           </div>
         </div>
 
-        <div className="content">
+        <div
+          className="content"
+          data-aos="fade-down"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+        >
           <div className="container">
             <BookCard bookData={items} />
           </div>

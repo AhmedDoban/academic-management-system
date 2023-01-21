@@ -291,6 +291,7 @@ html {
   height: 280px;
   background-color: #000002;
   border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
 }
 .modal .overlay .data .info h1 {
   color: #fff;
