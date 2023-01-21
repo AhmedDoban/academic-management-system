@@ -169,10 +169,15 @@ html {
   left: 0;
 }
 .Library .content .container {
-  position: relative !important;
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 0.5fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 0.5fr));
+  gap: 10px;
+}
+@media (max-width: 776px) {
+  .Library .content .container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 0.5fr));
+  }
 }
 .Library .content .container .card {
   position: relative;
