@@ -1559,7 +1559,11 @@ remove this comment if you want it to be sticy
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 10px;
 }
-
+@media (max-width: 776px) {
+  .top_instructor .container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 0.5fr));
+  }
+}
 .top_instructor_header {
   padding: 20px;
   color: var(--main-background-color);
