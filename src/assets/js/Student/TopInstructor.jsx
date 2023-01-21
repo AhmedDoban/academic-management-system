@@ -19,16 +19,16 @@ function Top_Instructor(props) {
         >
           Top Instructor
         </h1>
-        <div className="container">
+        <div
+          className="container"
+          data-aos="fade-down"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+        >
           {Users.filter((p) => p.rate >= 4)
             .slice(0, 4)
             .map((p) => (
-              <div
-                className="card"
-                data-aos="fade-down"
-                data-aos-easing="ease-in-out"
-                data-aos-duration="1000"
-              >
+              <div className="card">
                 <div className="card-img">
                   <img src={p.profilePicture} alt="" />
                 </div>

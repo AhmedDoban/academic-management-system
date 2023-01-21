@@ -15,9 +15,6 @@ function BookCard(props) {
           return (
             <>
               <div
-                data-aos="fade-down"
-                data-aos-easing="ease-in-out"
-                data-aos-duration="1000"
                 className="card"
                 onClick={() => {
                   setShow(true);
