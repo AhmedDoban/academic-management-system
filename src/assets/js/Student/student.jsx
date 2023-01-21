@@ -29,6 +29,7 @@ const Student = (props) => {
               <Suspense
                 fallback={
                   <div class="dots-container ">
+                    <img src={require("../../img/book.png")} alt="" />
                     <div class="dots">
                       <div></div>
                       <div></div>

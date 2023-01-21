@@ -9,6 +9,8 @@
   align-items: center;
   flex-direction: column;
   gap: 10px;
+  top: 0;
+  left: 0;
 }
 .dots-container p {
   color: #f59e0b;
