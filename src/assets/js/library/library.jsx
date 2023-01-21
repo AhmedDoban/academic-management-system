@@ -14,7 +14,7 @@ function Library(props) {
     if (Empty) {
       if (items) {
         fetch(
-          "https://www.googleapis.com/books/v1/volumes?q=Vue js" +
+          "https://www.googleapis.com/books/v1/volumes?q=space" +
             "&key=AIzaSyB1kPV9WkbAyngXClEvg3BBXN6ahnD-Nag" +
             "&maxResults=40"
         )
@@ -36,6 +36,7 @@ function Library(props) {
       )
         .then((res) => res.json())
         .then((data) => setItems(data.items));
+      setSearch("");
     } else {
       toast.error("You must Enter Book Name", {
         autoClose: 15000,
@@ -54,6 +55,7 @@ function Library(props) {
         )
           .then((res) => res.json())
           .then((data) => setItems(data.items));
+        setSearch("");
       } else {
         toast.error("You Must Enter Book Name", {
           autoClose: 15000,

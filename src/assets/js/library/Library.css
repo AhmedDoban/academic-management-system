@@ -26,6 +26,9 @@
   --main-overlay: rgba(0, 0, 0, 0.7);
   --main-border-radius: 8px;
 }
+html {
+  scroll-behavior: smooth;
+}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Library head-Section
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -231,7 +234,8 @@
 # Library modal
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .modal {
-  min-height: 100vh;
+  position: relative;
+  min-height: 100%;
   width: 100%;
   position: fixed;
   top: 0;
@@ -243,12 +247,13 @@
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  overflow: hidden;
 }
 .modal .overlay {
   position: relative;
   background-color: var(--purple-color);
   width: 700px;
-  height: calc(100% - 50px);
+  max-height: 600px;
   padding: 20px;
   box-sizing: border-box;
   overflow: hidden;
