@@ -1560,6 +1560,7 @@ remove this comment if you want it to be sticy
   left: 0;
 }
 .top_instructor .container {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 10px;
@@ -1570,11 +1571,11 @@ remove this comment if you want it to be sticy
   }
 }
 .top_instructor_header {
+  position: relative;
   padding: 20px;
   color: var(--main-background-color);
   margin: 20px auto;
   text-align: center;
-  position: relative;
   width: fit-content;
   transition: var(--main-transition);
 }
