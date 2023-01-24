@@ -1,31 +1,7 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # General
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-:root {
-  --blue-color: #0075ff;
-  --blue-alt-color: #0d69d5;
-  --dark-blue: #19324f;
-  --orange-color: #f59e0b;
-  --orange-alt: #f59f0b6c;
-  --orange-transparent: #f59f0b3c;
-  --green-color: #22c55e;
-  --red-color: #f44336;
-  --grey-color: #888;
-  --grey-alt-color: #8b8b8b;
-  --main-color: #ff9800;
-  --red-color: #ff5f60;
-  --purple-color: #1b575b;
-  --main-transition: all 0.5s ease-in-out;
-  --main-padding-top: 50px;
-  --main-padding-bottom: 50px;
-  --main-background-color: #f5f5f5;
-  --main-box-shadow: 0px 0px 30px rgba(184, 184, 184, 0.19);
-  --box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
-  --main-p-color: #777;
-  --main-border: 1px solid var(--main-color);
-  --main-overlay: rgba(0, 0, 0, 0.7);
-  --main-border-radius: 8px;
-}
+@import "../../css/root.css";
 html {
   scroll-behavior: smooth;
 }
@@ -158,88 +134,96 @@ html {
   padding-bottom: var(--main-padding-bottom);
   box-shadow: 0 5px 10px var(--purple-color);
 }
-.Library .content::before {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(290deg, #43b5c1 10%, #000002 69%);
-  opacity: 0.7;
-  top: 0;
-  left: 0;
-}
 .Library .content .container {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 0.5fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
 }
 @media (max-width: 776px) {
   .Library .content .container {
     grid-template-columns: repeat(auto-fill, minmax(150px, 0.5fr));
   }
 }
-.Library .content .container .card {
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Library book
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+
+.Library .content .container .book {
   position: relative;
   width: 100%;
-  height: 100%;
-  border-radius: var(--main-border-radius);
+  height: 300px;
+  margin: 5% auto;
+  border-radius: 2px 4px 4px 2px;
+  background: linear-gradient(45deg, #dad5dc 0%, #f2ebf4 100%);
+  font-weight: 400;
+  color: #2b2b2b;
+  transform-style: preserve-3d;
+  transition: var(--main-transition);
+  box-shadow: 13px 13px 8px 0px rgba(151, 146, 153, 0.6);
   cursor: pointer;
-  padding: 10px;
+}
+
+.Library .content .container .book:hover {
+  transform: rotate3d(0, 1, 0, 35deg);
+}
+.Library .content .container .front {
+  transform-style: preserve-3d;
+  transform-origin: 0% 50%;
   transition: var(--main-transition);
-  background: rgba(242, 245, 245, 0.58);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(6px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  transform: translate3d(0, 0, 20px);
+  z-index: 10;
 }
-.Library .content .container .card:hover {
-  background-color: rgba(255, 255, 255, 0.9);
-  transform: scale(0.9);
+.Library .content .container .book .front > div {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #dad5dc 0%, #f2ebf4 100%);
 }
-.Library .content .container .card img {
-  position: relative;
-  min-width: 100%;
-  height: 200px;
-  border-radius: var(--main-border-radius);
-}
-.Library .content .container .card .bottom-card {
-  position: relative;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: column;
+.Library .content .container .book .front > div,
+.Library .content .container .book .left-side {
+  position: absolute;
   width: 100%;
   height: 100%;
 }
-.Library .content .container .card .bottom-card h1 {
-  font-size: 18px;
-  text-align: center;
-  color: #202020;
-  font-weight: bold;
-  transition: var(--main-transition);
-}
-.Library .content .container .card:hover .bottom-card h1 {
-  color: #000002;
-}
-.Library .content .container .card .bottom-card p {
+.Library .content .container .book .front > div {
+  position: relative;
   width: 100%;
-  background-color: var(--purple-color);
-  padding: 5px 10px;
-  color: var(--main-background-color);
-  border-radius: var(--main-border-radius);
+  height: 300px;
 }
-.Library .content .container .card .bottom-card p span {
-  padding-right: 10px;
-  color: var(--red-color);
+.Library .content .container .book .front img {
+  width: 100%;
+  height: 100%;
 }
+.Library .content .container .book .left-side {
+  top: 0;
+  width: 40px;
+  height: 100%;
+  left: -20px;
+  background: linear-gradient(45deg, #dad5dc 0%, #f2ebf4 100%);
+  transform: rotate3d(0, 1, 0, -90deg);
+  color: #010101;
+}
+
+.Library .content .container .book .left-side h2 {
+  position: absolute;
+  font-size: 18px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  top: 0px;
+  writing-mode: vertical-lr;
+  padding: 20px;
+  transform: rotate(180deg);
+  font-weight: bold;
+}
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Library modal
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .modal {
-  position: relative;
   min-height: 100%;
   width: 100%;
   position: fixed;
@@ -260,10 +244,8 @@ html {
   width: 700px;
   max-height: 600px;
   padding: 20px;
-  box-sizing: border-box;
   overflow: hidden;
   border-radius: var(--main-border-radius);
-  text-overflow: ellipsis;
 }
 
 .modal .overlay > button {
@@ -283,22 +265,24 @@ html {
 }
 .modal .overlay .data {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-around;
+  gap: 10px;
 }
 .modal .overlay .data img {
-  width: 250px;
-  height: 280px;
-  background-color: #000002;
+  width: 150px;
+  height: 170px;
   border-radius: var(--main-border-radius);
-  transition: var(--main-transition);
 }
 .modal .overlay .data .info h1 {
   color: #fff;
+  font-size: 18px;
 }
 .modal .overlay .data .info h3,
 .modal .overlay .data .info h4 {
-  color: #777;
+  color: rgb(182, 182, 182);
+}
+.modal .overlay .data .info h4 span {
+  color: tomato;
 }
 .modal .overlay .data .info a button {
   padding: 6px 20px;
@@ -310,13 +294,12 @@ html {
 }
 .modal .overlay .description {
   position: relative;
-  margin: 20px 0;
   padding: 20px;
   height: 100%;
-  overflow-y: hidden;
 }
 .modal .overlay .description p {
-  font-size: 16px;
+  font-size: 15px;
+  letter-spacing: 1px;
   color: #fff;
   font-weight: bold;
   text-align: justify;
@@ -326,10 +309,14 @@ html {
     width: calc(100% - 20px);
   }
   .modal .overlay .data .info h1 {
-    font-size: 20px;
+    font-size: 14px;
   }
   .modal .overlay .data img {
     width: 150px;
     height: 200px;
+  }
+  .modal .overlay .data .info h3,
+  .modal .overlay .data .info h4 {
+    font-size: 11px;
   }
 }

@@ -6,32 +6,7 @@
   padding: 0;
   margin: 0;
 }
-:root {
-  --blue-color: #0075ff;
-  --blue-alt-color: #0d69d5;
-  --dark-blue: #19324f;
-  --orange-color: #f59e0b;
-  --orange-alt: #f59f0b6c;
-  --orange-transparent: #f59f0b3c;
-  --green-color: #22c55e;
-  --red-color: #f44336;
-  --grey-color: #888;
-  --grey-alt-color: #8b8b8b;
-  --main-color: #ff9800;
-  --red-color: #ff5f60;
-  --purple-color: #1b575b;
-  --main-transition: all 0.5s ease-in-out;
-  --main-padding-top: 50px;
-  --main-padding-bottom: 50px;
-  --main-background-color: #f5f5f5;
-  --main-box-shadow: 0px 0px 30px rgba(184, 184, 184, 0.19);
-  --box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
-  --main-p-color: #777;
-  --main-border: 1px solid var(--main-color);
-  --main-overlay: rgba(0, 0, 0, 0.7);
-  --main-border-radius: 8px;
-  --main-page-color: #1b575b;
-}
+@import url("root.css");
 ::-webkit-scrollbar {
   width: 10px;
 }

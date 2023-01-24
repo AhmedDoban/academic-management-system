@@ -14,7 +14,7 @@ function BookCard(props) {
         ) {
           return (
             <>
-              <div
+              {/* <div
                 className="card"
                 onClick={() => {
                   setShow(true);
@@ -26,7 +26,7 @@ function BookCard(props) {
                     p.volumeInfo.imageLinks &&
                     p.volumeInfo.imageLinks.smallThumbnail
                   }
-                  alt=""
+                  alt={p.volumeInfo.title}
                 />
                 <div className="bottom-card">
                   <h1>{p.volumeInfo.title}</h1>
@@ -34,6 +34,30 @@ function BookCard(props) {
                     <span>&#x24;</span>
                     {p.saleInfo.listPrice && p.saleInfo.listPrice.amount}
                   </p>
+                </div>
+              </div> */}
+              <div
+                class="book"
+                onClick={() => {
+                  setShow(true);
+                  setItem(p);
+                }}
+              >
+                <div class="front">
+                  <div class="cover">
+                    <img
+                      src={
+                        p.volumeInfo.imageLinks &&
+                        p.volumeInfo.imageLinks.smallThumbnail
+                      }
+                      alt={p.volumeInfo.title}
+                    />
+                  </div>
+                </div>
+                <div class="left-side">
+                  <h2>
+                    <span>{p.volumeInfo.title}</span>
+                  </h2>
                 </div>
               </div>
               <Modal
