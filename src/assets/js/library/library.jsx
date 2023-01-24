@@ -87,6 +87,13 @@ function Library(props) {
         </div>
 
         <div className="content">
+          <h1 className="main-titel">
+            <div className="div-circle"></div>
+            <div className="div-circle"></div>
+            <span> Library Books</span>{" "}
+          </h1>{" "}
+          <div className="dots-img dots-top"></div>
+          <div className="dots-img dots-bottom"></div>
           <div
             className="container"
             data-aos="fade-down"

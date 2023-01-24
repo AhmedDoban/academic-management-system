@@ -14,28 +14,6 @@ function BookCard(props) {
         ) {
           return (
             <>
-              {/* <div
-                className="card"
-                onClick={() => {
-                  setShow(true);
-                  setItem(p);
-                }}
-              >
-                <img
-                  src={
-                    p.volumeInfo.imageLinks &&
-                    p.volumeInfo.imageLinks.smallThumbnail
-                  }
-                  alt={p.volumeInfo.title}
-                />
-                <div className="bottom-card">
-                  <h1>{p.volumeInfo.title}</h1>
-                  <p>
-                    <span>&#x24;</span>
-                    {p.saleInfo.listPrice && p.saleInfo.listPrice.amount}
-                  </p>
-                </div>
-              </div> */}
               <div
                 class="book"
                 onClick={() => {

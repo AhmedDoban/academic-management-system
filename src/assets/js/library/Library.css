@@ -132,7 +132,6 @@ html {
   position: relative;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
-  box-shadow: 0 5px 10px var(--purple-color);
 }
 .Library .content .container {
   position: relative;
@@ -148,7 +147,6 @@ html {
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Library book
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-
 .Library .content .container .book {
   position: relative;
   width: 100%;
@@ -206,7 +204,7 @@ html {
 
 .Library .content .container .book .left-side h2 {
   position: absolute;
-  font-size: 18px;
+  font-size: 16px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -218,6 +216,7 @@ html {
   padding: 20px;
   transform: rotate(180deg);
   font-weight: bold;
+  overflow: hidden;
 }
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
