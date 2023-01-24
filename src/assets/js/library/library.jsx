@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./Library.css";
 import BookCard from "./bookCard";
 import Footer from "./../components/Footer";
@@ -10,17 +11,25 @@ function Library(props) {
   let [search, setSearch] = useState("");
   const [items, setItems] = useState([]);
   const [Empty, setEmpty] = useState(true);
+
+  useEffect(() => getData(), []);
+
+  const getData = (e) => {
+    axios
+      .get(
+        "https://www.googleapis.com/books/v1/volumes?q=" +
+          (e ? e : "space") +
+          "&key=AIzaSyB1kPV9WkbAyngXClEvg3BBXN6ahnD-Nag" +
+          "&maxResults=40"
+      )
+      .then((response) => {
+        setItems(response.data.items);
+      });
+  };
+
   let oneCall = (e) => {
     if (Empty) {
-      if (items) {
-        fetch(
-          "https://www.googleapis.com/books/v1/volumes?q=space" +
-            "&key=AIzaSyB1kPV9WkbAyngXClEvg3BBXN6ahnD-Nag" +
-            "&maxResults=40"
-        )
-          .then((res) => res.json())
-          .then((data) => setItems(data.items));
-      }
+      getData();
       setEmpty(false);
     }
   };
@@ -28,14 +37,7 @@ function Library(props) {
 
   const searchButton = (e) => {
     if (search) {
-      fetch(
-        "https://www.googleapis.com/books/v1/volumes?q=" +
-          search +
-          "&key=AIzaSyB1kPV9WkbAyngXClEvg3BBXN6ahnD-Nag" +
-          "&maxResults=40"
-      )
-        .then((res) => res.json())
-        .then((data) => setItems(data.items));
+      getData(search);
       setSearch("");
     } else {
       toast.error("You must Enter Book Name", {
@@ -47,14 +49,7 @@ function Library(props) {
   const searchBox = (e) => {
     if (e.key === "Enter") {
       if (search) {
-        fetch(
-          "https://www.googleapis.com/books/v1/volumes?q=" +
-            search +
-            "&key=AIzaSyB1kPV9WkbAyngXClEvg3BBXN6ahnD-Nag" +
-            "&maxResults=40"
-        )
-          .then((res) => res.json())
-          .then((data) => setItems(data.items));
+        getData(search);
         setSearch("");
       } else {
         toast.error("You Must Enter Book Name", {
@@ -64,6 +59,7 @@ function Library(props) {
       }
     }
   };
+
   return (
     <React.Fragment>
       <div className="Library">
