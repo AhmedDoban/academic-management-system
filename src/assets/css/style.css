@@ -762,11 +762,7 @@ remove this comment if you want it to be sticy
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 30px;
 }
-@media (max-width: 767px) {
-  .our-stuff .container {
-    gap: 0px;
-  }
-}
+
 .our-stuff .container .card {
   position: relative;
   background-color: transparent;
@@ -834,7 +830,15 @@ remove this comment if you want it to be sticy
   text-transform: capitalize;
   color: #000000b8;
 }
-
+@media (max-width: 767px) {
+  .our-stuff .container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 0.5fr));
+    gap: 10px;
+  }
+  .our-stuff .container .card h1 {
+    font-size: 18px;
+  }
+}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Student  home page Student sammaryData
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
