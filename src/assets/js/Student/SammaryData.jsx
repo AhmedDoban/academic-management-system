@@ -33,7 +33,7 @@ function SammaryData(props) {
               <i class="fa-solid fa-book"></i>
               <div className="data-box">
                 <p>Library with 50,000+ Books</p>
-                <Link to="library">
+                <Link to="/library">
                   read More <i class="fa-solid fa-arrow-right"></i>
                 </Link>
               </div>

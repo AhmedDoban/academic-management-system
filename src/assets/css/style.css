@@ -1525,7 +1525,7 @@ remove this comment if you want it to be sticy
   border-radius: 50%;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# course data
+# course data header
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .specific-course {
   position: relative;
@@ -1596,9 +1596,14 @@ remove this comment if you want it to be sticy
     font-size: 35px;
   }
 }
-.specific-course .container {
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# course data video
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.specific-course .video {
+  position: relative;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
+  background-color: #fff;
 }
 .specific-course .holder {
   position: relative;
@@ -1677,7 +1682,12 @@ remove this comment if you want it to be sticy
     width: 100%;
   }
 }
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# course data discription
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .specific-course .discription {
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
   position: relative;
   background-color: #faf5ec;
 }

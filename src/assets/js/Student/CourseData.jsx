@@ -27,65 +27,71 @@ function CourseData(props) {
             </a>
           </div>
         </div>
-        <div
-          className="container"
-          id="course"
-          data-aos="fade-down"
-          data-aos-easing="ease-in-out"
-          data-aos-duration="1000"
-        >
-          <div className="holder">
-            <div className="left">
-              <div className="top-vedio">
-                <p>Videos</p>
+        <div className="spikes-rotated "></div>
+        <div className="video">
+          <div className="dots-img dots-top"></div>
+          <div className="dots-img dots-bottom"></div>{" "}
+          <div className="container" id="course">
+            <div
+              className="holder"
+              data-aos="fade-down"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="1000"
+            >
+              <div className="left">
+                <div className="top-vedio">
+                  <p>Videos</p>
+                </div>
+                <ul>
+                  <li>
+                    How To Create Sub Domain<span>05:18</span>
+                  </li>
+                  <li>
+                    Playing With The DNS <span>03:18</span>
+                  </li>
+                  <li>
+                    Everything About The Virtual Hosts <span>05:25</span>
+                  </li>
+                  <li>
+                    How To Monitor Your Website <span>04:16</span>
+                  </li>
+                  <li>
+                    Uncharted Beating The Last Boss <span>07:48</span>
+                  </li>
+                  <li>
+                    Ys Oath In Felghana Overview <span>03:12</span>
+                  </li>
+                  <li>
+                    Ys Series All Games Ending <span>08:10</span>
+                  </li>
+                  <li>
+                    Ys Series All Games Ending <span>08:10</span>
+                  </li>
+                  <li>
+                    Ys Series All Games Ending <span>08:10</span>
+                  </li>
+                  <li>
+                    Ys Series All Games Ending <span>08:10</span>
+                  </li>
+                  <li>
+                    Ys Series All Games Ending <span>08:10</span>
+                  </li>
+                </ul>
               </div>
-              <ul>
-                <li>
-                  How To Create Sub Domain<span>05:18</span>
-                </li>
-                <li>
-                  Playing With The DNS <span>03:18</span>
-                </li>
-                <li>
-                  Everything About The Virtual Hosts <span>05:25</span>
-                </li>
-                <li>
-                  How To Monitor Your Website <span>04:16</span>
-                </li>
-                <li>
-                  Uncharted Beating The Last Boss <span>07:48</span>
-                </li>
-                <li>
-                  Ys Oath In Felghana Overview <span>03:12</span>
-                </li>
-                <li>
-                  Ys Series All Games Ending <span>08:10</span>
-                </li>
-                <li>
-                  Ys Series All Games Ending <span>08:10</span>
-                </li>
-                <li>
-                  Ys Series All Games Ending <span>08:10</span>
-                </li>
-                <li>
-                  Ys Series All Games Ending <span>08:10</span>
-                </li>
-                <li>
-                  Ys Series All Games Ending <span>08:10</span>
-                </li>
-              </ul>
-            </div>
-            <div className="right">
-              <video className="Frame" controls>
-                <source
-                  src={require("../../img/Courses/test_vedio.mp4")}
-                  type="video/mp4"
-                />
-              </video>
-              <div class="info">Everything About The </div>
+              <div className="right">
+                <video className="Frame" controls>
+                  <source
+                    src={require("../../img/Courses/test_vedio.mp4")}
+                    type="video/mp4"
+                  />
+                </video>
+                <div class="info">Everything About The </div>
+              </div>
             </div>
           </div>
         </div>
+        <div className="spikes "></div>
+
         <div className="discription">
           <div
             className="container"
