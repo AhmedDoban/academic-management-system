@@ -1530,11 +1530,12 @@ remove this comment if you want it to be sticy
 .specific-course .course-data-header {
   position: relative;
   background-image: url("../img/Courses/course-data-header.jpg");
-  width: 100%;
+  width: 100% !important;
   height: calc(100vh - 62px);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  background-position: center center;
 }
 .specific-course .course-data-header::before {
   content: "";
@@ -1552,6 +1553,7 @@ remove this comment if you want it to be sticy
   align-items: center;
   width: 100%;
   height: 100%;
+  text-align: center;
 }
 .specific-course .course-data-header .container h3 {
   font-size: 50px;

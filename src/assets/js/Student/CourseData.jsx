@@ -27,7 +27,13 @@ function CourseData(props) {
             </a>
           </div>
         </div>
-        <div className="container" id="course">
+        <div
+          className="container"
+          id="course"
+          data-aos="fade-down"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+        >
           <div className="holder">
             <div className="left">
               <div className="top-vedio">
@@ -81,7 +87,12 @@ function CourseData(props) {
           </div>
         </div>
         <div className="discription">
-          <div className="container">
+          <div
+            className="container"
+            data-aos="fade-down"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1000"
+          >
             <p className="details-head">Details</p>
             <h1 className="description-titel">discription</h1>
             <p>

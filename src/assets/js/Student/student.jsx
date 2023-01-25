@@ -22,6 +22,7 @@ const Student = (props) => {
   return (
     <React.Fragment>
       <div className="page p-relative">
+        {/* <i class="fas fa-arrow-up back-to-top"></i> */}
         <SideBar />
         <div className="content">
           <Head />

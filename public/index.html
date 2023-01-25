@@ -20,24 +20,11 @@
 </head>
 
 <body>
-  <div class="dots-container ">
-    <img src="./book.png" alt="">
-    <div class="dots">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <p>academic management system</p>
-  </div>
+
   <i class="fas fa-arrow-up back-to-top" style="display: none;"></i>
   <div id="root">
   </div>
   <script>
-    window.onload = () => {
-      setTimeout(() => {
-        document.querySelector(".dots-container").style.display = "none"
-      }, 2000)
-    }
     let btn = document.querySelector(".back-to-top");
     btn.addEventListener("click", (e) => {
       window.scrollTo({
