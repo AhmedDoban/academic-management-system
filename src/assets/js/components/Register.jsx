@@ -2,7 +2,7 @@ import React from "react";
 import Blobs from "./Blobs";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import AuthUser from "./AuthUser";
+import AuthUser from "../Gust/AuthUser";
 
 function Register() {
   const navigate = useNavigate();

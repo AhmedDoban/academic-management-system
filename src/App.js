@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./assets/css/normalize.css";
 import "./assets/css/framework.css";
 import "./assets/css/style.css";
-import AuthUser from "./assets/js/components/AuthUser";
+import AuthUser from "./assets/js/Gust/AuthUser";
 import Gust from "./assets/js/Gust/gust";
 import Auth from "./assets/js/Gust/Auth";
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import AuthUser from "./AuthUser";
+import AuthUser from "../Gust/AuthUser";
 
 const SideBar = (props) => {
   const [active, setActive] = useState("fa-solid fa-bars");

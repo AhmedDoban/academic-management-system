@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Users } from "../../../dummyData";
+import { Users } from "../../../../dummyData";
 function Top_Instructor(props) {
   const [items, setItems] = useState([]);
   useEffect(() => {

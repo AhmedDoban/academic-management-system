@@ -2,11 +2,11 @@ import React from "react";
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
-import Stuff from "./Stuff";
-import WhatOffer from "./WhatOffer";
+import CourseCategories from "./CourseCategories";
+import RanDomQuote from "../RanDomQuote";
 import SammaryData from "./SammaryData";
-import Footer from "./../components/Footer";
-import RanDomQuote from "./RanDomQuote";
+import WhatOffer from "./WhatOffer";
+import Footer from "./../../components/Footer";
 
 function StudentHomePage(props) {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
@@ -48,7 +48,10 @@ function StudentHomePage(props) {
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
           >
-            <img src={require("../../img/slider/slide1.png")} alt="slide 1 " />
+            <img
+              src={require("../../../img/slider/slide1.png")}
+              alt="slide 1 "
+            />
           </div>
         </div>
         {/******************** Card2 ********************************/}
@@ -82,7 +85,10 @@ function StudentHomePage(props) {
             data-aos-duration="1000"
             data-aos="fade-left"
           >
-            <img src={require("../../img/slider/slide2.png")} alt="slide 1 " />
+            <img
+              src={require("../../../img/slider/slide2.png")}
+              alt="slide 1 "
+            />
           </div>
         </div>
         {/******************** Card3 ********************************/}
@@ -115,7 +121,10 @@ function StudentHomePage(props) {
             data-aos-duration="1000"
             data-aos="fade-left"
           >
-            <img src={require("../../img/slider/slide3.png")} alt="slide 1 " />
+            <img
+              src={require("../../../img/slider/slide3.png")}
+              alt="slide 1 "
+            />
           </div>
         </div>
         {/******************** Card4 ********************************/}
@@ -148,7 +157,10 @@ function StudentHomePage(props) {
             data-aos-duration="1000"
             data-aos="fade-left"
           >
-            <img src={require("../../img/slider/slide4.png")} alt="slide 1 " />
+            <img
+              src={require("../../../img/slider/slide4.png")}
+              alt="slide 1 "
+            />
           </div>
         </div>
         {/******************** Card5 ********************************/}
@@ -180,21 +192,22 @@ function StudentHomePage(props) {
             data-aos-duration="1000"
             data-aos="fade-left"
           >
-            <img src={require("../../img/slider/slide5.png")} alt="slide 1 " />
+            <img
+              src={require("../../../img/slider/slide5.png")}
+              alt="slide 1 "
+            />
           </div>
         </div>
       </AutoplaySlider>
-      {/* <div className="spikes-rotated"></div> */}
-      {/* <div className="m-20">
-        <Share />
-        {Posts.map((p) => (
-          <Post key={p.id} Post={p} />
-        ))}
-      </div> */}
-      <Stuff />
+      {/******************** Course Categories ********************************/}
+      <CourseCategories />
+      {/******************** RanDom Quote ********************************/}
       <RanDomQuote />
+      {/******************** SammaryData ********************************/}
       <SammaryData />
+      {/******************** WhatOffer ********************************/}
       <WhatOffer />
+      {/******************** Footer ********************************/}
       <Footer />
     </React.Fragment>
   );

@@ -10,121 +10,108 @@ html {
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .Library .head-Section {
   position: relative;
-  width: 100%;
-  height: 500px;
-  background-color: var(--main-page-color);
-  box-shadow: 0 5px 10px var(--purple-color);
-  overflow: hidden;
+  background-image: url("../../img/Library/books.jpg");
+  width: 100% !important;
+  height: calc(100vh - 62px);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
 }
-
 .Library .head-Section::before {
-  position: absolute;
   content: "";
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../../img/Library/books.jpg");
-  clip-path: circle(60% at left 300px);
+  position: absolute;
   width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
   top: 0;
   left: 0;
-  z-index: 1;
 }
-.head-Section .container {
+.Library .head-Section .container {
   position: relative;
   display: flex;
-  width: 100%;
-  height: 100%;
-  gap: 20px;
-  z-index: 3;
-}
-.head-Section .container .right,
-.head-Section .container .left {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
   flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  text-align: center;
 }
-.head-Section .container .right p {
-  font-size: 28px;
-  text-align: left;
+.Library .head-Section .container h3 {
+  font-size: 35px;
   color: #fff;
   font-weight: bold;
   text-transform: capitalize;
-  width: 60%;
+}
+.Library .head-Section .container h3 span {
+  color: var(--red-color);
 }
 
-.head-Section .container .left img {
-  width: 700px;
-}
-.head-Section .container .search {
-  width: 100%;
-  position: relative;
-  flex-wrap: nowrap;
-  display: flex;
-}
-.head-Section .container .search button {
-  padding: 8px 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 3px solid var(--main-color);
-  background-color: var(--orange-color);
-  border-radius: calc(var(--main-border-radius) * 1.5);
-  color: #fff;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  cursor: pointer;
-}
-.head-Section .container .search button:focus {
-  outline: none;
-}
-.head-Section .container .search input {
-  padding: 8px 12px;
-  width: fit-content;
-  width: 200px;
-  border: 3px solid var(--main-color);
-  border-right: none;
-  cursor: pointer;
-  border-radius: calc(var(--main-border-radius) * 1.5);
-  transition: var(--main-transition);
-  background-color: rgba(233, 233, 233, 0.284);
-  color: var(--main-color);
+.Library .head-Section .container h5 {
+  letter-spacing: 3px;
+  color: #eee;
   font-size: 18px;
+}
+.Library .head-Section .container .search-box {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+}
+.Library .head-Section .container .input-search {
+  height: 50px;
+  width: 50px;
+  border-style: none;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
   outline: none;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  border-radius: 25px;
+  transition: var(--main-transition);
+  background-color: var(--red-color);
+  padding-right: 40px;
+  color: #fff;
 }
-.head-Section .container .search input:focus {
-  width: 50%;
+.Library .head-Section .container .input-search::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
 }
-.head-Section .container .search input::placeholder {
-  color: rgb(182, 182, 182);
-  font-size: 16px;
+.Library .head-Section .container .btn-search {
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color: #ffffff;
+  background-color: transparent;
+  pointer-events: painted;
 }
-@media (max-width: 992px) {
-  .head-Section .container {
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  .head-Section .container .right p {
-    width: 100%;
-    font-size: 20px;
-  }
-  .head-Section .container .left {
-    display: none;
-  }
-  .Library .head-Section::before {
-    clip-path: circle(90% at left 100px);
-  }
-  .head-Section .container .search input:focus {
-    width: 80%;
+.Library .head-Section .container .btn-search:focus ~ .input-search {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+.Library .head-Section .container .input-search:focus {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+@media (max-width: 772px) {
+  .Library .head-Section .container h3 {
+    font-size: 28px;
   }
 }
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Library Content
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/

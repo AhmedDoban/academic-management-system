@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "./../components/Footer";
+import Footer from "../../components/Footer";
 import { NavLink, Routes, Route } from "react-router-dom";
-import NotFounded from "./../components/NotFounded";
+import NotFounded from "../../components/NotFounded";
 import StudentProfile from "./StudentProfile";
 import StudentPasswordpage from "./StudentPasswordpage";
 import StudentPasswordOther from "./StudentPasswordOther";
@@ -12,7 +12,7 @@ function StudentSettingPage(props) {
       <div className="StudentSettingPage">
         <div className="container">
           <div className="img-name-settingpage">
-            <img src={require("../../img/avatars/1.jpeg")} alt="slide 1 " />
+            <img src={require("../../../img/avatars/1.jpeg")} alt="slide 1 " />
             <h1>Omnia El-barbary</h1>
           </div>
           <ul className="setting-name">

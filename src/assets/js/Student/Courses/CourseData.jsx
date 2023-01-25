@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Footer from "../components/Footer";
+import Footer from "../../components/Footer";
 
 function CourseData(props) {
-  // const params = useParams();
-  // const [item, setItems] = useState([]);
-  // const Api_url = "http://localhost:3000/CourcesDB";
-  // useEffect(() => {
-  //   axios.get(`${Api_url}/${params.id}`).then((response) => {
-  //     setItems(response.data);
-  //   });
-  // }, []);
   return (
     <React.Fragment>
       <div className="specific-course">
@@ -27,7 +19,6 @@ function CourseData(props) {
             </a>
           </div>
         </div>
-        <div className="spikes-rotated "></div>
         <div className="video">
           <div className="dots-img dots-top"></div>
           <div className="dots-img dots-bottom"></div>{" "}
@@ -81,7 +72,7 @@ function CourseData(props) {
               <div className="right">
                 <video className="Frame" controls>
                   <source
-                    src={require("../../img/Courses/test_vedio.mp4")}
+                    src={require("../../../img/Courses/test_vedio.mp4")}
                     type="video/mp4"
                   />
                 </video>

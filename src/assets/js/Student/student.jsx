@@ -3,16 +3,16 @@ import SideBar from "../components/SideBar";
 import Head from "../Header/Head";
 import { Route, Routes, Navigate } from "react-router-dom";
 
-const StudentHomePage = lazy(() => import("./StudentHomePage"));
-const StudentSettingPage = lazy(() => import("./StudentSettingPage"));
-const NotFounded = lazy(() => import("./../components/NotFounded"));
-const StudentCourses = lazy(() => import("./StudentCourses"));
+const StudentSettingPage = lazy(() => import("./Setting/StudentSettingPage"));
+const StudentCourses = lazy(() => import("./Courses/StudentCourses"));
 const StudentProjectsPage = lazy(() => import("./StudentProjectsPage"));
 const StudentFriends = lazy(() => import("./StudentFriends"));
 const StudentFilesPage = lazy(() => import("./StudentFilesPage"));
 const StudentTablePage = lazy(() => import("./StudentTablePage"));
 const Library = lazy(() => import("./../library/library"));
-const CourseData = lazy(() => import("./CourseData"));
+const CourseData = lazy(() => import("./Courses/CourseData"));
+const StudentHomePage = lazy(() => import("./Home/StudentHomePage"));
+const NotFounded = lazy(() => import("./../components/NotFounded"));
 
 const Student = (props) => {
   useEffect(() => {
@@ -22,7 +22,6 @@ const Student = (props) => {
   return (
     <React.Fragment>
       <div className="page p-relative">
-        {/* <i class="fas fa-arrow-up back-to-top"></i> */}
         <SideBar />
         <div className="content">
           <Head />

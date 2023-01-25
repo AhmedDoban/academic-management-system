@@ -65,23 +65,22 @@ function Library(props) {
       <div className="Library">
         <div className="head-Section">
           <div className="container">
-            <div className="right">
-              <p>Welcome to the world in it you will build your brain </p>
-              <div className="search">
-                <input
-                  type="search"
-                  placeholder="what are you looking for ? "
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  onKeyPress={searchBox}
-                />
-                <button onClick={searchButton}>
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-              </div>
-            </div>
-            <div className="left">
-              <img src={require("../../img/landing.png")} alt="" />
+            <h3>
+              Room Without <span>Books </span> Like Soul Without Body
+            </h3>
+            <h5>Welcome to the world in it you will build your brain </h5>
+            <div className="search-box">
+              <button onClick={searchButton} className="btn-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+              <input
+                type="search"
+                placeholder="what are you looking for ? "
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                onKeyPress={searchBox}
+                className="input-search"
+              />
             </div>
           </div>
         </div>
@@ -90,8 +89,8 @@ function Library(props) {
           <h1 className="main-titel">
             <div className="div-circle"></div>
             <div className="div-circle"></div>
-            <span> Library Books</span>{" "}
-          </h1>{" "}
+            <span> Library Books</span>
+          </h1>
           <div className="dots-img dots-top"></div>
           <div className="dots-img dots-bottom"></div>
           <div

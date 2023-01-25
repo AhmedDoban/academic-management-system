@@ -2,10 +2,10 @@ import React from "react";
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
-import Footer from "./../components/Footer";
+import Footer from "../../components/Footer";
 import Courses from "./Courses";
 import TopInstructor from "./TopInstructor";
-import RanDomQuote from "./RanDomQuote";
+import RanDomQuote from "../RanDomQuote";
 
 function StudentCourses(props) {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
@@ -21,7 +21,7 @@ function StudentCourses(props) {
         {/******************** Card1 ********************************/}
         <div>
           <div className="img-back">
-            <img src={require("../../img/Courses/html.png")} alt="" />
+            <img src={require("../../../img/Courses/html.png")} alt="" />
           </div>
           <div
             className="center-flex p-relative  col-flex p-30 z-999"
@@ -49,7 +49,7 @@ function StudentCourses(props) {
         {/******************** Card2 ********************************/}
         <div>
           <div className="img-back">
-            <img src={require("../../img/Courses/css.png")} alt="" />
+            <img src={require("../../../img/Courses/css.png")} alt="" />
           </div>
           <div
             className="center-flex p-relative  col-flex p-30 z-999"
@@ -83,7 +83,7 @@ function StudentCourses(props) {
         {/******************** Card3 ********************************/}
         <div>
           <div className="img-back">
-            <img src={require("../../img/Courses/php.png")} alt="" />
+            <img src={require("../../../img/Courses/php.png")} alt="" />
           </div>
           <div
             className="center-flex p-relative  col-flex p-30 z-999"

@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import { CourcesDB } from "../../../dummyData";
+import { CourcesDB } from "../../../../dummyData";
 import { Link } from "react-router-dom";
 
 function Courses() {
-  const [visible, setVisible] = useState(4);
+  const [visible, setVisible] = useState(8);
   const showMore = () => setVisible((p) => p + 3);
   /**************** to change style from grid to list ***********************/
   const [show, setShow] = useState("grid");
@@ -34,7 +34,7 @@ function Courses() {
           </div>
           <div className="info">
             <img
-              src={p.teacher ? p.teacher : require("../../img/user.png")}
+              src={p.teacher ? p.teacher : require("../../../img/user.png")}
               alt=""
             />
             <div className="footer-container-cousres width-full">
@@ -63,10 +63,10 @@ function Courses() {
       <React.Fragment>
         <div className="card">
           <div className="card-overlay">
-            <img src={require("../../img/Courses/html.png")} alt="" />
+            <img src={require("../../../img/Courses/html.png")} alt="" />
           </div>
           <div className="info">
-            <img src={require("../../img/avatars/1.jpeg")} alt="" />
+            <img src={require("../../../img/avatars/1.jpeg")} alt="" />
             <div className="footer-container-cousres width-full">
               <h5>{input}</h5>
               <div className="box-footer between-flex width-full">

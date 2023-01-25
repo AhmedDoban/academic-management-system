@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Stuff(props) {
+function CourseCategories(props) {
   return (
     <React.Fragment>
       <div
@@ -26,7 +26,10 @@ function Stuff(props) {
             data-aos-duration="1000"
           >
             <div className="img-container">
-              <img src={require("../../img/Courses/all-courses.jpg")} alt="" />
+              <img
+                src={require("../../../img/Courses/all-courses.jpg")}
+                alt=""
+              />
             </div>
             <div className="number-courses">
               <p>10 Course</p>
@@ -43,7 +46,7 @@ function Stuff(props) {
           >
             <div className="img-container">
               <img
-                src={require("../../img/Courses/Business-Courses.jpg")}
+                src={require("../../../img/Courses/Business-Courses.jpg")}
                 alt=""
               />
             </div>
@@ -62,7 +65,7 @@ function Stuff(props) {
           >
             <div className="img-container">
               <img
-                src={require("../../img/Courses/Graphics-Courses.png")}
+                src={require("../../../img/Courses/Graphics-Courses.png")}
                 alt=""
               />
             </div>
@@ -80,7 +83,10 @@ function Stuff(props) {
             data-aos-duration="1000"
           >
             <div className="img-container">
-              <img src={require("../../img/Courses/web-Courses.png")} alt="" />
+              <img
+                src={require("../../../img/Courses/web-Courses.png")}
+                alt=""
+              />
             </div>
             <div className="number-courses">
               <p>7 Course</p>
@@ -96,4 +102,4 @@ function Stuff(props) {
     </React.Fragment>
   );
 }
-export default Stuff;
+export default CourseCategories;

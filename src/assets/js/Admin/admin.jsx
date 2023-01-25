@@ -1,6 +1,6 @@
 import React from "react";
 
-function Parent(props) {
+function Admin(props) {
   return (
     <React.Fragment>
       <div className="Admin">
@@ -12,4 +12,4 @@ function Parent(props) {
   );
 }
 
-export default Parent;
+export default Admin;

@@ -57,7 +57,7 @@ function WhatOffer(props) {
               data-aos-easing="ease-in-out"
               data-aos-duration="1000"
             >
-              <img src={require("../../img/wtOFFER/wt1.png")} alt="offer" />
+              <img src={require("../../../img/wtOFFER/wt1.png")} alt="offer" />
             </div>
           </div>
           {/******************** End ********************************/}
@@ -69,7 +69,7 @@ function WhatOffer(props) {
               data-aos-easing="ease-in-out"
               data-aos-duration="1000"
             >
-              <img src={require("../../img/wtOFFER/wt3.png")} alt="offer" />
+              <img src={require("../../../img/wtOFFER/wt3.png")} alt="offer" />
             </div>
             <div
               className="left"
@@ -119,7 +119,7 @@ function WhatOffer(props) {
               data-aos-easing="ease-in-out"
               data-aos-duration="1000"
             >
-              <img src={require("../../img/wtOFFER/wt2.png")} alt="offer" />
+              <img src={require("../../../img/wtOFFER/wt2.png")} alt="offer" />
             </div>
           </div>
           {/******************** End ********************************/}
