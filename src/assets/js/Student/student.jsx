@@ -12,6 +12,7 @@ const StudentFriends = lazy(() => import("./StudentFriends"));
 const StudentFilesPage = lazy(() => import("./StudentFilesPage"));
 const StudentTablePage = lazy(() => import("./StudentTablePage"));
 const Library = lazy(() => import("./../library/library"));
+const CourseData = lazy(() => import("./CourseData"));
 
 const Student = (props) => {
   useEffect(() => {
@@ -49,6 +50,7 @@ const Student = (props) => {
                   </Route>
                   <Route path="/projects" element={<StudentProjectsPage />} />
                   <Route path="/courses" element={<StudentCourses />} />
+                  <Route path="/courses/:id" element={<CourseData />} />
                   <Route path="/Friends" element={<StudentFriends />} />
                   <Route path="/Files" element={<StudentFilesPage />} />
                   <Route path="/table" element={<StudentTablePage />} />

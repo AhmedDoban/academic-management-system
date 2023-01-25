@@ -78,5 +78,42 @@
     "id": 1,
     "pa_password": "pa-0000",
     "stu_password": "stu-0000"
-  }
+  },
+  "CourcesDB": [
+    {
+      "id": 1,
+      "CourcesName": "HTML",
+      "photo": "https://blog.hubspot.com/hubfs/bold-italicize-text-in-html.png",
+      "teacher": "./assets/img/avatars/1.jpeg",
+      "CourcesTeacher": "ALi Esmaiel"
+    },
+    {
+      "id": 2,
+      "CourcesName": "CSS",
+      "photo": "./assets/img/Courses/css.png",
+      "teacher": "./assets/img/avatars/2.jpeg",
+      "CourcesTeacher": "ALi Esmaiel"
+    },
+    {
+      "id": 3,
+      "CourcesName": "PHP",
+      "photo": "./assets/img/Courses/php.png",
+      "teacher": "./assets/img/avatars/3.jpeg",
+      "CourcesTeacher": "ALi Esmaiel"
+    },
+    {
+      "id": 4,
+      "CourcesName": "my PHP",
+      "photo": "./assets/img/Courses/php.png",
+      "teacher": "./assets/img/avatars/4.jpeg",
+      "CourcesTeacher": "ALi Esmaiel"
+    },
+    {
+      "id": 5,
+      "CourcesName": "laravel",
+      "photo": "./assets/img/Courses/html.png",
+      "teacher": "./assets/img/avatars/5.jpeg",
+      "CourcesTeacher": "ALi Esmaiel"
+    }
+  ]
 }

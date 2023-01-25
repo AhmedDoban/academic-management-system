@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { CourcesDB } from "../../../dummyData";
+import { Link } from "react-router-dom";
 
 function Courses() {
   const [visible, setVisible] = useState(4);
@@ -43,7 +44,9 @@ function Courses() {
                   <span>DR : </span>
                   {p.CourcesTeacher}
                 </p>
-                <i class="fa-solid fa-arrow-right rd-half color-white"></i>
+                <Link to={`/courses/${p.id}`}>
+                  <i class="fa-solid fa-arrow-right rd-half color-white"></i>
+                </Link>
               </div>
             </div>
           </div>
@@ -105,7 +108,7 @@ function Courses() {
         <div className="dots-img dots-bottom"></div>
 
         <div className="container">
-          {/**************************Start input and soe options ****************************/}
+          {/************************** Start input and some options ****************************/}
           <div className="header between-flex">
             <div className="input-absulote">
               <input
