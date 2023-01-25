@@ -35,17 +35,6 @@ function Library(props) {
   };
   oneCall();
 
-  const searchButton = (e) => {
-    if (search) {
-      getData(search);
-      setSearch("");
-    } else {
-      toast.error("You must Enter Book Name", {
-        autoClose: 15000,
-        theme: "colored",
-      });
-    }
-  };
   const searchBox = (e) => {
     if (e.key === "Enter") {
       if (search) {
@@ -70,7 +59,7 @@ function Library(props) {
             </h3>
             <h5>Welcome to the world in it you will build your brain </h5>
             <div className="search-box">
-              <button onClick={searchButton} className="btn-search">
+              <button className="btn-search">
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
               <input
