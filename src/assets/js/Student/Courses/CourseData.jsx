@@ -2,24 +2,23 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Footer from "../../components/Footer";
+import CourseDataHeader from "./CourseDataHeader";
 
 function CourseData(props) {
   return (
     <React.Fragment>
       <div className="specific-course">
-        <div className="course-data-header">
-          <div class="container">
-            <h3>WELCOME TO Course</h3>
-            <h5>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores,
-              quis.
-            </h5>
-            <a href="#course" class="btn-get-started">
-              <i class="fa-solid fa-play"></i>
-            </a>
-          </div>
-        </div>
-        <div className="video">
+        {/************************************* start Course Data Header ***************************************/}
+        <CourseDataHeader
+          h3="WELCOME TO Course"
+          h5="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores,
+            quis."
+          a="#video"
+        />
+        {/************************************* End Course Data Header ***************************************/}
+
+        {/************************************* Start Video ***************************************/}
+        <div className="video" id="video">
           <div className="dots-img dots-top"></div>
           <div className="dots-img dots-bottom"></div>{" "}
           <div className="container" id="course">
@@ -81,8 +80,10 @@ function CourseData(props) {
             </div>
           </div>
         </div>
+        {/************************************* End Video ***************************************/}
         <div className="spikes "></div>
 
+        {/************************************* Start discription ***************************************/}
         <div className="discription">
           <div
             className="container"
@@ -133,6 +134,7 @@ function CourseData(props) {
             </ul>
           </div>
         </div>
+        {/************************************* End discription ***************************************/}
       </div>
 
       <Footer />

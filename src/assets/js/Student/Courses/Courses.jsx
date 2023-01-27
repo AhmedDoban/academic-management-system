@@ -98,6 +98,7 @@ function Courses() {
         data-aos="fade-down"
         data-aos-easing="ease-in-out"
         data-aos-duration="1000"
+        id="student-courses-container"
       >
         <h1 className="main-titel">
           <div className="div-circle"></div>

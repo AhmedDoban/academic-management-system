@@ -1286,11 +1286,7 @@ remove this comment if you want it to be sticy
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # course data header
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.specific-course {
-  position: relative;
-  width: 100%;
-}
-.specific-course .course-data-header {
+.course-data-header {
   position: relative;
   background-image: url("../img/Courses/course-data-header.jpg");
   width: 100% !important;
@@ -1300,14 +1296,14 @@ remove this comment if you want it to be sticy
   background-size: cover;
   background-position: center center;
 }
-.specific-course .course-data-header::before {
+.course-data-header::before {
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
 }
-.specific-course .course-data-header .container {
+.course-data-header .container {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1318,19 +1314,19 @@ remove this comment if you want it to be sticy
   height: 100%;
   text-align: center;
 }
-.specific-course .course-data-header .container h3 {
+.course-data-header .container h3 {
   font-size: 50px;
   color: #fff;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-.specific-course .course-data-header .container h5 {
+.course-data-header .container h5 {
   letter-spacing: 3px;
   color: #eee;
   font-size: 18px;
 }
-.specific-course .course-data-header .container a {
+.course-data-header .container a {
   width: 60px;
   height: 60px;
   border: var(--main-border);
@@ -1344,17 +1340,21 @@ remove this comment if you want it to be sticy
   justify-content: center;
   align-items: center;
 }
-.specific-course .course-data-header .container a:hover {
+.course-data-header .container a:hover {
   background-color: var(--main-color);
 }
 @media (max-width: 772px) {
-  .specific-course .course-data-header .container h3 {
+  .course-data-header .container h3 {
     font-size: 35px;
   }
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # course data video
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.specific-course {
+  position: relative;
+  width: 100%;
+}
 .specific-course .video {
   position: relative;
   padding-top: var(--main-padding-top);
@@ -1560,7 +1560,7 @@ remove this comment if you want it to be sticy
 .top_instructor .container .card {
   position: relative;
   width: 100%;
-  height: 300px;
+  padding: 40px 0 20px 0;
   border-radius: var(--main-border-radius);
   display: flex;
   justify-content: center;
@@ -1599,6 +1599,24 @@ remove this comment if you want it to be sticy
 .top_instructor .container .stars i {
   color: var(--orange-color);
   margin: 20px auto;
+}
+.top_instructor .container .card .social a i {
+  color: #fff;
+  font-size: 18px;
+  transition: var(--main-transition);
+  margin-top: 10px;
+  width: 35px;
+  height: 35px;
+  background-color: rgba(136, 136, 136, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.top_instructor .container .card .social a i:hover {
+  color: var(--main-color);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # RounDom Quote

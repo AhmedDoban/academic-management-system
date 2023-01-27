@@ -1,16 +1,22 @@
 import React from "react";
-import AwesomeSlider from "react-awesome-slider";
-import "react-awesome-slider/dist/styles.css";
-import withAutoplay from "react-awesome-slider/dist/autoplay";
 import Footer from "../../components/Footer";
 import Courses from "./Courses";
 import TopInstructor from "./TopInstructor";
 import RanDomQuote from "../RanDomQuote";
+import CourseDataHeader from "./CourseDataHeader";
 
 function StudentCourses(props) {
-  const AutoplaySlider = withAutoplay(AwesomeSlider);
   return (
     <React.Fragment>
+      {/************************************* start Course Data Header ***************************************/}
+      <CourseDataHeader
+        h3="WELCOME TO Course"
+        h5="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores,
+            quis."
+        a="#student-courses-container"
+      />
+      {/************************************* End Course Data Header ***************************************/}
+
       {/************************************* start Cources ***************************************/}
       <Courses />
       {/************************************* END Cources *****************************************/}
