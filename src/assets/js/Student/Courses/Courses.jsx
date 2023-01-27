@@ -93,22 +93,26 @@ function Courses() {
 
   return (
     <React.Fragment>
-      <div
-        className="student-courses-container"
-        data-aos="fade-down"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="1000"
-        id="student-courses-container"
-      >
-        <h1 className="main-titel">
+      <div className="student-courses-container" id="student-courses-container">
+        <h1
+          className="main-titel"
+          data-aos="fade-down"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+        >
           <div className="div-circle"></div>
           <div className="div-circle"></div>
-          <span> Student Courses</span>{" "}
+          <span> Student Courses</span>
         </h1>
         <div className="dots-img dots-top"></div>
         <div className="dots-img dots-bottom"></div>
 
-        <div className="container">
+        <div
+          className="container"
+          data-aos="fade-down"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+        >
           {/************************** Start input and some options ****************************/}
           <div className="header between-flex">
             <div className="input-absulote">
