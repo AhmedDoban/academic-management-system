@@ -1701,6 +1701,7 @@ remove this comment if you want it to be sticy
   position: relative;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
+
 }
 .footer::before {
   position: absolute;
@@ -1725,7 +1726,7 @@ remove this comment if you want it to be sticy
 }
 .footer .contact h1 + p {
   margin-bottom: 10px;
-  color: #302e2e;
+  color: #eee;
   font-weight: bold;
   font-size: 15px;
   letter-spacing: 1px;
