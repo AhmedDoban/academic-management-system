@@ -55,7 +55,8 @@ function Library(props) {
         <div className="head-Section">
           <div className="container">
             <h3>
-              Room Without <span>Books </span> Like Soul Without Body
+              Room Without <span>Books </span> Like Body Without
+              <span> Soul </span>
             </h3>
             <h5>Welcome to the world in it you will build your brain </h5>
             <div className="search-box">

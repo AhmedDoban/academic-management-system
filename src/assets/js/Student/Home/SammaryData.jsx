@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 function SammaryData(props) {
   return (
     <React.Fragment>
-      <div
-        className="sammaryData"
-        data-aos="fade-up"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="1000"
-      >
-        <div className="container">
+      <div className="sammaryData">
+        <div
+          className="container"
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+        >
           {/******************** Header info ********************************/}
           <div className="header-data">
             <h1>

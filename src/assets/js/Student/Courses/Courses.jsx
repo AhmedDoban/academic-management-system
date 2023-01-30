@@ -66,7 +66,7 @@ function Courses() {
             <img src={require("../../../img/Courses/html.png")} alt="" />
           </div>
           <div className="info">
-            <img src={require("../../../img/avatars/1.jpeg")} alt="" />
+            <img src={require("../../../img/avatars/team-1.jpg")} alt="" />
             <div className="footer-container-cousres width-full">
               <h5>{input}</h5>
               <div className="box-footer between-flex width-full">

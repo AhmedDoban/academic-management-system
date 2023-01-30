@@ -1096,6 +1096,7 @@ remove this comment if you want it to be sticy
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 10px;
+  z-index: 2;
 }
 @media (max-width: 776px) {
   .student-courses-container .container-courses.grid {
@@ -1299,25 +1300,16 @@ remove this comment if you want it to be sticy
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .course-data-header {
   position: relative;
-  background-image: url("../img/Courses/course-data-header.jpg");
-  width: 100% !important;
-  height: calc(100vh - 62px);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center center;
-}
-.course-data-header::before {
-  content: "";
-  position: absolute;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  height: calc(100vh - 62px);
+  overflow: hidden;
+  background-color: #faf5ec;
 }
+
 .course-data-header .container {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   gap: 10px;
   justify-content: center;
   align-items: center;
@@ -1325,36 +1317,99 @@ remove this comment if you want it to be sticy
   height: 100%;
   text-align: center;
 }
+.course-data-header .container .blob {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  transition: var(--main-transition);
+}
+.course-data-header .container .blob .img-container {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  z-index: 3;
+  background-color: var(--dark-blue);
+  border-radius: 50%;
+  transition: var(--main-transition);
+}
+.course-data-header .container .blob img {
+  width: 400px;
+}
+.course-data-header .container .blob .circle {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  background-color: var(--main-color);
+  width: 250px;
+  height: 250px;
+  z-index: 1;
+  transition: var(--main-transition);
+}
+.course-data-header .container .blob .circle:nth-child(1) {
+  bottom: -25px;
+  left: -35px;
+  border-bottom-left-radius: 15px;
+}
+.course-data-header .container .blob .circle:nth-child(2) {
+  bottom: -25px;
+  right: -35px;
+  border-bottom-right-radius: 0;
+  background-color: var(--main-color);
+}
 .course-data-header .container h3 {
   font-size: 50px;
-  color: #fff;
+  color: var(--main-color);
   font-weight: bold;
   text-transform: uppercase;
+  margin-bottom: 15px;
 }
 
 .course-data-header .container h5 {
   letter-spacing: 3px;
-  color: #eee;
+  color: #000;
   font-size: 18px;
 }
 .course-data-header .container a {
-  width: 60px;
+  width: 150px;
   height: 60px;
-  border: var(--main-border);
+  background-color: var(--main-color);
   color: #fff;
-  border-radius: 50%;
   font-size: 18px;
   font-weight: bold;
-  margin-top: 35px;
   transition: var(--main-transition);
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 35px auto;
+  border-radius: 28px;
+  border-bottom-left-radius: 0;
 }
 .course-data-header .container a:hover {
   background-color: var(--main-color);
 }
-@media (max-width: 772px) {
+@media (max-width: 992px) {
+  .course-data-header .container {
+    flex-direction: column-reverse;
+  }
+  .course-data-header .container .blob {
+    width: 350px;
+    height: 350px;
+  }
+  .course-data-header .container .blob .img-container {
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .course-data-header .container .blob .img-container img {
+    width: 320px;
+    transform: translateY(50px);
+  }
+  .course-data-header .container .blob .circle {
+    width: 200px;
+    height: 200px;
+    display: none;
+  }
   .course-data-header .container h3 {
     font-size: 35px;
   }
@@ -1460,9 +1515,9 @@ remove this comment if you want it to be sticy
 }
 .specific-course .discription .container .details-head {
   position: relative;
-  font-size: 35px;
+  font-size: 50px;
   font-weight: bold;
-  color: var(--red-color);
+  color: var(--main-color);
 }
 .specific-course .discription .container .details-head::before {
   position: absolute;
@@ -1651,36 +1706,33 @@ remove this comment if you want it to be sticy
 }
 .RounDomQuote .container > h1 {
   position: relative;
-  color: var(--main-page-color);
+  color: var(--main-color);
   display: block;
   margin: 10px auto;
   text-align: center;
   z-index: 3;
   width: fit-content;
 }
-
-.RounDomQuote .container {
-  position: relative;
-}
-.RounDomQuote .container::before,
-.RounDomQuote .container::after {
+.RounDomQuote::before,
+.RounDomQuote::after {
   position: absolute;
   content: "";
   background-color: var(--orange-color);
-  width: 250px;
+  width: 25%;
   height: 250%;
   border-radius: var(--main-border-radius);
-  transform: rotate(45deg) translateY(-150px);
+  transform: skew(-45deg);
   transition: var(--main-transition);
 }
-.RounDomQuote .container::before {
-  top: 0;
-  right: -120px;
+.RounDomQuote::before {
+  bottom: 0;
+  right: 0;
+  transform-origin: bottom right;
 }
-.RounDomQuote .container::after {
-  top: -100%;
-  left: -250px;
-  transform: rotate(45deg);
+.RounDomQuote::after {
+  top: 0;
+  left: 0;
+  transform-origin: top left;
 }
 .quote_container {
   position: relative;
@@ -1695,7 +1747,7 @@ remove this comment if you want it to be sticy
   position: relative;
   text-align: center;
   font-size: 25px;
-  color: rgb(0, 0, 0);
+  color: #000;
   width: 100%;
 }
 .RounDomQuote .quote_container h1::before,

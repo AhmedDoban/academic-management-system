@@ -12,7 +12,10 @@ function StudentSettingPage(props) {
       <div className="StudentSettingPage">
         <div className="container">
           <div className="img-name-settingpage">
-            <img src={require("../../../img/avatars/1.jpeg")} alt="slide 1 " />
+            <img
+              src={require("../../../img/avatars/team-2.jpg")}
+              alt="slide 1 "
+            />
             <h1>Omnia El-barbary</h1>
           </div>
           <ul className="setting-name">

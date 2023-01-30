@@ -137,7 +137,6 @@ function CourseData(props) {
         {/************************************* End discription ***************************************/}
       </div>
 
-      <Footer />
     </React.Fragment>
   );
 }
