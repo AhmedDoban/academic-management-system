@@ -75,8 +75,8 @@ function Footer(props) {
                 src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=fucalty of computer and information tanta&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                 width="100%"
                 height="200"
-                frameborder="0"
-                allowfullscreen
+                frameBorder="0"
+                allowFullScreen
               ></iframe>
             </div>
           </div>

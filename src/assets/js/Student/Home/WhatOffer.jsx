@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 function WhatOffer(props) {
@@ -110,7 +110,7 @@ function WhatOffer(props) {
                 continue doing so in the future.
               </p>
               <Link to="">
-                Try Now <i class="fa-solid fa-rocket"></i>
+                Try Now <i className="fa-solid fa-rocket"></i>
               </Link>
             </div>
             <div

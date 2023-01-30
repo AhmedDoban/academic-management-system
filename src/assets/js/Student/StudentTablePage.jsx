@@ -149,10 +149,10 @@ function StudentTablePage(props) {
         <h1>Student table</h1>
         <div className="control">
           <button onClick={handlePrint}>
-            <i class="fa-solid fa-print"></i>
+            <i className="fa-solid fa-print"></i>
           </button>
           <button onClick={onDownload}>
-            <i class="fa-solid fa-cloud-arrow-down"></i>
+            <i className="fa-solid fa-cloud-arrow-down"></i>
           </button>
         </div>
       </div>

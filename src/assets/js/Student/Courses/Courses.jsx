@@ -28,7 +28,7 @@ function Courses() {
   const [slides, setSlides] = useState(
     CourcesDB.map((p) => (
       <React.Fragment>
-        <div className="card">
+        <div className="card" key={p.id}>
           <div className="card-overlay">
             <img src={p.photo} alt={p.CourcesName} />
           </div>
@@ -45,7 +45,7 @@ function Courses() {
                   {p.CourcesTeacher}
                 </p>
                 <Link to={`/courses/${p.id}`}>
-                  <i class="fa-solid fa-arrow-right rd-half color-white"></i>
+                  <i className="fa-solid fa-arrow-right rd-half color-white"></i>
                 </Link>
               </div>
             </div>
@@ -73,7 +73,7 @@ function Courses() {
                 <p>
                   <span>DR : </span> AHMED
                 </p>
-                <i class="fa-solid fa-arrow-right rd-half color-white"></i>
+                <i className="fa-solid fa-arrow-right rd-half color-white"></i>
               </div>
             </div>
           </div>
@@ -124,7 +124,7 @@ function Courses() {
                 onChange={(e) => setInput(e.target.value)}
               />
               <i
-                class="fa-solid fa-plus"
+                className="fa-solid fa-plus"
                 onClick={
                   input
                     ? () => append()
@@ -138,12 +138,12 @@ function Courses() {
             </div>
 
             <i
-              class="fa-solid fa-border-all style active"
+              className="fa-solid fa-border-all style active"
               onClick={style}
               data-style="grid"
             ></i>
             <i
-              class="fa-solid fa-grip-lines style"
+              className="fa-solid fa-grip-lines style"
               onClick={style}
               data-style="list"
             ></i>

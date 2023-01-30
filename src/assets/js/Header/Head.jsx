@@ -15,10 +15,6 @@ function Head(props) {
           />
         </span>
       </h3>
-
-      {/* <div className="search">
-        <input type="search" placeholder="Type something here ! " /> 
-      </div> */}
       <div className="icons">
         <span className="notification p-relative">
           <i className="fa-regular fa-bell fa-lg"></i>

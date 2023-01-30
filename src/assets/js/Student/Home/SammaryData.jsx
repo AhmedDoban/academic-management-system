@@ -18,7 +18,7 @@ function SammaryData(props) {
               Improve With Us
             </h1>
             <Link to="">
-              Start Now <i class="fa-solid fa-rocket"></i>{" "}
+              Start Now <i className="fa-solid fa-rocket"></i>{" "}
             </Link>
           </div>
           {/******************** Footer Data ********************************/}
@@ -30,11 +30,11 @@ function SammaryData(props) {
               data-aos-easing="ease-in-out"
               data-aos-duration="1000"
             >
-              <i class="fa-solid fa-book"></i>
+              <i className="fa-solid fa-book"></i>
               <div className="data-box">
                 <p>Library with 50,000+ Books</p>
                 <Link to="/library">
-                  read More <i class="fa-solid fa-arrow-right"></i>
+                  read More <i className="fa-solid fa-arrow-right"></i>
                 </Link>
               </div>
             </div>
@@ -45,11 +45,11 @@ function SammaryData(props) {
               data-aos-easing="ease-in-out"
               data-aos-duration="1000"
             >
-              <i class="fa-solid fa-graduation-cap"></i>
+              <i className="fa-solid fa-graduation-cap"></i>
               <div className="data-box">
                 <p>70,000+ Graduates</p>
                 <Link to="">
-                  read More <i class="fa-solid fa-arrow-right"></i>
+                  read More <i className="fa-solid fa-arrow-right"></i>
                 </Link>
               </div>
             </div>
@@ -60,11 +60,11 @@ function SammaryData(props) {
               data-aos-easing="ease-in-out"
               data-aos-duration="1000"
             >
-              <i class="fa-sharp fa-solid fa-desktop"></i>
+              <i className="fa-sharp fa-solid fa-desktop"></i>
               <div className="data-box">
                 <p>Latest Computer Studies</p>
                 <Link href="">
-                  read More <i class="fa-solid fa-arrow-right"></i>
+                  read More <i className="fa-solid fa-arrow-right"></i>
                 </Link>
               </div>
             </div>

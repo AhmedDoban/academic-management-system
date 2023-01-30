@@ -75,7 +75,7 @@ function CourseData(props) {
                     type="video/mp4"
                   />
                 </video>
-                <div class="info">Everything About The </div>
+                <div className="info">Everything About The </div>
               </div>
             </div>
           </div>

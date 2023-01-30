@@ -15,14 +15,14 @@ function BookCard(props) {
           return (
             <>
               <div
-                class="book"
+                className="book"
                 onClick={() => {
                   setShow(true);
                   setItem(p);
                 }}
               >
-                <div class="front">
-                  <div class="cover">
+                <div className="front">
+                  <div className="cover">
                     <img
                       src={
                         p.volumeInfo.imageLinks &&
@@ -32,7 +32,7 @@ function BookCard(props) {
                     />
                   </div>
                 </div>
-                <div class="left-side">
+                <div className="left-side">
                   <h2>
                     <span>{p.volumeInfo.title}</span>
                   </h2>

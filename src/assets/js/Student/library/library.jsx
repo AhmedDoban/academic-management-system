@@ -68,7 +68,7 @@ function Library(props) {
             <h5>Welcome to the world in it you will build your brain </h5>
             <div className="search-box">
               <button className="btn-search" onClick={searchButton}>
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <i className="fa-solid fa-magnifying-glass"></i>
               </button>
               <input
                 type="search"

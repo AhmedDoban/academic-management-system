@@ -30,9 +30,9 @@ const Student = (props) => {
             <div className="postContainer width-full">
               <Suspense
                 fallback={
-                  <div class="pre-loader">
+                  <div className="pre-loader">
                     <img src={require("../../img/book.png")} alt="" />
-                    <div class="dots-loader">
+                    <div className="dots-loader">
                       <div></div>
                       <div></div>
                       <div></div>

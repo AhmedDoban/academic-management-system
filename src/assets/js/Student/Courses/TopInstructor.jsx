@@ -29,7 +29,7 @@ function Top_Instructor(props) {
           {Users.filter((p) => p.rate >= 4)
             .slice(0, 4)
             .map((p) => (
-              <div className="card">
+              <div className="card" key={p.id}>
                 <div className="card-img">
                   <img src={p.profilePicture} alt="" />
                 </div>
@@ -37,19 +37,19 @@ function Top_Instructor(props) {
                   <p>
                     {p.rate >= 5 ? (
                       <div>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                        <i className="fa-solid fa-star"></i>
+                        <i className="fa-solid fa-star"></i>
+                        <i className="fa-solid fa-star"></i>
+                        <i className="fa-solid fa-star"></i>
+                        <i className="fa-solid fa-star"></i>
                       </div>
                     ) : (
                       <div>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
+                        <i className="fa-solid fa-star"></i>
+                        <i className="fa-solid fa-star"></i>
+                        <i className="fa-solid fa-star"></i>
+                        <i className="fa-solid fa-star"></i>
+                        <i className="fa-regular fa-star"></i>
                       </div>
                     )}
                   </p>

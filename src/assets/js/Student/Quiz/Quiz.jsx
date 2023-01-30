@@ -42,7 +42,7 @@ const Quiz = (props) => {
             </div>
             <div className="quiz-options">
               {Questions[currentQuestion].answerQuestion.map((p) => (
-                <div className="option">
+                <div className="option" key={p.id}>
                   <input type="radio" name="Ahmed" id={p.id} />
                   <label htmlFor={p.id} onClick={() => seTrue(p.isTrue)}>
                     {p.answerText}
