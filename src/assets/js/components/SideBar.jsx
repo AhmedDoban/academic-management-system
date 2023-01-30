@@ -75,6 +75,12 @@ const SideBar = (props) => {
             </NavLink>
           </li>
           <li>
+            <NavLink to="quiz" onClick={open}>
+            <i class="fa-solid fa-feather"></i>
+              <span>Quiz</span>
+            </NavLink>
+          </li>
+          <li>
             <Link onClick={logoutUser} to="/">
               <i className="fa-solid fa-right-from-bracket"></i>
               <span>log-out </span>

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-import Parent from "../parent/parent";
 import Student from "./../Student/student";
 import AuthUser from "./AuthUser";
 
 import NotFounded from "./../components/NotFounded";
 import Admin from "./../Admin/admin";
+import Teacher from "../Teacher/teacher";
 
 function Auth() {
   const { http } = AuthUser();
@@ -21,14 +21,14 @@ function Auth() {
   };
 
   const student_reg = /^[\w-\.]+@student+\.+com/gi;
-  const parent_reg = /^[\w-\.]+@parent+\.+com/gi;
+  const Teacher_reg = /^[\w-\.]+@teacher+\.+com/gi;
   const admin_reg = /^[\w-\.]+@admin+\.+com/gi;
 
   if (userDetails.email.match(student_reg)) {
     return <Student />;
   } else {
-    if (userDetails.email.match(parent_reg)) {
-      return <Parent />;
+    if (userDetails.email.match(Teacher_reg)) {
+      return <Teacher />;
     } else {
       if (userDetails.email.match(admin_reg)) {
         return <Admin />;

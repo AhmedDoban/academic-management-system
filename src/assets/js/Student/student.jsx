@@ -2,6 +2,7 @@ import React, { useEffect, lazy, Suspense } from "react";
 import SideBar from "../components/SideBar";
 import Head from "../Header/Head";
 import { Route, Routes, Navigate } from "react-router-dom";
+import Quiz from "./Quiz/Quiz";
 
 const StudentSettingPage = lazy(() => import("./Setting/StudentSettingPage"));
 const StudentCourses = lazy(() => import("./Courses/StudentCourses"));
@@ -9,7 +10,7 @@ const StudentProjectsPage = lazy(() => import("./StudentProjectsPage"));
 const StudentFriends = lazy(() => import("./StudentFriends"));
 const StudentFilesPage = lazy(() => import("./StudentFilesPage"));
 const StudentTablePage = lazy(() => import("./StudentTablePage"));
-const Library = lazy(() => import("./../library/library"));
+const Library = lazy(() => import("./library/library"));
 const CourseData = lazy(() => import("./Courses/CourseData"));
 const StudentHomePage = lazy(() => import("./Home/StudentHomePage"));
 const NotFounded = lazy(() => import("./../components/NotFounded"));
@@ -55,6 +56,7 @@ const Student = (props) => {
                   <Route path="/Files" element={<StudentFilesPage />} />
                   <Route path="/table" element={<StudentTablePage />} />
                   <Route path="/library" element={<Library />} />
+                  <Route path="/quiz" element={<Quiz />} />
                   <Route exact path="/" element={<StudentHomePage />} />
                   <Route path="*" element={<NotFounded to="/NotFounded" />} />
                 </Routes>

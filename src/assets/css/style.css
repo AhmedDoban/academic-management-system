@@ -111,6 +111,33 @@
   background-repeat: repeat;
   top: 0;
 }
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Blobs
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+
+.Blobs-general img {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  z-index: 0;
+}
+@media (max-width: 992px) {
+  .Blobs-general.web img {
+    display: none;
+  }
+  .Blobs-general.mob img {
+    display: block;
+  }
+}
+@media (min-width: 993px) {
+  .Blobs-general.web img {
+    display: block;
+  }
+  .Blobs-general.mob img {
+    display: none;
+  }
+}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # main-titel
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -456,28 +483,7 @@ remove this comment if you want it to be sticy
   position: relative;
   min-height: 100vh;
 }
-.Signin .imgs img {
-  width: 100%;
-  position: absolute;
-  height: 100%;
-  z-index: 0;
-}
-@media (max-width: 992px) {
-  .Signin .imgs.web img {
-    display: none;
-  }
-  .Signin .imgs.mob img {
-    display: block;
-  }
-}
-@media (min-width: 993px) {
-  .Signin .imgs.web img {
-    display: block;
-  }
-  .Signin .imgs.mob img {
-    display: none;
-  }
-}
+
 .Signin .container {
   position: relative;
   flex-direction: column;

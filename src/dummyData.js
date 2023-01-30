@@ -98,3 +98,109 @@ export const CourcesDB = [
     CourcesTeacher: "ALi Esmaiel",
   },
 ];
+export const Questions = [
+  {
+    id: 1,
+    QuestionText: "What does HTML stand for ?",
+    answerQuestion: [
+      { id: 1, answerText: "Hyper Text Markup Language", isTrue: true },
+      {
+        id: 2,
+        answerText: "Hyperlinks and Text Markup Language",
+        isTrue: false,
+      },
+      { id: 3, answerText: "Home Tool Markup Language", isTrue: false },
+    ],
+  },
+  {
+    id: 2,
+    QuestionText: "Who is making the Web standards ?",
+    answerQuestion: [
+      { id: 1, answerText: "Google", isTrue: false },
+      { id: 2, answerText: "Microsoft", isTrue: false },
+      { id: 3, answerText: "Mozilla", isTrue: false },
+      { id: 4, answerText: "The World Wide Web Consortium", isTrue: true },
+    ],
+  },
+  {
+    id: 3,
+    QuestionText: "Choose the correct HTML element for the largest heading ?",
+    answerQuestion: [
+      { id: 1, answerText: "<heading>", isTrue: false },
+      { id: 2, answerText: "<head>", isTrue: false },
+      { id: 3, answerText: "<h6>", isTrue: false },
+      { id: 4, answerText: " <h1>", isTrue: true },
+    ],
+  },
+  {
+    id: 4,
+    QuestionText:
+      "What is the correct HTML element for inserting a line break ?",
+    answerQuestion: [
+      { id: 1, answerText: "<Br>", isTrue: true },
+      { id: 2, answerText: "<break>", isTrue: false },
+      { id: 3, answerText: "<lb>", isTrue: false },
+    ],
+  },
+  {
+    id: 5,
+    QuestionText: "What is the correct HTML for adding a background color ?",
+    answerQuestion: [
+      { id: 1, answerText: '<body bg="yellow">', isTrue: false },
+      {
+        id: 2,
+        answerText: '<body style="background-color:yellow;">',
+        isTrue: true,
+      },
+      { id: 3, answerText: "<background>yellow</background>", isTrue: false },
+    ],
+  },
+  {
+    id: 6,
+    QuestionText: "Choose the correct HTML element to define important text ?",
+    answerQuestion: [
+      { id: 1, answerText: "<strong>", isTrue: true },
+      { id: 2, answerText: "<b>", isTrue: false },
+      { id: 3, answerText: "<important>", isTrue: false },
+      { id: 4, answerText: "<i>", isTrue: false },
+    ],
+  },
+  {
+    id: 7,
+    QuestionText: "Choose the correct HTML element to define emphasized text ?",
+    answerQuestion: [
+      { id: 1, answerText: "<em>", isTrue: true },
+      { id: 2, answerText: '<italic">', isTrue: false },
+      { id: 3, answerText: "<i>", isTrue: false },
+    ],
+  },
+  {
+    id: 8,
+    QuestionText: "How can you open a link in a new tab/browser window ?",
+    answerQuestion: [
+      { id: 1, answerText: '<a href="url" new>', isTrue: false },
+      { id: 2, answerText: '<a href="url" target="_blank">', isTrue: true },
+      { id: 3, answerText: '<a href="url" target="new">', isTrue: false },
+    ],
+  },
+  {
+    id: 9,
+    QuestionText: "Which of these elements are all <table> elements ?",
+    answerQuestion: [
+      { id: 1, answerText: "<table><tr><td>", isTrue: true },
+      { id: 2, answerText: "<table><head><tfoot>", isTrue: false },
+      { id: 3, answerText: "<thead><body><tr>", isTrue: false },
+      { id: 4, answerText: "<table><tr><tt>", isTrue: false },
+    ],
+  },
+  {
+    id: 10,
+    QuestionText: "What is the correct HTML for making a checkbox ?",
+    answerQuestion: [
+      { id: 1, answerText: "<checkbox>", isTrue: false },
+      { id: 2, answerText: '<input type="check">', isTrue: false },
+      { id: 3, answerText: "<check>", isTrue: false },
+      { id: 4, answerText: '<input type="checkbox">', isTrue: true },
+    ],
+  },
+];

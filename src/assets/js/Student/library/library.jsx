@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "./Library.css";
 import BookCard from "./bookCard";
-import Footer from "./../components/Footer";
-import RanDomQuote from "./../Student/RanDomQuote";
+import RanDomQuote from "./../RanDomQuote";
+
+import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
+import Footer from "../../components/Footer";
 
 function Library(props) {
   let [search, setSearch] = useState("");
@@ -48,6 +49,12 @@ function Library(props) {
       }
     }
   };
+  const searchButton = (e) => {
+    if (search) {
+      getData(search);
+      setSearch("");
+    }
+  };
 
   return (
     <React.Fragment>
@@ -60,7 +67,7 @@ function Library(props) {
             </h3>
             <h5>Welcome to the world in it you will build your brain </h5>
             <div className="search-box">
-              <button className="btn-search">
+              <button className="btn-search" onClick={searchButton}>
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
               <input

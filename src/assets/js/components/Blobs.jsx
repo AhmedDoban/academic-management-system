@@ -3,7 +3,7 @@ import React from "react";
 const Blobs = (props) => {
   return (
     <React.Fragment>
-      <div className="imgs web">
+      <div className="Blobs-general web">
         <img
           src={
             require("../../img/blob/Signin blob/circle-scatter-Web.svg").default
@@ -22,7 +22,7 @@ const Blobs = (props) => {
           alt=""
         />
       </div>
-      <div className="imgs mob">
+      <div className="Blobs-general mob">
         <img
           src={
             require("../../img/blob/Signin blob/circle-scatter-mob.svg").default
