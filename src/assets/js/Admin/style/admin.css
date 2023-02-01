@@ -1,0 +1,398 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../css/root.css");
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# admin page
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Admin {
+  display: flex;
+}
+.SideBarAdminPage {
+  position: relative;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  width: 250px;
+  padding: 20px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# sidebar
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.SideBarAdminPage h5 {
+  position: relative;
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 20px;
+}
+@media (min-width: 768px) {
+  .SideBarAdminPage > h5::before,
+  .SideBarAdminPage > h5::after {
+    position: absolute;
+    content: "";
+    background-color: #888;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .SideBarAdminPage > h5::before {
+    width: 80%;
+    height: 2px;
+    bottom: -20px;
+  }
+  .SideBarAdminPage > h5::after {
+    width: 15px;
+    height: 15px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    bottom: -29px;
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# sidebar links
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.SideBarAdminPage ul li a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #000;
+  border-radius: var(--main-border-radius);
+  padding: 10px;
+  transition: var(--main-transition);
+  margin-bottom: 10px;
+  background-color: rgb(227, 227, 227);
+}
+
+.SideBarAdminPage ul li a:hover,
+.SideBarAdminPage ul li a.active {
+  background-color: #f1f1f1;
+}
+.SideBarAdminPage ul li a span {
+  font-size: 14px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+@media (max-width: 767px) {
+  .SideBarAdminPage {
+    width: 58px;
+    padding: 10px;
+  }
+  .SideBarAdminPage > h5 {
+    margin-bottom: 35px;
+    writing-mode: vertical-rl;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 20px;
+  }
+  .SideBarAdminPage ul li a span {
+    display: none;
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Admin-pages-container
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Admin-pages-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Custom Admin Inputs Head
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.CustomAdminInputsHead {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.CustomAdminInputsHead input[type="search"] {
+  width: 100%;
+  padding: 8px 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  font-weight: bold;
+  transition: var(--main-transition);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.CustomAdminInputsHead a {
+  position: relative;
+  background-color: var(--green-color);
+  color: #fff;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  padding: 4px 8px;
+  min-width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+@media (max-width: 767px) {
+  .CustomAdminInputsHead a {
+    min-width: auto;
+  }
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# CustomTable
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.CustomTable table {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  height: auto;
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  table-layout: fixed;
+  transition: var(--main-transition);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# CustomTable table th , td
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.CustomTable table th,
+.CustomTable table td {
+  position: relative;
+  padding: 10px;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #000;
+  font-weight: 500;
+  height: 50px;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.CustomTable table th {
+  background-color: #f1f1f1;
+  text-align: left;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.CustomTable table th:first-child,
+.CustomTable table tr td:first-child {
+  width: 100px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# CustomTable options
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.CustomTable table tr .Options {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+.CustomTable table tr .Options a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
+}
+.CustomTable table tr .Options a.delete {
+  background-color: var(--red-color);
+}
+
+.CustomTable table tr .Options a.view {
+  background-color: var(--green-color);
+}
+.CustomTable table tr .Options a.edit {
+  background-color: #245367e5;
+}
+.CustomTable table tr .Options a:hover {
+  background-color: #f1f1f1;
+  color: var(--main-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # CustomTable  Screen Media
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@media (max-width: 767px) {
+  /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+   # CustomTable 
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+  .CustomTable table {
+    border: 0;
+    box-shadow: none;
+    margin-top: 10px;
+  }
+  /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+   # CustomTable  thead remove
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+  .CustomTable table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+   # CustomTable   table th , td
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+  .CustomTable table tr {
+    position: relative;
+    border-bottom: 3px solid #ddd;
+    border-right: 1px solid #ddd;
+    margin-bottom: 0.625em;
+    width: 100%;
+    display: grid;
+  }
+  .CustomTable table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 14px;
+    text-align: right;
+  }
+  .CustomTable table td:first-child {
+    text-align: right;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+    font-size: 16px;
+    color: #000;
+    font-weight: bold;
+    width: 100%;
+  }
+  .CustomTable table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgb(250, 167, 0);
+  }
+
+  .CustomTable table td:last-child {
+    border-bottom: 0;
+  }
+  .CustomTable table th:first-child,
+  .CustomTable table tr td:first-child {
+    width: 100%;
+  }
+  /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+   # CustomTable   options
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+  .CustomTable table tr .Options {
+    justify-content: flex-end;
+  }
+  .CustomTable table tr .Options a {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# student Control container
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.studentControl-container {
+  padding: 20px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Student :/id Deatils
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.StudentDeatils .data {
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Student :/id Deatils left data
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.StudentDeatils .data .left {
+  position: relative;
+  width: 350px;
+  height: 350px;
+}
+.StudentDeatils .data .left img {
+  position: relative;
+  min-width: 100%;
+  height: 100%;
+  border-radius: var(--main-border-radius);
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Student :/id Deatils righr data
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.StudentDeatils .data .right {
+  position: relative;
+  width: 100%;
+}
+.StudentDeatils .data .right > h5 {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  font-size: 20px;
+  margin: 20px 10px;
+  font-weight: bold;
+}
+
+.StudentDeatils .data .right .input {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.StudentDeatils .data .right label {
+  position: absolute;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--grey-color);
+  font-size: 14px;
+  width: auto;
+  z-index: 2;
+  left: 15px;
+  margin-bottom: 15px;
+  width: 130px;
+  /* background-color: #000; */
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.StudentDeatils .data .right label::before {
+  position: absolute;
+  content: ":";
+  right: 0;
+  font-size: 20px;
+}
+.StudentDeatils .data .right input {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px 0px 8px 150px;
+  border-radius: var(--main-border-radius);
+  border: 2px solid #eee;
+}
+@media (max-width: 992px) {
+  .StudentDeatils .data {
+    flex-direction: column;
+  }
+  .StudentDeatils .data .left,
+  .StudentDeatils .data .left img {
+    width: 100%;
+    object-fit: cover;
+  }
+  .StudentDeatils .data .right .input {
+    display: flex;
+    flex-direction: column;
+  }
+  .StudentDeatils .data .right .input input {
+    padding: 8px 15px;
+    text-align: left;
+  }
+  .StudentDeatils .data .right label {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .StudentDeatils .data .right label::before {
+    content: "";
+  }
+}

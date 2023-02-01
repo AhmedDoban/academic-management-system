@@ -4,7 +4,7 @@ import Student from "./../Student/student";
 import AuthUser from "./AuthUser";
 
 import NotFounded from "./../components/NotFounded";
-import Admin from "./../Admin/admin";
+import Admin from "../Admin/Home/admin";
 import Teacher from "../Teacher/teacher";
 
 function Auth() {

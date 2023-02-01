@@ -155,3 +155,35 @@ html {
   border-radius: var(--main-border-radius);
   cursor: pointer;
 }
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# .main-titel-2 
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.main-titel-2 {
+  position: relative;
+  width: fit-content;
+  padding: 20px 0;
+  color: #111111;
+  font-size: 28px;
+  margin: 20px;
+}
+
+.main-titel-2::before,
+.main-titel-2::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
+}
+.main-titel-2::before {
+  width: 50%;
+  background-color: #111111;
+  z-index: 2;
+}
+.main-titel-2::after {
+  width: 100%;
+  background-color: #ddd;
+  z-index: 1;
+}

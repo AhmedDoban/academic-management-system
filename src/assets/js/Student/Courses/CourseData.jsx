@@ -5,6 +5,13 @@ import Footer from "../../components/Footer";
 import CourseDataHeader from "./CourseDataHeader";
 
 function CourseData(props) {
+  const params = useParams();
+  const [item, setItem] = useState([]);
+  useEffect(() => {
+    axios.get(`/${params}`).then((response) => {
+      setItem(response.data.items);
+    });
+  }, []);
   return (
     <React.Fragment>
       <div className="specific-course">
@@ -136,7 +143,6 @@ function CourseData(props) {
         </div>
         {/************************************* End discription ***************************************/}
       </div>
-
     </React.Fragment>
   );
 }

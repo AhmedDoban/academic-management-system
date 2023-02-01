@@ -5,12 +5,13 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import Student from "./assets/js/Student/student";
+import Admin from "./assets/js/Admin/Home/admin";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Student />
+      <Admin />
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -31,7 +31,7 @@ const Quiz = (props) => {
       <div className="quiz">
         <div className="container">
           <div className="Quiz-data">
-            <h1>Simple Quiz in Html</h1>
+            <h1 className="main-titel-2">Simple Quiz in Html</h1>
             <p>
               {currentQuestion + 1}/{Questions.length}
             </p>

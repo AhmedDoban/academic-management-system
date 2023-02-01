@@ -18,35 +18,13 @@
   flex-wrap: wrap;
 }
 .quiz .container .Quiz-data > h1 {
-  position: relative;
-  width: fit-content;
-  padding: 20px 0;
   color: var(--main-color);
 }
-@media (max-width: 776px) {
-  .quiz .container .Quiz-data > h1 {
-    font-size: 28px;
-  }
-}
-.quiz .container .Quiz-data > h1::before,
-.quiz .container .Quiz-data > h1::after {
-  position: absolute;
-  content: "";
-  bottom: 0;
-  left: 0;
-  height: 5px;
-  border-radius: var(--main-border-radius);
-  transition: var(--main-transition);
-}
 .quiz .container .Quiz-data > h1::before {
-  width: 50%;
   background-color: var(--main-color);
-  z-index: 2;
 }
 .quiz .container .Quiz-data > h1::after {
-  width: 100%;
   background-color: #fff;
-  z-index: 1;
 }
 .quiz .container .Quiz-data > h1 + p {
   position: relative;
