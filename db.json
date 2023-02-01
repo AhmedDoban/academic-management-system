@@ -43,6 +43,17 @@
       "date": "2022-10-13",
       "courses": [],
       "id": 4
+    },
+    {
+      "firstName": "Mahmoud",
+      "lastName": "Doban",
+      "email": "mahmoudheshamdoban@student.com",
+      "password": "Ahmed123456789Doban",
+      "re_password": "Ahmed123456789Doban",
+      "phone": "01090186708",
+      "date": "2022-10-13",
+      "courses": [],
+      "id": 5
     }
   ],
   "teachers": [

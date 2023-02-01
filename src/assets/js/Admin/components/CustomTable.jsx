@@ -8,7 +8,7 @@ function CustomTable(props) {
   const type = props.type;
   useEffect(() => {
     GetData();
-  }, []);
+  }, [items]);
 
   const GetData = () => {
     axios.get(props.api).then((response) => {

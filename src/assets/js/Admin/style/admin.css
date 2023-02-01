@@ -134,6 +134,10 @@
 @media (max-width: 767px) {
   .CustomAdminInputsHead a {
     min-width: auto;
+    font-size: 14px;
+    padding: 4px 8px;
+    font-weight: normal;
+    text-align: center;
   }
 }
 
@@ -156,12 +160,12 @@
 .CustomTable table th,
 .CustomTable table td {
   position: relative;
-  padding: 10px;
+  padding: 0 8px;
   margin: 0;
   background-color: rgba(255, 255, 255, 0.2);
   color: #000;
   font-weight: 500;
-  height: 50px;
+  height: 40px;
   border-bottom: 1px solid #ddd;
   border-left: 1px solid #ddd;
   cursor: pointer;
@@ -172,6 +176,9 @@
   text-align: left;
   font-weight: 800;
   text-transform: uppercase;
+  font-size: 14px;
+  padding: 0 8px;
+  height: 30px;
 }
 .CustomTable table th:first-child,
 .CustomTable table tr td:first-child {
@@ -191,9 +198,10 @@
   align-items: center;
   justify-content: center;
   color: #fff;
-  padding: 8px 15px;
+  padding: 8px 25px;
   border-radius: var(--main-border-radius);
   transition: var(--main-transition);
+  font-size: 12px;
 }
 .CustomTable table tr .Options a.delete {
   background-color: var(--red-color);
@@ -203,7 +211,7 @@
   background-color: var(--green-color);
 }
 .CustomTable table tr .Options a.edit {
-  background-color: #245367e5;
+  background-color: chocolate;
 }
 .CustomTable table tr .Options a:hover {
   background-color: #f1f1f1;
@@ -250,6 +258,9 @@
     display: block;
     font-size: 14px;
     text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .CustomTable table td:first-child {
     text-align: right;
