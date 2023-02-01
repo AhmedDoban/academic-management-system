@@ -14,13 +14,13 @@ function SideBarAdminPage() {
         <h5>Admin Page</h5>
         <ul>
           <li>
-            <NavLink to="/" end>
+            <NavLink to="/student" end>
               <i className="fa-regular fa-user"></i>
               <span>Student</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to="/teacher">
+            <NavLink to="/teachers">
               <i className="fa-solid fa-chalkboard-user"></i>
               <span>Teacher</span>
             </NavLink>

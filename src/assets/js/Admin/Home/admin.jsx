@@ -1,4 +1,4 @@
-import React, { useEffect, lazy, Suspense } from "react";
+import React, { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import "../style/admin.css";
 
@@ -9,6 +9,7 @@ const CoursesControl = lazy(() => import("./../Courses/CoursesControl"));
 const NotFounded = lazy(() => import("./../../components/NotFounded"));
 const AddNewStudent = lazy(() => import("../Student/AddNewStudent"));
 const StudentDeatils = lazy(() => import("./../Student/StudentDeatils"));
+const TeacherDetails = lazy(() => import("../Teacher/TeacherDetails"));
 
 function Admin(props) {
   return (
@@ -30,12 +31,13 @@ function Admin(props) {
             }
           >
             <Routes>
-              <Route exact path="/" element={<StudentControl />} />
               <Route path="/student" element={<StudentControl />} />
               <Route path="/student/:id" element={<StudentDeatils />} />
               <Route path="/addNewStudent" element={<AddNewStudent />} />
-              <Route path="/teacher" element={<TeacherControl />} />
+              <Route path="/teachers" element={<TeacherControl />} />
+              <Route path="/teachers/:id" element={<TeacherDetails />} />
               <Route path="/courses" element={<CoursesControl />} />
+              <Route exact path="/" element={<StudentControl />} />
               <Route path="*" element={<NotFounded to="/NotFounded" />} />
             </Routes>
           </Suspense>

@@ -13,7 +13,14 @@ function CoursesControl() {
             searchName="Search For Course Name"
           />
           <div className="data">
-            <CustomTable />
+            <CustomTable
+              Col1="Cource Teacher"
+              Col2="Cource Name"
+              api="http://localhost:3000/CourcesDB"
+              type="CourcesDB"
+              CourceTeacher
+              CourceName
+            />
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ function TeacherControl() {
             searchName="Search For Teacher Name"
           />
           <div className="data">
-            <CustomTable api="http://localhost:3000/teachers" />
+            <CustomTable api="http://localhost:3000/teachers" type="teachers" />
           </div>
         </div>
       </div>

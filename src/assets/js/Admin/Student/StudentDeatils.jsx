@@ -24,44 +24,30 @@ function StudentDeatils(props) {
             )}
           </div>
           <div className="right">
-            <h5>General Details </h5>
             <div className="general details">
               <div className="input">
                 <label htmlFor={Student.firstName}>First Name</label>
-                <input
-                  type="text"
-                  value={Student.firstName}
-                  readonly="readonly"
-                  id={Student.firstName}
-                />
+                <input type="text" placeholder={Student.firstName} disabled />
               </div>
               <div className="input">
                 <label htmlFor={Student.lastName}>last Name</label>
-                <input
-                  type="text"
-                  value={Student.lastName}
-                  readonly="readonly"
-                />
+                <input type="text" placeholder={Student.lastName} disabled />
               </div>
               <div className="input">
                 <label htmlFor={Student.email}>Email</label>
-                <input type="text" value={Student.email} readonly="readonly" />
+                <input type="text" placeholder={Student.email} disabled />
               </div>
               <div className="input">
                 <label htmlFor={Student.password}>password</label>
-                <input
-                  type="text"
-                  value={Student.password}
-                  readonly="readonly"
-                />
+                <input type="text" placeholder={Student.password} disabled />
               </div>
               <div className="input">
                 <label htmlFor={Student.phone}>phone</label>
-                <input type="text" value={Student.phone} readonly="readonly" />
+                <input type="text" placeholder={Student.phone} disabled />
               </div>
               <div className="input">
                 <label htmlFor={Student.date}>date OF Birth</label>
-                <input type="text" value={Student.date} readonly="readonly" />
+                <input type="text" placeholder={Student.date} disabled />
               </div>
             </div>
           </div>

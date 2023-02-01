@@ -8,8 +8,7 @@ function CustomTable(props) {
   const type = props.type;
   useEffect(() => {
     GetData();
-  }, [items]);
-
+  }, []);
   const GetData = () => {
     axios.get(props.api).then((response) => {
       setItems(response.data);
@@ -40,8 +39,8 @@ function CustomTable(props) {
           <thead>
             <tr>
               <th>id</th>
-              <th>Name</th>
-              <th>Email</th>
+              <th>{props.Col1 ? props.Col1 : "Name"}</th>
+              <th>{props.Col2 ? props.Col2 : "Email"}</th>
               <th>options</th>
             </tr>
           </thead>
@@ -49,14 +48,18 @@ function CustomTable(props) {
             {items.map((p) => (
               <tr key={p.id}>
                 <td data-label="id">{p.id}</td>
-                <td data-label="name">
-                  {p.firstName} {p.lastName}
+                <td data-label={props.Col1 ? props.Col1 : "Name"}>
+                  {props.CourceTeacher
+                    ? p.CourcesTeacher
+                    : p.firstName + " " + p.lastName}
                 </td>
-                <td data-label="Email">{p.email}</td>
+                <td data-label={props.Col2 ? props.Col2 : "Email"}>
+                  {props.CourceName ? p.CourcesName : p.email}
+                </td>
                 <td data-label="options">
                   <div className="Options">
                     <Options
-                      View={`${type}/${p.id}`}
+                      View={`/${type}/${p.id}`}
                       HandleDelete={() => HandleDelete(p)}
                     />
                   </div>

@@ -220,7 +220,7 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
   # CustomTable  Screen Media
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@media (max-width: 767px) {
+@media (max-width: 992px) {
   /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
    # CustomTable 
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -307,6 +307,7 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Student :/id Deatils
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.TeacherDeatils .data,
 .StudentDeatils .data {
   padding: 20px;
   display: flex;
@@ -315,41 +316,38 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Student :/id Deatils left data
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.TeacherDeatils .data .left,
 .StudentDeatils .data .left {
   position: relative;
   width: 350px;
   height: 350px;
 }
+.TeacherDeatils .data .left img,
 .StudentDeatils .data .left img {
   position: relative;
-  min-width: 100%;
-  height: 100%;
+  width: 350px;
+  height: 350px;
   border-radius: var(--main-border-radius);
 }
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Student :/id Deatils righr data
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.TeacherDeatils .data .right,
 .StudentDeatils .data .right {
   position: relative;
   width: 100%;
 }
-.StudentDeatils .data .right > h5 {
-  position: relative;
-  text-align: left;
-  width: 100%;
-  font-size: 20px;
-  margin: 20px 10px;
-  font-weight: bold;
-}
-
+.TeacherDeatils .data .right .input,
 .StudentDeatils .data .right .input {
   position: relative;
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  height: 100%;
 }
+.TeacherDeatils .data .right label,
 .StudentDeatils .data .right label {
   position: absolute;
   font-weight: bold;
@@ -361,17 +359,18 @@
   left: 15px;
   margin-bottom: 15px;
   width: 130px;
-  /* background-color: #000; */
   height: 100%;
   display: flex;
   align-items: center;
 }
+.TeacherDeatils .data .right label::before,
 .StudentDeatils .data .right label::before {
   position: absolute;
   content: ":";
   right: 0;
   font-size: 20px;
 }
+.TeacherDeatils .data .right input,
 .StudentDeatils .data .right input {
   position: relative;
   width: 100%;
@@ -381,28 +380,37 @@
   border: 2px solid #eee;
 }
 @media (max-width: 992px) {
+  .TeacherDeatils .data,
   .StudentDeatils .data {
     flex-direction: column;
   }
+
+  .TeacherDeatils .data .left,
+  .TeacherDeatils .data .left img,
   .StudentDeatils .data .left,
   .StudentDeatils .data .left img {
-    width: 100%;
+    margin: 0 auto;
+    max-width: 100%;
     object-fit: cover;
   }
+  .TeacherDeatils .data .right .input,
   .StudentDeatils .data .right .input {
     display: flex;
     flex-direction: column;
   }
+  .TeacherDeatils .data .right .input input,
   .StudentDeatils .data .right .input input {
     padding: 8px 15px;
     text-align: left;
   }
+  .TeacherDeatils .data .right label,
   .StudentDeatils .data .right label {
     position: relative;
     display: block;
     width: 100%;
     margin-bottom: 10px;
   }
+  .TeacherDeatils .data .right label::before,
   .StudentDeatils .data .right label::before {
     content: "";
   }
