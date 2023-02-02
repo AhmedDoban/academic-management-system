@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Admin />
+      <Student />
     </BrowserRouter>
   </React.StrictMode>
 );
