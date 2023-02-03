@@ -8,6 +8,7 @@
 .quiz {
   position: relative;
 }
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Quiz data header top data
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -62,6 +63,7 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Quiz data Options
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+
 .quiz .quiz-container .quiz-options .option {
   counter-increment: section;
 }
@@ -81,17 +83,20 @@
   font-weight: bold;
   font-size: 18px;
   text-align: left;
-  background-color: #ffff;
-  border: 4px solid var(--main-background-color);
-  outline: 3px solid #fff;
   border-radius: 2px;
   transition: var(--main-transition);
   letter-spacing: 1px;
   color: var(--purple-color);
+
+  outline: 5px solid rgba(255, 255, 255, 0.605);
+  background: rgba(255, 255, 255, 0.605);
+  box-shadow: var(--main-box-shadow);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 1);
 }
 @media (max-width: 776px) {
   .quiz .quiz-container .quiz-options .option input[type="radio"] + label {
-    margin-top: 10px;
+    margin-top: 20px;
   }
 }
 .quiz
@@ -106,6 +111,7 @@
   width: 100%;
   left: 15px;
   color: var(--main-color);
+  transition: var(--main-transition);
 }
 .quiz .quiz-container .quiz-options .option input[type="radio"]:checked + label,
 .quiz .quiz-container .quiz-options .option input[type="radio"] + label:hover {
@@ -130,10 +136,15 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Quiz Footer data
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.quiz .container .quiz-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+}
 .quiz .container .quiz-footer button {
   position: relative;
-  margin-top: 20px;
-  margin-left: auto;
+  margin: 20px 0;
   display: block;
   padding: 10px 8px;
   background-color: var(--main-color);
@@ -142,6 +153,9 @@
   border: 0;
   cursor: pointer;
   transition: var(--main-transition);
+}
+.quiz .container .quiz-footer button i {
+  margin-right: 10px;
 }
 .quiz .container .quiz-footer button:hover {
   background-color: var(--purple-color);
@@ -153,8 +167,13 @@
   width: 100%;
   position: relative;
   margin-top: 20px;
-  border: 3px solid #eee;
+  border: 3px solid #fff;
   padding: 20px;
+  margin: 20px 0;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: var(--main-border-radius);
+  box-shadow: var(--main-box-shadow);
+  backdrop-filter: blur(10px);
 }
 .result-container .box .data {
   display: flex;
@@ -170,10 +189,10 @@
 }
 .result-container .box .progress {
   position: relative;
-  background-color: #fff;
+  background-color: #e7e7e7;
   width: 100%;
   height: 5px;
-  margin: 3px 0px 20px 0;
+  margin: 3px 0px 35px 0;
 }
 .result-container .box .progress > span {
   position: absolute;
@@ -185,35 +204,58 @@
 .result-container .box .progress > span::before {
   position: absolute;
   padding: 3px 8px;
+  width: 15px;
+  height: 15px;
   content: attr(data-width);
-  top: 0;
-  right: -20px;
+  top: 21.7px;
+  right: -15px;
   border-radius: 2px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateY(-50%);
   font-weight: bold;
   font-size: 14px;
+  transition: var(--main-transition);
 }
+.result-container .box .progress > span::after {
+  position: absolute;
+  content: "";
+  border-style: solid;
+  border-width: 15.5px;
+  top: -8.8px;
+  right: -15px;
+  transition: var(--main-transition);
+}
+
 .result-container .box .progress > span.true {
   background-color: var(--green-color);
 }
 .result-container .box .progress > span.true::before {
   background-color: var(--green-color);
 }
+.result-container .box .progress > span.true::after {
+  border-color: transparent transparent var(--green-color) transparent;
+}
 
 .result-container .box .progress > span.false {
   background-color: var(--red-color);
 }
+
 .result-container .box .progress > span.false::before {
   background-color: var(--red-color);
 }
-
+.result-container .box .progress > span.false::after {
+  border-color: transparent transparent var(--red-color) transparent;
+}
 .result-container .box .progress > span.total {
   background-color: var(--main-color);
 }
 .result-container .box .progress > span.total::before {
   background-color: var(--main-color);
+}
+.result-container .box .progress > span.total::after {
+  border-color: transparent transparent var(--main-color) transparent;
 }
