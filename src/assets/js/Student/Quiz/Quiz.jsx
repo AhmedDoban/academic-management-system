@@ -78,12 +78,12 @@ const Quiz = (props) => {
               <button onClick={() => setShowScore(!showScore)}>
                 {showScore ? (
                   <span>
-                    <i class="fa-solid fa-eye-slash"></i>
+                    <i className="fa-solid fa-eye-slash"></i>
                     Hide Score
                   </span>
                 ) : (
                   <span>
-                    <i class="fa-solid fa-eye"></i>
+                    <i className="fa-solid fa-eye"></i>
                     Show Score
                   </span>
                 )}

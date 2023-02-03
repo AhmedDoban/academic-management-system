@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import CustomInputField from "./../components/CustomInputField";
+
 function StudentDeatils(props) {
-  const params = useParams();
-  const [Student, setStudent] = useState([]);
+  const params = useParams([]);
+  const [Student, setStudent] = useState({});
+
   useEffect(() => {
     axios
       .get(`http://localhost:3000/students/${params.id}`)
@@ -11,9 +14,11 @@ function StudentDeatils(props) {
         setStudent(response.data);
       });
   }, [params]);
+
   return (
     <React.Fragment>
       <div className="StudentDeatils">
+        {/********************* Student Details **************************/}
         <h5 className="main-titel-2">Student Details </h5>
         <div className="data">
           <div className="left">
@@ -25,33 +30,67 @@ function StudentDeatils(props) {
           </div>
           <div className="right">
             <div className="general details">
-              <div className="input">
-                <label htmlFor={Student.firstName}>First Name</label>
-                <input type="text" placeholder={Student.firstName} disabled />
-              </div>
-              <div className="input">
-                <label htmlFor={Student.lastName}>last Name</label>
-                <input type="text" placeholder={Student.lastName} disabled />
-              </div>
-              <div className="input">
-                <label htmlFor={Student.email}>Email</label>
-                <input type="text" placeholder={Student.email} disabled />
-              </div>
-              <div className="input">
-                <label htmlFor={Student.password}>password</label>
-                <input type="text" placeholder={Student.password} disabled />
-              </div>
-              <div className="input">
-                <label htmlFor={Student.phone}>phone</label>
-                <input type="text" placeholder={Student.phone} disabled />
-              </div>
-              <div className="input">
-                <label htmlFor={Student.date}>date OF Birth</label>
-                <input type="text" placeholder={Student.date} disabled />
-              </div>
+              <CustomInputField
+                data={Student.firstName}
+                DataLabel="First Name"
+              />
+              <CustomInputField data={Student.lastName} DataLabel="last Name" />
+              <CustomInputField data={Student.email} DataLabel="Email" />
+              <CustomInputField data={Student.password} DataLabel="password" />
+              <CustomInputField data={Student.phone} DataLabel="phone" />
+              <CustomInputField data={Student.date} DataLabel="date OF Birth" />
+              <CustomInputField data={Student.gender} DataLabel="gender" />
             </div>
           </div>
         </div>
+        {/*********************End Student Details **************************/}
+        {/*********************  More Details **************************/}
+        <h5 className="main-titel-2">More Details </h5>
+        <div className="data">
+          <div className="right">
+            <div className="general details">
+              <CustomInputField data={Student.country} DataLabel="country" />
+              <CustomInputField data={Student.city} DataLabel="City" />
+              <CustomInputField data={Student.gpa} DataLabel="gpa" />
+            </div>
+          </div>
+        </div>
+        {/********************* End More Details**************************/}
+        {/*********************  Parent Details **************************/}
+        <h5 className="main-titel-2">Parent Details </h5>
+        <div className="data">
+          <div className="right">
+            <div className="general details">
+              <CustomInputField
+                data={Student.parentName}
+                DataLabel="Parent Name"
+              />
+              <CustomInputField
+                data={Student.ParentPhoneNumber}
+                DataLabel="Parent P.N"
+              />
+              <CustomInputField
+                data={Student.parentWork}
+                DataLabel="parent Work"
+              />
+            </div>
+          </div>
+        </div>
+        {/********************* End Parent Details**************************/}
+        {/*********************  Student Courses **************************/}
+        <h5 className="main-titel-2">Student Courses</h5>
+        <div className="data">
+          <div className="right">
+            <ol>
+              {Student.courses?.map((p) => (
+                <li key={p.id}>{p.courseName}</li>
+              ))}
+            </ol>
+            {/* {Student.courses.map((p) => p.id)} */}
+          </div>
+        </div>
+
+        {/********************* End Parent Details**************************/}
       </div>
     </React.Fragment>
   );

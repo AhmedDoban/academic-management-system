@@ -1,6 +1,8 @@
 {
   "students": [
     {
+      "id": 1,
+      "gender": "Male",
       "firstName": "Ahmed",
       "lastName": "Doban",
       "email": "ahmedheshamdoban@student.com",
@@ -8,111 +10,22 @@
       "re_password": "Ahmed123456789Doban",
       "phone": "01156526706",
       "date": "2002-03-16",
-      "courses": [],
-      "id": 1
-    },
-    {
-      "firstName": "Mohamed",
-      "lastName": "Doban",
-      "email": "mohamed@student.com",
-      "password": "Ahmed123456789Doban",
-      "re_password": "Ahmed123456789Doban",
-      "phone": "01090186708",
-      "date": "2022-10-13",
-      "courses": [],
-      "id": 2
-    },
-    {
-      "firstName": "Alii",
-      "lastName": "Essam",
-      "email": "Ali@student.com",
-      "password": "Ahmed123456789Doban",
-      "re_password": "Ahmed123456789Doban",
-      "phone": "01090186708",
-      "date": "2022-10-15",
-      "courses": [],
-      "id": 3
-    },
-    {
-      "firstName": "Mahmoud",
-      "lastName": "Doban",
-      "email": "mahmoudheshamdoban@student.com",
-      "password": "Ahmed123456789Doban",
-      "re_password": "Ahmed123456789Doban",
-      "phone": "01090186708",
-      "date": "2022-10-13",
-      "courses": [],
-      "id": 4
-    },
-    {
-      "firstName": "Mahmoud",
-      "lastName": "Doban",
-      "email": "mahmoudheshamdoban@student.com",
-      "password": "Ahmed123456789Doban",
-      "re_password": "Ahmed123456789Doban",
-      "phone": "01090186708",
-      "date": "2022-10-13",
-      "courses": [],
-      "id": 5
+      "country": "Egypt",
+      "city": "Zifta",
+      "gpa": "3",
+      "courses": [
+        {
+          "id": 1,
+          "courseName": "Html"
+        },
+        {
+          "id": 2,
+          "courseName": "Css"
+        }
+      ]
     }
   ],
-  "teachers": [
-    {
-      "firstName": "Ali",
-      "lastName": "Mohamed",
-      "email": "ahmedheshamdoban@teacher.com",
-      "password": "Ahmed123456789Doban",
-      "re_password": "Ahmed123456789Doban",
-      "phone": "01156526706",
-      "date": "2002-03-16",
-      "courses": [],
-      "id": 1
-    },
-    {
-      "firstName": "Mohamed",
-      "lastName": "Doban",
-      "email": "mohamed@teacher.com",
-      "password": "Ahmed123456789Doban",
-      "re_password": "Ahmed123456789Doban",
-      "phone": "01090186708",
-      "date": "2022-10-13",
-      "courses": [],
-      "id": 2
-    },
-    {
-      "firstName": "Alii",
-      "lastName": "Essam",
-      "email": "Ali@teacher.com",
-      "password": "Ahmed123456789Doban",
-      "re_password": "Ahmed123456789Doban",
-      "phone": "01090186708",
-      "date": "2022-10-15",
-      "courses": [],
-      "id": 3
-    },
-    {
-      "firstName": "Mahmoud",
-      "lastName": "Doban",
-      "email": "mahmoudheshamdoban@teacher.com",
-      "password": "Ahmed123456789Doban",
-      "re_password": "Ahmed123456789Doban",
-      "phone": "01090186708",
-      "date": "2022-10-13",
-      "courses": [],
-      "id": 4
-    },
-    {
-      "firstName": "Mohamed",
-      "lastName": "Doban",
-      "email": "mo@teacher.com",
-      "password": "Ahmed123456789Doban",
-      "re_password": "Ahmed123456789Doban",
-      "phone": "01090186708",
-      "date": "2022-10-07",
-      "courses": [],
-      "id": 5
-    }
-  ],
+  "teachers": [],
   "CourcesDB": [
     {
       "id": 1,

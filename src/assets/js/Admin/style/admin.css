@@ -415,3 +415,18 @@
     content: "";
   }
 }
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Student :/id Deatils righr data ol
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.StudentDeatils .data .right ol {
+  padding: 0px 0 20px 0;
+  position: relative;
+}
+.StudentDeatils .data .right ol li {
+  padding: 10px 8px;
+  background-color: #fafafa;
+  border: 1px solid #eee;
+  font-size: 18px;
+  font-weight: 500;
+}
