@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import CustomInputField from "./../components/CustomInputField";
 
@@ -13,7 +13,7 @@ function StudentDeatils(props) {
       .then((response) => {
         setStudent(response.data);
       });
-  }, [params]);
+  }, []);
 
   return (
     <React.Fragment>
@@ -62,15 +62,15 @@ function StudentDeatils(props) {
           <div className="right">
             <div className="general details">
               <CustomInputField
-                data={Student.parentName}
+                data={Student.fatherInfo?.name}
                 DataLabel="Parent Name"
               />
               <CustomInputField
-                data={Student.ParentPhoneNumber}
+                data={Student.fatherInfo?.PhoneNumber}
                 DataLabel="Parent P.N"
               />
               <CustomInputField
-                data={Student.parentWork}
+                data={Student.fatherInfo?.job}
                 DataLabel="parent Work"
               />
             </div>

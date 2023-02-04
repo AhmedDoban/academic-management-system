@@ -6,9 +6,11 @@ import Swal from "sweetalert2";
 function CustomTable(props) {
   const [items, setItems] = useState([]);
   const type = props.type;
+
   useEffect(() => {
     GetData();
   }, []);
+
   const GetData = () => {
     axios.get(props.api).then((response) => {
       setItems(response.data);
@@ -61,6 +63,7 @@ function CustomTable(props) {
                     <Options
                       View={`/${type}/${p.id}`}
                       HandleDelete={() => HandleDelete(p)}
+                      Edit={`/edit/${p.id}`}
                     />
                   </div>
                 </td>

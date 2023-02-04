@@ -1,7 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-function AddNewStudent() {
+import { useNavigate, useParams } from "react-router-dom";
+function UpDataStudentInfo() {
+  const params = useParams([]);
+  const [Student, setStudent] = useState({});
+  let Navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/students/${params.id}`)
+      .then((response) => {
+        setStudent(response.data);
+      });
+  }, []);
+
   const [profilePicture, SetprofilePicture] = useState();
   const [firstName, SetFirstName] = useState("");
   const [lastName, SetLastName] = useState("");
@@ -15,23 +27,39 @@ function AddNewStudent() {
   const [name, SetName] = useState("");
   const [job, SetJob] = useState("");
   const [PhoneNumber, SetPhoneNumber] = useState("");
-  const [gender, setGender] = useState("male");
+  const [gender, setGender] = useState("");
+
+  useEffect(() => {
+    Student.gender === "male" ? setGender("male") : setGender("female");
+    SetFirstName(Student.firstName);
+    SetLastName(Student.lastName);
+    SetEmail(Student.email);
+    SetPassword(Student.password);
+    SePhone(Student.phone);
+    SetDate(Student.date);
+    SetCountry(Student.country);
+    SetCity(Student.city);
+    SeGpa(Student.gpa);
+    SetName(Student.fatherInfo?.name);
+    SetPhoneNumber(Student.fatherInfo?.PhoneNumber);
+    SetJob(Student.fatherInfo?.job);
+    SetprofilePicture(Student.profilePicture);
+  }, [Student]);
 
   const handleFileSelected = (e) => {
     let image = document.getElementById("Img");
     image.src = URL.createObjectURL(e.target.files[0]);
     SetprofilePicture(image.src);
   };
-  let Navigate = useNavigate();
 
   const HandleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/students", {
+      .put(`http://localhost:3000/students/${params.id}`, {
         profilePicture,
         firstName,
         lastName,
-        email: email + "@student.com",
+        email,
         password,
         phone,
         date,
@@ -59,16 +87,11 @@ function AddNewStudent() {
         <h5 className="main-titel-2">Add New Student</h5>
         <form onSubmit={HandleSubmit}>
           <div className="img-container">
-            <label class="-label" for="file">
-              <i class="fa-solid fa-camera"></i>
+            <label className="-label" htmlFor="file">
+              <i className="fa-solid fa-camera"></i>
               <span>Change Image</span>
             </label>
-            <img
-              src={require("../../../img/user.png")}
-              name="Img"
-              alt="Img"
-              id="Img"
-            />
+            <img src={profilePicture} name="Img" alt="Img" id="Img" />
             <input onChange={handleFileSelected} type="file" />
           </div>
           <div className="inpus-filds-container">
@@ -76,31 +99,37 @@ function AddNewStudent() {
             <input
               type="text"
               placeholder="FIRST NAME"
+              value={firstName}
               onChange={(e) => SetFirstName(e.target.value)}
             />
             <input
               type="text"
               placeholder="LAST NAME"
+              value={lastName}
               onChange={(e) => SetLastName(e.target.value)}
             />
             <input
               type="text"
               placeholder="EMAIL"
+              value={email}
               onChange={(e) => SetEmail(e.target.value)}
             />
             <input
               type="text"
               placeholder="PASSWORD"
+              value={password}
               onChange={(e) => SetPassword(e.target.value)}
             />
             <input
               type="tel"
               placeholder="PHONE"
+              value={phone}
               onChange={(e) => SePhone(e.target.value)}
             />
             <input
               type="date"
               placeholder="DATE OF BIRTH"
+              value={date}
               onChange={(e) => SetDate(e.target.value)}
             />
             <div className="gender">
@@ -108,7 +137,7 @@ function AddNewStudent() {
               <input
                 type="radio"
                 name="Gender"
-                id="Male"
+                id="male"
                 value="male"
                 checked={gender === "male"}
                 onChange={(e) => setGender(e.target.value)}
@@ -117,7 +146,7 @@ function AddNewStudent() {
               <input
                 type="radio"
                 name="Gender"
-                id="Female"
+                id="female"
                 value="female"
                 checked={gender === "female"}
                 onChange={(e) => setGender(e.target.value)}
@@ -127,40 +156,46 @@ function AddNewStudent() {
             <input
               type="text"
               placeholder="COUNTRY"
+              value={country}
               onChange={(e) => SetCountry(e.target.value)}
             />
             <input
               type="text"
               placeholder="CITY"
+              value={city}
               onChange={(e) => SetCity(e.target.value)}
             />
             <input
               type="text"
               placeholder="GPA"
+              value={gpa}
               onChange={(e) => SeGpa(e.target.value)}
             />
             <h5 className="main-titel-2">Parent Details</h5>
             <input
               type="text"
               placeholder="PARENT NAME"
+              value={name}
               onChange={(e) => SetName(e.target.value)}
             />
             <input
               type="tel"
               placeholder="PARENT PHONE NUmber"
+              value={PhoneNumber}
               onChange={(e) => SetPhoneNumber(e.target.value)}
             />
             <input
               type="text"
               placeholder="PARENT WORK"
+              value={job}
               onChange={(e) => SetJob(e.target.value)}
             />
             <h5 className="main-titel-2">Student Courses</h5>
-            <button type="submit">Add Student</button>
+            <button type="submit">Update Student</button>
           </div>
         </form>
       </div>
     </React.Fragment>
   );
 }
-export default AddNewStudent;
+export default UpDataStudentInfo;

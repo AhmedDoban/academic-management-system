@@ -10,6 +10,7 @@ const NotFounded = lazy(() => import("./../../components/NotFounded"));
 const AddNewStudent = lazy(() => import("../Student/AddNewStudent"));
 const StudentDeatils = lazy(() => import("./../Student/StudentDeatils"));
 const TeacherDetails = lazy(() => import("../Teacher/TeacherDetails"));
+const UpDataStudentInfo = lazy(() => import("./../Student/UpDataStudentInfo"));
 
 function Admin(props) {
   return (
@@ -33,11 +34,15 @@ function Admin(props) {
             <Routes>
               <Route path="/student" element={<StudentControl />} />
               <Route path="/student/:id" element={<StudentDeatils />} />
-              <Route path="/addNewStudent" element={<AddNewStudent />} />
+              <Route path="/edit/:id" element={<UpDataStudentInfo />} />
+              <Route
+                path="/student/addNewStudent"
+                element={<AddNewStudent />}
+              />
               <Route path="/teachers" element={<TeacherControl />} />
               <Route path="/teachers/:id" element={<TeacherDetails />} />
               <Route path="/courses" element={<CoursesControl />} />
-              <Route exact path="/" element={<StudentControl />} />
+              <Route path="/" element={<StudentControl />} />
               <Route path="*" element={<NotFounded to="/NotFounded" />} />
             </Routes>
           </Suspense>

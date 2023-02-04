@@ -1,28 +1,23 @@
 {
   "students": [
     {
-      "id": 1,
-      "gender": "Male",
+      "profilePicture": "blob:http://localhost:3001/d26eabf9-e7fb-425a-8ebe-80ca2486799c",
       "firstName": "Ahmed",
       "lastName": "Doban",
       "email": "ahmedheshamdoban@student.com",
-      "password": "Ahmed123456789Doban",
-      "re_password": "Ahmed123456789Doban",
+      "password": "Ahmed123456789",
       "phone": "01156526706",
       "date": "2002-03-16",
       "country": "Egypt",
       "city": "Zifta",
+      "fatherInfo": {
+        "name": "Hesham sad doban",
+        "job": "Teacher",
+        "PhoneNumber": "010101010010"
+      },
       "gpa": "3",
-      "courses": [
-        {
-          "id": 1,
-          "courseName": "Html"
-        },
-        {
-          "id": 2,
-          "courseName": "Css"
-        }
-      ]
+      "gender": "male",
+      "id": 1
     }
   ],
   "teachers": [],
