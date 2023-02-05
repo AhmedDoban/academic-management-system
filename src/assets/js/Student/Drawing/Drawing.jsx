@@ -84,6 +84,9 @@ function Drawing() {
           onMouseDown={startDrowing}
           onMouseUp={finishDrowing}
           onMouseMove={Drawing}
+          onTouchStart={startDrowing}
+          onTouchEnd={finishDrowing}
+          onTouchMove={Drawing}
           ref={canvasRef}
           className="canvas"
         />

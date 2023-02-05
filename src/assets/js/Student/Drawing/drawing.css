@@ -46,7 +46,7 @@
 .DrawingOptions .icon-container {
   position: absolute;
   background-color: var(--purple-color);
-  top: 180px;
+  top: 25%;
   left: -30px;
   width: 30px;
   height: 30px;

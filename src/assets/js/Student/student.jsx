@@ -1,6 +1,5 @@
 import React, { useEffect, lazy, Suspense } from "react";
 import SideBar from "../components/SideBar";
-import Head from "../Header/Head";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Quiz from "./Quiz/Quiz";
 
@@ -13,7 +12,7 @@ const StudentTablePage = lazy(() => import("./StudentTablePage"));
 const Library = lazy(() => import("./library/library"));
 const CourseData = lazy(() => import("./Courses/CourseData"));
 const StudentHomePage = lazy(() => import("./Home/StudentHomePage"));
-const Drawing = lazy(() => import("./Drowing/Drawing"));
+const Drawing = lazy(() => import("./Drawing/Drawing"));
 const NotFounded = lazy(() => import("./../components/NotFounded"));
 
 const Student = (props) => {
