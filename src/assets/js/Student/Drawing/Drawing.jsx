@@ -30,10 +30,26 @@ function Drawing() {
   }, [canvasRef]);
 
   // when start drawing
-  const startDrowing = ({ nativeEvent }) => {
+  const startDrawing = ({ nativeEvent }) => {
     const { offsetX, offsetY } = nativeEvent;
     contextRef.current.beginPath();
     contextRef.current.moveTo(offsetX, offsetY);
+    // line  style of the draw
+    contextRef.current.lineCap = "round";
+    contextRef.current.strokeStyle = color;
+    contextRef.current.lineWidth = size;
+    setIsDrawing(true);
+  };
+  // when start drawing on mobile
+  const touchstart = (e) => {
+    let clientX;
+    let clientY;
+
+    clientX = e.touches[0].clientX;
+    clientY = e.touches[0].clientY;
+
+    contextRef.current.moveTo(clientX, clientY);
+
     // line  style of the draw
     contextRef.current.lineCap = "round";
     contextRef.current.strokeStyle = color;
@@ -81,10 +97,10 @@ function Drawing() {
     <React.Fragment>
       <div className="drawing">
         <canvas
-          onMouseDown={startDrowing}
+          onMouseDown={startDrawing}
           onMouseUp={finishDrowing}
           onMouseMove={Drawing}
-          onTouchStart={startDrowing}
+          onTouchStart={touchstart}
           onTouchEnd={finishDrowing}
           onTouchMove={Drawing}
           ref={canvasRef}
