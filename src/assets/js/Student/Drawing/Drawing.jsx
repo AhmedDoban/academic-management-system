@@ -28,46 +28,53 @@ function Drawing() {
     // and all of the data save it in the contextRef because i use it in the function of drawing
     contextRef.current = context;
   }, [canvasRef]);
-
+  // line  style of the draw
+  const StyleConvas = () => {
+    contextRef.current.lineCap = "round";
+    contextRef.current.strokeStyle = color;
+    contextRef.current.lineWidth = size;
+  };
   // when start drawing
   const startDrawing = ({ nativeEvent }) => {
     const { offsetX, offsetY } = nativeEvent;
     contextRef.current.beginPath();
     contextRef.current.moveTo(offsetX, offsetY);
-    // line  style of the draw
-    contextRef.current.lineCap = "round";
-    contextRef.current.strokeStyle = color;
-    contextRef.current.lineWidth = size;
+    StyleConvas();
     setIsDrawing(true);
   };
   // when start drawing on mobile
+  let clientX;
+  let clientY;
   const touchstart = (e) => {
-    let clientX;
-    let clientY;
-
     clientX = e.touches[0].clientX;
     clientY = e.touches[0].clientY;
-
     contextRef.current.moveTo(clientX, clientY);
-
-    // line  style of the draw
-    contextRef.current.lineCap = "round";
-    contextRef.current.strokeStyle = color;
-    contextRef.current.lineWidth = size;
+    StyleConvas();
     setIsDrawing(true);
   };
+
   // when finish drawing
   const finishDrowing = () => {
     contextRef.current.closePath();
     setIsDrawing(false);
   };
-  // when drawing
+  // when drawing on web
   const Drawing = ({ nativeEvent }) => {
     if (!isDrawing) {
       return;
     }
     const { offsetX, offsetY } = nativeEvent;
     contextRef.current.lineTo(offsetX, offsetY);
+    contextRef.current.stroke();
+  };
+  // when drawing on web in mob
+  const DrawingMOb = (e) => {
+    if (!isDrawing) {
+      return;
+    }
+    let deltaX = e.changedTouches[0].clientX - clientX;
+    let deltaY = e.changedTouches[0].clientY - clientY;
+    contextRef.current.lineTo(deltaX, deltaY);
     contextRef.current.stroke();
   };
   // when Erasing
@@ -102,7 +109,7 @@ function Drawing() {
           onMouseMove={Drawing}
           onTouchStart={touchstart}
           onTouchEnd={finishDrowing}
-          onTouchMove={Drawing}
+          onTouchMove={DrawingMOb}
           ref={canvasRef}
           className="canvas"
         />
