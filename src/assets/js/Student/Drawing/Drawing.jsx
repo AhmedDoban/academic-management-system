@@ -43,11 +43,9 @@ function Drawing() {
     setIsDrawing(true);
   };
   // when start drawing on mobile
-  let clientX;
-  let clientY;
   const touchstart = (e) => {
-    clientX = e.touches[0].clientX;
-    clientY = e.touches[0].clientY;
+    let clientX = e.touches[0].clientX;
+    let clientY = e.touches[0].clientY;
     contextRef.current.moveTo(clientX, clientY);
     StyleConvas();
     setIsDrawing(true);
@@ -72,6 +70,8 @@ function Drawing() {
     if (!isDrawing) {
       return;
     }
+    let clientX = e.touches[0].clientX;
+    let clientY = e.touches[0].clientY;
     let deltaX = e.changedTouches[0].clientX - clientX;
     let deltaY = e.changedTouches[0].clientY - clientY;
     contextRef.current.lineTo(deltaX, deltaY);
