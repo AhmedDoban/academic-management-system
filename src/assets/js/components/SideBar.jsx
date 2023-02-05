@@ -74,7 +74,7 @@ const SideBar = (props) => {
               <span>Library</span>
             </NavLink>
             <NavLink to="drawing" onClick={open}>
-              <i class="fa-solid fa-brush"></i>
+              <i className="fa-solid fa-brush"></i>
               <span>Drawing</span>
             </NavLink>
           </li>

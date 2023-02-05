@@ -46,7 +46,7 @@ function Drawing() {
   const touchstart = (e) => {
     let ToushX = e.changedTouches[0].pageX;
     let ToushY = e.changedTouches[0].pageY;
-
+    contextRef.current.beginPath();
     contextRef.current.moveTo(ToushX, ToushY);
     StyleConvas();
     setIsDrawing(true);
@@ -91,12 +91,9 @@ function Drawing() {
 
   // handle Clear delete all the data of convas
   const handleClear = () => {
-    contextRef.current.clearRect(
-      0,
-      0,
-      canvasRef.current.width,
-      canvasRef.current.height
-    );
+    let canvas = canvasRef.current;
+    let context = contextRef.current;
+    context.clearRect(0, 0, canvas.width, canvas.height);
   };
 
   return (
