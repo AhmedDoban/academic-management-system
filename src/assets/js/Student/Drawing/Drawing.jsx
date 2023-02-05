@@ -43,10 +43,12 @@ function Drawing() {
     setIsDrawing(true);
   };
   // when start drawing on mobile
+  const [ToushX, SetTouchX] = useState();
+  const [ToushY, SetTouchY] = useState();
   const touchstart = (e) => {
-    let clientX = e.touches[0].clientX;
-    let clientY = e.touches[0].clientY;
-    contextRef.current.moveTo(clientX, clientY);
+    SetTouchX(e.changedTouches[0].pageX);
+    SetTouchY(e.changedTouches[0].pageY);
+    contextRef.current.moveTo(ToushX, ToushY);
     StyleConvas();
     setIsDrawing(true);
   };
@@ -70,10 +72,9 @@ function Drawing() {
     if (!isDrawing) {
       return;
     }
-    let clientX = e.touches[0].clientX;
-    let clientY = e.touches[0].clientY;
-    let deltaX = e.changedTouches[0].clientX - clientX;
-    let deltaY = e.changedTouches[0].clientY - clientY;
+
+    let deltaX = e.changedTouches[0].pageX - ToushX;
+    let deltaY = e.changedTouches[0].pageY - ToushY;
     contextRef.current.lineTo(deltaX, deltaY);
     contextRef.current.stroke();
   };
