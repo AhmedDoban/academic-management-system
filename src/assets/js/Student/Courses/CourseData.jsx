@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Footer from "../../components/Footer";
 import CourseDataHeader from "./CourseDataHeader";
+import Head from "../../Header/Head";
 
 function CourseData(props) {
   const params = useParams();
@@ -14,6 +15,7 @@ function CourseData(props) {
   }, []);
   return (
     <React.Fragment>
+      <Head />
       <div className="specific-course">
         {/************************************* start Course Data Header ***************************************/}
         <CourseDataHeader

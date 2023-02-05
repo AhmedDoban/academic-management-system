@@ -7,6 +7,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import Footer from "../../components/Footer";
+import Head from "../../Header/Head";
 
 function Library(props) {
   let [search, setSearch] = useState("");
@@ -58,6 +59,7 @@ function Library(props) {
 
   return (
     <React.Fragment>
+      <Head />
       <div className="Library">
         <div className="head-Section">
           <div className="container">

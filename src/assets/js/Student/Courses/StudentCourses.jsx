@@ -4,10 +4,12 @@ import Courses from "./Courses";
 import TopInstructor from "./TopInstructor";
 import RanDomQuote from "../RanDomQuote";
 import CourseDataHeader from "./CourseDataHeader";
+import Head from "../../Header/Head";
 
 function StudentCourses(props) {
   return (
     <React.Fragment>
+      <Head />
       {/************************************* start Course Data Header ***************************************/}
       <CourseDataHeader
         h3="WELCOME TO Course"

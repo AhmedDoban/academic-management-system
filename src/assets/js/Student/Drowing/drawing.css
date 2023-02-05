@@ -1,0 +1,125 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../css/root.css");
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# drawing
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.drawing {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# drawingcanvas
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.drawing .canvas {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-color: #fff;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Drawing Options
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.DrawingOptions {
+  position: fixed;
+  width: 250px;
+  height: 100vh;
+  background-color: var(--purple-color);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  right: -250px;
+  transition: var(--main-transition);
+}
+.DrawingOptions.active {
+  right: 0;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Drawing Options icon-container
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.DrawingOptions .icon-container {
+  position: absolute;
+  background-color: var(--purple-color);
+  top: 180px;
+  left: -30px;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Drawing Options boxs
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.DrawingOptions .input-box-options {
+  position: relative;
+  width: 100%;
+}
+.DrawingOptions .input-box-options input[type="color"] {
+  position: relative;
+  width: 0;
+  opacity: 0;
+  height: 200px;
+  border-radius: var(--main-border-radius);
+}
+.DrawingOptions .input-box-options input[type="color"] + label {
+  position: absolute;
+  width: 100%;
+  color: #ddd;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--main-border-radius);
+  font-weight: bold;
+}
+.DrawingOptions .input-box-options:nth-child(3) {
+  background-color: #fff;
+  border-radius: var(--main-border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  height: fit-content;
+}
+.DrawingOptions .input-box-options:nth-child(3) label {
+  font-size: 18px;
+  font-weight: bold;
+}
+.DrawingOptions .input-box-options a,
+.DrawingOptions .input-box-options button {
+  position: relative;
+  display: block;
+  margin: 10px 0;
+  width: 100%;
+  border-radius: var(--main-border-radius);
+  border: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 12px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: var(--main-transition);
+  font-weight: bold;
+  color: var(--purple-color);
+}
+.DrawingOptions .input-box-options a {
+  color: var(--main-color);
+}
+.DrawingOptions .input-box-options button i + span,
+.DrawingOptions .input-box-options a i + span {
+  margin-left: 10px;
+}

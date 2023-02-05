@@ -3,6 +3,7 @@ import { useReactToPrint } from "react-to-print";
 import { useDownloadExcel } from "react-export-table-to-excel";
 import Footer from "./../components/Footer";
 import RanDomQuote from "./RanDomQuote";
+import Head from "../Header/Head";
 class StudentTable extends React.PureComponent {
   render() {
     return (
@@ -144,23 +145,30 @@ function StudentTablePage(props) {
     sheet: "Users",
   });
   return (
-    <div className="toolbar">
-      <div className="management">
-        <h1>Student table</h1>
-        <div className="control">
-          <button onClick={handlePrint}>
-            <i className="fa-solid fa-print"></i>
-          </button>
-          <button onClick={onDownload}>
-            <i className="fa-solid fa-cloud-arrow-down"></i>
-          </button>
+    <React.Fragment>
+      <Head />
+      <div className="toolbar">
+        <div className="management">
+          <h1>Student table</h1>
+          <div className="control">
+            <button onClick={handlePrint}>
+              <i className="fa-solid fa-print"></i>
+            </button>
+            <button onClick={onDownload}>
+              <i className="fa-solid fa-cloud-arrow-down"></i>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <StudentTable ref={componentRef} currentTableRef={tableRef} {...props} />
+        <StudentTable
+          ref={componentRef}
+          currentTableRef={tableRef}
+          {...props}
+        />
+      </div>
       <RanDomQuote />
       <Footer />
-    </div>
+    </React.Fragment>
   );
 }
 

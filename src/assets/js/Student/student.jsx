@@ -13,6 +13,7 @@ const StudentTablePage = lazy(() => import("./StudentTablePage"));
 const Library = lazy(() => import("./library/library"));
 const CourseData = lazy(() => import("./Courses/CourseData"));
 const StudentHomePage = lazy(() => import("./Home/StudentHomePage"));
+const Drawing = lazy(() => import("./Drowing/Drawing"));
 const NotFounded = lazy(() => import("./../components/NotFounded"));
 
 const Student = (props) => {
@@ -25,7 +26,6 @@ const Student = (props) => {
       <div className="page p-relative">
         <SideBar />
         <div className="content">
-          <Head />
           <div className="pagewrapper display-flex gap-10">
             <div className="postContainer width-full">
               <Suspense
@@ -57,6 +57,7 @@ const Student = (props) => {
                   <Route path="/table" element={<StudentTablePage />} />
                   <Route path="/library" element={<Library />} />
                   <Route path="/quiz" element={<Quiz />} />
+                  <Route path="/drawing" element={<Drawing />} />
                   <Route exact path="/" element={<StudentHomePage />} />
                   <Route path="*" element={<NotFounded to="/NotFounded" />} />
                 </Routes>

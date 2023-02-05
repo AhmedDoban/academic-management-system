@@ -7,11 +7,13 @@ import RanDomQuote from "../RanDomQuote";
 import SammaryData from "./SammaryData";
 import WhatOffer from "./WhatOffer";
 import Footer from "./../../components/Footer";
+import Head from "../../Header/Head";
 
 function StudentHomePage(props) {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
   return (
     <React.Fragment>
+      <Head />
       <AutoplaySlider
         className="slider_Setting"
         play={true}
