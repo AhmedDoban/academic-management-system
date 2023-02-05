@@ -10,8 +10,8 @@ function DrawingOptions(props) {
   return (
     <React.Fragment>
       <div className="DrawingOptions">
-        <div class="icon-container" onClick={open}>
-          <i class="fas fa-gear"></i>
+        <div className="icon-container" onClick={open}>
+          <i className="fas fa-gear"></i>
         </div>
         <div className="input-box-options">
           <input
@@ -47,7 +47,7 @@ function DrawingOptions(props) {
             <span>Draw</span>
           </button>
           <button onClick={props.handleClear}>
-            <i class="fa-solid fa-chalkboard"></i>
+            <i className="fa-solid fa-chalkboard"></i>
             <span>Clear</span>
           </button>
           <a
@@ -55,7 +55,7 @@ function DrawingOptions(props) {
             onClick={props.handleDownload}
             href={props.dateUrl}
           >
-            <i class="fa-solid fa-cloud-arrow-down"></i>
+            <i className="fa-solid fa-cloud-arrow-down"></i>
             <span>Downlad Img</span>
           </a>
         </div>

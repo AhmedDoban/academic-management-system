@@ -43,11 +43,10 @@ function Drawing() {
     setIsDrawing(true);
   };
   // when start drawing on mobile
-  const [ToushX, SetTouchX] = useState();
-  const [ToushY, SetTouchY] = useState();
   const touchstart = (e) => {
-    SetTouchX(e.changedTouches[0].pageX);
-    SetTouchY(e.changedTouches[0].pageY);
+    let ToushX = e.changedTouches[0].pageX;
+    let ToushY = e.changedTouches[0].pageY;
+
     contextRef.current.moveTo(ToushX, ToushY);
     StyleConvas();
     setIsDrawing(true);
@@ -72,10 +71,9 @@ function Drawing() {
     if (!isDrawing) {
       return;
     }
-
-    let deltaX = e.changedTouches[0].pageX - ToushX;
-    let deltaY = e.changedTouches[0].pageY - ToushY;
-    contextRef.current.lineTo(deltaX, deltaY);
+    let ToushX = e.changedTouches[0].pageX;
+    let ToushY = e.changedTouches[0].pageY;
+    contextRef.current.lineTo(ToushX, ToushY);
     contextRef.current.stroke();
   };
   // when Erasing
@@ -92,14 +90,14 @@ function Drawing() {
   }, [canvasRef]);
 
   // handle Clear delete all the data of convas
-  const handleClear = useCallback(() => {
+  const handleClear = () => {
     contextRef.current.clearRect(
       0,
       0,
       canvasRef.current.width,
       canvasRef.current.height
     );
-  }, []);
+  };
 
   return (
     <React.Fragment>
