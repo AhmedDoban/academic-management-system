@@ -84,7 +84,7 @@ function Courses() {
       appendNumber.current++;
     }
     setInput("");
-    toast.success("Couse added successfly", {
+    toast.success("Course added successfly", {
       autoClose: 15000,
       theme: "colored",
     });

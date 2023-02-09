@@ -82,11 +82,10 @@ function StudentDeatils(props) {
         <div className="data">
           <div className="right">
             <ol>
-              {Student.courses?.map((p) => (
-                <li key={p.id}>{p.courseName}</li>
+              {Student.CoursesID?.map((p) => (
+                <li key={p}>{p}</li>
               ))}
             </ol>
-            {/* {Student.courses.map((p) => p.id)} */}
           </div>
         </div>
 

@@ -10,8 +10,9 @@
   display: flex;
 }
 .SideBarAdminPage {
-  position: relative;
-  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  height: 100vh;
   background-color: #f8f9fa;
   width: 250px;
   padding: 20px;
@@ -418,10 +419,12 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Student :/id Deatils righr data ol
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.inpus-filds-container .data .right ol,
 .StudentDeatils .data .right ol {
   padding: 0px 0 20px 0;
   position: relative;
 }
+.inpus-filds-container .data .right ol li,
 .StudentDeatils .data .right ol li {
   padding: 10px 8px;
   background-color: #fafafa;
@@ -534,10 +537,12 @@
   width: fit-content;
   margin-right: 15px;
 }
-.add-new-student form .inpus-filds-container button[type="submit"] {
+.add-new-student form .inpus-filds-container button[type="submit"],
+.inpus-filds-container .data .right input[type="button"] {
   background-color: var(--green-color);
   color: #fff;
   padding: 10px;
   cursor: pointer;
   border: 1px solid #eee;
+  border-radius: 0;
 }

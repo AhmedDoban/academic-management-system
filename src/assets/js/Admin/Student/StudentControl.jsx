@@ -1,9 +1,6 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
 import CustomAdminInputsHead from "./../components/CustomAdminInputsHead";
 import CustomTable from "./../components/CustomTable";
-import StudentDeatils from "./StudentDeatils";
-import AddNewStudent from "./AddNewStudent";
 
 function StudentControl() {
   return (

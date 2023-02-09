@@ -1,5 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
+import Swal from "sweetalert2";
+
 import { useNavigate } from "react-router-dom";
 function AddNewStudent() {
   const [profilePicture, SetprofilePicture] = useState();
@@ -16,6 +20,15 @@ function AddNewStudent() {
   const [job, SetJob] = useState("");
   const [PhoneNumber, SetPhoneNumber] = useState("");
   const [gender, setGender] = useState("male");
+  const [CoursesID, setCoursesID] = useState([]);
+  const [Courses, SetCourses] = useState({});
+  const [ADDCourseFiled, SetADDCourseFiled] = useState("");
+
+  useEffect(() => {
+    axios.get(`http://localhost:3000/CourcesDB`).then((response) => {
+      SetCourses(response.data);
+    });
+  }, []);
 
   const handleFileSelected = (e) => {
     let image = document.getElementById("Img");
@@ -44,6 +57,7 @@ function AddNewStudent() {
         },
         gpa,
         gender,
+        CoursesID,
       })
       .then(function (response) {
         Navigate("/student");
@@ -51,6 +65,65 @@ function AddNewStudent() {
       .catch(function (error) {
         console.log(error);
       });
+  };
+
+  const handleDeleteCourse = (e) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: `You won't Delete this Record `,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        for (let i = 0; i < CoursesID.length; i++) {
+          if (CoursesID[i] === e) {
+            //clone
+            let arr = [...CoursesID];
+            // edit
+            arr.splice(i, 1);
+            // update
+            setCoursesID(arr);
+          }
+        }
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+      }
+    });
+  };
+
+  const HandlerAddCourse = () => {
+    if (!ADDCourseFiled) {
+      toast.error("input empty", {
+        autoClose: 15000,
+        theme: "dark",
+      });
+      return;
+    }
+    Courses.map((ele) =>
+      ADDCourseFiled === ele.CourcesName ? CheckCourse(ADDCourseFiled) : null
+    );
+  };
+  const CheckCourse = (ADDCourseFiled) => {
+    CoursesID.includes(ADDCourseFiled)
+      ? toast.error("Alredy Added", {
+          autoClose: 15000,
+          theme: "dark",
+        })
+      : addCourseHandelar();
+  };
+  const addCourseHandelar = () => {
+    // clone
+    let new_Course = [...CoursesID];
+    // Edit
+    new_Course.push(ADDCourseFiled);
+    // update
+    setCoursesID(new_Course);
+    toast.success("Course added successfly", {
+      autoClose: 15000,
+      theme: "colored",
+    });
   };
 
   return (
@@ -156,10 +229,37 @@ function AddNewStudent() {
               onChange={(e) => SetJob(e.target.value)}
             />
             <h5 className="main-titel-2">Student Courses</h5>
+            <div className="data">
+              <div className="right">
+                <input
+                  type="text"
+                  placeholder="Enter Course Id "
+                  value={ADDCourseFiled}
+                  onChange={(e) => SetADDCourseFiled(e.target.value)}
+                />
+                <input
+                  type="button"
+                  value="Add Course"
+                  onClick={HandlerAddCourse}
+                />
+                <ol>
+                  {CoursesID?.map((p) => (
+                    <li key={p} className="between-flex">
+                      <span>{p}</span>
+                      <i
+                        className="fa-sharp fa-solid fa-trash color-red"
+                        onClick={() => handleDeleteCourse(p)}
+                      ></i>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
             <button type="submit">Add Student</button>
           </div>
         </form>
       </div>
+      <ToastContainer />
     </React.Fragment>
   );
 }
