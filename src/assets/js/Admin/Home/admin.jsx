@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import "../style/admin.css";
+import AdminHome from "./AdminHome";
 
 const SideBarAdminPage = lazy(() => import("../components/SideBarAdminPage"));
 const StudentControl = lazy(() => import("./../Student/StudentControl"));
@@ -32,17 +33,16 @@ function Admin(props) {
             }
           >
             <Routes>
-              <Route path="/student" element={<StudentControl />} />
-              <Route path="/student/:id" element={<StudentDeatils />} />
+              <Route path="/student" element={<Outlet />}>
+                <Route path="" element={<StudentControl />} />
+                <Route path=":id" element={<StudentDeatils />} />
+                <Route path="addNewStudent" element={<AddNewStudent />} />
+              </Route>
               <Route path="/edit/:id" element={<UpDataStudentInfo />} />
-              <Route
-                path="/student/addNewStudent"
-                element={<AddNewStudent />}
-              />
               <Route path="/teachers" element={<TeacherControl />} />
               <Route path="/teachers/:id" element={<TeacherDetails />} />
               <Route path="/courses" element={<CoursesControl />} />
-              <Route path="/" element={<StudentControl />} />
+              <Route path="/" element={<AdminHome />} />
               <Route path="*" element={<NotFounded to="/NotFounded" />} />
             </Routes>
           </Suspense>

@@ -17,12 +17,7 @@
       },
       "gpa": "3",
       "gender": "male",
-      "CoursesID": [
-        "PHP",
-        "CSS",
-        "HTML",
-        "my PHP"
-      ],
+      "CoursesID": ["PHP", "CSS", "HTML", "my PHP"],
       "id": 1
     }
   ],

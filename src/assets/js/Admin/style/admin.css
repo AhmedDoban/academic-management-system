@@ -66,7 +66,7 @@
 
 .SideBarAdminPage ul li a:hover,
 .SideBarAdminPage ul li a.active {
-  background-color: var(--red-color);
+  background-color: var(--main-page-color);
   color: #fff;
 }
 .SideBarAdminPage ul li a span {
@@ -280,7 +280,7 @@
   color: var(--main-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-  # CustomTable  Screen Media
+  # Custom Table  Screen Media
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 @media (max-width: 992px) {
   /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
@@ -305,7 +305,7 @@
     width: 1px;
   }
   /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-   # CustomTable   table th , td
+   # Custom Table   table th , td
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
   .CustomTable table tr {
     position: relative;
@@ -349,7 +349,7 @@
     width: 100%;
   }
   /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-   # CustomTable   options
+   # Custom Table   options
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
   .CustomTable table tr .Options {
     justify-content: flex-end;
@@ -359,7 +359,78 @@
     font-size: 14px;
   }
 }
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# admin Home page
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.AdminHome {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+@media (max-width: 992px) {
+  .AdminHome {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+.AdminHome .box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.AdminHome .box a {
+  background-color: #fff;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: var(--main-border-radius);
+}
+.AdminHome .box:nth-child(1) a,
+.AdminHome .box:nth-child(1) .box-footer {
+  background-color: #0077ff2c;
+  color: var(--blue-color);
+}
+.AdminHome .box:nth-child(2) a,
+.AdminHome .box:nth-child(2) .box-footer {
+  background-color: #f59e0b2c;
+  color: var(--main-color);
+}
+.AdminHome .box:nth-child(3) a,
+.AdminHome .box:nth-child(3) .box-footer {
+  background-color: #22c55e2c;
+  color: var(--green-color);
+}
+.AdminHome .box .box-footer {
+  position: relative;
+  background-color: #eee;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: var(--main-border-radius);
+}
+.AdminHome .box .box-footer span {
+  font-weight: bold;
+  font-size: 25px;
+}
 
+.AdminHome .box .box-footer p {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--main-page-color);
+}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # student Control container
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
