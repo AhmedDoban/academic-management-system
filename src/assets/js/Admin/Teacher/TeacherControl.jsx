@@ -1,6 +1,6 @@
 import React from "react";
 import CustomAdminInputsHead from "./../components/CustomAdminInputsHead";
-import CustomTable from "./../components/CustomTable";
+import TeacherCustomTable from "./TeacherCustomTable";
 
 function TeacherControl() {
   return (
@@ -13,7 +13,7 @@ function TeacherControl() {
             searchName="Search For Teacher Name"
           />
           <div className="data">
-            <CustomTable api="http://localhost:3000/teachers" type="teachers" />
+            <TeacherCustomTable api="http://localhost:3000/teachers" />
           </div>
         </div>
       </div>

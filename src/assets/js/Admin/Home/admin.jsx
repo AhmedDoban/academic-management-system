@@ -33,15 +33,20 @@ function Admin(props) {
             }
           >
             <Routes>
-              <Route path="/student" element={<Outlet />}>
+              <Route path="student" element={<Outlet />}>
                 <Route path="" element={<StudentControl />} />
                 <Route path=":id" element={<StudentDeatils />} />
                 <Route path="addNewStudent" element={<AddNewStudent />} />
+                <Route path="edit/:id" element={<UpDataStudentInfo />} />
               </Route>
-              <Route path="/edit/:id" element={<UpDataStudentInfo />} />
-              <Route path="/teachers" element={<TeacherControl />} />
-              <Route path="/teachers/:id" element={<TeacherDetails />} />
-              <Route path="/courses" element={<CoursesControl />} />
+
+              <Route path="teachers" element={<Outlet />}>
+                <Route path="" element={<TeacherControl />} />
+                <Route path=":id" element={<TeacherDetails />} />
+              </Route>
+              <Route path="courses" element={<Outlet />}>
+                <Route path="" element={<CoursesControl />} />
+              </Route>
               <Route path="/" element={<AdminHome />} />
               <Route path="*" element={<NotFounded to="/NotFounded" />} />
             </Routes>

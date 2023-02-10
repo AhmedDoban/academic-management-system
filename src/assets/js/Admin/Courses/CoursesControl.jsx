@@ -1,5 +1,5 @@
 import React from "react";
-import CustomTable from "../components/CustomTable";
+import CustomTable from "./CustomTable";
 import CustomAdminInputsHead from "./../components/CustomAdminInputsHead";
 
 function CoursesControl() {
@@ -13,14 +13,7 @@ function CoursesControl() {
             searchName="Search For Course Name"
           />
           <div className="data">
-            <CustomTable
-              Col1="Cource Teacher"
-              Col2="Cource Name"
-              api="http://localhost:3000/CourcesDB"
-              type="CourcesDB"
-              CourceTeacher
-              CourceName
-            />
+            <CustomTable api="http://localhost:3000/CourcesDB" />
           </div>
         </div>
       </div>

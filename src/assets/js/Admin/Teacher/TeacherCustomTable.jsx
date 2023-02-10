@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Options from "./Options";
 import Swal from "sweetalert2";
+import Options from "../components/Options";
 
-function CustomTable(props) {
+function TeacherCustomTable(props) {
   const [items, setItems] = useState([]);
-  const type = props.type;
 
   useEffect(() => {
     GetData();
@@ -41,8 +40,8 @@ function CustomTable(props) {
           <thead>
             <tr>
               <th>id</th>
-              <th>{props.Col1 ? props.Col1 : "Name"}</th>
-              <th>{props.Col2 ? props.Col2 : "Email"}</th>
+              <th>Name</th>
+              <th>Email</th>
               <th>options</th>
             </tr>
           </thead>
@@ -50,20 +49,14 @@ function CustomTable(props) {
             {items.map((p) => (
               <tr key={p.id}>
                 <td data-label="id">{p.id}</td>
-                <td data-label={props.Col1 ? props.Col1 : "Name"}>
-                  {props.CourceTeacher
-                    ? p.CourcesTeacher
-                    : p.firstName + " " + p.lastName}
-                </td>
-                <td data-label={props.Col2 ? props.Col2 : "Email"}>
-                  {props.CourceName ? p.CourcesName : p.email}
-                </td>
+                <td data-label="Name">{p.firstName + " " + p.lastName}</td>
+                <td data-label="Email">{p.email}</td>
                 <td data-label="options">
                   <div className="Options">
                     <Options
-                      View={`/${type}/${p.id}`}
+                      View={`/teachers/${p.id}`}
                       HandleDelete={() => HandleDelete(p)}
-                      Edit={`/edit/${p.id}`}
+                      Edit={`/teachers/edit/${p.id}`}
                     />
                   </div>
                 </td>
@@ -75,4 +68,4 @@ function CustomTable(props) {
     </React.Fragment>
   );
 }
-export default CustomTable;
+export default TeacherCustomTable;
