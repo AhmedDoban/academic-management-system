@@ -1,7 +1,7 @@
 {
   "students": [
     {
-      "profilePicture": "blob:http://localhost:3001/d26b3e33-99b9-4e6b-87ae-7c5f4dcaba84",
+      "profilePicture": "blob:http://localhost:3001/e8aa899e-aa40-436f-8b29-e34b25ffd26c",
       "firstName": "Ahmed",
       "lastName": "Doban",
       "email": "ahmedheshamdoban@student.com",
@@ -17,7 +17,12 @@
       },
       "gpa": "3",
       "gender": "male",
-      "CoursesID": ["PHP", "CSS", "HTML", "my PHP"],
+      "CoursesID": [
+        "PHP",
+        "CSS",
+        "HTML",
+        "my PHP"
+      ],
       "id": 1
     }
   ],
@@ -49,13 +54,6 @@
       "CourcesName": "my PHP",
       "photo": "./assets/img/Courses/php.png",
       "teacher": "./assets/img/avatars/4.jpeg",
-      "CourcesTeacher": "ALi Esmaiel"
-    },
-    {
-      "id": 5,
-      "CourcesName": "laravel",
-      "photo": "./assets/img/Courses/html.png",
-      "teacher": "./assets/img/avatars/5.jpeg",
       "CourcesTeacher": "ALi Esmaiel"
     }
   ]

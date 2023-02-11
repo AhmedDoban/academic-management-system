@@ -1,17 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import CustomInputField from "./../components/CustomInputField";
-import { useDispatch, useSelector } from "react-redux";
-import { ViewStudent } from "../../../redux-toolkit/slices/student-slice";
-
+import { useSelector } from "react-redux";
 function StudentDeatils(props) {
-  const params = useParams([]);
-  const Student = useSelector((state) => state.Student);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(ViewStudent(params.id));
-  }, []);
+  const params = useParams({});
+  const AllStudent = useSelector((state) => state.Student);
+  const FindStudent = AllStudent.filter((user) => user.id == params.id);
+  const [Student, setStudent] = useState(FindStudent[0]);
 
   return (
     <React.Fragment>

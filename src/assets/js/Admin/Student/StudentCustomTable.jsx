@@ -28,7 +28,7 @@ function StudentCustomTable(props) {
             </tr>
           </thead>
           <tbody>
-            { AllStudent.map((p) => (
+            {AllStudent.map((p) => (
               <tr key={p.id}>
                 <td data-label="id">{p.id}</td>
                 <td data-label="Name">{p.firstName + " " + p.lastName}</td>

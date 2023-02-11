@@ -12,17 +12,6 @@ export const ViewAllStudent = createAsyncThunk(
   }
 );
 
-// View Student
-export const ViewStudent = createAsyncThunk(
-  "StudentSlice/ViewStudent",
-  async (id) => {
-    const data = await axios
-      .get(`${api}/${id}`)
-      .then((response) => response.data);
-    return data;
-  }
-);
-
 // Delete Student
 
 export const DeleteStudent = createAsyncThunk(
@@ -49,15 +38,10 @@ export const DeleteStudent = createAsyncThunk(
 export const StudentSlice = createSlice({
   initialState: [],
   name: "StudentSlice",
-
   extraReducers(builder) {
     // View All Student
     builder
       .addCase(ViewAllStudent.fulfilled, (state, action) => {
-        return action.payload;
-      })
-      // View Student
-      .addCase(ViewStudent.fulfilled, (state, action) => {
         return action.payload;
       })
       // Delete Student
