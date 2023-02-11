@@ -1,37 +1,18 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import Options from "../components/Options";
-import Swal from "sweetalert2";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  DeleteCourse,
+  ViewAllCourses,
+} from "../../../redux-toolkit/slices/courses-slice";
 
 function CustomTable(props) {
-  const [items, setItems] = useState([]);
+  const AllCourses = useSelector((state) => state.Courses);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    GetData();
-  }, [items]);
-
-  const GetData = () => {
-    axios.get(props.api).then((response) => {
-      setItems(response.data);
-    });
-  };
-
-  const HandleDelete = (target) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: `You won't Delete this Record `,
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axios.delete(`${props.api}/${target.id}`).then(GetData());
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
-      }
-    });
-  };
+    dispatch(ViewAllCourses());
+  }, [dispatch, AllCourses]);
 
   return (
     <React.Fragment>
@@ -46,7 +27,7 @@ function CustomTable(props) {
             </tr>
           </thead>
           <tbody>
-            {items.map((p) => (
+            {AllCourses.map((p) => (
               <tr key={p.id}>
                 <td data-label="id">{p.id}</td>
                 <td data-label="Cource Teacher">{p.CourcesTeacher}</td>
@@ -55,7 +36,7 @@ function CustomTable(props) {
                   <div className="Options">
                     <Options
                       View={`/courses/${p.id}`}
-                      HandleDelete={() => HandleDelete(p)}
+                      HandleDelete={() => dispatch(DeleteCourse(p.id))}
                       Edit={`/courses/edit/${p.id}`}
                     />
                   </div>
