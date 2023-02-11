@@ -1,38 +1,19 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  ViewAllStudent,
+  DeleteStudent,
+} from "../../../redux-toolkit/slices/student-slice";
 
-import Swal from "sweetalert2";
 import Options from "../components/Options";
 
 function StudentCustomTable(props) {
-  const [items, setItems] = useState([]);
+  const AllStudent = useSelector((state) => state.Student);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    GetData();
-  }, []);
-
-  const GetData = () => {
-    axios.get(props.api).then((response) => {
-      setItems(response.data);
-    });
-  };
-
-  const HandleDelete = (target) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: `You won't Delete this Record `,
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axios.delete(`${props.api}/${target.id}`).then(GetData());
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
-      }
-    });
-  };
+    dispatch(ViewAllStudent());
+  }, [dispatch, AllStudent]);
 
   return (
     <React.Fragment>
@@ -47,7 +28,7 @@ function StudentCustomTable(props) {
             </tr>
           </thead>
           <tbody>
-            {items.map((p) => (
+            { AllStudent.map((p) => (
               <tr key={p.id}>
                 <td data-label="id">{p.id}</td>
                 <td data-label="Name">{p.firstName + " " + p.lastName}</td>
@@ -56,7 +37,7 @@ function StudentCustomTable(props) {
                   <div className="Options">
                     <Options
                       View={`/student/${p.id}`}
-                      HandleDelete={() => HandleDelete(p)}
+                      HandleDelete={() => dispatch(DeleteStudent(p.id))}
                       Edit={`/student/edit/${p.id}`}
                     />
                   </div>

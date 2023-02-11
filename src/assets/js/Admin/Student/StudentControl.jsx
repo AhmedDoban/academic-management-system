@@ -14,10 +14,7 @@ function StudentControl() {
             linkTo="addNewStudent"
           />
           <div className="data">
-            <StudentCustomTable
-              api="http://localhost:3000/students"
-              type="student"
-            />
+            <StudentCustomTable />
           </div>
         </div>
       </div>

@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 
 function CustomTable(props) {
   const [items, setItems] = useState([]);
-  const type = props.type;
 
   useEffect(() => {
     GetData();
@@ -50,12 +49,8 @@ function CustomTable(props) {
             {items.map((p) => (
               <tr key={p.id}>
                 <td data-label="id">{p.id}</td>
-                <td data-label={props.Col1 ? props.Col1 : "Name"}>
-                  {p.CourcesTeacher}
-                </td>
-                <td data-label={props.Col2 ? props.Col2 : "Email"}>
-                  {p.CourcesName}
-                </td>
+                <td data-label="Cource Teacher">{p.CourcesTeacher}</td>
+                <td data-label="Cource Name">{p.CourcesName}</td>
                 <td data-label="options">
                   <div className="Options">
                     <Options

@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import CustomInputField from "./../components/CustomInputField";
+import { useDispatch, useSelector } from "react-redux";
+import { ViewStudent } from "../../../redux-toolkit/slices/student-slice";
 
 function StudentDeatils(props) {
   const params = useParams([]);
-  const [Student, setStudent] = useState({});
+  const Student = useSelector((state) => state.Student);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3000/students/${params.id}`)
-      .then((response) => {
-        setStudent(response.data);
-      });
+    dispatch(ViewStudent(params.id));
   }, []);
 
   return (
