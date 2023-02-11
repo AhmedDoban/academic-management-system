@@ -11,40 +11,31 @@ function AdminHome() {
         <div className="box">
           <Link to="/student">
             <i className="fa-regular fa-user"></i>
-            <span>Students</span>
-          </Link>
-          <div className="box-footer">
-            <span>Number of Students</span>
             <p>
               <CountUp start={0} end={160527.012} duration={2} separator=" " />
             </p>
-          </div>
+            <span>Number of Students</span>
+          </Link>
         </div>
         {/****************** Teachers Box **********************/}
         <div className="box">
           <Link to="/teachers">
             <i className="fa-solid fa-chalkboard-user"></i>
-            <span>Teachers</span>
-          </Link>
-          <div className="box-footer">
-            <span>Number of Teachers</span>
             <p>
               <CountUp start={0} end={160527.012} duration={2} separator=" " />
             </p>
-          </div>
+            <span>Number of Teachers</span>
+          </Link>
         </div>
         {/****************** Courses Box **********************/}
         <div className="box">
           <Link to="/courses">
             <i className="fa-solid fa-graduation-cap fa-fw"></i>
-            <span>Courses</span>
-          </Link>
-          <div className="box-footer">
-            <span>Number of Courses</span>
             <p>
               <CountUp start={0} end={160527.012} duration={2} separator=" " />
             </p>
-          </div>
+            <span>Number of Courses</span>
+          </Link>
         </div>
       </div>
     </React.Fragment>
