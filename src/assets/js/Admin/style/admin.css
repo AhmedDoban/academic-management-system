@@ -295,26 +295,34 @@
 # CustomTable
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .CustomTable .sort-table {
-  width: 100%;
-  margin-top: 20px;
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
+  display: none;
 }
-.CustomTable .sort-table select {
-  width: 100%;
-  padding: 0 20px;
-  cursor: pointer;
-  outline: none;
-  border-radius: 0;
+@media (max-width: 992px) {
+  .CustomTable .sort-table {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+  .CustomTable .sort-table select {
+    width: 100%;
+    padding: 0 20px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 0;
+  }
+  .CustomTable .sort-table select option {
+    cursor: pointer;
+    border-radius: none;
+    background-color: #111111;
+    color: #fff;
+  }
 }
-.CustomTable .sort-table select option {
-  cursor: pointer;
-  border-radius: none;
-  background-color: #111111;
-  color: #fff;
-}
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # CustomTable see more
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
