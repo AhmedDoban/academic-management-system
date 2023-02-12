@@ -7,7 +7,7 @@ function CustomTable(props) {
   const [DATA, setDATA] = useState([]);
   const [View, SetView] = useState(30);
   const [Order, SetOrder] = useState("ASC");
-  
+
   useEffect(() => {
     axios.get(api).then((reasponse) => setDATA(reasponse.data));
   }, []);
@@ -15,12 +15,20 @@ function CustomTable(props) {
   // Sort Table
   const SortTable = (col) => {
     if (Order === "ASC") {
-      const Sorted = [...DATA].sort((a, b) => (a[col] > b[col] ? 1 : -1));
+      const Sorted = [...DATA].sort((a, b) => {
+        if (typeof b[col] === "string" && typeof a[col] === "string") {
+          return a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1;
+        } else return a[col] > b[col] ? 1 : -1;
+      });
       setDATA(Sorted);
       SetOrder("DES");
     }
     if (Order === "DES") {
-      const Sorted = [...DATA].sort((a, b) => (a[col] < b[col] ? 1 : -1));
+      const Sorted = [...DATA].sort((a, b) => {
+        if (typeof b[col] === "string" && typeof a[col] === "string") {
+          return a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1;
+        } else return a[col] < b[col] ? 1 : -1;
+      });
       setDATA(Sorted);
       SetOrder("ASC");
     }
