@@ -23,6 +23,8 @@ function StudentControl() {
               col1="First Name"
               col2="Last Name"
               col3="Phone"
+              col4="GPA"
+              col5="gender"
               Serach={Serach}
             />
           </div>
