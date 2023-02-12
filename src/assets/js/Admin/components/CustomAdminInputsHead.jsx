@@ -5,10 +5,18 @@ function CustomAdminInputsHead(props) {
   useEffect(() => {
     SetPlaceHolder(props.searchName);
   }, [props.searchName]);
+
   return (
     <React.Fragment>
       <div className="CustomAdminInputsHead">
-        <input type="search" name="" id="" placeholder={placeHolder} />
+        <input
+          type="search"
+          name=""
+          id=""
+          placeholder={placeHolder}
+          value={props.Serach}
+          onChange={(e) => props.SetSearch(e.target.value)}
+        />
         <Link to={props.linkTo}>Add New {props.Title}</Link>
       </div>
     </React.Fragment>

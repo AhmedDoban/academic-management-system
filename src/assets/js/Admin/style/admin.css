@@ -2,7 +2,46 @@
 # General
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 @import url("../../../css/root.css");
-
+.Loding-feachData {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 250px);
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Loding-feachData span {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  font-weight: bold;
+  transition: var(--main-transition);
+}
+.Loding-feachData span::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border: 5px solid #111111;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: rotate 3s ease-in-out infinite;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # admin page
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -59,7 +98,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 18px;
   color: #000;
   border-radius: var(--main-border-radius);
   border-top-right-radius: 0;
@@ -80,7 +119,6 @@
   right: 0;
   background-color: transparent;
   border-radius: 50%;
-  z-index: 1;
 }
 .SideBarAdminPage ul li a:hover::before,
 .SideBarAdminPage ul li a.active::before {
@@ -121,6 +159,7 @@
     display: none;
   }
   .SideBarAdminPage ul li a {
+    font-size: 14px;
     border-radius: var(--main-border-radius);
   }
   .SideBarAdminPage ul li a:hover::before,
@@ -128,6 +167,7 @@
   .SideBarAdminPage ul li a:hover::after,
   .SideBarAdminPage ul li a.active::after {
     width: 25px;
+    height: 100%;
   }
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
@@ -251,6 +291,16 @@
   margin: 20px auto;
   overflow: hidden;
 }
+.CustomTable .See-More {
+  width: 100%;
+  padding: 10px;
+  background-color: #111111;
+  color: #fff;
+  font-size: 18px;
+  border: 1px solid var(--grey-color);
+  cursor: pointer;
+  border-radius: var(--main-border-radius);
+}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # CustomTable table th , td
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -262,6 +312,11 @@
   line-height: 1.2;
   font-weight: unset;
   padding: 10px;
+}
+.CustomTable table td img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
 }
 .CustomTable tr:nth-child(odd) {
   background-color: #fff;
@@ -279,10 +334,6 @@
   font-weight: unset;
   height: 40px;
   background: #111111;
-}
-.CustomTable table th:first-child,
-.CustomTable table tr td:first-child {
-  width: 100px;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # CustomTable options
@@ -607,4 +658,8 @@
   cursor: pointer;
   border: 1px solid #eee;
   border-radius: 0;
+  transition: var(--main-transition);
+}
+.add-new-student form .inpus-filds-container button[type="submit"]:disabled {
+  background-color: var(--grey-color);
 }

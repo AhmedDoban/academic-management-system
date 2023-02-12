@@ -21,7 +21,7 @@ function SideBarAdminPage() {
           </li>
           <li>
             <NavLink to="/student">
-              <i class="fa-solid fa-users"></i>
+              <i className="fa-solid fa-users"></i>
               <span>Students</span>
             </NavLink>
           </li>

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import CustomTable from "../components/CustomTable";
 import CustomAdminInputsHead from "./../components/CustomAdminInputsHead";
-import StudentCustomTable from "./StudentCustomTable";
 
 function StudentControl() {
+  const [Serach, SetSearch] = useState("");
   return (
     <React.Fragment>
       <div className="StudentControl">
@@ -12,9 +13,18 @@ function StudentControl() {
             Title="Student"
             searchName="Search For Student Name"
             linkTo="addNewStudent"
+            Serach={Serach}
+            SetSearch={SetSearch}
           />
           <div className="data">
-            <StudentCustomTable />
+            <CustomTable
+              type="student"
+              api="http://localhost:3000/students"
+              col1="First Name"
+              col2="Last Name"
+              col3="Phone"
+              Serach={Serach}
+            />
           </div>
         </div>
       </div>

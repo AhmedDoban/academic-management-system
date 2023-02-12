@@ -6,7 +6,9 @@ import Swal from "sweetalert2";
 
 import { useNavigate } from "react-router-dom";
 function AddNewStudent() {
-  const [profilePicture, SetprofilePicture] = useState();
+  let Navigate = useNavigate();
+
+  const [profilePicture, SetprofilePicture] = useState("");
   const [firstName, SetFirstName] = useState("");
   const [lastName, SetLastName] = useState("");
   const [email, SetEmail] = useState("");
@@ -24,6 +26,20 @@ function AddNewStudent() {
   const [Courses, SetCourses] = useState({});
   const [ADDCourseFiled, SetADDCourseFiled] = useState("");
 
+  const visable =
+    firstName === "" ||
+    lastName === "" ||
+    email === "" ||
+    password === "" ||
+    phone === "" ||
+    country === "" ||
+    city === "" ||
+    gpa === "" ||
+    name === "" ||
+    job === ""
+      ? true
+      : false;
+
   useEffect(() => {
     axios.get(`http://localhost:3000/CourcesDB`).then((response) => {
       SetCourses(response.data);
@@ -35,7 +51,6 @@ function AddNewStudent() {
     image.src = URL.createObjectURL(e.target.files[0]);
     SetprofilePicture(image.src);
   };
-  let Navigate = useNavigate();
 
   const HandleSubmit = (e) => {
     e.preventDefault();
@@ -255,7 +270,9 @@ function AddNewStudent() {
                 </ol>
               </div>
             </div>
-            <button type="submit">Add Student</button>
+            <button type="submit" disabled={visable}>
+              Add Student
+            </button>
           </div>
         </form>
       </div>

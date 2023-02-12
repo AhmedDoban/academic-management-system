@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CountUp from "react-countup";
+import axios from "axios";
 
-function AdminHome() {
+function AdminHome(props) {
+  const [Student, setStudent] = useState([]);
+  const [Teacher, setTeacher] = useState([]);
+  const [Courses, setCourses] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/students")
+      .then((reasponse) => setStudent(reasponse.data));
+    axios
+      .get("http://localhost:3000/CourcesDB")
+      .then((reasponse) => setCourses(reasponse.data));
+    axios
+      .get("http://localhost:3000/teachers")
+      .then((reasponse) => setTeacher(reasponse.data));
+  }, []);
+
   return (
     <React.Fragment>
       <h1 className="main-titel-2">Admin Page</h1>
@@ -12,7 +28,12 @@ function AdminHome() {
           <Link to="/student">
             <i className="fa-regular fa-user"></i>
             <p>
-              <CountUp start={0} end={160527.012} duration={2} separator=" " />
+              <CountUp
+                start={0}
+                end={Student.length}
+                duration={2}
+                separator=" "
+              />
             </p>
             <span>Number of Students</span>
           </Link>
@@ -22,7 +43,12 @@ function AdminHome() {
           <Link to="/teachers">
             <i className="fa-solid fa-chalkboard-user"></i>
             <p>
-              <CountUp start={0} end={160527.012} duration={2} separator=" " />
+              <CountUp
+                start={0}
+                end={Teacher.length}
+                duration={2}
+                separator=" "
+              />
             </p>
             <span>Number of Teachers</span>
           </Link>
@@ -32,7 +58,12 @@ function AdminHome() {
           <Link to="/courses">
             <i className="fa-solid fa-graduation-cap fa-fw"></i>
             <p>
-              <CountUp start={0} end={160527.012} duration={2} separator=" " />
+              <CountUp
+                start={0}
+                end={Courses.length}
+                duration={2}
+                separator=" "
+              />
             </p>
             <span>Number of Courses</span>
           </Link>

@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CustomInputField from "./../components/CustomInputField";
-import { useSelector } from "react-redux";
+import axios from "axios";
 function StudentDeatils(props) {
-  const params = useParams({});
-  const AllStudent = useSelector((state) => state.Student);
-  const FindStudent = AllStudent.filter((user) => user.id == params.id);
-  const [Student, setStudent] = useState(FindStudent[0]);
-
+  const params = useParams([]);
+  const [Student, setStudent] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/students/${params.id}`)
+      .then((reasponse) => setStudent(reasponse.data));
+  }, []);
   return (
     <React.Fragment>
       <div className="StudentDeatils">

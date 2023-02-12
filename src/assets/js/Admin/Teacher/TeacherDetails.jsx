@@ -3,7 +3,9 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 function TeacherDetails(props) {
   const params = useParams();
+
   const [Teacher, setTeacher] = useState([]);
+
   useEffect(() => {
     axios
       .get(`http://localhost:3000/teachers/${params.id}`)
@@ -11,6 +13,7 @@ function TeacherDetails(props) {
         setTeacher(response.data);
       });
   }, [params]);
+
   return (
     <React.Fragment>
       <div className="TeacherDeatils">
