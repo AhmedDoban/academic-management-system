@@ -40,6 +40,26 @@ function AddNewStudent() {
       ? true
       : false;
 
+  let newArray = {
+    profilePicture,
+    firstName,
+    lastName,
+    email: email + "@student.com",
+    password,
+    phone,
+    date,
+    country,
+    city,
+    fatherInfo: {
+      name,
+      job,
+      PhoneNumber,
+    },
+    gpa,
+    gender,
+    CoursesID,
+  };
+
   useEffect(() => {
     axios.get(`http://localhost:3000/CourcesDB`).then((response) => {
       SetCourses(response.data);
@@ -55,31 +75,8 @@ function AddNewStudent() {
   const HandleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/students", {
-        profilePicture,
-        firstName,
-        lastName,
-        email: email + "@student.com",
-        password,
-        phone,
-        date,
-        country,
-        city,
-        fatherInfo: {
-          name,
-          job,
-          PhoneNumber,
-        },
-        gpa,
-        gender,
-        CoursesID,
-      })
-      .then(function (response) {
-        Navigate("/student");
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .post("http://localhost:3000/students", newArray)
+      .then((response) => Navigate("/student"));
   };
 
   const handleDeleteCourse = (e) => {

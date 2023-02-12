@@ -7,6 +7,7 @@ function CustomTable(props) {
   const [DATA, setDATA] = useState([]);
   const [View, SetView] = useState(30);
   const [Order, SetOrder] = useState("ASC");
+  
   useEffect(() => {
     axios.get(api).then((reasponse) => setDATA(reasponse.data));
   }, []);
