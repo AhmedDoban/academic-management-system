@@ -13,14 +13,20 @@ function ActivityRoom() {
           <div className="activity-container">
             <Link className="box" to="drawing">
               <CardBlur>
-                <i class="fa-solid fa-paint-roller"></i>
+                <img
+                  src={require("../../../img/ActivityRoom/color-palette.png")}
+                  alt="Drawing"
+                />
                 <span>Drawing</span>
               </CardBlur>
             </Link>
 
             <Link className="box" to="memory-game">
               <CardBlur>
-                <i class="fa-solid fa-brain"></i>
+                <img
+                  src={require("../../../img/ActivityRoom/card-games.png")}
+                  alt="Memory Game"
+                />
                 <span>Memory Game</span>
               </CardBlur>
             </Link>

@@ -8,12 +8,35 @@
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .MemoryGame {
   position: relative;
+  padding: 0 0 20px 0;
 }
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Memory Game container h1
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.MemoryGame .container h1 {
+  color: var(--main-color);
+}
+.MemoryGame .container h1::before {
+  background-color: var(--main-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Memory Game Game-container 
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .MemoryGame .MemoryGame-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+  padding: 20px 0;
 }
+@media (max-width: 767px) {
+  .MemoryGame .MemoryGame-container {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 10px;
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Memory Game card
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .MemoryGame .MemoryGame-container .CardBlur {
   transition: all 1s ease-in-out;
   transform-style: preserve-3d;
@@ -23,13 +46,12 @@
 }
 @keyframes HideCard {
   from {
-    transform: rotateY(180deg);
-  }
-  to {
     transform: rotateY(-180deg);
   }
 }
-
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Memory Game card back and front
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .MemoryGame .MemoryGame-container .CardBlur .front,
 .MemoryGame .MemoryGame-container .CardBlur .back {
   position: absolute;
@@ -54,6 +76,14 @@
   font-size: 90px;
   color: #ffff;
 }
+@media (max-width: 767px) {
+  .MemoryGame .MemoryGame-container .CardBlur .back i {
+    font-size: 60px;
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Memory Game card Status
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .MemoryGame .MemoryGame-container .CardBlur.active {
   transform: rotateY(-180deg);
   outline: 3px solid var(--main-color);
@@ -71,4 +101,20 @@
 }
 .MemoryGame .MemoryGame-container .CardBlur.wrong .back {
   background-color: var(--red-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Memory Game 
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.MemoryGame .container .Reset-Game {
+  position: relative;
+  padding: 8px 12px;
+  background-color: var(--main-color);
+  color: #fff;
+  border-radius: var(--main-border-radius);
+  border: 1px solid var(--gey-color);
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.MemoryGame .container .Reset-Game:hover {
+  background-color: var(--green-color);
 }

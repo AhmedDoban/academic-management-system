@@ -20,13 +20,17 @@
     gap: 10px;
   }
 }
-.ActivityRoom .activity-container .box i {
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Activity Room box
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.ActivityRoom .activity-container .box img {
   position: absolute;
   bottom: 15px;
   right: 15px;
-  font-size: 150px;
   opacity: 0.6;
   color: var(--dark-blue);
+  width: 150px;
+  height: 150px;
   transition: var(--main-transition);
 }
 .ActivityRoom .activity-container .box span {
@@ -36,7 +40,9 @@
   transition: var(--main-transition);
 }
 
-.ActivityRoom .activity-container .box:hover span,
-.ActivityRoom .activity-container .box:hover i {
+.ActivityRoom .activity-container .box:hover span {
   color: #fff;
+}
+.ActivityRoom .activity-container .box:hover img {
+  opacity: 1;
 }

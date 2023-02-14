@@ -21,8 +21,6 @@ function MemoryGame() {
       { id: 7, className: "fa-brands fa-node", state: "" },
       { id: 8, className: "fa-solid fa-brain", state: "" },
       { id: 8, className: "fa-solid fa-brain", state: "" },
-      { id: 9, className: "fa-solid fa-code-branch", state: "" },
-      { id: 9, className: "fa-solid fa-code-branch", state: "" },
     ].sort(() => Math.random() - 0.5)
   );
 
@@ -55,6 +53,16 @@ function MemoryGame() {
       HandleCheckElle(id);
     }
   };
+
+  const ResetGameHandeler = () => {
+    items.map((p) => (p.state = "active"));
+    items.sort(() => Math.random() - 0.5);
+    setItems([...items]);
+    setTimeout(() => {
+      items.map((p) => (p.state = ""));
+      setItems([...items]);
+    }, 3000);
+  };
   return (
     <React.Fragment>
       <Blobs />
@@ -71,6 +79,12 @@ function MemoryGame() {
               </CardBlur>
             ))}
           </div>
+          <input
+            type="button"
+            value="Reset Game"
+            className="Reset-Game"
+            onClick={ResetGameHandeler}
+          />
         </div>
       </div>
     </React.Fragment>
