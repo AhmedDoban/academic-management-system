@@ -1,6 +1,6 @@
 import React, { useEffect, lazy, Suspense } from "react";
 import SideBar from "../components/SideBar";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate, Outlet } from "react-router-dom";
 import Quiz from "./Quiz/Quiz";
 
 const StudentSettingPage = lazy(() => import("./Setting/StudentSettingPage"));
@@ -12,7 +12,9 @@ const StudentTablePage = lazy(() => import("./StudentTablePage"));
 const Library = lazy(() => import("./library/library"));
 const CourseData = lazy(() => import("./Courses/CourseData"));
 const StudentHomePage = lazy(() => import("./Home/StudentHomePage"));
-const Drawing = lazy(() => import("./Drawing/Drawing"));
+const ActivityRoom = lazy(() => import("./ActivityRoom/ActivityRoom"));
+const Drawing = lazy(() => import("./ActivityRoom/Drawing/Drawing"));
+const MemoryGame = lazy(() => import("./ActivityRoom/MemoryGame/MemoryGame"));
 const NotFounded = lazy(() => import("./../components/NotFounded"));
 
 const Student = (props) => {
@@ -56,7 +58,11 @@ const Student = (props) => {
                   <Route path="/table" element={<StudentTablePage />} />
                   <Route path="/library" element={<Library />} />
                   <Route path="/quiz" element={<Quiz />} />
-                  <Route path="/drawing" element={<Drawing />} />
+                  <Route path="/actvity-room" element={<Outlet />}>
+                    <Route path="" element={<ActivityRoom />} />
+                    <Route path="drawing" element={<Drawing />} />
+                    <Route path="memory-game" element={<MemoryGame />} />
+                  </Route>
                   <Route exact path="/" element={<StudentHomePage />} />
                   <Route path="*" element={<NotFounded to="/NotFounded" />} />
                 </Routes>

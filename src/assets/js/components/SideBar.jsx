@@ -73,9 +73,9 @@ const SideBar = (props) => {
               <i className="fa-solid fa-book"></i>
               <span>Library</span>
             </NavLink>
-            <NavLink to="drawing" onClick={open}>
-              <i className="fa-solid fa-brush"></i>
-              <span>Drawing</span>
+            <NavLink to="actvity-room" onClick={open}>
+              <i className="fa-solid fa-broom"></i>
+              <span>Activity Room</span>
             </NavLink>
           </li>
           <li>

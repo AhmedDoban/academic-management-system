@@ -1,0 +1,63 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../css/root.css");
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Activity Room
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.ActivityRoom {
+  position: relative;
+}
+
+.ActivityRoom .activity-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+@media (max-width: 776px) {
+  .ActivityRoom .activity-container {
+    gap: 10px;
+  }
+}
+.ActivityRoom .activity-container .box {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  margin-top: 20px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  outline: 5px solid rgba(255, 255, 255, 0.605);
+  background: rgba(255, 255, 255, 0.605);
+  padding: 20px;
+  border-radius: var(--main-border-radius);
+  box-shadow: var(--main-box-shadow);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  transition: var(--main-transition);
+}
+
+.ActivityRoom .activity-container .box i {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  font-size: 150px;
+  opacity: 0.6;
+  color: var(--dark-blue);
+  transition: var(--main-transition);
+}
+.ActivityRoom .activity-container .box span {
+  font-size: 25px;
+  color: var(--dark-blue);
+  font-weight: bold;
+  transition: var(--main-transition);
+}
+.ActivityRoom .activity-container .box:hover {
+  background-color: var(--main-color);
+  outline: 3px solid var(--main-color);
+}
+.ActivityRoom .activity-container .box:hover span,
+.ActivityRoom .activity-container .box:hover i {
+  color: #fff;
+}
