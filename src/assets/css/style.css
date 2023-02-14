@@ -273,7 +273,31 @@ p {
     width: 1170px;
   }
 }
-
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Card Blur 
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.CardBlur {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  margin-top: 20px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  outline: 5px solid rgba(255, 255, 255, 0.605);
+  background: rgba(255, 255, 255, 0.605);
+  padding: 20px;
+  border-radius: var(--main-border-radius);
+  box-shadow: var(--main-box-shadow);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  transition: var(--main-transition);
+  cursor: pointer;
+}
+.CardBlur:hover {
+  background-color: var(--main-color);
+  outline: 3px solid var(--main-color);
+}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # PAge 
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/

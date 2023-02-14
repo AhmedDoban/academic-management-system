@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./quiz.css";
 import { Questions } from "./../../../../dummyData";
 import Blobs from "./../../components/Blobs";
@@ -11,6 +11,11 @@ const Quiz = (props) => {
   const [Score, setScore] = useState(0);
   const [isTrue, seTrue] = useState(false);
   const [falseScore, setFalseScore] = useState(0);
+  const [Question, SetQuestions] = useState([]);
+
+  useEffect(() => {
+    SetQuestions(Questions.sort(() => Math.random() - 0.5));
+  }, []);
 
   const nextQuestion = (data) => {
     if (data === true) {
@@ -48,15 +53,15 @@ const Quiz = (props) => {
             <div className="Quiz-data">
               <h1 className="main-titel-2">Simple Quiz in Html</h1>
               <p>
-                {currentQuestion + 1}/{Questions.length}
+                {currentQuestion + 1}/{Question.length}
               </p>
             </div>
             <div className="quiz-container">
               <div className="quiz-text">
-                <h4>{Questions[currentQuestion].QuestionText} </h4>
+                <h4>{Question[currentQuestion]?.QuestionText} </h4>
               </div>
               <div className="quiz-options">
-                {Questions[currentQuestion].answerQuestion.map((p) => (
+                {Question[currentQuestion]?.answerQuestion.map((p) => (
                   <div className="option" key={p.id}>
                     <input
                       type="radio"
