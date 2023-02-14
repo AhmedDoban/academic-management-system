@@ -114,12 +114,12 @@ html {
   justify-content: space-between;
 }
 
-.dots-loader div {
+.dots-loader > div {
   width: 0.8em;
   height: 0.8em;
   border-radius: 50%;
   background-color: #f59e0b;
-  animation: fade 0.8s ease-in-out alternate infinite;
+  animation: dots-loader 0.8s ease-in-out alternate infinite;
 }
 
 .dots-loader div:nth-of-type(1) {
@@ -130,7 +130,7 @@ html {
   animation-delay: -0.2s;
 }
 
-@keyframes fade {
+@keyframes dots-loader {
   from {
     opacity: 1;
   }

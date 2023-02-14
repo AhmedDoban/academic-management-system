@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Dots.css";
 function Dots({ OtherStyle }) {
   const arr = new Array(120).fill(null);

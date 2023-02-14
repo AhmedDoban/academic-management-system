@@ -23,17 +23,16 @@
   right: 10px;
 }
 .dots > div {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   background-color: #2196f3;
   border-radius: 20%;
-  animation: fade 15s alternate-reverse ease-in-out infinite;
+  animation: dots-fade 15s alternate-reverse ease-in-out infinite;
 }
 
-@keyframes fade {
+@keyframes dots-fade {
   0% {
     background-color: #2196f3;
-    transform: scale(1.1);
   }
   50% {
     background-color: var(--purple-color);
@@ -45,11 +44,11 @@
   }
 }
 @media (max-width: 992px) {
-  .dots {
+  .dots-img {
     width: 150px;
     height: 150px;
   }
-  .dots > div {
+  .dots-img > div {
     width: 4px;
     height: 4px;
   }
