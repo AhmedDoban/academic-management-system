@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import Footer from "../../components/Footer";
 import Head from "../../Header/Head";
+import LodingFeachData from "./../../components/LodingFeachData";
 
 function Library(props) {
   let [search, setSearch] = useState("");
@@ -98,7 +99,11 @@ function Library(props) {
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
           >
-            <BookCard bookData={items} />
+            {items.length > 0 ? (
+              <BookCard bookData={items} />
+            ) : (
+              <LodingFeachData />
+            )}
           </div>
         </div>
       </div>

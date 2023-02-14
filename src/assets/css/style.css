@@ -1309,7 +1309,7 @@ remove this comment if you want it to be sticy
   width: 100%;
   height: calc(100vh - 62px);
   overflow: hidden;
-  background-color: #faf5ec;
+  background-color: var(--main-page-color);
 }
 
 .course-data-header .container {
@@ -1372,7 +1372,7 @@ remove this comment if you want it to be sticy
 
 .course-data-header .container h5 {
   letter-spacing: 3px;
-  color: #000;
+  color: #fff;
   font-size: 18px;
 }
 .course-data-header .container a {
@@ -1517,7 +1517,7 @@ remove this comment if you want it to be sticy
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
   position: relative;
-  background-color: #faf5ec;
+  background-color: var(--main-page-color);
 }
 .specific-course .discription .container .details-head {
   position: relative;
@@ -1537,6 +1537,7 @@ remove this comment if you want it to be sticy
   font-weight: bold;
   margin: 10px 0px;
   font-size: 30px;
+  color: var(--red-color);
 }
 .specific-course .discription .container .description-titel + p {
   padding: 10px 20px;
@@ -1545,6 +1546,7 @@ remove this comment if you want it to be sticy
   font-size: 16px;
   text-align: justify;
   font-weight: 500px;
+  color: #fff;
 }
 .specific-course
   .discription
@@ -1556,6 +1558,7 @@ remove this comment if you want it to be sticy
   padding: 10px 0 10px 50px;
   counter-increment: section;
   font-weight: bold;
+  color: #fff;
 }
 
 .specific-course
@@ -1568,6 +1571,7 @@ remove this comment if you want it to be sticy
   content: counter(section) " - ";
   left: 0;
   font-weight: bold;
+  color: var(--orange-color);
 }
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ

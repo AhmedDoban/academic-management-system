@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import LodingFeachData from "../components/LodingFeachData";
 function RanDomQuote(props) {
   const [items, setItems] = useState([]);
 
@@ -26,8 +27,14 @@ function RanDomQuote(props) {
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
           >
-            <h1>{items.content}</h1>
-            <p>{items.author}</p>
+            {items.length > 0 ? (
+              <>
+                <h1>{items.content}</h1>
+                <p>{items.author}</p>
+              </>
+            ) : (
+              <LodingFeachData />
+            )}
           </div>
         </div>
       </div>

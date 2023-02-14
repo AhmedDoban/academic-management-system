@@ -15,7 +15,7 @@ function Auth() {
     featchUserDetails();
   }, []);
   const featchUserDetails = () => {
-    http.post("/me").then((res) => {
+    http.post("/").then((res) => {
       setUserDetails(res.data);
     });
   };

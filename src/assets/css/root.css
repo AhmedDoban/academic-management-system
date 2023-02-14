@@ -1,4 +1,5 @@
 :root {
+  --offwihte: #faf5ec;
   --dark-blue: #19324f;
   --orange-alt: #f59f0b6c;
   --orange-transparent: #f59f0b3c;
@@ -192,4 +193,45 @@ html {
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .swal2-popup {
   background-color: #111111 !important;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Loding FeachData
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Loding-feachData {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 250px;
+  color: #000;
+  margin: 10px auto;
+}
+.Loding-feachData span {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  font-weight: bold;
+  transition: var(--main-transition);
+}
+.Loding-feachData span::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border: 5px solid #111111;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: rotate 3s ease-in-out infinite;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

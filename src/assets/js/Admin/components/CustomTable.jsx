@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Options from "./Options";
 import { HandleDelete } from "./CRUD";
+import LodingFeachData from "./../../components/LodingFeachData";
 function CustomTable(props) {
   const api = props.api;
   const [DATA, setDATA] = useState([]);
@@ -227,9 +228,7 @@ function CustomTable(props) {
           ) : null}
         </div>
       ) : (
-        <div className="Loding-feachData">
-          <span>Loading</span>
-        </div>
+        <LodingFeachData />
       )}
     </React.Fragment>
   );
