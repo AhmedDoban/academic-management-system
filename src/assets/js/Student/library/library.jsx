@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 import Footer from "../../components/Footer";
 import Head from "../../Header/Head";
 import LodingFeachData from "./../../components/LodingFeachData";
+import Dots from "../../components/Dots/Dots";
 
 function Library(props) {
   let [search, setSearch] = useState("");
@@ -91,8 +92,8 @@ function Library(props) {
             <div className="div-circle"></div>
             <span> Library Books</span>
           </h1>
-          <div className="dots-img dots-top"></div>
-          <div className="dots-img dots-bottom"></div>
+          <Dots OtherStyle="top" />
+          <Dots OtherStyle="bottom" />
           <div
             className="container"
             data-aos="fade-down"

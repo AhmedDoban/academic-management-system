@@ -81,27 +81,6 @@
   background-size: 30px 30px;
   transform: rotate(180deg) translateY(30px);
 }
-.dots-img {
-  position: absolute;
-  width: 204px;
-  height: 186px;
-  background-image: url("../img/dots.png");
-  background-repeat: no-repeat;
-}
-@media (max-width: 768px) {
-  .dots-img {
-    width: 100px;
-    height: 100px;
-  }
-}
-.dots-img.dots-top {
-  left: 0;
-  top: 50px;
-}
-.dots-img.dots-bottom {
-  bottom: 50px;
-  right: 15px;
-}
 .img-back {
   position: absolute;
   width: 100%;

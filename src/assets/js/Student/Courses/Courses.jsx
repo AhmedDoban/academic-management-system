@@ -3,6 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { CourcesDB } from "../../../../dummyData";
 import { Link } from "react-router-dom";
+import Dots from "../../components/Dots/Dots";
 
 function Courses() {
   const [visible, setVisible] = useState(8);
@@ -104,8 +105,8 @@ function Courses() {
           <div className="div-circle"></div>
           <span> Student Courses</span>
         </h1>
-        <div className="dots-img dots-top"></div>
-        <div className="dots-img dots-bottom"></div>
+        <Dots OtherStyle="top" />
+        <Dots OtherStyle="bottom" />
 
         <div
           className="container"

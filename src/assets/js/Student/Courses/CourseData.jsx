@@ -4,6 +4,7 @@ import axios from "axios";
 import Footer from "../../components/Footer";
 import CourseDataHeader from "./CourseDataHeader";
 import Head from "../../Header/Head";
+import Dots from "../../components/Dots/Dots";
 
 function CourseData(props) {
   const params = useParams();
@@ -28,8 +29,8 @@ function CourseData(props) {
 
         {/************************************* Start Video ***************************************/}
         <div className="video" id="video">
-          <div className="dots-img dots-top"></div>
-          <div className="dots-img dots-bottom"></div>{" "}
+          <Dots OtherStyle="top" />
+          <Dots OtherStyle="bottom" />
           <div className="container" id="course">
             <div
               className="holder"
