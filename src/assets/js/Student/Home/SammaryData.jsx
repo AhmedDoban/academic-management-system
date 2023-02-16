@@ -26,7 +26,7 @@ function SammaryData(props) {
             {/******************** Box1 ********************************/}
             <div
               className="box p-20 center-flex gap-20"
-              data-aos="fade-right"
+              data-aos="fade-up"
               data-aos-easing="ease-in-out"
               data-aos-duration="1000"
             >
@@ -41,7 +41,7 @@ function SammaryData(props) {
             {/******************** Box2 ********************************/}
             <div
               className="box p-20 center-flex gap-20"
-              data-aos="zoom-out-right"
+              data-aos="fade-up"
               data-aos-easing="ease-in-out"
               data-aos-duration="1000"
             >
@@ -56,7 +56,7 @@ function SammaryData(props) {
             {/******************** Box3 ********************************/}
             <div
               className="box p-20 center-flex gap-20"
-              data-aos="fade-left"
+              data-aos="fade-up"
               data-aos-easing="ease-in-out"
               data-aos-duration="1000"
             >

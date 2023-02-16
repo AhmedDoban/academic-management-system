@@ -8,7 +8,7 @@ function Head(props) {
         <span className="red-color inlines">
           <Typewriter
             options={{
-              strings: [" Stonger 💪", " Powerfull 🏋️‍♀️"],
+              strings: [" Stronger 💪", " Powerfull 🏋️‍♀️"],
               autoStart: true,
               loop: true,
             }}
