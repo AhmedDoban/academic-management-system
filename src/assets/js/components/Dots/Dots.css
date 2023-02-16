@@ -9,7 +9,7 @@
   height: 186px;
   background-image: url("../../../img/dots.png");
   background-repeat: no-repeat;
-  animation: dots-fade 15s alternate-reverse ease-in-out infinite;
+  opacity: 0.3;
 }
 .dots.top {
   top: 50px;
@@ -20,11 +20,6 @@
   right: 10px;
 }
 
-@keyframes dots-fade {
-  to {
-    opacity: 0.2;
-  }
-}
 @media (max-width: 992px) {
   .dots {
     width: 150px;

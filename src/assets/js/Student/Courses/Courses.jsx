@@ -155,12 +155,9 @@ function Courses() {
           <div className={`container-courses ${show}`}>
             {slides.slice(0, visible).map((slideContent) => slideContent)}
           </div>
-          <input
-            type="button"
-            value="Show More"
-            onClick={showMore}
-            className="btn-shape_2 m-0 no"
-          />
+          <button className="btn-shape_2" onClick={showMore}>
+            Show More
+          </button>
           {/**************** End *******************************/}
         </div>
       </div>

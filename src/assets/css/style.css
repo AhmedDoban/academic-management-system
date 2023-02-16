@@ -65,8 +65,12 @@
   width: 100%;
   z-index: 10;
   height: 30px;
-  background-image: linear-gradient(135deg, #fff 25%, transparent 25%),
-    linear-gradient(225deg, #fff 25%, transparent 25%);
+  background-image: linear-gradient(
+      135deg,
+      var(--white-color) 25%,
+      transparent 25%
+    ),
+    linear-gradient(225deg, var(--white-color) 25%, transparent 25%);
   background-size: 30px 30px;
 }
 .spikes-rotated {
@@ -76,8 +80,12 @@
   width: 100%;
   z-index: 10;
   height: 30px;
-  background-image: linear-gradient(135deg, #fff 25%, transparent 25%),
-    linear-gradient(225deg, #fff 25%, transparent 25%);
+  background-image: linear-gradient(
+      135deg,
+      var(--white-color) 25%,
+      transparent 25%
+    ),
+    linear-gradient(225deg, var(--white-color) 25%, transparent 25%);
   background-size: 30px 30px;
   transform: rotate(180deg) translateY(30px);
 }
@@ -169,7 +177,7 @@
   font-size: 18px;
   width: 50%;
   margin: 0 auto;
-  color: #000;
+  color: var(--black-color);
   margin-bottom: 30px;
 }
 @media (max-width: 768px) {
@@ -266,7 +274,7 @@ p {
   padding: 20px;
   border-radius: var(--main-border-radius);
   box-shadow: var(--main-box-shadow);
-
+  backdrop-filter: blur(20px);
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -277,21 +285,13 @@ p {
   background-color: var(--main-color);
   outline: 3px solid var(--main-color);
 }
-.CardBlur .blur-layer {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  filter: blur(20px);
-  top: 0;
-  left: 0;
-}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # PAge 
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .page {
   display: flex;
   min-height: 100vh;
-  background-color: #f1f5f9;
+  background-color: var(--main-background-color);
   overflow: hidden;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
@@ -310,7 +310,7 @@ p {
   position: fixed;
   min-height: 100vh !important;
   /**/
-  background-color: #ffffffd0;
+  background-color: var(--white-color);
   padding: 20px;
   width: 250px;
   z-index: 1000;
@@ -331,7 +331,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: var(--white-color);
   z-index: 1000;
   cursor: pointer;
   border-top-right-radius: 25%;
@@ -341,8 +341,8 @@ p {
 .sidebar > h3 {
   position: relative;
   text-align: center;
-  margin-bottom: 50px;
-  color: #000;
+  margin-bottom: 30px;
+  color: var(--black-color);
 }
 /*
 remove this comment if you want it to be sticy
@@ -384,7 +384,7 @@ remove this comment if you want it to be sticy
   width: 80%;
   height: 2px;
   bottom: -20px;
-  background-color: #000;
+  background-color: var(--black-color);
 }
 .sidebar > h3::after {
   bottom: -29px;
@@ -394,13 +394,90 @@ remove this comment if you want it to be sticy
   color: var(--orange-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# sidebar Theme
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.sidebar ul li.options {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: var(--main-border-radius);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sidebar ul li.options::before {
+  position: absolute;
+  content: "";
+  background-color: var(--black-color);
+  width: 80%;
+  height: 2px;
+  left: 0;
+  bottom: 0px;
+  border-radius: var(--main-border-radius);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.sidebar ul li.options span {
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--main-color);
+}
+.sidebar ul li.options label {
+  position: relative;
+  width: 72px;
+  height: 28px;
+  border-radius: 50%;
+}
+.sidebar ul li.options input[type="checkbox"] {
+  appearance: none;
+  opacity: 0;
+}
+.sidebar ul li.options input[type="checkbox"] + span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ccc;
+  width: 100%;
+  height: 100%;
+  border-radius: 1em;
+  transition: var(--main-transition);
+}
+.sidebar ul li.options input[type="checkbox"]:checked + span {
+  background-color: var(--drak-color-style);
+}
+
+.sidebar ul li.options input[type="checkbox"] + span::before {
+  position: absolute;
+  content: "\f185";
+  font-family: var(--fa-style-family-classic);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  width: 22px;
+  height: 22px;
+  background-color: var(--drak-color-style);
+  left: 3px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: var(--main-transition);
+}
+.sidebar ul li.options input[type="checkbox"]:checked + span::before {
+  background-color: var(--blue-alt2-color);
+  content: "\f186";
+  left: calc(100% - 25px);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # sidebar links
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .sidebar ul li a {
   display: flex;
   align-items: center;
   font-size: 14px;
-  color: #000;
+  color: var(--black-color);
   border-radius: var(--main-border-radius);
   padding: 10px;
   transition: var(--main-transition);
@@ -445,8 +522,8 @@ remove this comment if you want it to be sticy
 .content .head {
   position: relative;
   width: 100%;
-  background-color: #1b575b;
-  box-shadow: 0 10px 40px #1b575b, 0 0 0 20px transparent;
+  background-color: var(--main-page-color);
+  box-shadow: 0 10px 40px var(--main-page-color), 0 0 0 20px transparent;
   margin: 0 0 10px 0;
   display: flex;
   align-items: center;
@@ -562,7 +639,7 @@ remove this comment if you want it to be sticy
   content: "";
   width: 100%;
   height: 70%;
-  background-color: #fff;
+  background-color: var(--white-color);
   bottom: 0;
   left: 0;
   z-index: -1;
@@ -614,7 +691,7 @@ remove this comment if you want it to be sticy
   font-size: 25px;
   font-weight: 600;
   text-transform: capitalize;
-  color: #000000b8;
+  color: var(--dark-blue);
 }
 @media (max-width: 767px) {
   .our-stuff .container {
@@ -724,7 +801,7 @@ remove this comment if you want it to be sticy
   position: relative;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
-  background-color: #fff;
+  background-color: var(--white-color);
 }
 @media (max-width: 767px) {
   .WhatOffer .container .box {
@@ -733,17 +810,22 @@ remove this comment if you want it to be sticy
     gap: 30px;
   }
 }
+.WhatOffer .container .box .box-titel {
+  color: #0bb3f5;
+}
+
 .WhatOffer .container .box .left p {
   line-height: 2;
   font-size: 18px;
   margin-left: 25px;
   width: 90%;
-  color: #767676;
+  color: var(--main-p-color);
 }
 .WhatOffer .container .box .left ul li {
   position: relative;
   margin-top: 20px;
   padding-left: 30px;
+  color: var(--black-color);
 }
 .WhatOffer .container .box .left ul li::before {
   position: absolute;
@@ -943,7 +1025,6 @@ remove this comment if you want it to be sticy
 }
 .StudentSettingPage .container .img-name-settingpage h1 {
   color: var(--dark-blue);
-  text-shadow: 2px 2px 8px rgb(207, 207, 207);
 }
 @media (max-width: 767px) {
   .StudentSettingPage .container .img-name-settingpage {
@@ -967,7 +1048,7 @@ remove this comment if you want it to be sticy
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #000;
+  color: var(--black-color);
   font-weight: 500;
   height: 100%;
   height: 50px;
@@ -980,7 +1061,7 @@ remove this comment if you want it to be sticy
   content: "";
   width: calc(100% - 30px);
   bottom: 0%;
-  background-color: #000;
+  background-color: var(--black-color);
   height: 1px;
   transition: var(--main-transition);
   left: -100%;
@@ -1008,7 +1089,7 @@ remove this comment if you want it to be sticy
 .StudentProfile .box h5 {
   font-size: 18px;
   width: 30%;
-  color: #000002c3;
+  color: var(--blue-color);
   font-weight: 600;
   letter-spacing: 1.1px;
   opacity: 0.7;
@@ -1022,15 +1103,15 @@ remove this comment if you want it to be sticy
   color: var(--grey-color);
   padding: 10px 20px;
   border-radius: var(--main-border-radius);
-  box-shadow: var(--main-box-shadow);
   border: none;
   cursor: default;
+  background-color: var(--white-color);
 }
 
 .StudentProfile .box input[type="button"] {
-  background-color: #000;
+  background-color: var(--black-color);
   width: fit-content;
-  color: #fff;
+  color: var(--white-color);
   display: flex;
   margin: 0 0 0 auto;
   cursor: pointer;
@@ -1071,12 +1152,13 @@ remove this comment if you want it to be sticy
   position: relative;
   overflow: hidden;
   border-radius: var(--main-border-radius);
-  box-shadow: 0px 15px 15px -3px rgba(184, 184, 184, 0.2);
+  box-shadow: 0px 10px 10px -3px rgba(184, 184, 184, 0.2);
 }
 .student-courses-container .header .input-absulote input {
   padding: 10px 8px;
   border: none;
   border-radius: var(--main-border-radius);
+  background-color: var(--white-color);
 }
 .student-courses-container .header .input-absulote i {
   position: absolute;
@@ -1084,7 +1166,7 @@ remove this comment if you want it to be sticy
   right: 0;
   height: 100%;
   background-color: #1ea2d8;
-  color: #f1f5f9;
+  color: var(--white-color);
   border-radius: 0;
   box-shadow: none;
 }
@@ -1095,11 +1177,11 @@ remove this comment if you want it to be sticy
   justify-content: center;
   align-items: center;
   background-color: #09729c;
-  color: #fff;
+  color: var(--white-color);
   border-radius: calc(var(--main-border-radius) / 2);
   cursor: pointer;
   font-size: large;
-  box-shadow: 0px 15px 15px -3px rgba(184, 184, 184, 0.2);
+  box-shadow: 0px 10 px 10px -3px rgba(184, 184, 184, 0.2);
 }
 .student-courses-container .header i.active {
   background-color: var(--green-color);
@@ -1124,7 +1206,7 @@ remove this comment if you want it to be sticy
   position: relative;
   width: 100%;
   overflow: hidden;
-  background-color: #fff;
+  background-color: var(--white-color);
   box-shadow: 0px 15px 15px -3px rgba(184, 184, 184, 0.2);
 
   border-radius: 18px;
@@ -1442,7 +1524,7 @@ remove this comment if you want it to be sticy
   position: relative;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
-  background-color: #fff;
+  background-color: var(--white-color);
 }
 .specific-course .holder {
   position: relative;
@@ -1450,7 +1532,7 @@ remove this comment if you want it to be sticy
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: var(--white-color);
   border: 1px solid #ddd;
 }
 .specific-course .holder .right {
@@ -1476,7 +1558,7 @@ remove this comment if you want it to be sticy
 }
 .specific-course .holder .left {
   min-width: 300px;
-  background-color: #fff;
+  background-color: var(--white-color);
   height: 100%;
 }
 .specific-course .holder .left .top-vedio {
@@ -1502,6 +1584,7 @@ remove this comment if you want it to be sticy
   border-top: 1px solid #ececec;
   cursor: pointer;
   transition: var(--main-transition);
+  color: var(--black-color);
 }
 
 .specific-course .holder .left ul li:hover {
@@ -1512,6 +1595,10 @@ remove this comment if you want it to be sticy
   display: block;
   margin-top: 10px;
   color: var(--main-p-color);
+}
+.specific-course .holder .left ul li:hover span {
+  color: var(--orange-color);
+  transition: var(--main-transition);
 }
 @media (max-width: 1200px) {
   .specific-course .holder {
@@ -1541,7 +1628,7 @@ remove this comment if you want it to be sticy
   content: "";
   width: 100%;
   height: 5px;
-  background-color: #fff;
+  background-color: var(--white-color);
   bottom: 0;
 }
 .specific-course .discription .container .description-titel {
@@ -1617,7 +1704,7 @@ remove this comment if you want it to be sticy
 .top_instructor_header {
   position: relative;
   padding: 20px;
-  color: var(--main-background-color);
+  color: #f1f5f9;
   margin: 20px auto;
   text-align: center;
   width: fit-content;
@@ -1757,7 +1844,7 @@ remove this comment if you want it to be sticy
 }
 .quote_container {
   position: relative;
-  background-color: #fff;
+  background-color: var(--white-color);
   border-radius: var(--main-border-radius);
   padding: 20px;
   z-index: 5;
@@ -1768,7 +1855,7 @@ remove this comment if you want it to be sticy
   position: relative;
   text-align: center;
   font-size: 25px;
-  color: #000;
+  color: var(--black-color);
   width: 100%;
 }
 .RounDomQuote .quote_container h1::before,

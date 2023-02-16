@@ -2,7 +2,7 @@ import React from "react";
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
-import CourseCategories from "./CourseCategories";
+// import CourseCategories from "./CourseCategories";
 import RanDomQuote from "../RanDomQuote";
 import SammaryData from "./SammaryData";
 import WhatOffer from "./WhatOffer";
@@ -202,7 +202,7 @@ function StudentHomePage(props) {
         </div>
       </AutoplaySlider>
       {/******************** Course Categories ********************************/}
-      <CourseCategories />
+      {/* <CourseCategories /> */}
       {/******************** RanDom Quote ********************************/}
       <RanDomQuote />
       {/******************** SammaryData ********************************/}

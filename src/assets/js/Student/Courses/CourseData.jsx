@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Footer from "../../components/Footer";
 import CourseDataHeader from "./CourseDataHeader";
 import Head from "../../Header/Head";
 import Dots from "../../components/Dots/Dots";
@@ -21,9 +20,8 @@ function CourseData(props) {
         {/************************************* start Course Data Header ***************************************/}
         <CourseDataHeader
           h3="WELCOME TO Course"
-          h5="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores,
-            quis."
-          a="#video"
+          h5="take The Test of This Course."
+          Link={`quiz/${params.id}`}
         />
         {/************************************* End Course Data Header ***************************************/}
 

@@ -374,6 +374,8 @@
 .btn-shape_2 {
   position: relative;
   display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 50px auto 15px auto;
   width: fit-content;
   border: 2px solid var(--red-color);
@@ -383,8 +385,10 @@
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  z-index: 1;
+  z-index: 6;
+  background-color: transparent;
   transition: var(--main-transition);
+  overflow: hidden;
 }
 .btn-shape_2::before {
   position: absolute;
@@ -400,9 +404,7 @@
 .btn-shape_2:hover {
   color: #fff;
 }
-.btn-shape_2.no:hover {
-  color: var(--ant-error-color-active);
-}
+
 .btn-shape_2:hover::before {
   width: 100%;
 }
@@ -446,7 +448,7 @@
 }
 
 .awssld__content {
-  background-color: #1b575b !important;
+  background-color: var(--main-page-color) !important;
   position: relative;
 }
 .awssld__content::before {

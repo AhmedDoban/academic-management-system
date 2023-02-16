@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import AuthUser from "../Gust/AuthUser";
 
@@ -17,6 +17,37 @@ const SideBar = (props) => {
       logOut();
     }
   };
+  const [Theme, SetTheme] = useState(localStorage.getItem("theme") || "light");
+  const [Chek, SetChek] = useState(false);
+  const toggleTheme = () => {
+    Theme === "light" ? SetTheme("dark") : SetTheme("light");
+  };
+  const HandleThemeChange = () => {
+    SetChek(!Chek);
+    toggleTheme();
+  };
+  useEffect(() => {
+    localStorage.setItem("theme", Theme);
+    Theme === "light" ? SetChek(false) : SetChek(true);
+    CheckCurrentTheme();
+  }, [Theme]);
+  const CheckCurrentTheme = () => {
+    let Root = document.documentElement.style;
+    if (Theme === "light") {
+      Root.setProperty("--main-background-color", "#f1f5f9");
+      Root.setProperty("--main-page-color", "#1b575b");
+      Root.setProperty("--white-color", "#fff");
+      Root.setProperty("--black-color", "#000");
+      Root.setProperty("--main-p-color", "#777");
+    } else {
+      Root.setProperty("--main-background-color", "#121212");
+      Root.setProperty("--main-page-color", "#121212  ");
+      Root.setProperty("--white-color", "#1e1e1e");
+      Root.setProperty("--black-color", "#fff");
+      Root.setProperty("--main-p-color", "#fff");
+    }
+  };
+  console.log(Theme);
   return (
     <React.Fragment>
       <div className="sidebar">
@@ -25,6 +56,19 @@ const SideBar = (props) => {
           <i className={active}></i>
         </div>
         <ul className="p-sticky">
+          <li className="options">
+            <span>THEME</span>
+            <label htmlFor="Theme">
+              <input
+                type="checkbox"
+                name="Theme"
+                id="Theme"
+                onChange={HandleThemeChange}
+                checked={Chek}
+              />
+              <span></span>
+            </label>
+          </li>
           <li>
             <NavLink to="home" onClick={open}>
               <i className="fa-solid fa-house"></i>
@@ -32,34 +76,9 @@ const SideBar = (props) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="setting" onClick={open}>
-              <i className="fa-solid fa-gear fa-fw"></i>
-              <span>Setting</span>
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="projects" onClick={open}>
-              <i className="fa-solid fa-diagram-project fa-fw"></i>
-              <span>Project</span>
-            </NavLink>
-          </li>
-          <li>
             <NavLink to="courses" onClick={open}>
               <i className="fa-solid fa-graduation-cap fa-fw"></i>
               <span>courses</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="Friends" onClick={open}>
-              <i className="fa-regular fa-circle-user fa-fw"></i>
-              <span>Friends</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="Files" onClick={open}>
-              <i className="fa-solid fa-database"></i>
-              <span>Files</span>
             </NavLink>
           </li>
           <li>
@@ -73,15 +92,49 @@ const SideBar = (props) => {
               <i className="fa-solid fa-book"></i>
               <span>Library</span>
             </NavLink>
+          </li>
+          <li>
             <NavLink to="actvity-room" onClick={open}>
               <i className="fa-solid fa-broom"></i>
               <span>Activity Room</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to="quiz" onClick={open}>
-              <i className="fa-solid fa-feather"></i>
-              <span>Quiz</span>
+            <NavLink to="todo" onClick={open}>
+              <i className="fa-solid fa-check"></i>
+              <span>Todo</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="notes" onClick={open}>
+              <i className="fa-solid fa-note-sticky"></i>
+              <span>Notes</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="projects" onClick={open}>
+              <i className="fa-solid fa-diagram-project fa-fw"></i>
+              <span>Project</span>
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="Friends" onClick={open}>
+              <i className="fa-solid fa-users"></i>
+              <span>Friends</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="Files" onClick={open}>
+              <i className="fa-solid fa-database"></i>
+              <span>Files</span>
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="setting" onClick={open}>
+              <i className="fa-solid fa-gear fa-fw"></i>
+              <span>Setting</span>
             </NavLink>
           </li>
           <li>

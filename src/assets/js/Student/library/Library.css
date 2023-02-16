@@ -12,7 +12,7 @@ html {
   position: relative;
   height: calc(100vh - 62px);
   width: 100%;
-  background-color: var(--purple-color);
+  background-color: var(--main-page-color);
   overflow: hidden;
 }
 .Library .head-Section::before {
@@ -161,7 +161,7 @@ html {
   color: #2b2b2b;
   transform-style: preserve-3d;
   transition: var(--main-transition);
-  box-shadow: 13px 13px 8px 0px rgba(151, 146, 153, 0.6);
+  box-shadow: 13px 13px 12px 0px var(--white-color);
   cursor: pointer;
 }
 

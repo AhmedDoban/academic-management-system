@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 function CourseDataHeader(props) {
   return (
     <React.Fragment>
@@ -14,9 +15,15 @@ function CourseDataHeader(props) {
           <div className="right">
             <h3>{props.h3}</h3>
             <h5>{props.h5}</h5>
-            <a href={props.a} className="btn-get-started">
-              <i className="fa-solid fa-play"></i>
-            </a>
+            {props.a ? (
+              <a href={props.a} className="btn-get-started">
+                <i className="fa-solid fa-play"></i>
+              </a>
+            ) : props.Link ? (
+              <Link to={props.Link} className="btn-get-started">
+                <i className="fa-solid fa-play"></i>
+              </Link>
+            ) : null}
           </div>
         </div>
       </div>

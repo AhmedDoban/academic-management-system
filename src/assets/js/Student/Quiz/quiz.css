@@ -77,14 +77,12 @@
   margin-top: 20px;
   width: 100%;
   background-color: transparent;
-  border: 0;
   padding: 10px 40px;
   cursor: pointer;
   font-weight: bold;
   font-size: 18px;
   text-align: left;
   border-radius: 2px;
-  transition: var(--main-transition);
   letter-spacing: 1px;
   color: var(--purple-color);
 
@@ -93,6 +91,7 @@
   box-shadow: var(--main-box-shadow);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 1);
+  transition: var(--main-transition);
 }
 @media (max-width: 776px) {
   .quiz .quiz-container .quiz-options .option input[type="radio"] + label {
@@ -163,7 +162,11 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Quiz result container
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.result-container {
+  position: relative;
+}
 .result-container .box {
+  position: relative;
   width: 100%;
   position: relative;
   margin-top: 20px;
@@ -174,6 +177,7 @@
   border-radius: var(--main-border-radius);
   box-shadow: var(--main-box-shadow);
   backdrop-filter: blur(10px);
+  transition: backdrop-filter 0s ease-in-out;
 }
 .result-container .box .data {
   display: flex;
