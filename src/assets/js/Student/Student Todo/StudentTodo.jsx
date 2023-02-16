@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./StudentTodo.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
@@ -38,7 +38,7 @@ function StudentTodo() {
     let Data = [...ViewedTodo];
     setTodo([...Data]);
   };
-  const HandleDelete = (Out_index) => {
+  const HandleDelete = (e, Out_index) => {
     setTodo(Todo.filter((p, index) => index !== Out_index));
   };
 
@@ -77,6 +77,24 @@ function StudentTodo() {
       setTodo(Data);
       SetChekALl(false);
     }
+  };
+
+  const dragItem = useRef();
+  const dragStart = (e, position) => {
+    dragItem.current = position;
+  };
+  const dragOverItem = useRef();
+  const dragEnter = (e, position) => {
+    dragOverItem.current = position;
+  };
+  const drop = (e) => {
+    const copyListItems = [...Todo];
+    const dragItemContent = copyListItems[dragItem.current];
+    copyListItems.splice(dragItem.current, 1);
+    copyListItems.splice(dragOverItem.current, 0, dragItemContent);
+    dragItem.current = null;
+    dragOverItem.current = null;
+    setTodo(copyListItems);
   };
 
   return (
@@ -142,7 +160,15 @@ function StudentTodo() {
             </div>
           </div>
           {ViewedTodo.map((p, index) => (
-            <div className="card" key={index}>
+            <div
+              className="card"
+              onDragStart={(e) => dragStart(e, index)}
+              onDragEnter={(e) => dragEnter(e, index)}
+              onDragEnd={drop}
+              onTou
+              key={index}
+              draggable
+            >
               <div className="box">
                 <input
                   type="checkbox"
@@ -154,7 +180,7 @@ function StudentTodo() {
               </div>
               <i
                 className="fa-solid fa-xmark HandleDelete"
-                onClick={() => HandleDelete(index)}
+                onClick={(e) => HandleDelete(e, index)}
               ></i>
             </div>
           ))}

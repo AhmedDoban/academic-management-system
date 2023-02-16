@@ -61,9 +61,19 @@
   border-radius: 5px;
   margin-bottom: 20px;
 }
+
+.STudent-Todo-list .container .card[draggable] {
+  cursor: move;
+}
+
 @media (max-width: 992px) {
   .STudent-Todo-list .container .card {
     width: 100%;
+  }
+  .STudent-Todo-list .container .card:nth-child(3) {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
   }
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
@@ -139,10 +149,10 @@
 .STudent-Todo-list .container .card .box label {
   position: relative;
   padding-left: 30px;
-  cursor: pointer;
+  cursor: move;
   width: 100%;
-  height: 100%;
   color: #fff;
+  cursor: pointer;
 }
 
 .STudent-Todo-list .container .card .box label::before {
@@ -220,4 +230,7 @@
   input[type="checkbox"]:checked
   + label {
   text-decoration: none;
+}
+.STudent-Todo-list .container .card .box.checkAll label::before {
+  border: 2px solid var(--blue-color);
 }
