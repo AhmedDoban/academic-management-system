@@ -14,12 +14,15 @@ function StudentTodo() {
       return [];
     }
   });
-
+  const [CheckAll, SetChekALl] = useState(false);
   const [ViewedTodo, SetViewTodo] = useState([]);
 
   useEffect(() => {
     localStorage.setItem("StudentTodos", JSON.stringify(Todo));
     SetViewTodo([...Todo]);
+    if (Todo.length === 0) {
+      SetChekALl(false);
+    }
   }, [Todo]);
 
   const handelFilter = (e, state) => {
@@ -57,14 +60,15 @@ function StudentTodo() {
       });
     }
     SetTextField("");
+    SetChekALl(false);
   };
+
   const TextBox = (e) => {
     if (e.key === "Enter") {
       HandleTextFeild();
     }
   };
 
-  const [CheckAll, SetChekALl] = useState(false);
   const HandleCheckALl = () => {
     if (!CheckAll) {
       let Data = [...Todo];
