@@ -24,7 +24,7 @@ function Login() {
             Welcome back ! login to get full access
             <span className="display-block ">
               did you
-              <Link to=""> forget your password ?</Link>
+              <Link to=""> forget password ?</Link>
             </span>
           </p>
           <div className="center-flex gap-20 col-flex width-full ">
@@ -51,19 +51,20 @@ function Login() {
               />
             </div>
 
-            <button
-              type="button"
-              className="center-flex gap-20 main-btn width-full"
-              onClick={HandleSubmit}
-            >
-              <i className="fas fa-arrow-right-to-bracket "></i> Continue
-            </button>
+            <div className="main-btn-overlay">
+              <button
+                type="button"
+                className="center-flex gap-20 main-btn width-full"
+                onClick={HandleSubmit}
+              >
+                <i className="fas fa-arrow-right-to-bracket "></i> Continue
+              </button>
+            </div>
           </div>
 
           <p>
             don't have an account
             <Link to="/register" replace>
-              {" "}
               Register now
             </Link>
           </p>

@@ -4,8 +4,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
 function StudentTodo() {
+  // Todo input add
   const [TextFeild, SetTextField] = useState("");
-
+  // Todo State
   const [Todo, setTodo] = useState(() => {
     const SavedTodos = localStorage.getItem("StudentTodos");
     if (SavedTodos) {
@@ -14,9 +15,11 @@ function StudentTodo() {
       return [];
     }
   });
+  // input Check All
   const [CheckAll, SetChekALl] = useState(false);
+  // Clone Data
   const [ViewedTodo, SetViewTodo] = useState([]);
-
+  // Get Data From local storage
   useEffect(() => {
     localStorage.setItem("StudentTodos", JSON.stringify(Todo));
     SetViewTodo([...Todo]);
@@ -24,7 +27,7 @@ function StudentTodo() {
       SetChekALl(false);
     }
   }, [Todo]);
-
+  // Filter data depend on select
   const handelFilter = (e, state) => {
     const btn = document.querySelectorAll(".Btn-Filter-todo");
     btn.forEach((btn) => btn.classList.remove("active"));
@@ -36,15 +39,17 @@ function StudentTodo() {
       ? SetViewTodo(Data.filter((p) => p.IsCompleated === true))
       : SetViewTodo(Data.filter((p) => p.IsCompleated === false));
   };
+  // Set data to be compleated
   const handelCompleated = (p) => {
     p.IsCompleated = !p.IsCompleated;
     let Data = [...ViewedTodo];
     setTodo([...Data]);
   };
+  //Filter data and delete not match
   const HandleDelete = (e, Out_index) => {
     setTodo(Todo.filter((p, index) => index !== Out_index));
   };
-
+  // button add data depend on input
   const HandleTextFeild = () => {
     if (TextFeild) {
       // Clone
@@ -62,13 +67,13 @@ function StudentTodo() {
     SetTextField("");
     SetChekALl(false);
   };
-
+  // add data depend on input with enter key
   const TextBox = (e) => {
     if (e.key === "Enter") {
       HandleTextFeild();
     }
   };
-
+  // check all input function
   const HandleCheckALl = () => {
     if (!CheckAll) {
       let Data = [...Todo];
@@ -82,7 +87,7 @@ function StudentTodo() {
       SetChekALl(false);
     }
   };
-
+  // rearange the data with drag and drop
   const dragItem = useRef();
   const dragStart = (e, position) => {
     dragItem.current = position;
@@ -108,6 +113,7 @@ function StudentTodo() {
           <div className="data">
             <h1>Todo</h1>
           </div>
+          {/***************** input data from user **********************/}
           <div className="card">
             <i className="fa-solid fa-plus" onClick={HandleTextFeild}></i>
             <input
@@ -118,6 +124,7 @@ function StudentTodo() {
               onKeyPress={TextBox}
             />
           </div>
+          {/***************** option for user **********************/}
           <div className="card">
             <div className="box checkAll">
               <input
@@ -163,6 +170,7 @@ function StudentTodo() {
               </button>
             </div>
           </div>
+          {/***************** Show todo data **********************/}
           {ViewedTodo.map((p, index) => (
             <div
               data-aos="fade-up"

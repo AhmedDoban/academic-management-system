@@ -18,6 +18,8 @@ const Drawing = lazy(() => import("./ActivityRoom/Drawing/Drawing"));
 const MemoryGame = lazy(() => import("./ActivityRoom/MemoryGame/MemoryGame"));
 // todo page
 const Todo = lazy(() => import("./Student Todo/StudentTodo"));
+// Notes page
+const Notes = lazy(() => import("./Notes/Notes"));
 // setting page
 const StudentSettingPage = lazy(() => import("./Setting/StudentSettingPage"));
 
@@ -76,8 +78,8 @@ const Student = (props) => {
                   </Route>
                   {/********** Todo Page ***********/}
                   <Route path="todo" element={<Todo />} />
-                  {/********** setting Page ***********/}
-
+                  {/********** Notes Page ***********/}
+                  <Route path="notes" element={<Notes />} />
                   {/********** setting Page ***********/}
                   <Route path="setting" element={<StudentSettingPage />}>
                     <Route path="" exact />
