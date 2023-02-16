@@ -175,6 +175,7 @@ function StudentTodo() {
             <div
               data-aos="fade-up"
               data-aos-anchor-placement="top-bottom"
+              data-aos-duration="500"
               className="card draggable"
               onDragStart={(e) => dragStart(e, index)}
               onDragEnter={(e) => dragEnter(e, index)}

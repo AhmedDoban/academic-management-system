@@ -56,6 +56,7 @@ function Notes() {
               <textarea
                 placeholder="What is in your mind....."
                 value={TextArea}
+                maxLength="250"
                 onChange={(e) => setTextArea(e.target.value)}
               />
               <div className="note-footer">
@@ -70,18 +71,25 @@ function Notes() {
             </CardBlur>
             {/************ NOtes  **************/}
             {Notes.map((data, index) => (
-              <CardBlur key={index}>
-                <div className="Note-Data">
-                  <p>{data.NoteText}</p>
-                </div>
-                <div className="note-footer">
-                  <p> {data.NoteName}</p>
-                  <i
-                    className="fa-solid fa-trash"
-                    onClick={(e) => HandleDelete(e, index)}
-                  ></i>
-                </div>
-              </CardBlur>
+              <div
+                className="card"
+                data-aos="fade-right"
+                data-aos-easing="ease-in-out"
+                data-aos-duration="500"
+              >
+                <CardBlur key={index}>
+                  <div className="Note-Data">
+                    <p>{data.NoteText}</p>
+                  </div>
+                  <div className="note-footer">
+                    <p> {data.NoteName}</p>
+                    <i
+                      className="fa-solid fa-trash"
+                      onClick={(e) => HandleDelete(e, index)}
+                    ></i>
+                  </div>
+                </CardBlur>{" "}
+              </div>
             ))}
           </div>
         </div>
