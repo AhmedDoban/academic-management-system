@@ -47,7 +47,6 @@ const SideBar = (props) => {
       Root.setProperty("--main-p-color", "#fff");
     }
   };
-  console.log(Theme);
   return (
     <React.Fragment>
       <div className="sidebar">
