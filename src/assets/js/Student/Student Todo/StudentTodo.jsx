@@ -122,7 +122,7 @@ function StudentTodo() {
                 onChange={() => HandleCheckALl()}
                 checked={CheckAll}
               />
-              <label htmlFor="ALLFIELDS">Check all</label>
+              <label htmlFor="ALLFIELDS">Select All</label>
             </div>
             <div className="info">
               <p>
@@ -155,17 +155,18 @@ function StudentTodo() {
                   setTodo(Todo.filter((p) => p.IsCompleated === false))
                 }
               >
-                Clear completed
+                <i className="fa-solid fa-trash"></i>
               </button>
             </div>
           </div>
           {ViewedTodo.map((p, index) => (
             <div
-              className="card"
+              data-aos="fade-up"
+              data-aos-anchor-placement="top-bottom"
+              className="card draggable"
               onDragStart={(e) => dragStart(e, index)}
               onDragEnter={(e) => dragEnter(e, index)}
               onDragEnd={drop}
-              onTou
               key={index}
               draggable
             >

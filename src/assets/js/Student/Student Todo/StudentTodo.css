@@ -59,11 +59,26 @@
   gap: 10px;
   background-color: hsl(235, 24%, 19%);
   border-radius: 5px;
+  margin-bottom: 5px;
+}
+.STudent-Todo-list .container .card:nth-child(2) {
+  margin-bottom: 20px;
+}
+.STudent-Todo-list .container .card:nth-child(3) i {
+  border: 0;
+  border-radius: var(--main-border-radius);
+  background-color: var(--red-color);
+  color: #fff;
+}
+.STudent-Todo-list .container .card:last-child {
   margin-bottom: 20px;
 }
 
-.STudent-Todo-list .container .card[draggable] {
-  cursor: move;
+.STudent-Todo-list .container .card.draggable {
+  cursor: grab;
+}
+.STudent-Todo-list .container .card.draggable:active {
+  cursor: grabbing;
 }
 
 @media (max-width: 992px) {
