@@ -17,7 +17,7 @@ const NotFounded = (props) => {
           </h4>
           <button
             onClick={() => navigate("/")}
-            className="btn-shape color-white  font-25 main-btn"
+            className="btn-shape_2 color-white  font-25"
           >
             Go back
           </button>

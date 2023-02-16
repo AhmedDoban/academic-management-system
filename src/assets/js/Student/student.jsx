@@ -17,7 +17,7 @@ const ActivityRoom = lazy(() => import("./ActivityRoom/ActivityRoom"));
 const Drawing = lazy(() => import("./ActivityRoom/Drawing/Drawing"));
 const MemoryGame = lazy(() => import("./ActivityRoom/MemoryGame/MemoryGame"));
 // todo page
-const Todo = lazy(() => import("./Todo/Todo"));
+const Todo = lazy(() => import("./Student Todo/StudentTodo"));
 // setting page
 const StudentSettingPage = lazy(() => import("./Setting/StudentSettingPage"));
 

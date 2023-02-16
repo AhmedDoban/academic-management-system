@@ -17,13 +17,12 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--main-color);
 }
-
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Not Founded
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .NotFounded {
   height: 100vh;
-  background-color: var(--main-color);
+  background-color: var(--dark-blue);
 }
 .NotFounded img {
   width: 250px;
@@ -42,15 +41,6 @@
   line-height: 1.7;
   margin: 10px;
 }
-.NotFounded a {
-  background: linear-gradient(
-    97deg,
-    rgba(225, 184, 130, 1) 42%,
-    rgba(223, 182, 131, 1) 50%,
-    rgba(189, 134, 163, 1) 65%
-  );
-}
-
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # spikes
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
