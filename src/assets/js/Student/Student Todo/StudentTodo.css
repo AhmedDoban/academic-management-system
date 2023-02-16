@@ -209,3 +209,15 @@
   display: flex;
   background-color: transparent;
 }
+
+.STudent-Todo-list .container .card .box.checkAll {
+  width: fit-content;
+}
+.STudent-Todo-list
+  .container
+  .card
+  .box.checkAll
+  input[type="checkbox"]:checked
+  + label {
+  text-decoration: none;
+}

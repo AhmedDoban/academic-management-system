@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from "react";
 import "./StudentTodo.css";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
+
 function StudentTodo() {
   const [TextFeild, SetTextField] = useState("");
 
-  const [Todo, setTodo] = useState([
-    { TodoText: "Some", IsCompleated: false },
-    { TodoText: "Some", IsCompleated: true },
-    { TodoText: "Some", IsCompleated: false },
-    { TodoText: "Some", IsCompleated: true },
-    { TodoText: "Some", IsCompleated: false },
-    { TodoText: "Some", IsCompleated: false },
-    { TodoText: "Some", IsCompleated: false },
-  ]);
+  const [Todo, setTodo] = useState(() => {
+    const SavedTodos = localStorage.getItem("StudentTodos");
+    if (SavedTodos) {
+      return JSON.parse(SavedTodos);
+    } else {
+      return [];
+    }
+  });
 
   const [ViewedTodo, SetViewTodo] = useState([]);
 
   useEffect(() => {
+    localStorage.setItem("StudentTodos", JSON.stringify(Todo));
     SetViewTodo([...Todo]);
   }, [Todo]);
 
@@ -40,22 +42,40 @@ function StudentTodo() {
     setTodo(Todo.filter((p, index) => index !== Out_index));
   };
 
+  const HandleTextFeild = () => {
+    if (TextFeild) {
+      // Clone
+      let Data = [...Todo];
+      // Edit
+      Data.push({ TodoText: TextFeild, IsCompleated: false });
+      // update
+      setTodo([...Data]);
+    } else {
+      toast.error("You must Enter Some Todo", {
+        autoClose: 15000,
+        theme: "colored",
+      });
+    }
+    SetTextField("");
+  };
   const TextBox = (e) => {
-    console.log(TextFeild);
     if (e.key === "Enter") {
-      if (TextFeild) {
-        // Clone
-        let Data = [...Todo];
-        // Edit
-        Data.push({ TodoText: TextFeild, IsCompleated: false });
-        // update
-        setTodo([...Data]);
-      } else {
-        toast.error("You Must Enter Book Name", {
-          autoClose: 15000,
-          theme: "colored",
-        });
-      }
+      HandleTextFeild();
+    }
+  };
+
+  const [CheckAll, SetChekALl] = useState(false);
+  const HandleCheckALl = () => {
+    if (!CheckAll) {
+      let Data = [...Todo];
+      Data.map((p) => (p.IsCompleated = true));
+      setTodo(Data);
+      SetChekALl(true);
+    } else {
+      let Data = [...Todo];
+      Data.map((p) => (p.IsCompleated = false));
+      setTodo(Data);
+      SetChekALl(false);
     }
   };
 
@@ -67,7 +87,7 @@ function StudentTodo() {
             <h1>Todo</h1>
           </div>
           <div className="card">
-            <i className="fa-solid fa-plus"></i>
+            <i className="fa-solid fa-plus" onClick={HandleTextFeild}></i>
             <input
               type="text"
               placeholder="Creacte a new todo"
@@ -77,6 +97,15 @@ function StudentTodo() {
             />
           </div>
           <div className="card">
+            <div className="box checkAll">
+              <input
+                type="checkbox"
+                id="ALLFIELDS"
+                onChange={() => HandleCheckALl()}
+                checked={CheckAll}
+              />
+              <label htmlFor="ALLFIELDS">Check all</label>
+            </div>
             <div className="info">
               <p>
                 {Todo.filter((p) => p.IsCompleated === false).length} items left
