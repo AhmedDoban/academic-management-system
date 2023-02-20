@@ -136,6 +136,9 @@ html {
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
 }
+.Library .content .books {
+  padding: 30px 0;
+}
 .Library .content .books .container {
   position: relative;
   display: grid;

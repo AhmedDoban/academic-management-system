@@ -16,6 +16,7 @@ import NotFounded from "./../../components/NotFounded";
 function Library(props) {
   let [search, setSearch] = useState("");
   const [items, setItems] = useState([]);
+  const [item, setItem] = useState([]);
   const [Empty, setEmpty] = useState(true);
 
   useEffect(() => getData(), []);
@@ -98,8 +99,12 @@ function Library(props) {
           <Dots OtherStyle="bottom" />
 
           <Routes>
-            <Route exact path="" element={<BookCard bookData={items} />} />
-            <Route path=":id" element={<BookDetails />} />
+            <Route
+              exact
+              path=""
+              element={<BookCard bookData={items} setItem={setItem} />}
+            />
+            <Route path=":id" element={<BookDetails item={item} />} />
             <Route path="*" element={<NotFounded to="/NotFounded" />} />
           </Routes>
         </div>

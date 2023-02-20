@@ -431,6 +431,7 @@
   background-color: transparent;
   transition: var(--main-transition);
   overflow: hidden;
+  margin: 10px auto;
 }
 .btn-shape_2::before {
   position: absolute;

@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 import LodingFeachData from "../../components/LodingFeachData";
 
@@ -23,7 +22,11 @@ function BookCard(props) {
               ) {
                 return (
                   <>
-                    <Link to={p.volumeInfo.title} className="book">
+                    <Link
+                      to={p.volumeInfo.title}
+                      className="book"
+                      onClick={() => props.setItem(p)}
+                    >
                       <div className="front">
                         <div className="cover">
                           <img
