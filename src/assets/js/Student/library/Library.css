@@ -278,7 +278,7 @@ html {
   color: var(--orange-color);
 }
 .book-details .container .left .info h4 {
-  color: var(--main-page-color);
+  color: var(--purple-color);
 }
 .book-details .container .left .info a button {
   display: block;
