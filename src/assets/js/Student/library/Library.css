@@ -242,6 +242,10 @@ html {
     flex-direction: column;
   }
 }
+.book-details .container .icon {
+  display: flex;
+  gap: 20px;
+}
 .book-details .container .left {
   min-width: 300px;
   display: flex;

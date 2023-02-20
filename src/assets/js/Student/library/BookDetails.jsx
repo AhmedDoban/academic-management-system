@@ -23,32 +23,35 @@ function BookDetails(props) {
           data-aos-easing="ease-in-out"
           data-aos-duration="1000"
         >
-          <i
-            className="fa-solid fa-arrow-left"
-            onClick={() => navigate(-1)}
-          ></i>
-          <div className="left">
-            <div className="img-container">
-              <img
-                src={
-                  item.volumeInfo?.imageLinks &&
-                  item.volumeInfo?.imageLinks.smallThumbnail
-                }
-                alt=""
-              />
-            </div>
-            <div className="info">
-              <h1>{item.volumeInfo?.title}</h1>
-              <h3>{item.volumeInfo?.authors}</h3>
-              <h4>
-                {item.volumeInfo?.publisher}
-                <span>{item.volumeInfo?.publishedDate}</span>
-              </h4>
-              <a href={item.volumeInfo?.previewLink}>
-                <button className="btn-shape_2">More</button>
-              </a>
+          <div className="icon ">
+            <i
+              className="fa-solid fa-arrow-left"
+              onClick={() => navigate(-1)}
+            ></i>
+            <div className="left">
+              <div className="img-container">
+                <img
+                  src={
+                    item.volumeInfo?.imageLinks &&
+                    item.volumeInfo?.imageLinks.smallThumbnail
+                  }
+                  alt=""
+                />
+              </div>
+              <div className="info">
+                <h1>{item.volumeInfo?.title}</h1>
+                <h3>{item.volumeInfo?.authors}</h3>
+                <h4>
+                  {item.volumeInfo?.publisher}
+                  <span>{item.volumeInfo?.publishedDate}</span>
+                </h4>
+                <a href={item.volumeInfo?.previewLink}>
+                  <button className="btn-shape_2">More</button>
+                </a>
+              </div>
             </div>
           </div>
+
           <div className="right">
             <p>{item.volumeInfo?.description}</p>
           </div>
