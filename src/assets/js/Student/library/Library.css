@@ -136,7 +136,7 @@ html {
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
 }
-.Library .content .container {
+.Library .content .books .container {
   position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -321,4 +321,72 @@ html {
   .modal .overlay .data .info h4 {
     font-size: 11px;
   }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Library book details
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.book-details {
+  position: relative;
+  width: 100%;
+  padding: 30px 0;
+}
+.book-details .container {
+  display: flex;
+  gap: 20px;
+}
+@media (max-width: 776px) {
+  .book-details .container {
+    flex-direction: column;
+  }
+}
+.book-details .container .left {
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.book-details .container .left .img-container {
+  display: flex;
+  gap: 10px;
+}
+.book-details .container i {
+  font-size: 25px;
+  color: var(--purple-color);
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.book-details .container i:hover {
+  color: var(--orange-color);
+}
+.book-details .container .left .info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.book-details .container .left .info h1 {
+  font-size: 18px;
+  color: var(--purple-color);
+}
+.book-details .container .left .info h3 {
+  color: var(--orange-color);
+}
+.book-details .container .left .info h4 {
+  color: var(--main-page-color);
+}
+.book-details .container .left .info a button {
+  display: block;
+  width: 100%;
+}
+.book-details .container .right {
+  height: 100%;
+  position: relative;
+}
+.book-details .container .right p {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-align: justify;
 }

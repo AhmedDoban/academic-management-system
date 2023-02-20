@@ -1,0 +1,72 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../css/root.css");
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Content header-main
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.header-main {
+  position: relative;
+  width: 100%;
+  background-color: var(--main-page-color);
+  box-shadow: 0 10px 40px var(--main-page-color), 0 0 0 20px transparent;
+  margin: 0 0 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  height: 50px;
+}
+.header-main .icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
+}
+.header-main .notification {
+  position: relative;
+}
+.header-main .notification::before {
+  position: absolute;
+  content: "";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--red-color);
+  color: #fff;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  font-size: 11px;
+  top: -6px;
+  right: -5px;
+}
+.header-main img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.header-main .link a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--purple-alt-color);
+  padding: 5px 15px;
+  height: 50px;
+  color: #fff;
+  margin-right: 35px;
+  transition: var(--main-transition);
+  text-transform: capitalize;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+.header-main .link a:hover {
+  background-color: var(--dark-blue);
+}

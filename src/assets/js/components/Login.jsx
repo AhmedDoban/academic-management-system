@@ -61,13 +61,6 @@ function Login() {
               </button>
             </div>
           </div>
-
-          <p>
-            don't have an account
-            <Link to="/register" replace>
-              Register now
-            </Link>
-          </p>
         </div>
       </div>
     </React.Fragment>

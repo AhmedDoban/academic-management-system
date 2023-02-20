@@ -2,14 +2,16 @@ import React, { useState, useEffect } from "react";
 import "./Library.css";
 import BookCard from "./bookCard";
 import RanDomQuote from "./../RanDomQuote";
-
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import Footer from "../../components/Footer";
 import Head from "../../Header/Head";
-import LodingFeachData from "./../../components/LodingFeachData";
 import Dots from "../../components/Dots/Dots";
+import BookDetails from "./BookDetails";
+import { Routes } from "react-router-dom";
+import { Route } from "react-router-dom";
+import NotFounded from "./../../components/NotFounded";
 
 function Library(props) {
   let [search, setSearch] = useState("");
@@ -93,24 +95,17 @@ function Library(props) {
             <span> Library Books</span>
           </h1>
           <Dots OtherStyle="top" />
-          <Dots OtherStyle="bottom" />
-          <div
-            className="container"
-            data-aos="fade-down"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-          >
-            {items.length > 0 ? (
-              <BookCard bookData={items} />
-            ) : (
-              <LodingFeachData />
-            )}
-          </div>
+
+          <Routes>
+            <Route exact path="" element={<BookCard bookData={items} />} />
+            <Route path=":id" element={<BookDetails />} />
+            <Route path="*" element={<NotFounded to="/NotFounded" />} />
+          </Routes>
         </div>
       </div>
       <RanDomQuote />
       <Footer />
-        <ToastContainer />
+      <ToastContainer />
     </React.Fragment>
   );
 }

@@ -8,7 +8,7 @@ function Modal(props) {
       <div className="modal">
         <div className="overlay">
           <button onClick={props.onClose}>
-            <i class="fa-solid fa-xmark"></i>
+            <i className="fa-solid fa-xmark"></i>
           </button>
           <div className="data">
             <img

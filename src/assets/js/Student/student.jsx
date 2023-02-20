@@ -12,6 +12,8 @@ const Quiz = lazy(() => import("./Quiz/Quiz"));
 const StudentTablePage = lazy(() => import("./StudentTablePage"));
 // library page
 const Library = lazy(() => import("./library/library"));
+const BookDetails = lazy(() => import("./library/BookDetails"));
+
 // activity page
 const ActivityRoom = lazy(() => import("./ActivityRoom/ActivityRoom"));
 const Drawing = lazy(() => import("./ActivityRoom/Drawing/Drawing"));
@@ -69,7 +71,9 @@ const Student = (props) => {
                   {/********** Table Page ***********/}
                   <Route path="/table" element={<StudentTablePage />} />
                   {/********** Library Page ***********/}
-                  <Route path="/library" element={<Library />} />
+                  <Route path="/library" element={<Library />}>
+                    <Route path=":id" element={<BookDetails />} />
+                  </Route>
                   {/********** actvity Page ***********/}
                   <Route path="/actvity-room" element={<Outlet />}>
                     <Route path="" element={<ActivityRoom />} />

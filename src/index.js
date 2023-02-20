@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import "./assets/css/style.css";
 import { BrowserRouter } from "react-router-dom";
 import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import App from "./App";

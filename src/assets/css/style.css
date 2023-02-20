@@ -505,54 +505,7 @@ remove this comment if you want it to be sticy
     display: none;
   }
 } */
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Content head
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 
-.content .head {
-  position: relative;
-  width: 100%;
-  background-color: var(--main-page-color);
-  box-shadow: 0 10px 40px var(--main-page-color), 0 0 0 20px transparent;
-  margin: 0 0 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-}
-.content .head .icons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 20px;
-  cursor: pointer;
-  color: #fff;
-}
-.content .head .notification {
-  position: relative;
-}
-.content .head .notification::before {
-  position: absolute;
-  content: "";
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--red-color);
-  color: #fff;
-  border-radius: 50%;
-  width: 10px;
-  height: 10px;
-  font-size: 11px;
-  top: -6px;
-  right: -5px;
-}
-.content .head img {
-  width: 32px;
-  height: 32px;
-  object-fit: cover;
-  border-radius: 50%;
-}
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Signin page

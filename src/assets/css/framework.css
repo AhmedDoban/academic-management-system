@@ -480,7 +480,7 @@
 # slider_Setting Home page
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .slider_Setting {
-  height: calc(100vh - 65px);
+  height: calc(100vh - 50px);
   position: relative;
 }
 .slider_Setting div {

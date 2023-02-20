@@ -3,7 +3,7 @@ import "./Dots.css";
 function Dots({ OtherStyle }) {
   return (
     <React.Fragment>
-      <div class={`dots ${OtherStyle}`}></div>
+      <div className={`dots ${OtherStyle}`}></div>
     </React.Fragment>
   );
 }
