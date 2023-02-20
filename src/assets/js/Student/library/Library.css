@@ -143,7 +143,7 @@ html {
   gap: 20px;
 }
 @media (max-width: 776px) {
-  .Library .content .container {
+  .Library .content .books .container {
     grid-template-columns: repeat(auto-fill, minmax(150px, 0.5fr));
   }
 }
@@ -222,106 +222,6 @@ html {
   overflow: hidden;
 }
 
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Library modal
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.modal {
-  min-height: 100%;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  overflow: hidden;
-}
-.modal .overlay {
-  position: relative;
-  background-color: var(--purple-color);
-  width: 700px;
-  max-height: 600px;
-  padding: 20px;
-  overflow: hidden;
-  border-radius: var(--main-border-radius);
-}
-
-.modal .overlay > button {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  right: 0px;
-  top: 0px;
-  background-color: var(--orange-color);
-  color: #fff;
-  outline: none;
-  border: none;
-  border-radius: var(--main-border-radius);
-  border-bottom-right-radius: 0;
-  border-top-left-radius: 0;
-  cursor: pointer;
-}
-.modal .overlay .data {
-  display: flex;
-  justify-content: space-around;
-  gap: 10px;
-}
-.modal .overlay .data img {
-  width: 150px;
-  height: 170px;
-  border-radius: var(--main-border-radius);
-}
-.modal .overlay .data .info h1 {
-  color: #fff;
-  font-size: 18px;
-}
-.modal .overlay .data .info h3,
-.modal .overlay .data .info h4 {
-  color: rgb(182, 182, 182);
-}
-.modal .overlay .data .info h4 span {
-  color: tomato;
-}
-.modal .overlay .data .info a button {
-  padding: 6px 20px;
-  background-color: var(--orange-color);
-  color: #fff;
-  border-radius: var(--main-border-radius);
-  cursor: pointer;
-  border: none;
-}
-.modal .overlay .description {
-  position: relative;
-  padding: 20px;
-  height: 100%;
-}
-.modal .overlay .description p {
-  font-size: 15px;
-  letter-spacing: 1px;
-  color: #fff;
-  font-weight: bold;
-  text-align: justify;
-}
-@media (max-width: 776px) {
-  .modal .overlay {
-    width: calc(100% - 20px);
-  }
-  .modal .overlay .data .info h1 {
-    font-size: 14px;
-  }
-  .modal .overlay .data img {
-    width: 150px;
-    height: 200px;
-  }
-  .modal .overlay .data .info h3,
-  .modal .overlay .data .info h4 {
-    font-size: 11px;
-  }
-}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Library book details
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/

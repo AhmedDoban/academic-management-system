@@ -95,6 +95,7 @@ function Library(props) {
             <span> Library Books</span>
           </h1>
           <Dots OtherStyle="top" />
+          <Dots OtherStyle="bottom" />
 
           <Routes>
             <Route exact path="" element={<BookCard bookData={items} />} />

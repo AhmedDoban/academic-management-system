@@ -27,7 +27,7 @@ function BookDetails() {
         <div className="book-details">
           <div
             className="container"
-            data-aos="fade-down"
+            data-aos="fade-right"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
           >
