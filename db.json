@@ -1,7 +1,7 @@
 {
   "students": [
     {
-      "profilePicture": "blob:http://localhost:3001/65f11f1a-46ca-4b58-8efd-fd365376591f",
+      "profilePicture": "blob:http://localhost:3001/710ddb95-59c9-454f-9007-491ffcca4035",
       "firstName": "Ahmed",
       "lastName": "Doban",
       "email": "ahmedheshamdoban@student.com",
@@ -18,10 +18,10 @@
       "gpa": "3",
       "gender": "male",
       "CoursesID": [
-        "PHP",
         "CSS",
         "HTML",
-        "my PHP"
+        "my PHP",
+        "PHP"
       ],
       "id": 1
     },
