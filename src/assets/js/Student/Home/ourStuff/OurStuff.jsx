@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Dots from "../../components/Dots/Dots";
-
-function CourseCategories(props) {
+import Dots from "../../../components/Dots/Dots";
+import "./ourStuff.css";
+function OurStuff(props) {
   return (
     <React.Fragment>
       <div
@@ -28,7 +28,7 @@ function CourseCategories(props) {
           >
             <div className="img-container">
               <img
-                src={require("../../../img/Courses/all-courses.jpg")}
+                src={require("../../../../img/Courses/all-courses.jpg")}
                 alt=""
               />
             </div>
@@ -47,7 +47,7 @@ function CourseCategories(props) {
           >
             <div className="img-container">
               <img
-                src={require("../../../img/Courses/Business-Courses.jpg")}
+                src={require("../../../../img/Courses/Business-Courses.jpg")}
                 alt=""
               />
             </div>
@@ -66,7 +66,7 @@ function CourseCategories(props) {
           >
             <div className="img-container">
               <img
-                src={require("../../../img/Courses/Graphics-Courses.png")}
+                src={require("../../../../img/Courses/Graphics-Courses.png")}
                 alt=""
               />
             </div>
@@ -85,7 +85,7 @@ function CourseCategories(props) {
           >
             <div className="img-container">
               <img
-                src={require("../../../img/Courses/web-Courses.png")}
+                src={require("../../../../img/Courses/web-Courses.png")}
                 alt=""
               />
             </div>
@@ -104,7 +104,7 @@ function CourseCategories(props) {
           >
             <div className="img-container">
               <img
-                src={require("../../../img/Courses/all-courses.jpg")}
+                src={require("../../../../img/Courses/all-courses.jpg")}
                 alt=""
               />
             </div>
@@ -123,7 +123,7 @@ function CourseCategories(props) {
           >
             <div className="img-container">
               <img
-                src={require("../../../img/Courses/Business-Courses.jpg")}
+                src={require("../../../../img/Courses/Business-Courses.jpg")}
                 alt=""
               />
             </div>
@@ -142,7 +142,7 @@ function CourseCategories(props) {
           >
             <div className="img-container">
               <img
-                src={require("../../../img/Courses/Graphics-Courses.png")}
+                src={require("../../../../img/Courses/Graphics-Courses.png")}
                 alt=""
               />
             </div>
@@ -161,7 +161,7 @@ function CourseCategories(props) {
           >
             <div className="img-container">
               <img
-                src={require("../../../img/Courses/web-Courses.png")}
+                src={require("../../../../img/Courses/web-Courses.png")}
                 alt=""
               />
             </div>
@@ -179,4 +179,4 @@ function CourseCategories(props) {
     </React.Fragment>
   );
 }
-export default CourseCategories;
+export default OurStuff;

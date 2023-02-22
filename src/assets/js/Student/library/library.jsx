@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Library.css";
 import BookCard from "./bookCard";
-import RanDomQuote from "./../RanDomQuote";
+import RanDomQuote from "../Random Quote/RanDomQuote";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";

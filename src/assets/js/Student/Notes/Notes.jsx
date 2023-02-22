@@ -4,6 +4,7 @@ import Blobs from "./../../components/Blobs";
 import CardBlur from "./../../components/CardBlur";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
+import { Link } from "react-router-dom";
 
 function Notes() {
   const [TextArea, setTextArea] = useState("");
@@ -71,11 +72,12 @@ function Notes() {
             </CardBlur>
             {/************ NOtes  **************/}
             {Notes.map((data, index) => (
-              <div
+              <Link
                 className="card"
                 data-aos="fade-right"
                 data-aos-easing="ease-in-out"
                 data-aos-duration="500"
+                to={data.NoteName}
               >
                 <CardBlur key={index}>
                   <div className="Note-Data">
@@ -88,8 +90,8 @@ function Notes() {
                       onClick={(e) => HandleDelete(e, index)}
                     ></i>
                   </div>
-                </CardBlur>{" "}
-              </div>
+                </CardBlur>
+              </Link>
             ))}
           </div>
         </div>

@@ -1,0 +1,60 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../../css/root.css");
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Student  home page Student What We Offer
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.WhatOffer {
+  position: relative;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  background-color: var(--white-color);
+}
+@media (max-width: 767px) {
+  .WhatOffer .container .box {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+}
+.WhatOffer .container .box .box-titel {
+  color: #0bb3f5;
+}
+
+.WhatOffer .container .box .left p {
+  line-height: 2;
+  font-size: 18px;
+  margin-left: 25px;
+  width: 90%;
+  color: var(--main-p-color);
+}
+.WhatOffer .container .box .left ul li {
+  position: relative;
+  margin-top: 20px;
+  padding-left: 30px;
+  color: var(--black-color);
+}
+.WhatOffer .container .box .left ul li::before {
+  position: absolute;
+  content: "\f058";
+  width: 20px;
+  height: 20px;
+  left: 0;
+  color: #1ea2d8;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free";
+  font-size: 1.3rem;
+}
+.WhatOffer .container .box .right img {
+  width: 450px;
+}
+@media (max-width: 767px) {
+  .WhatOffer .container .box .right img {
+    width: 100%;
+  }
+}

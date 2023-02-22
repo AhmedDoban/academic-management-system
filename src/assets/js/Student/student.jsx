@@ -9,7 +9,7 @@ const StudentCourses = lazy(() => import("./Courses/StudentCourses"));
 const CourseData = lazy(() => import("./Courses/CourseData"));
 const Quiz = lazy(() => import("./Quiz/Quiz"));
 // table page
-const StudentTablePage = lazy(() => import("./StudentTablePage"));
+const StudentTablePage = lazy(() => import("./Student table/StudentTablePage"));
 // library page
 const Library = lazy(() => import("./library/library"));
 const BookDetails = lazy(() => import("./library/BookDetails"));
@@ -22,11 +22,13 @@ const MemoryGame = lazy(() => import("./ActivityRoom/MemoryGame/MemoryGame"));
 const Todo = lazy(() => import("./Student Todo/StudentTodo"));
 // Notes page
 const Notes = lazy(() => import("./Notes/Notes"));
+const NoteDetails = lazy(() => import("./Notes/NoteDetails"));
 // setting page
 const StudentSettingPage = lazy(() => import("./Setting/StudentSettingPage"));
 
 const StudentProjectsPage = lazy(() => import("./StudentProjectsPage"));
-const StudentFriends = lazy(() => import("./StudentFriends"));
+// Student Friends page
+const StudentFriends = lazy(() => import("../Frinds Pages/StudentFriends"));
 const StudentFilesPage = lazy(() => import("./StudentFilesPage"));
 
 // notfound page
@@ -43,7 +45,7 @@ const Student = (props) => {
         <SideBar />
         <div className="content">
           <div className="pagewrapper display-flex gap-10">
-            <div className="postContainer width-full">
+            <div className="width-full">
               <Suspense
                 fallback={
                   <div className="pre-loader">
@@ -83,7 +85,10 @@ const Student = (props) => {
                   {/********** Todo Page ***********/}
                   <Route path="todo" element={<Todo />} />
                   {/********** Notes Page ***********/}
-                  <Route path="notes" element={<Notes />} />
+                  <Route path="notes" element={<Outlet />}>
+                    <Route path="" element={<Notes />} />
+                    <Route path=":noteName" element={<NoteDetails />} />
+                  </Route>
                   {/********** setting Page ***********/}
                   <Route path="setting" element={<StudentSettingPage />}>
                     <Route path="" exact />
