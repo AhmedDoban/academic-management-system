@@ -5,13 +5,13 @@ import RanDomQuote from "../Random Quote/RanDomQuote";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import Footer from "../../components/Footer";
-import Head from "../../Header/Head";
+import Footer from "../../components/Footer/Footer";
+import Head from "./../../components/Header/Head";
 import Dots from "../../components/Dots/Dots";
 import BookDetails from "./BookDetails";
 import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
-import NotFounded from "./../../components/NotFounded";
+import NotFounded from "../../components/NotFounded";
 
 function Library(props) {
   let [search, setSearch] = useState("");

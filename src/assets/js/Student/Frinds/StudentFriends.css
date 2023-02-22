@@ -1,0 +1,32 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../css/root.css");
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Student Friends
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.StudentFriends {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  background-color: var(--white-color);
+  opacity: 1;
+  background-image: linear-gradient(
+      var(--main-background-color) 1.9000000000000001px,
+      transparent 1.9000000000000001px
+    ),
+    linear-gradient(
+      to right,
+      var(--main-background-color) 1.9000000000000001px,
+      var(--white-color) 1.9000000000000001px
+    );
+  background-size: 38px 38px;
+  height: 100vh;
+}
+.StudentFriends .container h1 {
+  margin: 0;
+  color: var(--main-color);
+}
+.StudentFriends .container h1::before {
+  background-color: var(--main-color);
+}

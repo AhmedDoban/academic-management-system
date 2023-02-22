@@ -1,5 +1,5 @@
 import React from "react";
-import Head from "../Header/Head";
+import Head from "../components/Header/Head";
 
 function StudentFilesPage(props) {
   return (

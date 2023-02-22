@@ -9,17 +9,17 @@ const StudentCourses = lazy(() => import("./Courses/StudentCourses"));
 const CourseData = lazy(() => import("./Courses/CourseData"));
 const Quiz = lazy(() => import("./Quiz/Quiz"));
 // table page
-const StudentTablePage = lazy(() => import("./Student table/StudentTablePage"));
+const StudentTablePage = lazy(() => import("./Table/StudentTablePage"));
 // library page
-const Library = lazy(() => import("./library/library"));
-const BookDetails = lazy(() => import("./library/BookDetails"));
+const Library = lazy(() => import("./Library/Library"));
+const BookDetails = lazy(() => import("./Library/BookDetails"));
 
 // activity page
 const ActivityRoom = lazy(() => import("./ActivityRoom/ActivityRoom"));
 const Drawing = lazy(() => import("./ActivityRoom/Drawing/Drawing"));
 const MemoryGame = lazy(() => import("./ActivityRoom/MemoryGame/MemoryGame"));
 // todo page
-const Todo = lazy(() => import("./Student Todo/StudentTodo"));
+const Todo = lazy(() => import("./Todo/StudentTodo"));
 // Notes page
 const Notes = lazy(() => import("./Notes/Notes"));
 const NoteDetails = lazy(() => import("./Notes/NoteDetails"));
@@ -28,7 +28,7 @@ const StudentSettingPage = lazy(() => import("./Setting/StudentSettingPage"));
 
 const StudentProjectsPage = lazy(() => import("./StudentProjectsPage"));
 // Student Friends page
-const StudentFriends = lazy(() => import("../Frinds Pages/StudentFriends"));
+const StudentFriends = lazy(() => import("./Frinds/StudentFriends"));
 const StudentFilesPage = lazy(() => import("./StudentFilesPage"));
 
 // notfound page

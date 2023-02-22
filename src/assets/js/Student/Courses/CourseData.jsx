@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import CourseDataHeader from "./CourseDataHeader";
-import Head from "../../Header/Head";
 import Dots from "../../components/Dots/Dots";
+import Head from "./../../components/Header/Head";
 
 function CourseData(props) {
   const params = useParams();

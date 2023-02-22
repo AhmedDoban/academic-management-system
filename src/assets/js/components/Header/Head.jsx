@@ -1,4 +1,4 @@
-import user from "../../img/user.png";
+import user from "../../../img/user.png";
 import Typewriter from "typewriter-effect";
 import "./header.css";
 import AuthUser from "../../../config/AuthUser";

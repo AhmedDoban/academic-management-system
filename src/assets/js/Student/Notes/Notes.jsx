@@ -10,8 +10,7 @@ import "./Notes.css";
 function Notes() {
   const [TextArea, setTextArea] = useState("");
   const [noteName, setnoteName] = useState("");
-  const [Item, SetItem] = useState([]);
-  console.log(Item);
+
   // Get data from the local storage if it exist
   const [Notes, setNotes] = useState(() => {
     const SavedNotes = localStorage.getItem("Notes");
@@ -49,15 +48,7 @@ function Notes() {
     setNotes(Notes.filter((p, index) => index !== Out_index));
   };
 
-  //Handle Edit Note
-  const HandleEditNote = (data, index) => {
-    SetItem(data);
-    // HandleDelete(data, index);
-  };
-  //Handle Save Edit Note
-  const HandleSaveEditNote = (data) => {
-    setNotes([...data]);
-  };
+
   return (
     <React.Fragment>
       <Routes>
@@ -73,7 +64,6 @@ function Notes() {
               noteName={noteName}
               setnoteName={setnoteName}
               Notes={Notes}
-              HandleEditNote={HandleEditNote}
             />
           }
         />
@@ -81,12 +71,11 @@ function Notes() {
           path=":id"
           element={
             <NoteDetails
-              Item={Item}
+              Notes={Notes}
               TextArea={TextArea}
               setTextArea={setTextArea}
               noteName={noteName}
               setnoteName={setnoteName}
-              HandleSaveEditNote={HandleSaveEditNote}
             />
           }
         />

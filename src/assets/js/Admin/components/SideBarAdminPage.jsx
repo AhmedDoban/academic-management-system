@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import AuthUser from "../../../../config/AuthUser";
+import AuthUser from "../../../config/AuthUser";
 function SideBarAdminPage() {
   const { token, logOut } = AuthUser();
   const logoutUser = () => {

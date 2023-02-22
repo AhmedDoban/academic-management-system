@@ -38,13 +38,7 @@ function AllNotes(props) {
                 data-aos-duration="500"
               >
                 <CardBlur key={index}>
-                  <Link
-                    className="Note-Data"
-                    to={data.NoteText}
-                    onClick={() => {
-                      props.HandleEditNote(data, index);
-                    }}
-                  >
+                  <Link className="Note-Data" to={data.NoteText}>
                     <p>{data.NoteText}</p>
                   </Link>
                   <div className="note-footer">

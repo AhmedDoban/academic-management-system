@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from "../components/Footer";
-import Head from "../Header/Head";
+
+import Head from "../components/Header/Head";
 
 function StudentProjectsPage(props) {
   return (
