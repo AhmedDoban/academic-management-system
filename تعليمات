@@ -1,6 +1,10 @@
 npm install --save bootstrap
 npm install --save reactstrap react react-dom
 
+npm install -g npm-check-updates
+ncu -u
+npm install 
+
 npm i --save @fortawesome/fontawesome-svg-core
 npm install --save @fortawesome/free-solid-svg-icons
 npm install --save @fortawesome/react-fontawesome
