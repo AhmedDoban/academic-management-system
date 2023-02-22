@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
-import "./Notes.css";
-import Blobs from "./../../components/Blobs";
-import CardBlur from "./../../components/CardBlur";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import { Link } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import AllNotes from "./AllNotes";
+import NoteDetails from "./NoteDetails";
+import NotFounded from "./../../components/NotFounded";
+import "./Notes.css";
 
 function Notes() {
   const [TextArea, setTextArea] = useState("");
   const [noteName, setnoteName] = useState("");
+  const [Item, SetItem] = useState([]);
+  console.log(Item);
   // Get data from the local storage if it exist
   const [Notes, setNotes] = useState(() => {
     const SavedNotes = localStorage.getItem("Notes");
@@ -45,57 +48,50 @@ function Notes() {
   const HandleDelete = (e, Out_index) => {
     setNotes(Notes.filter((p, index) => index !== Out_index));
   };
+
+  //Handle Edit Note
+  const HandleEditNote = (data, index) => {
+    SetItem(data);
+    // HandleDelete(data, index);
+  };
+  //Handle Save Edit Note
+  const HandleSaveEditNote = (data) => {
+    setNotes([...data]);
+  };
   return (
     <React.Fragment>
-      <Blobs />
-      <div className="notes">
-        <div className="container">
-          <h1 className="notes_title">Notes</h1>
-          <div className="notes-container">
-            {/************ Add note  **************/}
-            <CardBlur>
-              <textarea
-                placeholder="What is in your mind....."
-                value={TextArea}
-                maxLength="250"
-                onChange={(e) => setTextArea(e.target.value)}
-              />
-              <div className="note-footer">
-                <input
-                  type="text"
-                  placeholder="Note Name"
-                  value={noteName}
-                  onChange={(e) => setnoteName(e.target.value)}
-                />
-                <button onClick={() => HandleFeilds()}>Save</button>
-              </div>
-            </CardBlur>
-            {/************ NOtes  **************/}
-            {Notes.map((data, index) => (
-              <Link
-                className="card"
-                data-aos="fade-right"
-                data-aos-easing="ease-in-out"
-                data-aos-duration="500"
-                to={data.NoteName}
-              >
-                <CardBlur key={index}>
-                  <div className="Note-Data">
-                    <p>{data.NoteText}</p>
-                  </div>
-                  <div className="note-footer">
-                    <p> {data.NoteName}</p>
-                    <i
-                      className="fa-solid fa-trash"
-                      onClick={(e) => HandleDelete(e, index)}
-                    ></i>
-                  </div>
-                </CardBlur>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
+      <Routes>
+        <Route
+          path=""
+          // element={<BookCard bookData={items} setItem={setItem} />}
+          element={
+            <AllNotes
+              HandleDelete={HandleDelete}
+              HandleFeilds={HandleFeilds}
+              TextArea={TextArea}
+              setTextArea={setTextArea}
+              noteName={noteName}
+              setnoteName={setnoteName}
+              Notes={Notes}
+              HandleEditNote={HandleEditNote}
+            />
+          }
+        />
+        <Route
+          path=":id"
+          element={
+            <NoteDetails
+              Item={Item}
+              TextArea={TextArea}
+              setTextArea={setTextArea}
+              noteName={noteName}
+              setnoteName={setnoteName}
+              HandleSaveEditNote={HandleSaveEditNote}
+            />
+          }
+        />
+        <Route path="*" element={<NotFounded to="/NotFounded" />} />
+      </Routes>
       <ToastContainer />
     </React.Fragment>
   );

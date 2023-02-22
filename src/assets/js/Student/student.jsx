@@ -85,8 +85,7 @@ const Student = (props) => {
                   {/********** Todo Page ***********/}
                   <Route path="todo" element={<Todo />} />
                   {/********** Notes Page ***********/}
-                  <Route path="notes" element={<Outlet />}>
-                    <Route path="" element={<Notes />} />
+                  <Route path="notes" element={<Notes />}>
                     <Route path=":noteName" element={<NoteDetails />} />
                   </Route>
                   {/********** setting Page ***********/}
