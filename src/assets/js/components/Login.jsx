@@ -2,7 +2,7 @@ import React from "react";
 import Blobs from "./Blobs";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import AuthUser from "../Gust/AuthUser";
+import AuthUser from "../../../config/AuthUser";
 
 function Login() {
   const { http, setToken } = AuthUser();
@@ -14,6 +14,7 @@ function Login() {
       setToken(res.data.user, res.data.access_token);
     });
   };
+  
   return (
     <React.Fragment>
       <div className="Signin ">

@@ -1,7 +1,7 @@
 import user from "../../img/user.png";
 import Typewriter from "typewriter-effect";
 import "./header.css";
-import AuthUser from "./../Gust/AuthUser";
+import AuthUser from "../../../config/AuthUser";
 import { Link } from "react-router-dom";
 function Head(props) {
   const { GetToken } = AuthUser();

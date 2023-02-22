@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import Student from "./../Student/student";
-import AuthUser from "./AuthUser";
-
+import AuthUser from "../../../config/AuthUser";
 import NotFounded from "./../components/NotFounded";
 import Admin from "../Admin/Home/admin";
 import Teacher from "../Teacher/teacher";
@@ -14,6 +12,7 @@ function Auth() {
   useEffect(() => {
     featchUserDetails();
   }, []);
+
   const featchUserDetails = () => {
     http.post("/").then((res) => {
       setUserDetails(res.data);
