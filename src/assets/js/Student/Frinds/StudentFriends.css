@@ -10,7 +10,6 @@
   width: 100%;
   padding: 0;
   background-color: var(--white-color);
-  opacity: 1;
   background-image: linear-gradient(
       var(--main-background-color) 1.9000000000000001px,
       transparent 1.9000000000000001px
@@ -21,7 +20,8 @@
       var(--white-color) 1.9000000000000001px
     );
   background-size: 38px 38px;
-  height: 100vh;
+  padding: 0 0 30px 0;
+  min-height: 100vh;
 }
 .StudentFriends .container h1 {
   margin: 0;
@@ -29,4 +29,89 @@
 }
 .StudentFriends .container h1::before {
   background-color: var(--main-color);
+}
+.StudentFriends .container .cards {
+  padding: 20px 0;
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+@media (max-width: 776px) {
+  .StudentFriends .container .cards {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 0.5fr));
+  }
+}
+
+.StudentFriends .container .cards .card {
+  width: 100%;
+  min-height: 254px;
+  background: var(--main-page-color);
+  border-radius: 15px;
+  box-shadow: 1px 5px 15px 0px var(--main-page-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0px 20px 20px 20px;
+}
+
+.StudentFriends .container .cards .card .card-border-top {
+  width: 60%;
+  height: 3%;
+  background: var(--purple-alt-color);
+  margin: auto;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.StudentFriends .container .cards .card span {
+  font-weight: 600;
+  color: var(--main-color);
+  text-align: center;
+  padding-top: 10px;
+  font-size: 16px;
+}
+
+.StudentFriends .container .cards .card .job {
+  font-weight: 400;
+  color: var(--main-color);
+  text-align: center;
+  padding-top: 3px;
+  font-size: 12px;
+}
+
+.StudentFriends .container .cards .card .img {
+  width: 70px;
+  height: 80px;
+  background: var(--main-background-color);
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 25px;
+}
+.StudentFriends .container .cards .card .options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.StudentFriends .container .cards .card button {
+  padding: 8px 25px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 30px;
+  background: var(--purple-alt-color);
+  color: var(--white-color);
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+  transition: var(--main-transition);
+  font-size: 22px;
+}
+.StudentFriends .container .cards .card button:hover {
+  background: var(--white-color);
+  color: var(--black-color);
 }

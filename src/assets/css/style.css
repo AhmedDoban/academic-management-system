@@ -493,6 +493,12 @@ remove this comment if you want it to be sticy
   position: relative;
   padding-top: var(--main-padding-top);
   padding-bottom: calc(var(--main-padding-bottom) * 2);
+  background-color: var(--white-color);
+  opacity: 1;
+  background-image: radial-gradient(#0024b6 2px, transparent 2px),
+    radial-gradient(#0024b6 2px, var(--white-color) 2px);
+  background-size: 80px 80px;
+  background-position: 0 0, 40px 40px;
 }
 
 .student-courses-container .header {
@@ -549,7 +555,7 @@ remove this comment if you want it to be sticy
   position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 10px;
+  gap: 15px;
   z-index: 2;
 }
 @media (max-width: 776px) {
