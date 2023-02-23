@@ -1,0 +1,30 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../css/root.css");
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Blobs
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+
+.Blobs-general img {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  z-index: 0;
+}
+@media (max-width: 992px) {
+  .Blobs-general.web img {
+    display: none;
+  }
+  .Blobs-general.mob img {
+    display: block;
+  }
+}
+@media (min-width: 993px) {
+  .Blobs-general.web img {
+    display: block;
+  }
+  .Blobs-general.mob img {
+    display: none;
+  }
+}

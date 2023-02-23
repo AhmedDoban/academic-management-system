@@ -1,8 +1,9 @@
 import React from "react";
-import Blobs from "./Blobs";
+import Blobs from "./../Blobs/Blobs";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import AuthUser from "../../config/AuthUser";
+import AuthUser from "../../../config/AuthUser";
+import "./Login.css";
 
 function Login() {
   const { http, setToken } = AuthUser();

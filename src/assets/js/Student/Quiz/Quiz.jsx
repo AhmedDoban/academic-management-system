@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./quiz.css";
 import { Questions } from "./../../../../dummyData";
-import Blobs from "./../../components/Blobs";
+import Blobs from "./../../components/Blobs/Blobs";
 
 const Quiz = (props) => {
   const [checked, SetChecked] = useState(false);

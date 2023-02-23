@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import NotFounded from "../components/NotFounded";
-import Login from "./../components/Login";
-import  StudentHomePage  from "../Student/Home/StudentHomePage"
+import StudentHomePage from "../Student/Home/StudentHomePage";
+import Login from "./../components/Login/Login";
 
 function Gust() {
   return (

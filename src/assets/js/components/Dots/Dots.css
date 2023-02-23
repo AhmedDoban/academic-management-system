@@ -9,7 +9,7 @@
   height: 186px;
   background-image: url("../../../img/dots.png");
   background-repeat: no-repeat;
-  opacity: 0.3;
+  opacity: .5;
 }
 .dots.top {
   top: 50px;

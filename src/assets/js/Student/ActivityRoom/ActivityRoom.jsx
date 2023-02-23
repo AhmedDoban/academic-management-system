@@ -1,8 +1,9 @@
 import React from "react";
-import Blobs from "../../components/Blobs";
+import Blobs from "./../../components/Blobs/Blobs";
 import { Link } from "react-router-dom";
 import "./ActivityRoom.css";
-import CardBlur from "../../components/CardBlur";
+import CardBlur from "../../components/Card Blur/CardBlur";
+
 function ActivityRoom() {
   return (
     <React.Fragment>

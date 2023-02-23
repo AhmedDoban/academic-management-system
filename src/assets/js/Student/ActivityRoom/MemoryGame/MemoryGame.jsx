@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import CardBlur from "./../../../components/CardBlur";
-import Blobs from "./../../../components/Blobs";
+import CardBlur from "./../../../components/Card Blur/CardBlur";
+import Blobs from './../../../components/Blobs/Blobs';
 import "./MemoryGame.css";
+
 function MemoryGame() {
   const [items, setItems] = useState(
     [

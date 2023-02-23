@@ -90,33 +90,6 @@
 }
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Blobs
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-
-.Blobs-general img {
-  width: 100%;
-  position: absolute;
-  height: 100%;
-  z-index: 0;
-}
-@media (max-width: 992px) {
-  .Blobs-general.web img {
-    display: none;
-  }
-  .Blobs-general.mob img {
-    display: block;
-  }
-}
-@media (min-width: 993px) {
-  .Blobs-general.web img {
-    display: block;
-  }
-  .Blobs-general.mob img {
-    display: none;
-  }
-}
-
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # input General
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 input:focus {
@@ -182,31 +155,7 @@ p {
     width: 1170px;
   }
 }
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Card Blur 
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.CardBlur {
-  position: relative;
-  width: 100%;
-  height: 250px;
-  margin-top: 20px;
-  border: 1px solid rgba(255, 255, 255, 1);
-  outline: 5px solid rgba(255, 255, 255, 0.605);
-  background: rgba(255, 255, 255, 0.605);
-  padding: 20px;
-  border-radius: var(--main-border-radius);
-  box-shadow: var(--main-box-shadow);
-  backdrop-filter: blur(20px);
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  transition: var(--main-transition);
-  cursor: pointer;
-}
-.CardBlur:hover {
-  background-color: var(--main-color);
-  outline: 3px solid var(--main-color);
-}
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # PAge 
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -437,54 +386,6 @@ remove this comment if you want it to be sticy
     display: none;
   }
 } */
-
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Signin page
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.Signin {
-  position: relative;
-  min-height: 100vh;
-}
-
-.Signin .container {
-  position: relative;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 370px;
-}
-.Signin .container h1 {
-  position: relative;
-  color: #4d5983;
-  font-weight: bold;
-  font-size: 50px;
-  padding: 0 0 20px 0;
-}
-.Signin .container h1::before {
-  position: absolute;
-  content: "";
-  background: rgb(225, 184, 130);
-  background: linear-gradient(
-    97deg,
-    rgba(225, 184, 130, 1) 42%,
-    rgba(223, 182, 131, 1) 50%,
-    rgba(189, 134, 163, 1) 65%
-  );
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-}
-.Signin .container p > span > a {
-  color: var(--main-color);
-  font-weight: bold;
-}
-.Signin .container input,
-.landing.home .input-section input {
-  padding: 10px;
-  width: 100%;
-  border: none;
-  border-bottom: var(--main-border);
-  background-color: transparent;
-}
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # cources page student courses

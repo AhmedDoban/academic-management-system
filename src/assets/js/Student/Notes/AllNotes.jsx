@@ -1,6 +1,6 @@
 import React from "react";
-import Blobs from "./../../components/Blobs";
-import CardBlur from "./../../components/CardBlur";
+import Blobs from "./../../components/Blobs/Blobs";
+import CardBlur from "./../../components/Card Blur/CardBlur";
 import { Link } from "react-router-dom";
 
 function AllNotes(props) {

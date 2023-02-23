@@ -1,22 +1,25 @@
 import React from "react";
-
+import "./Blobs.css";
 const Blobs = (props) => {
   return (
     <React.Fragment>
       <div className="Blobs-general web">
         <img
           src={
-            require("../../img/blob/Signin blob/circle-scatter-Web.svg").default
+            require("../../../img/blob/Signin blob/circle-scatter-Web.svg")
+              .default
           }
           alt=""
         />
         <img
-          src={require("../../img/blob/Signin blob/blob-top-web.svg").default}
+          src={
+            require("../../../img/blob/Signin blob/blob-top-web.svg").default
+          }
           alt=""
         />
         <img
           src={
-            require("../../img/blob/Signin blob/circle-scatter-orange-web.svg")
+            require("../../../img/blob/Signin blob/circle-scatter-orange-web.svg")
               .default
           }
           alt=""
@@ -25,17 +28,20 @@ const Blobs = (props) => {
       <div className="Blobs-general mob">
         <img
           src={
-            require("../../img/blob/Signin blob/circle-scatter-mob.svg").default
+            require("../../../img/blob/Signin blob/circle-scatter-mob.svg")
+              .default
           }
           alt=""
         />
         <img
-          src={require("../../img/blob/Signin blob/blob-top-mob.svg").default}
+          src={
+            require("../../../img/blob/Signin blob/blob-top-mob.svg").default
+          }
           alt=""
         />
         <img
           src={
-            require("../../img/blob/Signin blob/circle-scatter-orange-mob.svg")
+            require("../../../img/blob/Signin blob/circle-scatter-orange-mob.svg")
               .default
           }
           alt=""
