@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./StudentFriends.css";
+import "./FriendsCall.css";
 import AgoraRTC from "agora-rtc-sdk-ng";
 import { VideoPlayer } from "./VideoPlayer";
 const AppId = "847c87d19cfd416597e7239fee2cf785";

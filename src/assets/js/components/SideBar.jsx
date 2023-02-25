@@ -87,6 +87,12 @@ const SideBar = (props) => {
             </NavLink>
           </li>
           <li>
+            <NavLink to="CallFriends" onClick={open}>
+              <i className="fa-solid fa-phone"></i>
+              <span>Call Friends</span>
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="library" onClick={open}>
               <i className="fa-solid fa-book"></i>
               <span>Library</span>
@@ -116,20 +122,12 @@ const SideBar = (props) => {
               <span>Project</span>
             </NavLink>
           </li>
-
-          <li>
-            <NavLink to="Friends" onClick={open}>
-              <i className="fa-solid fa-users"></i>
-              <span>Friends</span>
-            </NavLink>
-          </li>
           <li>
             <NavLink to="Files" onClick={open}>
               <i className="fa-solid fa-database"></i>
               <span>Files</span>
             </NavLink>
           </li>
-
           <li>
             <NavLink to="setting" onClick={open}>
               <i className="fa-solid fa-gear fa-fw"></i>

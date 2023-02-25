@@ -36,9 +36,9 @@ const StudentSettingPage = lazy(() => import("./Setting/StudentSettingPage"));
 const StudentProjectsPage = lazy(() => import("./StudentProjectsPage"));
 
 // Student Friends page
-const StudentFriends = lazy(() => import("./Frinds/StudentFriends"));
-const StudentFilesPage = lazy(() => import("./StudentFilesPage"));
 const CallFriend = lazy(() => import("./Frinds/CallFriend"));
+// Student File page
+const StudentFilesPage = lazy(() => import("./StudentFilesPage"));
 
 // notfound page
 const NotFounded = lazy(() => import("./../components/NotFounded"));
@@ -107,10 +107,7 @@ const Student = (props) => {
                   {/********** projects Page ***********/}
                   <Route path="/projects" element={<StudentProjectsPage />} />
                   {/********** Friends Page ***********/}
-                  <Route path="/Friends" element={<Outlet />}>
-                    <Route path="" element={<StudentFriends />} />
-                    <Route path="call/:id" element={<CallFriend />} />
-                  </Route>
+                  <Route path="/CallFriends" element={<CallFriend />} />
                   {/********** projects Page ***********/}
                   <Route path="/Files" element={<StudentFilesPage />} />
                   {/********** Home Page ***********/}
