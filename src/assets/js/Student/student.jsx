@@ -4,12 +4,15 @@ import { Route, Routes, Navigate, Outlet } from "react-router-dom";
 
 // home page
 const StudentHomePage = lazy(() => import("./Home/StudentHomePage"));
+
 // Courses page
 const StudentCourses = lazy(() => import("./Courses/StudentCourses"));
 const CourseData = lazy(() => import("./Courses/CourseData"));
 const Quiz = lazy(() => import("./Quiz/Quiz"));
+
 // table page
 const StudentTablePage = lazy(() => import("./Table/StudentTablePage"));
+
 // library page
 const Library = lazy(() => import("./Library/Library"));
 const BookDetails = lazy(() => import("./Library/BookDetails"));
@@ -18,18 +21,24 @@ const BookDetails = lazy(() => import("./Library/BookDetails"));
 const ActivityRoom = lazy(() => import("./ActivityRoom/ActivityRoom"));
 const Drawing = lazy(() => import("./ActivityRoom/Drawing/Drawing"));
 const MemoryGame = lazy(() => import("./ActivityRoom/MemoryGame/MemoryGame"));
+
 // todo page
 const Todo = lazy(() => import("./Todo/StudentTodo"));
+
 // Notes page
 const Notes = lazy(() => import("./Notes/Notes"));
 const NoteDetails = lazy(() => import("./Notes/NoteDetails"));
+
 // setting page
 const StudentSettingPage = lazy(() => import("./Setting/StudentSettingPage"));
 
+// Project page
 const StudentProjectsPage = lazy(() => import("./StudentProjectsPage"));
+
 // Student Friends page
 const StudentFriends = lazy(() => import("./Frinds/StudentFriends"));
 const StudentFilesPage = lazy(() => import("./StudentFilesPage"));
+const CallFriend = lazy(() => import("./Frinds/CallFriend"));
 
 // notfound page
 const NotFounded = lazy(() => import("./../components/NotFounded"));
@@ -95,13 +104,18 @@ const Student = (props) => {
                     <Route path="student-setting-email" />
                     <Route path="*" render={() => <Navigate to="/" />} />
                   </Route>
-
+                  {/********** projects Page ***********/}
                   <Route path="/projects" element={<StudentProjectsPage />} />
-
-                  <Route path="/Friends" element={<StudentFriends />} />
+                  {/********** Friends Page ***********/}
+                  <Route path="/Friends" element={<Outlet />}>
+                    <Route path="" element={<StudentFriends />} />
+                    <Route path="call/:id" element={<CallFriend />} />
+                  </Route>
+                  {/********** projects Page ***********/}
                   <Route path="/Files" element={<StudentFilesPage />} />
-
+                  {/********** Home Page ***********/}
                   <Route exact path="/" element={<StudentHomePage />} />
+                  {/********** Not Founded Page ***********/}
                   <Route path="*" element={<NotFounded to="/NotFounded" />} />
                 </Routes>
               </Suspense>

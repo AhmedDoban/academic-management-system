@@ -95,7 +95,7 @@
   align-items: center;
   gap: 10px;
 }
-.StudentFriends .container .cards .card button {
+.StudentFriends .container .cards .card a {
   padding: 8px 25px;
   border-radius: 8px;
   border: none;
@@ -111,7 +111,23 @@
   transition: var(--main-transition);
   font-size: 22px;
 }
-.StudentFriends .container .cards .card button:hover {
+.StudentFriends .container .cards .card a:hover {
   background: var(--white-color);
   color: var(--black-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Student Friends call
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.video-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 5px;
+  background-color: var(--main-page-color);
+  min-height: 100vh;
+}
+.video-container .videoChat,
+.video-container .videoChat video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

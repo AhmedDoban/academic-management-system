@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./StudentFriends.css";
 import LodingFeachData from "../../components/LodingFeachData";
+import { Link } from "react-router-dom";
 
 function StudentFriends(props) {
   const [Friends, setFriends] = useState([]);
@@ -34,12 +35,12 @@ function StudentFriends(props) {
                   <span> {Fri.firstName}</span>
                   <p class="job"> Student</p>
                   <div className="options">
-                    <button>
+                    <Link to={`call/${Fri.id}`}>
                       <i className="fa-solid fa-phone"></i>
-                    </button>
-                    <button>
+                    </Link>
+                    <Link>
                       <i className="fa-regular fa-comment"></i>
-                    </button>
+                    </Link>
                   </div>
                 </div>
               ))}
