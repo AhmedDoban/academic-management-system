@@ -395,11 +395,6 @@ remove this comment if you want it to be sticy
   padding-top: var(--main-padding-top);
   padding-bottom: calc(var(--main-padding-bottom) * 2);
   background-color: var(--white-color);
-  opacity: 1;
-  background-image: radial-gradient(#0024b6 2px, transparent 2px),
-    radial-gradient(#0024b6 2px, var(--white-color) 2px);
-  background-size: 80px 80px;
-  background-position: 0 0, 40px 40px;
 }
 
 .student-courses-container .header {
