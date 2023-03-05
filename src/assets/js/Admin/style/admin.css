@@ -14,7 +14,6 @@
   height: 100vh;
   background-color: var(--blue-alt2-color);
   width: 250px;
-  padding: 20px 0px 20px 20px;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # sidebar
@@ -23,7 +22,7 @@
   position: relative;
   text-align: center;
   color: #fff;
-  margin: 0px 20px 50px auto;
+  margin: 20px 20px 50px auto;
   font-size: 20px;
 }
 @media (min-width: 768px) {
@@ -61,17 +60,14 @@
   font-size: 18px;
   color: var(--white-color);
   border-radius: var(--main-border-radius);
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
   padding: 10px;
-  margin-bottom: 25px;
   background-color: var(--grey-color);
-  transition: color 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  margin: 20px 20px 25px 20px;
 }
-.SideBarAdminPage ul li a:hover::before,
-.SideBarAdminPage ul li a.active::before,
-.SideBarAdminPage ul li a:hover::after,
-.SideBarAdminPage ul li a.active::after {
+
+.SideBarAdminPage ul li a::before,
+.SideBarAdminPage ul li a::after {
   position: absolute;
   content: "";
   width: 20px;
@@ -80,14 +76,18 @@
   background-color: transparent;
   border-radius: 50%;
   z-index: -1;
+  opacity: 0;
+  transition: all 0.4s steps(100);
 }
 .SideBarAdminPage ul li a:hover::before,
 .SideBarAdminPage ul li a.active::before {
+  opacity: 1;
   top: -20px;
   box-shadow: 10px 10px 0 0px #fff;
 }
 .SideBarAdminPage ul li a:hover::after,
 .SideBarAdminPage ul li a.active::after {
+  opacity: 1;
   bottom: -20px;
   box-shadow: 10px -10px 0 0px #fff;
 }
@@ -96,6 +96,7 @@
 .SideBarAdminPage ul li a.active {
   background-color: #ffff;
   color: var(--main-color);
+  margin: 20px 0px 25px 20px;
 }
 .SideBarAdminPage ul li a span {
   font-size: 14px;
@@ -105,7 +106,6 @@
 @media (max-width: 767px) {
   .SideBarAdminPage {
     width: 58px;
-    padding: 10px;
   }
   .SideBarAdminPage > h5 {
     margin-bottom: 35px;
@@ -123,13 +123,26 @@
     font-size: 14px;
     border-radius: var(--main-border-radius);
     transition: var(--main-transition);
+    margin: 10px 10px 5px 10px;
+  }
+  .SideBarAdminPage ul li a::before,
+  .SideBarAdminPage ul li a::after {
+    width: 15px;
+    height: 15px;
   }
   .SideBarAdminPage ul li a:hover::before,
-  .SideBarAdminPage ul li a.active::before,
+  .SideBarAdminPage ul li a.active::before {
+    top: -15px;
+    box-shadow: 8px 8px 0 0px #fff;
+  }
   .SideBarAdminPage ul li a:hover::after,
   .SideBarAdminPage ul li a.active::after {
-    width: 0px;
-    height: 0px;
+    bottom: -15px;
+    box-shadow: 8px -8px 0 0px #fff;
+  }
+  .SideBarAdminPage ul li a:hover,
+  .SideBarAdminPage ul li a.active {
+    margin: 10px 0px 10px 20px;
   }
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
