@@ -269,6 +269,21 @@ html {
   background-color: var(--drak-color-style) !important;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Box Styles
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.blue-alt-back {
+  background-color: #0077ff2c !important;
+  color: var(--blue-color) !important;
+}
+.orange-alt-back {
+  background-color: #f59e0b2c !important;
+  color: var(--main-color) !important;
+}
+.green-alt-back {
+  background-color: #22c55e2c !important;
+  color: var(--green-color) !important;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Loding FeachData
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .Loding-feachData {

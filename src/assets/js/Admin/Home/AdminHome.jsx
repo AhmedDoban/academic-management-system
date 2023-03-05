@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CountUp from "react-countup";
 import axios from "axios";
+import Box from "../components/Home Box Admin/Box";
+import Weather from "./../components/Weather/Weather";
 
 function AdminHome(props) {
   const [Student, setStudent] = useState([]);
@@ -22,52 +24,32 @@ function AdminHome(props) {
   return (
     <React.Fragment>
       <h1 className="main-titel-2">Admin Page</h1>
+      <Weather />
       <div className="AdminHome">
         {/****************** Student Box **********************/}
-        <div className="box">
-          <Link to="/student">
-            <i className="fa-regular fa-user"></i>
-            <p>
-              <CountUp
-                start={0}
-                end={Student.length}
-                duration={2}
-                separator=" "
-              />
-            </p>
-            <span>Number of Students</span>
-          </Link>
-        </div>
+        <Box
+          link="/student"
+          data={Student.length}
+          Titel="Number of Students"
+          className="fa-regular fa-user"
+          otherStyle="blue-alt-back"
+        />
         {/****************** Teachers Box **********************/}
-        <div className="box">
-          <Link to="/teachers">
-            <i className="fa-solid fa-chalkboard-user"></i>
-            <p>
-              <CountUp
-                start={0}
-                end={Teacher.length}
-                duration={2}
-                separator=" "
-              />
-            </p>
-            <span>Number of Teachers</span>
-          </Link>
-        </div>
+        <Box
+          link="/teachers"
+          data={Teacher.length}
+          Titel="Number of Teachers"
+          className="fa-solid fa-chalkboard-user"
+          otherStyle="orange-alt-back "
+        />
         {/****************** Courses Box **********************/}
-        <div className="box">
-          <Link to="/courses">
-            <i className="fa-solid fa-graduation-cap fa-fw"></i>
-            <p>
-              <CountUp
-                start={0}
-                end={Courses.length}
-                duration={2}
-                separator=" "
-              />
-            </p>
-            <span>Number of Courses</span>
-          </Link>
-        </div>
+        <Box
+          link="/courses"
+          data={Courses.length}
+          Titel="Number of Courses"
+          className="fa-solid fa-graduation-cap fa-fw"
+          otherStyle="green-alt-back"
+        />
       </div>
     </React.Fragment>
   );

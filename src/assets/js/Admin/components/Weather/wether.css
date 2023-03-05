@@ -1,0 +1,40 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../../css/root.css");
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Weather
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.weather {
+  position: relative;
+  height: 250px;
+  width: 100%;
+  padding: 0 20px;
+  transition: var(--main-transition);
+}
+.weather .data {
+  width: 100%;
+  position: relative;
+  border-radius: var(--main-border-radius);
+  padding: 20px;
+  height: 100%;
+  padding: 20px;
+}
+.weather .data h1 {
+  color: var(--green-color);
+  font-size: 35px;
+  letter-spacing: 5px;
+}
+.weather .data p {
+  color: #fff;
+  font-size: 50px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.weather .data img {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  right: 15px;
+  bottom: 15px;
+}
