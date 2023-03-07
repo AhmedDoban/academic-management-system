@@ -34,7 +34,10 @@
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .video-container .card {
   position: relative;
-  width: 240px;
+  min-width: 240px;
+  min-height: 240px;
+  max-width: 95%;
+  max-height: 95%;
   padding: 20px;
   background-color: #fff;
   border-radius: 4px;
@@ -136,7 +139,8 @@
   flex-direction: row;
 }
 .video-container .card .random-channal .data p {
-  font-size: 14px;
+  max-width: 240px;
+  font-size: 18px;
   letter-spacing: 0;
   line-height: 1;
 }

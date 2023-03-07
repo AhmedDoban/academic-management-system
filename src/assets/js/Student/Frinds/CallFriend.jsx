@@ -8,6 +8,8 @@ import {
 } from "agora-rtc-react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { v4 as uuidv4 } from "uuid";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 const config: ClientConfig = {
   mode: "rtc",
@@ -166,7 +168,7 @@ export const Controls = (props) => {
 };
 
 const ChannelForm = (props) => {
-  const { setInCall, setChannelName } = props;
+  const { channelName, setChannelName, handleJoin } = props;
   const [random, setRandom] = useState("");
   useEffect(() => {
     setRandom(uuidv4());
@@ -177,18 +179,13 @@ const ChannelForm = (props) => {
         <p>Call Room</p>
         <form className="join">
           <input
-            type="text"
+            type="search"
             placeholder="Enter Channel Name"
             onChange={(e) => setChannelName(e.target.value)}
+            value={channelName}
           />
 
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              setInCall(true);
-            }}
-            className="submit-btn"
-          >
+          <button onClick={(e) => handleJoin(e)} className="submit-btn">
             Join
           </button>
         </form>
@@ -209,13 +206,32 @@ const ChannelForm = (props) => {
 const CallFriend = () => {
   const [inCall, setInCall] = useState(false);
   const [channelName, setChannelName] = useState("");
+
+  const handleJoin = (e) => {
+    e.preventDefault();
+    if (channelName === "") {
+      toast.error("You Must Enter Channel Name", {
+        autoClose: 15000,
+        theme: "colored",
+      });
+      return;
+    }
+    setInCall(true);
+  };
+
   return (
     <div className="video-container">
       {inCall ? (
         <VideoCall setInCall={setInCall} channelName={channelName} />
       ) : (
-        <ChannelForm setInCall={setInCall} setChannelName={setChannelName} />
+        <ChannelForm
+          setInCall={setInCall}
+          setChannelName={setChannelName}
+          handleJoin={handleJoin}
+          channelName={channelName}
+        />
       )}
+      <ToastContainer />
     </div>
   );
 };
