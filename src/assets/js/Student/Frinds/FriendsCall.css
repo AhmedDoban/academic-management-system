@@ -117,6 +117,37 @@
   box-shadow: -5px 6px 20px 0px rgba(88, 88, 88, 0.569);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Student Friends call random-channal
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.video-container .random-channal,
+.video-container .card .random-channal .data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px 0;
+}
+.video-container .random-channal h5 {
+  font-size: 18px;
+  color: var(--red-color);
+  letter-spacing: 2px;
+}
+.video-container .card .random-channal .data {
+  flex-direction: row;
+}
+.video-container .card .random-channal .data p {
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 1;
+}
+.video-container .card .random-channal .CopyToClipboard {
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.video-container .card .random-channal .CopyToClipboard:hover {
+  color: var(--red-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Student Friends call controllers
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .video-container .controls {

@@ -6,6 +6,8 @@ import {
   createMicrophoneAndCameraTracks,
   ClientConfig,
 } from "agora-rtc-react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { v4 as uuidv4 } from "uuid";
 
 const config: ClientConfig = {
   mode: "rtc",
@@ -165,7 +167,10 @@ export const Controls = (props) => {
 
 const ChannelForm = (props) => {
   const { setInCall, setChannelName } = props;
-
+  const [random, setRandom] = useState("");
+  useEffect(() => {
+    setRandom(uuidv4());
+  }, []);
   return (
     <React.Fragment>
       <div className="card">
@@ -176,6 +181,7 @@ const ChannelForm = (props) => {
             placeholder="Enter Channel Name"
             onChange={(e) => setChannelName(e.target.value)}
           />
+
           <button
             onClick={(e) => {
               e.preventDefault();
@@ -186,6 +192,15 @@ const ChannelForm = (props) => {
             Join
           </button>
         </form>
+        <div className="random-channal">
+          <h5>Random Channel</h5>
+          <div className="data">
+            <p>{random}</p>
+            <CopyToClipboard text={random}>
+              <i className="fa-regular fa-clone CopyToClipboard"></i>
+            </CopyToClipboard>
+          </div>
+        </div>
       </div>
     </React.Fragment>
   );
