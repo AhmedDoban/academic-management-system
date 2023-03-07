@@ -231,7 +231,7 @@
   transition: var(--main-transition);
 }
 .video-container .controls i.yes {
-  background-color: var(--red-color);
+  background-color: var(--green-color);
 }
 .video-container .controls i.no {
   background-color: var(--grey-alt-color);
@@ -252,16 +252,16 @@
   align-items: center;
 }
 #videos .vid {
+  position: relative;
   width: 98%;
   height: 100%;
   object-fit: cover;
-  outline: 1px solid var(--black-color);
+  outline: 1px solid var(--main-color);
   border: 5px solid transparent;
   border-radius: var(--main-border-radius);
   overflow: hidden;
 }
 #videos .vid.active {
-  position: relative;
   grid-area: 1 / 1 / span 4 / span 4;
 }
 @media (max-width: 768px) {
@@ -269,27 +269,29 @@
     grid-area: 1 / 1 / span 5 / span 5;
   }
 }
+
 #videos .vid .user-data {
-  display: none;
-}
-#videos .vid.active .user-data {
   position: absolute;
-  display: flex;
+
   justify-content: center;
   align-items: center;
   gap: 5px;
   top: 5px;
   left: 5px;
+  display: none;
   z-index: 1;
 }
-#videos .vid.active .user-data img {
+#videos .vid .user-data img {
   width: 50px;
   height: 50px;
   background-color: var(--black-color);
   border-radius: 50%;
 }
-#videos .vid.active .user-data h1 {
+#videos .vid .user-data h1 {
   color: var(--grey-alt-color);
   font-size: 25px;
   margin: 0;
+}
+#videos .vid.active .user-data {
+  display: flex;
 }
