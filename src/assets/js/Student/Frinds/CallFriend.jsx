@@ -88,10 +88,22 @@ const VideoCall = (props) => {
 const Videos = (props) => {
   const { users, tracks } = props;
 
+  const HandleFullView = (e) => {
+    let select = document.querySelectorAll(".vid");
+    select.forEach((view) => {
+      view.classList.remove("active");
+    });
+    e.currentTarget.classList.add("active");
+  };
+
   return (
     <div>
       <div id="videos">
-        <AgoraVideoPlayer className="vid active" videoTrack={tracks[1]} />
+        <AgoraVideoPlayer
+          className="vid active"
+          videoTrack={tracks[1]}
+          onClick={HandleFullView}
+        />
         {users.length > 0 &&
           users.map((user) => {
             if (user.videoTrack) {
@@ -100,6 +112,7 @@ const Videos = (props) => {
                   className="vid"
                   videoTrack={user.videoTrack}
                   key={user.uid}
+                  onClick={HandleFullView}
                 />
               );
             } else return null;
