@@ -5,7 +5,7 @@ import "react-awesome-slider/dist/styles.css";
 import Slider from "./slider/Slider";
 // import OurStuff from "./ourStuff/OurStuff";
 import Head from "./../../components/Header/Head";
-import RanDomQuote from "../Random Quote/RanDomQuote";
+import RanDomQuote from "../../components/Random Quote/RanDomQuote";
 import SammaryData from "./Sammary Data/SammaryData";
 import WhatOffer from "./What Offer/WhatOffer";
 import Footer from "./../../components/Footer/Footer";

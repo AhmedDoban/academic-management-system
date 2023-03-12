@@ -1,0 +1,61 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Root
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../.././../../css/root.css");
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# About us
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.aboutUS {
+  position: relative;
+  width: 100%;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.aboutUS .container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.aboutUS .container .left,
+.aboutUS .container .right {
+  width: 100%;
+  position: relative;
+}
+.aboutUS .container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--main-border-radius);
+}
+@media (max-width: 776px) {
+  .aboutUS .container img {
+    width: 100%;
+  }
+  .aboutUS .container {
+    flex-direction: column;
+  }
+}
+
+.aboutUS .container h3 {
+  margin: 10px 0;
+  font-size: 30px;
+  color: var(--purple-color);
+}
+.aboutUS .container p {
+  max-width: 100%;
+  font-size: 18px;
+}
+.aboutUS .container ul li {
+  display: flex;
+  margin: 20px 0;
+  font-weight: bold;
+  line-height: 2;
+  justify-content: baseline;
+  align-items: center;
+  color: var(--main-p-color);
+}
+.aboutUS .container ul li i {
+  margin-right: 15px;
+  color: var(--purple-color);
+}

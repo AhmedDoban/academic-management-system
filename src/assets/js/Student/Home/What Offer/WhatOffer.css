@@ -7,6 +7,8 @@
 # Student  home page Student What We Offer
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .WhatOffer {
+  max-width: 100%;
+  overflow: hidden;
   position: relative;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
@@ -56,5 +58,28 @@
 @media (max-width: 767px) {
   .WhatOffer .container .box .right img {
     width: 100%;
+  }
+}
+
+.WhatOffer .container .box a {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: #f4b44b;
+  border-radius: 4px 4px 4px 4px;
+  padding: 20px 50px 20px 50px;
+  color: #fff;
+  transition: var(--main-transition);
+  display: inline-block;
+  margin-bottom: 50px;
+}
+.WhatOffer .container .box a:hover {
+  background-color: #7bdcb5;
+  animation: up 1.5s alternate infinite;
+}
+@keyframes up {
+  100% {
+    transform: translateY(-25%);
   }
 }

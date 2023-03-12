@@ -19,26 +19,6 @@
 .awssld__content {
   background-color: var(--main-page-color) !important;
   position: relative;
-  background: radial-gradient(
-      circle,
-      transparent 20%,
-      var(--main-page-color) 20%,
-      var(--main-page-color) 80%,
-      transparent 80%,
-      transparent
-    ),
-    radial-gradient(
-        circle,
-        transparent 20%,
-        var(--main-page-color) 20%,
-        var(--main-page-color) 80%,
-        transparent 80%,
-        transparent
-      )
-      87.5px 87.5px,
-    linear-gradient(#31676b79 3px, transparent 3px) 0 -3.5px,
-    linear-gradient(90deg, #31676b79 3px, var(--main-page-color) 3px) -3.5px 0;
-  background-size: 175px 175px, 175px 175px, 87.5px 87.5px, 87.5px 87.5px;
 }
 .awssld__content::before {
   position: absolute;

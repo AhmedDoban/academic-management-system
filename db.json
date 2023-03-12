@@ -1,31 +1,6 @@
 {
   "students": [
     {
-      "profilePicture": "blob:http://localhost:3001/710ddb95-59c9-454f-9007-491ffcca4035",
-      "firstName": "Ahmed",
-      "lastName": "Doban",
-      "email": "ahmedheshamdoban@student.com",
-      "password": "Ahmed123456789",
-      "phone": "01156526706",
-      "date": "2002-03-16",
-      "country": "Egypt",
-      "city": "Zifta",
-      "fatherInfo": {
-        "name": "Hesham sad doban",
-        "job": "Teacher",
-        "PhoneNumber": "010101010010"
-      },
-      "gpa": "3",
-      "gender": "male",
-      "CoursesID": [
-        "CSS",
-        "HTML",
-        "my PHP",
-        "PHP"
-      ],
-      "id": 1
-    },
-    {
       "profilePicture": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJpSURBVDjLpZPLS5RhFMZ/7/eNM6Xf6GhYSeU0FUFGdMUWRdIiEqSgqDataldLwU3WXyC0jxYFEUFKbTIkyLCgoIhuRPcGC7LQHPPS5+f7vue0CCa70KLO8nDOj8N5nseoKv9TqV8b7oaJVGlXoVWEZlVQ4a4IfSqczO7SydnzZvYF7oZpUeGMaewomFwzmq4D9Wg8gi89IHnVVRThUO0eHfgN4PrNHs21XAoWHiQOMjwduMn8hpCqyPH2mWNhIU9DwwKSd90knwb21h/Qy2WA7Td1qgyGay5EEozjp4uUhko8vD2GKizJC4Xlgsk0EmbW8OXO4UkR8g0HdTQAUKE9yHdGmgZJivT3FKmpSWhpzbBlm7I0P8HN6wY3/gSfvKFyVWcknnaAAECENlO7GZkuoi5m++5avoMtYcoCsGXrCGoncWP3SeVWIp62sgoiNJGpRuIxXj+uBZMF84s8qqgbZXHdNSDBewplgAqxuuk03lGX30jlvOWYIPx5XzxTnx6h472gigjhjws8RWy8DtJURTHZBSsIUhU/AbxN8J+vYoJKxKewCa9n/6DXjjzApBsJkgHs1w/AbIcqdvwNfL5Iqnot8cggdobesoylS6ZehLfR5nOR2Be4qUHCXBsVuQ2gnmT4FjPvTxPOXYSp3snglSOTzrJs/TEdLhtp+KLZl6rf0T2ncS+EE7jSPXz8AXXTmFSWMLsOzzJKz69Setm3f0On9vxm5aHzZod4TlU1dRTS81YTVAQgDpd4poZe8vFOV9FZjm48rn1/zALA+7MmEk+HCK3e0+xmwFnuOkufs3RtOvGXMP1LfQPtZUr+1SCKsQAAAABJRU5ErkJggg==",
       "firstName": "Iolanthe",
       "lastName": "Gravener",
@@ -21524,6 +21499,28 @@
       "gender": "Male",
       "CoursesID": [],
       "id": 1000
+    },
+    {
+      "profilePicture": "blob:http://localhost:3001/2503cb7b-5234-447d-bdb0-b30c593df949",
+      "firstName": ";elr",
+      "lastName": "rerwer",
+      "email": "klj@student.com",
+      "password": "oiuji",
+      "phone": "kj",
+      "date": "2023-03-21",
+      "country": "rr",
+      "city": "ewrwr",
+      "fatherInfo": {
+        "name": "wer",
+        "job": "wer",
+        "PhoneNumber": "wer"
+      },
+      "gpa": "wer",
+      "gender": "male",
+      "CoursesID": [
+        "PHP"
+      ],
+      "id": 1001
     }
   ],
   "teachers": [],

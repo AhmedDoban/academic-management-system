@@ -3,8 +3,9 @@ import "./StudentTablePage.css";
 import { useReactToPrint } from "react-to-print";
 import { useDownloadExcel } from "react-export-table-to-excel";
 import Footer from "../../components/Footer/Footer";
-import RanDomQuote from "../Random Quote/RanDomQuote";
+
 import Head from "../../components/Header/Head";
+import RanDomQuote from "../../components/Random Quote/RanDomQuote";
 
 class StudentTable extends React.PureComponent {
   render() {

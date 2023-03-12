@@ -29,8 +29,7 @@
   font-size: 80px;
   color: #ffff;
 }
-.sammaryData .header-data a,
-.WhatOffer .container .box a {
+.sammaryData .header-data a {
   font-family: "Montserrat", Sans-serif;
   font-size: 15px;
   font-weight: 600;
@@ -43,8 +42,7 @@
   display: inline-block;
   margin-bottom: 50px;
 }
-.sammaryData .header-data a:hover,
-.WhatOffer .container .box a:hover {
+.sammaryData .header-data a:hover {
   background-color: #7bdcb5;
   animation: up 1.5s alternate infinite;
 }

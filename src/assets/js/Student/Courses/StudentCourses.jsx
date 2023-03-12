@@ -1,7 +1,7 @@
 import React from "react";
 import Courses from "./Courses";
 import TopInstructor from "./TopInstructor";
-import RanDomQuote from "../Random Quote/RanDomQuote";
+import RanDomQuote from "../../components/Random Quote/RanDomQuote";
 import CourseDataHeader from "./CourseDataHeader";
 import Head from "./../../components/Header/Head";
 import Footer from "./../../components/Footer/Footer";

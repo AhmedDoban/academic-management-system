@@ -10,6 +10,8 @@
   --main-color: #ff9800;
   --purple-color: #1b575b;
   --purple-alt-color: #0bb3f550;
+  --purple-primary: #008374;
+  --purple-primary-alt: #00796b;
   --main-transition: all 0.5s ease-in-out;
   --main-background-color: #f1f5f9;
   --main-p-color: #777;
@@ -180,6 +182,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 400px;
 }
 .main-titel .div-circle {
   position: absolute;
@@ -220,6 +223,7 @@ html {
 @media (max-width: 768px) {
   .main-titel {
     font-size: 20px;
+    min-width: 150px;
   }
   .main-titel + p {
     width: 90%;
