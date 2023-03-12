@@ -1,8 +1,8 @@
 import React from "react";
 
-import Head from "../components/Header/Head";
+import Head from "../../components/Header/Head";
 
-function StudentProjectsPage(props) {
+function Tasks(props) {
   return (
     <React.Fragment>
       <Head />
@@ -10,4 +10,4 @@ function StudentProjectsPage(props) {
     </React.Fragment>
   );
 }
-export default StudentProjectsPage;
+export default Tasks;

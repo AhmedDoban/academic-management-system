@@ -39,6 +39,11 @@
   color: var(--purple-color);
   font-weight: bold;
 }
+.stats .container .right .stats-box p {
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 5px;
+}
 @media (max-width: 776px) {
   .stats .container {
     flex-direction: column;

@@ -1,16 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { NavLink, Link } from "react-router-dom";
-import AuthUser from "../../config/AuthUser";
+import AuthUser from "../../../config/AuthUser";
 
-const SideBar = (props) => {
+const SideBar = ({ children }) => {
   const [active, setActive] = useState("fa-solid fa-bars");
-  const open = () => {
-    const open = document.querySelector(".sidebar");
-    open.classList.toggle("open");
-    open.classList.contains("open")
-      ? setActive("fa-solid fa-xmark")
-      : setActive("fa-solid fa-bars");
-  };
+  const sidebar = useRef(null);
+
+  document.addEventListener("click", (e) => {
+    if (e.target !== sidebar.current) {
+      if (sidebar.current.classList.contains("open")) {
+        sidebar.current.classList.toggle("open");
+        setActive("fa-solid fa-bars");
+      }
+    }
+  });
+
+  const open = useCallback(
+    (e) => {
+      e.stopPropagation();
+      sidebar.current.classList.toggle("open");
+      sidebar.current.classList.contains("open")
+        ? setActive("fa-solid fa-xmark")
+        : setActive("fa-solid fa-bars");
+    },
+    [sidebar]
+  );
   const { token, logOut } = AuthUser();
   const logoutUser = () => {
     if (token !== undefined) {
@@ -49,7 +63,7 @@ const SideBar = (props) => {
   };
   return (
     <React.Fragment>
-      <div className="sidebar">
+      <div className="sidebar" ref={sidebar}>
         <h3>academic management system </h3>
         <div className="bullet" onClick={open}>
           <i className={active}></i>
@@ -74,58 +88,12 @@ const SideBar = (props) => {
               <span>Home</span>
             </NavLink>
           </li>
-          <li>
-            <NavLink to="courses" onClick={open}>
-              <i className="fa-solid fa-graduation-cap fa-fw"></i>
-              <span>courses</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="table" onClick={open}>
-              <i className="fa-solid fa-calendar-days"></i>
-              <span>Table</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="CallFriends" onClick={open}>
-              <i className="fa-solid fa-phone"></i>
-              <span>Call Friends</span>
-            </NavLink>
-          </li>
+          {children}
+
           <li>
             <NavLink to="library" onClick={open}>
               <i className="fa-solid fa-book"></i>
               <span>Library</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="actvity-room" onClick={open}>
-              <i className="fa-solid fa-broom"></i>
-              <span>Activity Room</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="todo" onClick={open}>
-              <i className="fa-solid fa-check"></i>
-              <span>Todo</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="notes" onClick={open}>
-              <i className="fa-solid fa-note-sticky"></i>
-              <span>Notes</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="projects" onClick={open}>
-              <i className="fa-solid fa-diagram-project fa-fw"></i>
-              <span>Project</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="Files" onClick={open}>
-              <i className="fa-solid fa-database"></i>
-              <span>Files</span>
             </NavLink>
           </li>
           <li>
