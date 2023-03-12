@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./LodingFeachData.css";
 function LodingFeachData() {
   return (
     <React.Fragment>

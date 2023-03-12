@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import "./sidebar.css";
 import { NavLink, Link } from "react-router-dom";
 import AuthUser from "../../../config/AuthUser";
 
 const SideBar = ({ children }) => {
   const [active, setActive] = useState("fa-solid fa-bars");
   const sidebar = useRef(null);
-
   document.addEventListener("click", (e) => {
     if (e.target !== sidebar.current) {
       if (sidebar.current.classList.contains("open")) {

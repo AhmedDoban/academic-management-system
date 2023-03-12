@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./wether.css";
-import LodingFeachData from "./../../../components/LodingFeachData";
+import LodingFeachData from "../../../components/Loding Feach Data/LodingFeachData";
 function Weather() {
   const [data, SetData] = useState([]);
   const [lat, setLat] = useState([]);

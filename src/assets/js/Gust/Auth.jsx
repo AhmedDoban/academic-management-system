@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Student from "./../Student/student";
 import AuthUser from "../../config/AuthUser";
-import NotFounded from "./../components/NotFounded";
 import Admin from "../Admin/Home/admin";
 import Teacher from "../Teacher/teacher";
+import NotFounded from './../components/Not Founded/NotFounded';
 
 function Auth() {
   const { http } = AuthUser();

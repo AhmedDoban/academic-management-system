@@ -1,0 +1,219 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Root
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../css/root.css");
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# sidebar
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.sidebar {
+  /*remove it and maket it relative to make it stiky 
+    and remove height*/
+  position: fixed;
+  min-height: 100vh !important;
+  /**/
+  background-color: var(--white-color);
+  padding: 20px;
+  width: 250px;
+  z-index: 1000;
+  left: -250px;
+  transition: var(--main-transition);
+  top: 0 !important;
+}
+.sidebar.open {
+  left: 0;
+}
+.sidebar .bullet {
+  position: absolute;
+  right: -30px;
+  top: 25%;
+  width: 30px;
+  height: 30px;
+  background-color: var(--orange-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white-color);
+  z-index: 1000;
+  cursor: pointer;
+  border-top-right-radius: 25%;
+  border-bottom-right-radius: 25%;
+}
+
+.sidebar > h3 {
+  position: relative;
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--black-color);
+}
+/*
+  remove this comment if you want it to be sticy
+  
+  @media (min-width: 768px) {
+    .sidebar > h3::before,
+    .sidebar > h3::after {
+      position: absolute;
+      content: "";
+      background-color: var(--main-p-color);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .sidebar > h3::before {
+      width: 80%;
+      height: 2px;
+      bottom: -20px;
+    }
+    .sidebar > h3::after {
+      width: 15px;
+      height: 15px;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      bottom: -29px;
+    }
+  } */
+
+/*
+  remove this comment if you want it to be sticy 
+  */
+.sidebar > h3::before,
+.sidebar > h3::after {
+  position: absolute;
+  content: "";
+  left: 50%;
+  transform: translateX(-50%);
+}
+.sidebar > h3::before {
+  width: 80%;
+  height: 2px;
+  bottom: -20px;
+  background-color: var(--black-color);
+}
+.sidebar > h3::after {
+  bottom: -29px;
+  font-weight: 900;
+  content: "\f19d";
+  font-family: "Font Awesome 5 Free";
+  color: var(--orange-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # sidebar Theme
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.sidebar ul li.options {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: var(--main-border-radius);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sidebar ul li.options::before {
+  position: absolute;
+  content: "";
+  background-color: var(--black-color);
+  width: 80%;
+  height: 2px;
+  left: 0;
+  bottom: 0px;
+  border-radius: var(--main-border-radius);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.sidebar ul li.options span {
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--main-color);
+}
+.sidebar ul li.options label {
+  position: relative;
+  width: 72px;
+  height: 28px;
+  border-radius: 50%;
+}
+.sidebar ul li.options input[type="checkbox"] {
+  appearance: none;
+  opacity: 0;
+}
+.sidebar ul li.options input[type="checkbox"] + span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ccc;
+  width: 100%;
+  height: 100%;
+  border-radius: 1em;
+  transition: var(--main-transition);
+}
+.sidebar ul li.options input[type="checkbox"]:checked + span {
+  background-color: var(--drak-color-style);
+}
+
+.sidebar ul li.options input[type="checkbox"] + span::before {
+  position: absolute;
+  content: "\f185";
+  font-family: var(--fa-style-family-classic);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  width: 22px;
+  height: 22px;
+  background-color: var(--drak-color-style);
+  left: 3px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: var(--main-transition);
+}
+.sidebar ul li.options input[type="checkbox"]:checked + span::before {
+  background-color: var(--blue-alt2-color);
+  content: "\f186";
+  left: calc(100% - 25px);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # sidebar links
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.sidebar ul li a {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: var(--black-color);
+  border-radius: var(--main-border-radius);
+  padding: 10px;
+  transition: var(--main-transition);
+  margin-bottom: 5px;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background: rgba(0, 0, 0, 0.667);
+  color: var(--orange-color);
+}
+.sidebar ul li a span {
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+/*
+  remove this comment if you want it to be sticy
+  
+  @media (max-width: 767px) {
+    .sidebar {
+      width: 58px;
+      padding: 10px;
+    }
+    .sidebar > h3 {
+      margin-bottom: 35px;
+      writing-mode: vertical-rl;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      letter-spacing: 2px;
+    }
+    .sidebar ul li a span {
+      display: none;
+    }
+  } */

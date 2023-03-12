@@ -11,7 +11,7 @@ import Dots from "../../components/Dots/Dots";
 import BookDetails from "./BookDetails";
 import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
-import NotFounded from "../../components/NotFounded";
+import NotFounded from "../../components/Not Founded/NotFounded";
 
 function Library(props) {
   let [search, setSearch] = useState("");

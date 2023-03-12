@@ -1,6 +1,6 @@
-import React,{ useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./RanDomQuote.css";
-import LodingFeachData from "../../components/LodingFeachData";
+import LodingFeachData from "../Loding Feach Data/LodingFeachData";
 
 function RanDomQuote(props) {
   const [items, setItems] = useState([]);

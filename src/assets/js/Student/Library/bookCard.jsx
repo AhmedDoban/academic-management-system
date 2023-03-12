@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LodingFeachData from "../../components/LodingFeachData";
+import LodingFeachData from "../../components/Loding Feach Data/LodingFeachData";
 
 function BookCard(props) {
   return (

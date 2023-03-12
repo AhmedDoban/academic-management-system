@@ -47,7 +47,7 @@ const CallFriend = lazy(() => import("./Frinds/CallFriend"));
 const Tasks = lazy(() => import("./Tasks/Tasks"));
 
 // notfound page
-const NotFounded = lazy(() => import("./../components/NotFounded"));
+const NotFounded = lazy(() => import("../components/Not Founded/NotFounded"));
 
 const Student = (props) => {
   useEffect(() => {

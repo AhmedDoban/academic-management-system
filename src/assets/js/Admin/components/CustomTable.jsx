@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Options from "./Options";
 import { HandleDelete } from "./CRUD";
-import LodingFeachData from "./../../components/LodingFeachData";
+import LodingFeachData from "../../components/Loding Feach Data/LodingFeachData";
 function CustomTable(props) {
   const api = props.api;
   const [DATA, setDATA] = useState([]);

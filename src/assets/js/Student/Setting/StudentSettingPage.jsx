@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, Routes, Route } from "react-router-dom";
-import NotFounded from "../../components/NotFounded";
+import NotFounded from "../../components/Not Founded/NotFounded";
 import StudentProfile from "./StudentProfile";
 import StudentPasswordpage from "./StudentPasswordpage";
 import StudentPasswordOther from "./StudentPasswordOther";

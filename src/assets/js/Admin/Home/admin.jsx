@@ -7,12 +7,13 @@ const SideBarAdminPage = lazy(() => import("../components/SideBarAdminPage"));
 const StudentControl = lazy(() => import("./../Student/StudentControl"));
 const TeacherControl = lazy(() => import("./../Teacher/TeacherControl"));
 const CoursesControl = lazy(() => import("./../Courses/CoursesControl"));
-const NotFounded = lazy(() => import("./../../components/NotFounded"));
 const AddNewStudent = lazy(() => import("../Student/AddNewStudent"));
 const StudentDeatils = lazy(() => import("./../Student/StudentDeatils"));
 const TeacherDetails = lazy(() => import("../Teacher/TeacherDetails"));
 const UpDataStudentInfo = lazy(() => import("./../Student/UpDataStudentInfo"));
-
+const NotFounded = lazy(() =>
+  import("./../../components/Not Founded/NotFounded")
+);
 function Admin(props) {
   return (
     <React.Fragment>

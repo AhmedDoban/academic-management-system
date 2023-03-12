@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import NotFounded from "../components/NotFounded";
+import NotFounded from "../components/Not Founded/NotFounded";
 import Login from "./../components/Login/Login";
 import Home from "./Home/Home";
 

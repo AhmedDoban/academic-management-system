@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 import { Route, Routes } from "react-router-dom";
 import AllNotes from "./AllNotes";
 import NoteDetails from "./NoteDetails";
-import NotFounded from "./../../components/NotFounded";
+import NotFounded from "../../components/Not Founded/NotFounded";
 import "./Notes.css";
 
 function Notes() {
@@ -47,7 +47,6 @@ function Notes() {
   const HandleDelete = (e, Out_index) => {
     setNotes(Notes.filter((p, index) => index !== Out_index));
   };
-
 
   return (
     <React.Fragment>
