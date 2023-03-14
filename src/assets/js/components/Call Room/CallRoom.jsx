@@ -1,4 +1,4 @@
-import "./FriendsCall.css";
+import "./CallRoom.css";
 import React, { useEffect, useState } from "react";
 import {
   AgoraVideoPlayer,
@@ -320,7 +320,7 @@ const ChannelForm = (props) => {
   );
 };
 
-const CallFriend = () => {
+const CallRoom = () => {
   const [inCall, setInCall] = useState(false);
   const [channelName, setChannelName] = useState("");
   const [userName, setUserName] = useState("");
@@ -377,4 +377,4 @@ const CallFriend = () => {
   );
 };
 
-export default CallFriend;
+export default CallRoom;

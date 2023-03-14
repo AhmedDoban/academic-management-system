@@ -1,6 +1,6 @@
 import React from "react";
 
-function StudentProfile(props) {
+function Profile(props) {
   return (
     <React.Fragment>
       <div
@@ -39,4 +39,4 @@ function StudentProfile(props) {
     </React.Fragment>
   );
 }
-export default StudentProfile;
+export default Profile;

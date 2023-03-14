@@ -12,7 +12,7 @@ import { Route, Routes, Navigate, Outlet, NavLink } from "react-router-dom";
 import SideBar from "../components/SideBar/SideBar";
 
 // home page
-const StudentHomePage = lazy(() => import("./Home/StudentHomePage"));
+const HomePage = lazy(() => import("../components/Home Page/HomePage"));
 
 // Courses page
 const StudentCourses = lazy(() => import("./Courses/StudentCourses"));
@@ -23,8 +23,8 @@ const Quiz = lazy(() => import("./Quiz/Quiz"));
 const StudentTablePage = lazy(() => import("./Table/StudentTablePage"));
 
 // library page
-const Library = lazy(() => import("./Library/Library"));
-const BookDetails = lazy(() => import("./Library/BookDetails"));
+const Library = lazy(() => import("../components/Library/Library"));
+const BookDetails = lazy(() => import("../components/Library/BookDetails"));
 
 // activity page
 const ActivityRoom = lazy(() => import("./ActivityRoom/ActivityRoom"));
@@ -39,10 +39,12 @@ const Notes = lazy(() => import("./Notes/Notes"));
 const NoteDetails = lazy(() => import("./Notes/NoteDetails"));
 
 // setting page
-const StudentSettingPage = lazy(() => import("./Setting/StudentSettingPage"));
+const StudentSettingPage = lazy(() =>
+  import("../components/Setting/SettingPage")
+);
 
-// Student Friends page
-const CallFriend = lazy(() => import("./Frinds/CallFriend"));
+// Student Call page
+const Call = lazy(() => import("../components/Call Room/CallRoom"));
 // Student Tasks page
 const Tasks = lazy(() => import("./Tasks/Tasks"));
 
@@ -82,9 +84,9 @@ const Student = (props) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="CallFriends" onClick={open}>
+            <NavLink to="Call" onClick={open}>
               <i className="fa-solid fa-phone"></i>
-              <span>Call Friends</span>
+              <span>Call</span>
             </NavLink>
           </li>
           <li>
@@ -130,7 +132,7 @@ const Student = (props) => {
               >
                 <Routes>
                   {/********** Home Page ***********/}
-                  <Route exact path="/home" element={<StudentHomePage />} />
+                  <Route exact path="/home" element={<HomePage />} />
                   {/********** Courses Page ***********/}
                   <Route path="/courses" element={<Outlet />}>
                     <Route path="" element={<StudentCourses />} />
@@ -165,11 +167,11 @@ const Student = (props) => {
                     <Route path="*" render={() => <Navigate to="/" />} />
                   </Route>
                   {/********** Friends Page ***********/}
-                  <Route path="/CallFriends" element={<CallFriend />} />
+                  <Route path="/Call" element={<Call />} />
                   {/********** projects Page ***********/}
                   <Route path="/Tasks" element={<Tasks />} />
                   {/********** Home Page ***********/}
-                  <Route exact path="/" element={<StudentHomePage />} />
+                  <Route exact path="/" element={<HomePage />} />
                   {/********** Not Founded Page ***********/}
                   <Route path="*" element={<NotFounded to="/NotFounded" />} />
                 </Routes>

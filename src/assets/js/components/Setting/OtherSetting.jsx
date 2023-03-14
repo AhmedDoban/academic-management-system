@@ -1,6 +1,6 @@
 import React from "react";
 
-function StudentPasswordOther(props) {
+function OtherSetting(props) {
   return (
     <React.Fragment>
       <div
@@ -30,4 +30,4 @@ function StudentPasswordOther(props) {
     </React.Fragment>
   );
 }
-export default StudentPasswordOther;
+export default OtherSetting;

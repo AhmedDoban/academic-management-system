@@ -1,13 +1,14 @@
 import React from "react";
 import { NavLink, Routes, Route } from "react-router-dom";
-import NotFounded from "../../components/Not Founded/NotFounded";
-import StudentProfile from "./StudentProfile";
-import StudentPasswordpage from "./StudentPasswordpage";
-import StudentPasswordOther from "./StudentPasswordOther";
-import Footer from "./../../components/Footer/Footer";
-import "./Setting.css";
+import NotFounded from "../Not Founded/NotFounded";
 
-function StudentSettingPage(props) {
+import Footer from "../Footer/Footer";
+import "./SettingPage.css";
+import Profile from "./Profile";
+import Passwordpage from "./Passwordpage";
+import OtherSetting from "./OtherSetting";
+
+function SettingPage(props) {
   return (
     <React.Fragment>
       <div className="StudentSettingPage">
@@ -26,23 +27,17 @@ function StudentSettingPage(props) {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/setting/student-setting-password">Password</NavLink>
+              <NavLink to="/setting/setting-password">Password</NavLink>
             </li>
             <li>
-              <NavLink to="/setting/student-setting-other">Other</NavLink>
+              <NavLink to="/setting/setting-other">Other</NavLink>
             </li>
           </ul>
         </div>
         <Routes>
-          <Route exact path="" element={<StudentProfile />} />
-          <Route
-            path="student-setting-password"
-            element={<StudentPasswordpage />}
-          />
-          <Route
-            path="student-setting-other"
-            element={<StudentPasswordOther />}
-          />
+          <Route exact path="" element={<Profile />} />
+          <Route path="setting-password" element={<Passwordpage />} />
+          <Route path="setting-other" element={<OtherSetting />} />
           <Route path="*" element={<NotFounded to="/NotFounded" />} />
         </Routes>
 
@@ -51,4 +46,4 @@ function StudentSettingPage(props) {
     </React.Fragment>
   );
 }
-export default StudentSettingPage;
+export default SettingPage;

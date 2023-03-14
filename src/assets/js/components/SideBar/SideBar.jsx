@@ -44,7 +44,7 @@ const SideBar = ({ children }) => {
     localStorage.setItem("theme", Theme);
     Theme === "light" ? SetChek(false) : SetChek(true);
     CheckCurrentTheme();
-  }, [Theme]);
+  }, [Theme, children]);
   const CheckCurrentTheme = () => {
     let Root = document.documentElement.style;
     if (Theme === "light") {

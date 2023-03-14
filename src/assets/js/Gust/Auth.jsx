@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Student from "./../Student/student";
 import AuthUser from "../../config/AuthUser";
 import Admin from "../Admin/Home/admin";
-import Teacher from "../Teacher/teacher";
+import Instructor from './../Instructor/Instructor';
 import NotFounded from './../components/Not Founded/NotFounded';
 
 function Auth() {
@@ -27,7 +27,7 @@ function Auth() {
     return <Student />;
   } else {
     if (userDetails.email.match(Teacher_reg)) {
-      return <Teacher />;
+      return <Instructor />;
     } else {
       if (userDetails.email.match(admin_reg)) {
         return <Admin />;

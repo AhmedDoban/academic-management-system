@@ -1,10 +1,11 @@
 import React from "react";
 import Landing from "./Landing/Landing";
-import Footer from "./../../components/Footer/Footer";
-import WhatOffer from "./../../Student/Home/What Offer/WhatOffer";
-
 import AboutUs from "./About Us/AboutUs";
 import Stats from "./stats/Stats";
+import Footer from "./../../components/Footer/Footer";
+import WhatOffer from './../../components/Home Page/What Offer/WhatOffer';
+
+
 function Home() {
   return (
     <React.Fragment>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function StudentPasswordpage(props) {
+function Passwordpage(props) {
   return (
     <React.Fragment>
       <div
@@ -34,4 +34,4 @@ function StudentPasswordpage(props) {
     </React.Fragment>
   );
 }
-export default StudentPasswordpage;
+export default Passwordpage;

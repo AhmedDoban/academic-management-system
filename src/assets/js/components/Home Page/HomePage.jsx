@@ -4,13 +4,13 @@ import "react-awesome-slider/dist/styles.css";
 
 import Slider from "./slider/Slider";
 // import OurStuff from "./ourStuff/OurStuff";
-import Head from "./../../components/Header/Head";
+import Head from "../../components/Header/Head";
 import RanDomQuote from "../../components/Random Quote/RanDomQuote";
 import SammaryData from "./Sammary Data/SammaryData";
 import WhatOffer from "./What Offer/WhatOffer";
-import Footer from "./../../components/Footer/Footer";
+import Footer from "../../components/Footer/Footer";
 
-function StudentHomePage(props) {
+function HomePage(props) {
   return (
     <React.Fragment>
       <Head />
@@ -28,4 +28,4 @@ function StudentHomePage(props) {
     </React.Fragment>
   );
 }
-export default StudentHomePage;
+export default HomePage;
