@@ -12,7 +12,12 @@ function Tasks(props) {
           <h1 className="main-titel-2 ">Student Projects page</h1>
           <div className="cards-container">
             {/********************** Next Up **************************/}
-            <div className="card">
+            <div
+              className="card"
+              data-aos="fade-down"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="1000"
+            >
               <div className="header-card">
                 <h5>Next Up</h5>
                 <p className="Next">5</p>
@@ -39,7 +44,12 @@ function Tasks(props) {
               </div>
             </div>
             {/********************** In progress **************************/}
-            <div className="card">
+            <div
+              className="card"
+              data-aos="fade-down"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="1000"
+            >
               <div className="header-card">
                 <h5>In progress</h5>
                 <p className="progress">5</p>
@@ -60,7 +70,12 @@ function Tasks(props) {
               </div>
             </div>
             {/********************** Complete **************************/}
-            <div className="card">
+            <div
+              className="card"
+              data-aos="fade-down"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="1000"
+            >
               <div className="header-card">
                 <h5>Complete</h5>
                 <p className="Complete">5</p>
