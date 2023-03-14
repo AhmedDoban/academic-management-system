@@ -19,7 +19,12 @@ function AboutUs() {
           natus quisquam magni vero nesciunt mollitia non, consequatur pariatur
           similique tempora. Eos?
         </p>
-        <div className="container" data-aos="fade-up">
+        <div
+          className="container"
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+        >
           <div className="left">
             <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit</h3>
             <img src={require("../../../../img/about/about-1.jpg")} alt="" />

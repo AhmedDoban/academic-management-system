@@ -5,7 +5,12 @@ function Stats() {
   return (
     <React.Fragment>
       <div className="stats">
-        <div className="container" data-aos="fade-up">
+        <div
+          className="container"
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+        >
           <div className="left">
             <img
               src={require("../../../../img/stats-img.svg").default}

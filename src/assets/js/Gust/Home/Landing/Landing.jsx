@@ -7,7 +7,12 @@ function Landing() {
     <React.Fragment>
       <div className="landing">
         <div className="container">
-          <div className="left">
+          <div
+            className="left"
+            data-aos="zoom-in-up"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1000"
+          >
             <h2>
               Welcome to <span>academic management system</span>
             </h2>
@@ -31,7 +36,8 @@ function Landing() {
               src={require("../../../../img/landing-img.svg").default}
               alt=""
               data-aos="zoom-out"
-              data-aos-delay="100"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="1000"
             />
           </div>
         </div>

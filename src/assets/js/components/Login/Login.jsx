@@ -20,7 +20,12 @@ function Login() {
     <React.Fragment>
       <div className="Signin ">
         <Blobs />
-        <div className="container center-flex gap-20 ">
+        <div
+          className="container center-flex gap-20 "
+          data-aos="zoom-in"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+        >
           <h1>Login</h1>
           <p className="txt-center">
             Welcome back ! login to get full access
