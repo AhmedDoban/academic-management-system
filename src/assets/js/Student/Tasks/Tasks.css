@@ -1,0 +1,139 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../css/root.css");
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Tasks
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.tasks {
+  position: relative;
+  width: 100%;
+  padding-bottom: var(--main-padding-bottom);
+}
+.tasks .container .cards-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 10px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Tasks card
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.tasks .container .cards-container .card {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Tasks header card
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.tasks .container .cards-container .card .header-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffffb2;
+  backdrop-filter: blur(15px);
+  padding: 5px 10px;
+  border-radius: var(--main-border-radius);
+}
+.tasks .container .cards-container .card .header-card h5 {
+  position: relative;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+.tasks .container .cards-container .card .header-card p {
+  position: relative;
+  color: #fff;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--main-border-radius);
+  user-select: none;
+}
+.tasks .container .cards-container .card .header-card p.Next {
+  background-color: var(--grey-alt-color);
+}
+.tasks .container .cards-container .card .header-card p.progress {
+  background-color: var(--red-color);
+}
+.tasks .container .cards-container .card .header-card p.Complete {
+  background-color: var(--green-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Tasks card body
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.tasks .container .cards-container .card .card-body {
+  position: relative;
+  background-color: var(--white-color);
+  padding: 10px;
+  border-radius: var(--main-border-radius);
+}
+.tasks .container .cards-container .card .card-body p {
+  color: var(--main-color);
+  font-weight: bold;
+  letter-spacing: 5px;
+  padding: 20px 0;
+  user-select: none;
+}
+.tasks .container .cards-container .card .card-body h5 {
+  line-height: 1.7;
+  letter-spacing: 1.2px;
+  font-size: 14px;
+  user-select: none;
+  color: var(--black-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Tasks card footer
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.tasks .container .cards-container .card .footer-card {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: var(--main-border-radius);
+  backdrop-filter: blur(14px);
+}
+.tasks .container .cards-container .card .footer-card.Next {
+  background-color: #8888886f;
+}
+.tasks .container .cards-container .card .footer-card.progress {
+  background-color: rgba(255, 19, 2, 0.627);
+}
+.tasks .container .cards-container .card .footer-card.Complete {
+  background-color: #22c55ed7;
+}
+.tasks .container .cards-container .card .footer-card p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--white-color);
+}
+.tasks .container .cards-container .card .footer-card label input {
+  display: none;
+}
+.tasks .container .cards-container .card .footer-card label span {
+  background-color: var(--green-color);
+  padding: 5px 8px;
+  border-radius: var(--main-border-radius);
+  color: var(--white-color);
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.tasks .container .cards-container .card .footer-card label span i {
+  animation: up-infinite 1.5s ease-in-out alternate infinite;
+}
+@keyframes up-infinite {
+  to {
+    transform: translateY(-5px);
+  }
+}
