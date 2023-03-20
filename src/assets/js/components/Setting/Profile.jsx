@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 function Profile(props) {
+  const [Data, SetData] = useState([]);
+  useEffect(() => {
+    SetData(props.Data);
+  });
   return (
     <React.Fragment>
       <div
@@ -16,11 +20,11 @@ function Profile(props) {
           </div>
           <div className="box">
             <h5>First Name</h5>
-            <input type="text" readOnly value="Omnia" />
+            <input type="text" readOnly value={Data.firstName} />
           </div>
           <div className="box">
             <h5>Last Name </h5>
-            <input type="text" readOnly value="El - Barbary" />
+            <input type="text" readOnly value={Data.lastName} />
           </div>
           <div className="box">
             <h5>Grade</h5>

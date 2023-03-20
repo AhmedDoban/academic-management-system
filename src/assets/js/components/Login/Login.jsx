@@ -6,13 +6,17 @@ import AuthUser from "../../../config/AuthUser";
 import "./Login.css";
 
 function Login() {
-  const { http, setToken } = AuthUser();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const { setToken, postData } = AuthUser();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const HandleSubmit = (e) => {
-    http.post("/login", { email: email, password: password }).then((res) => {
-      setToken(res.data.user, res.data.access_token);
+    postData(
+      "https://academic-management-system.000webhostapp.com/api/admin/login",
+      "Post",
+      { email, password }
+    ).then((data) => {
+      setToken(JSON.parse(data).data, JSON.parse(data).token);
     });
   };
 

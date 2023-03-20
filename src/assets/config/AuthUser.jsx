@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -33,20 +32,32 @@ export default function AuthUser() {
     Navigate("/login");
   };
 
-  const http = axios.create({
-    baseURL: "http://localhost:3000",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  async function postData(url = "", Method, data = {}) {
+    var myHeaders = new Headers();
+    myHeaders.append("Accept", "application/json");
+
+    var formdata = new FormData();
+    formdata.append("email", data.email);
+    formdata.append("password", data.password);
+
+    var requestOptions = {
+      method: Method,
+      headers: myHeaders,
+      body: formdata,
+      redirect: "follow",
+    };
+
+    const response = await fetch(url, requestOptions).then((res) => res.text());
+    
+    return response;
+  }
 
   return {
     setToken: saveToken,
     token,
+    postData,
     user,
     GetToken,
-    http,
     logOut,
   };
 }

@@ -39,7 +39,7 @@ const Notes = lazy(() => import("./Notes/Notes"));
 const NoteDetails = lazy(() => import("./Notes/NoteDetails"));
 
 // setting page
-const StudentSettingPage = lazy(() =>
+const SettingPage = lazy(() =>
   import("../components/Setting/SettingPage")
 );
 
@@ -160,10 +160,15 @@ const Student = (props) => {
                     <Route path=":noteName" element={<NoteDetails />} />
                   </Route>
                   {/********** setting Page ***********/}
-                  <Route path="setting" element={<StudentSettingPage />}>
+                  <Route
+                    path="setting"
+                    element={
+                      <SettingPage userDetails={props.userDetails} />
+                    }
+                  >
                     <Route path="" exact />
-                    <Route path="student-setting-password" />
-                    <Route path="student-setting-email" />
+                    <Route path="setting-password" />
+                    <Route path="setting-email" />
                     <Route path="*" render={() => <Navigate to="/" />} />
                   </Route>
                   {/********** Friends Page ***********/}

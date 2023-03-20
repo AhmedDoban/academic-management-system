@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, Routes, Route } from "react-router-dom";
 import NotFounded from "../Not Founded/NotFounded";
 
@@ -9,6 +9,10 @@ import Passwordpage from "./Passwordpage";
 import OtherSetting from "./OtherSetting";
 
 function SettingPage(props) {
+  const [Data, SetData] = useState([]);
+  useEffect(() => {
+    SetData(props.userDetails);
+  }, []);
   return (
     <React.Fragment>
       <div className="StudentSettingPage">
@@ -18,7 +22,9 @@ function SettingPage(props) {
               src={require("../../../img/avatars/team-2.jpg")}
               alt="slide 1 "
             />
-            <h1>Omnia El-barbary</h1>
+            <h1>
+              {Data.firstName} {Data.lastName}
+            </h1>
           </div>
           <ul className="setting-name">
             <li>
@@ -35,9 +41,12 @@ function SettingPage(props) {
           </ul>
         </div>
         <Routes>
-          <Route exact path="" element={<Profile />} />
-          <Route path="setting-password" element={<Passwordpage />} />
-          <Route path="setting-other" element={<OtherSetting />} />
+          <Route exact path="" element={<Profile Data={Data} />} />
+          <Route
+            path="setting-password"
+            element={<Passwordpage Data={Data} />}
+          />
+          <Route path="setting-other" element={<OtherSetting Data={Data} />} />
           <Route path="*" element={<NotFounded to="/NotFounded" />} />
         </Routes>
 
