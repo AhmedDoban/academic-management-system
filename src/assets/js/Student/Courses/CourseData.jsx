@@ -19,8 +19,8 @@ function CourseData(props) {
       <div className="specific-course">
         {/************************************* start Course Data Header ***************************************/}
         <CourseDataHeader
-          h3="WELCOME TO Course"
-          h5="take The Test of This Course."
+          h3="WELCOME TO Class Room"
+          h5="take The Test."
           Link={`quiz/${params.id}`}
         />
         {/************************************* End Course Data Header ***************************************/}

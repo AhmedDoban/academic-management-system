@@ -103,7 +103,7 @@ function Courses() {
         >
           <div className="div-circle"></div>
           <div className="div-circle"></div>
-          <span> Student Courses</span>
+          <span>Classes </span>
         </h1>
         <Dots OtherStyle="top" />
         <Dots OtherStyle="bottom" />

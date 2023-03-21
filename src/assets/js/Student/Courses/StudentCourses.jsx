@@ -12,7 +12,7 @@ function StudentCourses(props) {
       <Head />
       {/************************************* start Course Data Header ***************************************/}
       <CourseDataHeader
-        h3="WELCOME TO Courses  "
+        h3="WELCOME TO Class Room "
         h5="study more and do your best to get high degree ."
         a="#student-courses-container"
       />

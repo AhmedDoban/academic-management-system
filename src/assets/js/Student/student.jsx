@@ -74,7 +74,7 @@ const Student = (props) => {
           <li>
             <NavLink to="courses" onClick={open}>
               <i className="fa-solid fa-graduation-cap fa-fw"></i>
-              <span>courses</span>
+              <span>Class Room</span>
             </NavLink>
           </li>
           <li>
