@@ -19,12 +19,13 @@ function StudentControl() {
           <div className="data">
             <CustomStudentTable
               type="student"
-              api="http://127.0.0.1:8000/api/get-all-students-with-relationship"
+              api="https://academic-management-system.000webhostapp.com/api/get-all-students-with-relationship"
               col1="First Name"
               col2="Last Name"
               col3="Phone"
               col4="GPA"
               col5="gender"
+              api_Delete="https://academic-management-system.000webhostapp.com/api/delete-student"
               Serach={Serach}
             />
           </div>

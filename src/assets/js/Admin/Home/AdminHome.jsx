@@ -11,13 +11,19 @@ function AdminHome(props) {
   const [Courses, setCourses] = useState([]);
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/get-all-students")
+      .get(
+        "https://academic-management-system.000webhostapp.com/api/get-all-students"
+      )
       .then((reasponse) => setStudent(reasponse.data.data));
     axios
-      .get("http://127.0.0.1:8000/api/get-all-courses")
+      .get(
+        "https://academic-management-system.000webhostapp.com/api/get-all-courses"
+      )
       .then((reasponse) => setCourses(reasponse.data.data));
     axios
-      .get("http://127.0.0.1:8000/api/get-all-doctors")
+      .get(
+        "https://academic-management-system.000webhostapp.com/api/get-all-doctors"
+      )
       .then((reasponse) => setTeacher(reasponse.data.data));
   }, []);
 

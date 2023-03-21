@@ -233,10 +233,7 @@ function CustomTable(props) {
                         <Options
                           View={`/${props.type}/${p.id}`}
                           HandleDelete={() =>
-                            HandleDelete(
-                              "http://127.0.0.1:8000/api/delete-student",
-                              p.id
-                            )
+                            HandleDelete(props.api_Delete, p.id)
                           }
                           Edit={`/${props.type}/edit/${p.id}`}
                         />

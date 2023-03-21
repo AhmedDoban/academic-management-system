@@ -19,7 +19,7 @@ function TeacherControl() {
           <div className="data">
             <CustomTable
               type="teacher"
-              api="http://127.0.0.1:8000/api/get-all-doctors-with-relationships"
+              api="https://academic-management-system.000webhostapp.com/api/get-all-doctors"
               col1="First Name"
               col2="Last Name"
               col3="Phone"
