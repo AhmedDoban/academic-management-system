@@ -10,8 +10,9 @@ function CustomTable(props) {
   const [Order, SetOrder] = useState("ASC");
 
   useEffect(() => {
-    axios.get(api).then((reasponse) => setDATA(reasponse.data));
-  }, []);
+    axios.get(api).then((reasponse) => setDATA(reasponse.data.data));
+    console.log(DATA);
+  }, [HandleDelete]);
 
   // Sort Table
   const SortTable = (col) => {
@@ -49,31 +50,49 @@ function CustomTable(props) {
               <option value="ID">ID</option>
               {/************ First name or course name **************/}
               <option
-                value={props.type === "student" ? "firstName" : "CourcesName"}
+                value={
+                  props.type === "student"
+                    ? "firstName"
+                    : props.type === "teacher"
+                    ? "firstName"
+                    : "CourcesName"
+                }
               >
                 {props.col1}
               </option>
               {/************ last name or course Teacher **************/}
               <option
-                value={props.type === "student" ? "lastName" : "CourcesTeacher"}
+                value={
+                  props.type === "student"
+                    ? "lastName"
+                    : props.type === "teacher"
+                    ? "lastName"
+                    : "CourcesTeacher"
+                }
               >
                 {props.col2}
               </option>
               {/************ Phone or course teacher **************/}
               <option
-                value={props.type === "student" ? "phone" : "CourcesTeacher"}
+                value={
+                  props.type === "student"
+                    ? "phone"
+                    : props.type === "teacher"
+                    ? "phone"
+                    : "CourcesTeacher"
+                }
               >
                 {props.col3}
               </option>
-              {/************ GPA **************/}
-              <option
-                value={props.type === "student" ? "gpa" : "CourcesTeacher"}
-              >
-                {props.col4}
-              </option>
               {/************ Gender **************/}
               <option
-                value={props.type === "student" ? "gender" : "CourcesTeacher"}
+                value={
+                  props.type === "student"
+                    ? "gender"
+                    : props.type === "teacher"
+                    ? "gender"
+                    : "CourcesTeacher"
+                }
               >
                 {props.col5}
               </option>
@@ -102,7 +121,11 @@ function CustomTable(props) {
                     className="fa-solid fa-sort"
                     onClick={() =>
                       SortTable(
-                        props.type === "student" ? "firstName" : "CourcesName"
+                        props.type === "student"
+                          ? "firstName"
+                          : props.type === "teacher"
+                          ? "firstName"
+                          : "CourcesName"
                       )
                     }
                   ></i>
@@ -131,18 +154,6 @@ function CustomTable(props) {
                     }
                   ></i>
                   {props.col3}
-                </th>
-                {/************ GPA **************/}
-                <th>
-                  <i
-                    className="fa-solid fa-sort"
-                    onClick={() =>
-                      SortTable(
-                        props.type === "student" ? "gpa" : "CourcesTeacher"
-                      )
-                    }
-                  ></i>
-                  {props.col4}
                 </th>
                 {/************ Gender **************/}
                 <th>
@@ -186,30 +197,47 @@ function CustomTable(props) {
                     </td>
                     {/************ First name or course name **************/}
                     <td data-label={props.col1}>
-                      {props.type === "student" ? p.firstName : p.CourcesName}
+                      {props.type === "student"
+                        ? p.firstName
+                        : props.type === "teacher"
+                        ? p.firstName
+                        : p.CourcesName}
                     </td>
                     {/************ last name or course Teacher **************/}
                     <td data-label={props.col2}>
-                      {props.type === "student" ? p.lastName : p.CourcesTeacher}
+                      {props.type === "student"
+                        ? p.lastName
+                        : props.type === "teacher"
+                        ? p.lastName
+                        : p.CourcesTeacher}
                     </td>
                     {/************ Phone or course teacher **************/}
                     <td data-label={props.col3}>
-                      {props.type === "student" ? p.phone : p.CourcesTeacher}
-                    </td>
-                    {/************ GPA **************/}
-                    <td data-label={props.col4}>
-                      {props.type === "student" ? p.gpa : p.CourcesTeacher}
+                      {props.type === "student"
+                        ? p.phone
+                        : props.type === "teacher"
+                        ? p.phone
+                        : p.CourcesTeacher}
                     </td>
                     {/************ Gender **************/}
                     <td data-label={props.col4}>
-                      {props.type === "student" ? p.gender : p.CourcesTeacher}
+                      {props.type === "student"
+                        ? p.gender
+                        : props.type === "teacher"
+                        ? p.gender
+                        : p.CourcesTeacher}
                     </td>
                     {/************ options **************/}
                     <td data-label="options">
                       <div className="Options">
                         <Options
                           View={`/${props.type}/${p.id}`}
-                          HandleDelete={() => HandleDelete(api, p.id)}
+                          HandleDelete={() =>
+                            HandleDelete(
+                              "http://127.0.0.1:8000/api/delete-student",
+                              p.id
+                            )
+                          }
                           Edit={`/${props.type}/edit/${p.id}`}
                         />
                       </div>

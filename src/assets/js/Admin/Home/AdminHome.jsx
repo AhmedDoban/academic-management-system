@@ -11,14 +11,14 @@ function AdminHome(props) {
   const [Courses, setCourses] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/students")
-      .then((reasponse) => setStudent(reasponse.data));
+      .get("http://127.0.0.1:8000/api/get-all-students")
+      .then((reasponse) => setStudent(reasponse.data.data));
     axios
-      .get("http://localhost:3000/CourcesDB")
-      .then((reasponse) => setCourses(reasponse.data));
+      .get("http://127.0.0.1:8000/api/get-all-courses")
+      .then((reasponse) => setCourses(reasponse.data.data));
     axios
-      .get("http://localhost:3000/teachers")
-      .then((reasponse) => setTeacher(reasponse.data));
+      .get("http://127.0.0.1:8000/api/get-all-doctors")
+      .then((reasponse) => setTeacher(reasponse.data.data));
   }, []);
 
   return (

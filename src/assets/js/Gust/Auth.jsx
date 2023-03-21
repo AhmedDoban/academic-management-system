@@ -10,7 +10,7 @@ function Auth() {
   const [userDetails, setUserDetails] = useState([]);
   const [userEmail, SetuserEmail] = useState("");
   const student_reg = /^[\w-\.]+@student+\.+com/gi;
-  const Teacher_reg = /^[\w-\.]+@teacher+\.+com/gi;
+  const Teacher_reg = /^[\w-\.]+@doctor+\.+com/gi;
   const admin_reg = /^[\w-\.]+@admin+\.+com/gi;
 
   useEffect(() => {

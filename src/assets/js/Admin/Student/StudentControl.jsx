@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CustomTable from "../components/CustomTable";
+import CustomStudentTable from "../components/CustomTable";
 import CustomAdminInputsHead from "./../components/CustomAdminInputsHead";
 
 function StudentControl() {
@@ -17,9 +17,9 @@ function StudentControl() {
             SetSearch={SetSearch}
           />
           <div className="data">
-            <CustomTable
+            <CustomStudentTable
               type="student"
-              api="http://localhost:3000/students"
+              api="http://127.0.0.1:8000/api/get-all-students-with-relationship"
               col1="First Name"
               col2="Last Name"
               col3="Phone"

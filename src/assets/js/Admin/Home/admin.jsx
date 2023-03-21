@@ -48,6 +48,7 @@ function Admin(props) {
               <Route path="courses" element={<Outlet />}>
                 <Route path="" element={<CoursesControl />} />
               </Route>
+              <Route path="/home" element={<AdminHome />} />
               <Route path="/" element={<AdminHome />} />
               <Route path="*" element={<NotFounded to="/NotFounded" />} />
             </Routes>

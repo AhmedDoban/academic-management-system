@@ -23,7 +23,6 @@ function Weather() {
         )
         .then((result) => {
           SetData(result.data);
-          console.log(result.data);
         });
     };
     fetchData();

@@ -11,6 +11,7 @@
   background-attachment: fixed;
   background-color: var(--purple-color);
   height: 100vh;
+  overflow: hidden;
 }
 .landing .container {
   position: relative;

@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import AuthUser from "../../../config/AuthUser";
 import "./Login.css";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 function Login() {
-  const { setToken, postData } = AuthUser();
+  const { setToken, postData, logOut } = AuthUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,7 +17,13 @@ function Login() {
       "Post",
       { email, password }
     ).then((data) => {
-      setToken(JSON.parse(data).data, JSON.parse(data).token);
+      if (JSON.parse(data).status === "false") {
+        toast.error("Check entered data and Try again", {
+          autoClose: 15000,
+          theme: "colored",
+        });
+        logOut();
+      } else setToken(JSON.parse(data).data, JSON.parse(data).token);
     });
   };
 
@@ -33,10 +40,7 @@ function Login() {
           <h1>Login</h1>
           <p className="txt-center">
             Welcome back ! login to get full access
-            <span className="display-block ">
-              did you
-              <Link to=""> forget password ?</Link>
-            </span>
+            <span className="display-block "></span>
           </p>
           <div className="center-flex gap-20 col-flex width-full ">
             <div className="width-full">
@@ -74,6 +78,7 @@ function Login() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </React.Fragment>
   );
 }
