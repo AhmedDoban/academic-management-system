@@ -72,6 +72,8 @@
   background-color: var(--white-color);
   padding: 10px;
   border-radius: var(--main-border-radius);
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 .tasks .container .cards-container .card .card-body p {
   color: var(--main-color);
@@ -97,6 +99,8 @@
   align-items: center;
   padding: 5px 10px;
   border-radius: var(--main-border-radius);
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
   backdrop-filter: blur(14px);
 }
 .tasks .container .cards-container .card .footer-card.Next {

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import CourseDataHeader from "./CourseDataHeader";
+import ClassesDataHeader from "./ClassesDataHeader";
 import Dots from "../../components/Dots/Dots";
-import Head from "./../../components/Header/Head";
+import Head from "../../components/Header/Head";
 
-function CourseData(props) {
+function ClassesData(props) {
   const params = useParams();
   const [item, setItem] = useState([]);
   useEffect(() => {
@@ -18,7 +18,7 @@ function CourseData(props) {
       <Head />
       <div className="specific-course">
         {/************************************* start Course Data Header ***************************************/}
-        <CourseDataHeader
+        <ClassesDataHeader
           h3="WELCOME TO Class Room"
           h5="take The Test."
           Link={`quiz/${params.id}`}
@@ -148,4 +148,4 @@ function CourseData(props) {
   );
 }
 
-export default CourseData;
+export default ClassesData;

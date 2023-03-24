@@ -6,7 +6,7 @@ import React, {
   useRef,
   useCallback,
 } from "react";
-
+import axios from "axios";
 import { Route, Routes, Navigate, Outlet, NavLink } from "react-router-dom";
 
 import SideBar from "../components/SideBar/SideBar";
@@ -14,9 +14,9 @@ import SideBar from "../components/SideBar/SideBar";
 // home page
 const HomePage = lazy(() => import("../components/Home Page/HomePage"));
 
-// Courses page
-const StudentCourses = lazy(() => import("./Courses/StudentCourses"));
-const CourseData = lazy(() => import("./Courses/CourseData"));
+// Class Room page
+const StudenClasses = lazy(() => import("./Classes/StudenClasses"));
+const ClassesData = lazy(() => import("./Classes/ClassesData"));
 const Quiz = lazy(() => import("./Quiz/Quiz"));
 
 // table page
@@ -39,9 +39,7 @@ const Notes = lazy(() => import("./Notes/Notes"));
 const NoteDetails = lazy(() => import("./Notes/NoteDetails"));
 
 // setting page
-const SettingPage = lazy(() =>
-  import("../components/Setting/SettingPage")
-);
+const SettingPage = lazy(() => import("./Setting/SettingPage"));
 
 // Student Call page
 const Call = lazy(() => import("../components/Call Room/CallRoom"));
@@ -55,6 +53,7 @@ const Student = (props) => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
+
   const sidebar = useRef(null);
   const [active, setActive] = useState("fa-solid fa-bars");
   const open = useCallback(
@@ -71,12 +70,6 @@ const Student = (props) => {
     <React.Fragment>
       <div className="page p-relative">
         <SideBar>
-          <li>
-            <NavLink to="courses" onClick={open}>
-              <i className="fa-solid fa-graduation-cap fa-fw"></i>
-              <span>Class Room</span>
-            </NavLink>
-          </li>
           <li>
             <NavLink to="table" onClick={open}>
               <i className="fa-solid fa-calendar-days"></i>
@@ -134,10 +127,10 @@ const Student = (props) => {
                   {/********** Home Page ***********/}
                   <Route exact path="/home" element={<HomePage />} />
                   {/********** Courses Page ***********/}
-                  <Route path="/courses" element={<Outlet />}>
-                    <Route path="" element={<StudentCourses />} />
+                  <Route path="/Class Room" element={<Outlet />}>
+                    <Route path="" element={<StudenClasses />} />
                     <Route path=":id" element={<Outlet />}>
-                      <Route path="" element={<CourseData />} />
+                      <Route path="" element={<ClassesData />} />
                       <Route path="quiz/:courseId" element={<Quiz />} />
                     </Route>
                   </Route>
@@ -160,12 +153,7 @@ const Student = (props) => {
                     <Route path=":noteName" element={<NoteDetails />} />
                   </Route>
                   {/********** setting Page ***********/}
-                  <Route
-                    path="setting"
-                    element={
-                      <SettingPage userDetails={props.userDetails} />
-                    }
-                  >
+                  <Route path="setting" element={<SettingPage />}>
                     <Route path="" exact />
                     <Route path="setting-password" />
                     <Route path="setting-email" />

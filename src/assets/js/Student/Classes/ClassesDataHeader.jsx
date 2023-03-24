@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function CourseDataHeader(props) {
+function ClassesDataHeader(props) {
   return (
     <React.Fragment>
       <div className="course-data-header">
@@ -30,4 +30,4 @@ function CourseDataHeader(props) {
     </React.Fragment>
   );
 }
-export default CourseDataHeader;
+export default ClassesDataHeader;

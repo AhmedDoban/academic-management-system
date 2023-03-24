@@ -7,7 +7,7 @@ import React, {
   useCallback,
 } from "react";
 
-import { Route, Routes, Navigate, Outlet, NavLink } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 import SideBar from "../components/SideBar/SideBar";
 
@@ -19,7 +19,7 @@ const Library = lazy(() => import("../components/Library/Library"));
 const BookDetails = lazy(() => import("../components/Library/BookDetails"));
 
 // setting page
-const SettingPage = lazy(() => import("../components/Setting/SettingPage"));
+const SettingPage = lazy(() => import("./Setting/SettingPage"));
 
 // notfound page
 const NotFounded = lazy(() => import("../components/Not Founded/NotFounded"));

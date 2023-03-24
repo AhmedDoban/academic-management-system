@@ -1,17 +1,17 @@
 import React from "react";
-import Courses from "./Courses";
+import Courses from "./Classes";
 import TopInstructor from "./TopInstructor";
 import RanDomQuote from "../../components/Random Quote/RanDomQuote";
-import CourseDataHeader from "./CourseDataHeader";
-import Head from "./../../components/Header/Head";
-import Footer from "./../../components/Footer/Footer";
-
-function StudentCourses(props) {
+import ClassesDataHeader from "./ClassesDataHeader";
+import Head from "../../components/Header/Head";
+import Footer from "../../components/Footer/Footer";
+import "./Classes.css";
+function StudenClasses(props) {
   return (
     <React.Fragment>
       <Head />
       {/************************************* start Course Data Header ***************************************/}
-      <CourseDataHeader
+      <ClassesDataHeader
         h3="WELCOME TO Class Room "
         h5="study more and do your best to get high degree ."
         a="#student-courses-container"
@@ -36,4 +36,4 @@ function StudentCourses(props) {
     </React.Fragment>
   );
 }
-export default StudentCourses;
+export default StudenClasses;
