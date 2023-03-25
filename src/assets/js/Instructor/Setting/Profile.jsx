@@ -28,12 +28,8 @@ function Profile(props) {
             <input type="text" readOnly value={Data.lastName} />
           </div>
           <div className="box">
-            <h5>Grade</h5>
-            {/* <input type="text" readOnly value={Data.department?.name} /> */}
-          </div>
-          <div className="box">
             <h5>Number of Courses</h5>
-            {/* <input type="text" readOnly value={Data.courses?.length} /> */}
+            <input type="text" readOnly value={Data.courses?.length} />
           </div>
           <div className="box">
             <h5>Gpa</h5>

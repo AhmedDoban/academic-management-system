@@ -14,6 +14,9 @@ import SideBar from "../components/SideBar/SideBar";
 // home page
 const HomePage = lazy(() => import("../components/Home Page/HomePage"));
 
+// Class Room page
+const Class = lazy(() => import("./Class/Class"));
+
 // library page
 const Library = lazy(() => import("../components/Library/Library"));
 const BookDetails = lazy(() => import("../components/Library/BookDetails"));
@@ -63,6 +66,8 @@ const Instructor = (props) => {
                 <Routes>
                   {/********** Home Page ***********/}
                   <Route exact path="/home" element={<HomePage />} />
+                  {/********** Class Page ***********/}
+                  <Route path="/Class Room" element={<Class />} />
 
                   {/********** Library Page ***********/}
                   <Route path="/library" element={<Library />}>
