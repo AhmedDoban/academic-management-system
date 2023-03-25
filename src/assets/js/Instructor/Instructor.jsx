@@ -7,9 +7,17 @@ import React, {
   useCallback,
 } from "react";
 
-import { Route, Routes, Navigate } from "react-router-dom";
+import {
+  Route,
+  Routes,
+  Navigate,
+  NavLink,
+  Outlet,
+  useParams,
+} from "react-router-dom";
 
 import SideBar from "../components/SideBar/SideBar";
+import JoinRoom from "../components/video call/VideoCall";
 
 // home page
 const HomePage = lazy(() => import("../components/Home Page/HomePage"));
@@ -67,7 +75,11 @@ const Instructor = (props) => {
                   {/********** Home Page ***********/}
                   <Route exact path="/home" element={<HomePage />} />
                   {/********** Class Page ***********/}
-                  <Route path="/Class Room" element={<Class />} />
+                  <Route path="/Class Room" element={<Outlet />}>
+                    <Route path="" element={<Class />} />
+                    {/********** Call Page ***********/}
+                    <Route path="video call/:id" element={<JoinRoom />} />
+                  </Route>
 
                   {/********** Library Page ***********/}
                   <Route path="/library" element={<Library />}>

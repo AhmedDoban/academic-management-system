@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import "./Class.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Class() {
   const [TextFeild, SetTextField] = useState("");
@@ -47,7 +48,38 @@ function Class() {
           </div>
         </div>
         <div className="container">
-          
+          <div className="card">
+            <h1>Class </h1>
+            <div className="icon-box">
+              <Link to={`video call/${"a"}`}>
+                <i className="fa-solid fa-tv fa-beat-fade"></i>
+              </Link>
+            </div>
+          </div>
+          <div className="card">
+            <h1>Class </h1>
+            <div className="icon-box">
+              <Link to={`video call/${"a"}`}>
+                <i className="fa-solid fa-tv fa-beat-fade"></i>
+              </Link>
+            </div>
+          </div>
+          <div className="card">
+            <h1>Class </h1>
+            <div className="icon-box">
+              <Link to={`video call/${"a"}`}>
+                <i className="fa-solid fa-tv fa-beat-fade"></i>
+              </Link>
+            </div>
+          </div>
+          <div className="card">
+            <h1>Class </h1>
+            <div className="icon-box">
+              <Link to={`video call/${"a"}`}>
+                <i className="fa-solid fa-tv fa-beat-fade"></i>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </React.Fragment>
