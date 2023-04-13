@@ -4,107 +4,30 @@
 @import "../../../css/root.css";
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Todo
+# classRoom
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .classRoom {
   position: relative;
 }
-.classRoom::before {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 300px;
-  background: linear-gradient(290deg, #43b5c1 10%, #000002 69%);
-  background-image: url("../../../img/Todo/bg-desktop.jpg");
-  background-size: cover;
-  top: 0;
-  left: 0;
-  opacity: 0.7;
-}
-
-.classRoom .container:first-child {
-  position: relative;
-  height: 300px;
-  overflow: hidden;
-}
-
-.classRoom .container .data {
-  position: relative;
-  width: 100%;
-  padding: 100px 0 20px 0;
-}
-.classRoom .data h1 {
-  margin: 0;
-  color: var(--white-color);
-  text-transform: uppercase;
-  letter-spacing: 10px;
-  font-weight: bold;
-  font-size: 40px;
-}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Calss card
+# subjects
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.classRoom .data + .card {
-  position: relative;
-  padding: 1rem;
-  width: 500px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  background-color: hsl(235, 24%, 19%);
-  border-radius: 5px;
-  margin-bottom: 5px;
-}
-
-@media (max-width: 992px) {
-  .classRoom .card {
-    width: 100%;
-  }
-}
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Class inputs
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.classRoom .card input {
+.subjects,
+.SubjectData {
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: transparent;
-  border: 0;
-  color: var(--offwihte);
 }
-
-.classRoom .card i {
-  position: relative;
-  min-width: 25px;
-  height: 25px;
-  margin-right: 15px;
-  border: 1px solid var(--blue-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--blue-color);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: var(--main-transition);
-}
-.classRoom .card i:hover {
-  background-color: var(--blue-alt-color);
-  color: #fff;
-}
-
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Calsses Data
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.classRoom .container:last-child {
+.subjects .container,
+.SubjectData .container {
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 10px;
 }
-.classRoom .container:last-child .card {
+.subjects .container .card,
+.SubjectData .container .card {
   position: relative;
   padding: 1rem;
   width: 100%;
@@ -118,31 +41,8 @@
   margin-bottom: 5px;
   cursor: pointer;
 }
-.classRoom .container:last-child .card h1 {
+.subjects .container .card h1,
+.SubjectData .container .card h1 {
   color: #fff;
   text-align: center;
-}
-.classRoom .container:last-child .card .icon-box {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.classRoom .container:last-child .card .icon-box a {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 35px;
-  height: 35px;
-  border: 1px solid var(--blue-color);
-  border-radius: 50%;
-  margin: 0;
-  padding: 0;
-}
-.classRoom .container:last-child .card .icon-box a i {
-  border: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
 }

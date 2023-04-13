@@ -18,6 +18,8 @@ import {
 
 import SideBar from "../components/SideBar/SideBar";
 import JoinRoom from "../components/video call/VideoCall";
+import SubjectData from "./Class/SubjectData";
+import Subjects from "./Class/Subjects";
 
 // home page
 const HomePage = lazy(() => import("../components/Home Page/HomePage"));
@@ -54,7 +56,14 @@ const Instructor = (props) => {
   return (
     <React.Fragment>
       <div className="page p-relative">
-        <SideBar></SideBar>
+        <SideBar>
+          <li>
+            <NavLink to="subjects" onClick={open}>
+              <i className="fa-solid fa-flask"></i>
+              <span>subjects</span>
+            </NavLink>
+          </li>
+        </SideBar>
         <div className="content">
           <div className="pagewrapper display-flex gap-10">
             <div className="width-full">
@@ -77,10 +86,14 @@ const Instructor = (props) => {
                   {/********** Class Page ***********/}
                   <Route path="/Class Room" element={<Outlet />}>
                     <Route path="" element={<Class />} />
-                    {/********** Call Page ***********/}
-                    <Route path="video call/:id" element={<JoinRoom />} />
                   </Route>
-
+                  {/********** subjects Page ***********/}
+                  <Route path="/subjects" element={<Outlet />}>
+                    <Route path="" element={<Subjects />} />
+                    <Route path=":name" element={<SubjectData />} />
+                    {/********** Call Page ***********/}
+                    <Route path=":name/video call/:id" element={<JoinRoom />} />
+                  </Route>
                   {/********** Library Page ***********/}
                   <Route path="/library" element={<Library />}>
                     <Route path=":id" element={<BookDetails />} />

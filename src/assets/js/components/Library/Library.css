@@ -14,6 +14,13 @@ html {
   width: 100%;
   background-color: var(--main-page-color);
 }
+.Library .head-Section .container .Book-Reader-user {
+  position: absolute;
+  left: -100px;
+  bottom: -50px;
+  opacity: 0.6;
+  z-index: -1;
+}
 .Library .head-Section::before {
   position: absolute;
   content: "";

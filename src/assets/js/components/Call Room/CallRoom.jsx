@@ -1,5 +1,5 @@
 import "./CallRoom.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   AgoraVideoPlayer,
   createClient,
@@ -45,7 +45,6 @@ const VideoCall = (props) => {
     let init = async (name) => {
       client.on("user-published", async (user, mediaType) => {
         await client.subscribe(user, mediaType);
-        console.log("subscribe success");
         if (mediaType === "video") {
           setUsers((prevUsers) => {
             return [...prevUsers, user];
@@ -57,7 +56,6 @@ const VideoCall = (props) => {
       });
 
       client.on("user-unpublished", (user, type) => {
-        console.log("unpublished", user, type);
         if (type === "audio") {
           user.audioTrack?.stop();
         }
@@ -69,7 +67,6 @@ const VideoCall = (props) => {
       });
 
       client.on("user-left", (user) => {
-        console.log("leaving", user);
         setUsers((prevUsers) => {
           return prevUsers.filter((User) => User.uid !== user.uid);
         });
@@ -81,7 +78,6 @@ const VideoCall = (props) => {
     };
 
     if (ready && tracks) {
-      console.log("init ready");
       init(channelName);
     }
   }, [channelName, client, ready, tracks]);
@@ -104,6 +100,7 @@ const VideoCall = (props) => {
 };
 
 const Videos = (props) => {
+  const vedioRef = useRef();
   const { users, tracks, imgavatar, userName } = props;
 
   const HandleFullView = (e) => {
@@ -121,12 +118,14 @@ const Videos = (props) => {
           className="vid active"
           videoTrack={tracks[1]}
           onClick={HandleFullView}
+          ref={vedioRef}
         >
           <div className="user-data">
             <img src={imgavatar} alt="avatar" />
             <h1>{userName}</h1>
           </div>
         </AgoraVideoPlayer>
+
         {users.length > 0 &&
           users.map((user) => {
             if (user.videoTrack) {
@@ -153,10 +152,13 @@ const Videos = (props) => {
 export const Controls = (props) => {
   const client = useClient();
   const { tracks, setStart, setInCall } = props;
-  const [trackState, setTrackState] = useState({ video: true, audio: true });
+  const [trackState, setTrackState] = useState({
+    video: true,
+    audio: true,
+    Share: false,
+  });
 
   const mute = async (type) => {
-    console.log("client", client);
     if (type === "audio") {
       await tracks[0].setEnabled(!trackState.audio);
       setTrackState((ps) => {
@@ -166,6 +168,16 @@ export const Controls = (props) => {
       await tracks[1].setEnabled(!trackState.video);
       setTrackState((ps) => {
         return { ...ps, video: !ps.video };
+      });
+    }
+  };
+  const ShareScrean = async () => {
+    if (navigator.mediaDevices.getDisplayMedia) {
+      navigator.mediaDevices.getDisplayMedia({
+        audio: true,
+        vedio: {
+          curser: "always",
+        },
       });
     }
   };
@@ -196,6 +208,14 @@ export const Controls = (props) => {
             : "fa-solid fa-video-slash no"
         }
         onClick={() => mute("video")}
+      ></i>
+      <i
+        className={
+          trackState.Share
+            ? "fa-solid fa-display yes"
+            : "fa-solid fa-display no"
+        }
+        onClick={() => ShareScrean()}
       ></i>
 
       {

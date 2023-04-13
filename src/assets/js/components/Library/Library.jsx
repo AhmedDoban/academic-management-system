@@ -12,6 +12,7 @@ import BookDetails from "./BookDetails";
 import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import NotFounded from "../../components/Not Founded/NotFounded";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 function Library(props) {
   let [search, setSearch] = useState("");
@@ -68,6 +69,14 @@ function Library(props) {
       <div className="Library">
         <div className="head-Section">
           <div className="container">
+            <Player
+              className="Book-Reader-user"
+              autoplay={true}
+              loop={true}
+              controls={false}
+              src="https://assets6.lottiefiles.com/packages/lf20_ad3uxjiv.json"
+            ></Player>
+
             <h3>
               Room Without <span>Books </span> Like Body Without
               <span> Soul </span>
