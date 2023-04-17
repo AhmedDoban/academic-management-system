@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./assets/css/normalize.css";
 import "./assets/css/framework.css";
 import "./assets/css/style.css";
-import AuthUser from "./assets/config/AuthUser";
 import Gust from "./assets/js/Gust/gust";
 import Auth from "./assets/js/Gust/Auth";
 
 function App() {
-  const { GetToken } = AuthUser();
+  const [LogedIn, SetLogedOn] = useState(false);
 
-  if (!GetToken()) {
-    return <Gust />;
+  const GetUser = (e) => {
+    const userString = localStorage.getItem("Login");
+    return userString;
+  };
+  useEffect(() => {
+    SetLogedOn(GetUser());
+  }, []);
+
+  if (!LogedIn) {
+    return <Gust SetLogedOn={SetLogedOn} />;
+  } else {
+    return <Auth />;
   }
-  return <Auth />;
 }
 
 export default App;

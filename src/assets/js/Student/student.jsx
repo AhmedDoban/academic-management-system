@@ -127,12 +127,14 @@ const Student = (props) => {
                   {/********** Home Page ***********/}
                   <Route exact path="/home" element={<HomePage />} />
                   {/********** Courses Page ***********/}
-                  <Route path="/Class Room" element={<Outlet />}>
-                    <Route path="" element={<StudenClasses />} />
-                    <Route path=":id" element={<Outlet />}>
+                  <Route path="/Class Room" element={<StudenClasses />}>
+                    <Route path="" exact />
+                    <Route path=":generation_id" element={<StudenClasses />} />
+
+                    {/* <Route path=":id" element={<Outlet />}>
                       <Route path="" element={<ClassesData />} />
                       <Route path="quiz/:courseId" element={<Quiz />} />
-                    </Route>
+                    </Route> */}
                   </Route>
                   {/********** Table Page ***********/}
                   <Route path="/table" element={<StudentTablePage />} />

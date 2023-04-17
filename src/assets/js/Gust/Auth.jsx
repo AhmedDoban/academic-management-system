@@ -13,27 +13,29 @@ function Auth() {
   const Teacher_reg = /^[\w-\.]+@doctor+\.+com/gi;
   const admin_reg = /^[\w-\.]+@admin+\.+com/gi;
 
-  useEffect(() => {
-    featchUserDetails();
-  }, []);
+  
+  return <Student />;
+  // useEffect(() => {
+  //   featchUserDetails();
+  // }, []);
 
-  const featchUserDetails = () => {
-    setUserDetails(user);
-    SetuserEmail(user.email);
-  };
+  // const featchUserDetails = () => {
+  //   setUserDetails(user);
+  //   SetuserEmail(user.email);
+  // };
 
-  if (userEmail.match(student_reg)) {
-    return <Student userDetails={userDetails} />;
-  } else {
-    if (userEmail.match(Teacher_reg)) {
-      return <Instructor userDetails={userDetails} />;
-    } else {
-      if (userEmail.match(admin_reg)) {
-        return <Admin userDetails={userDetails} />;
-      } else {
-        return <NotFounded />;
-      }
-    }
-  }
+  // if (userEmail.match(student_reg)) {
+  //   return <Student userDetails={userDetails} />;
+  // } else {
+  //   if (userEmail.match(Teacher_reg)) {
+  //     return <Instructor userDetails={userDetails} />;
+  //   } else {
+  //     if (userEmail.match(admin_reg)) {
+  //       return <Admin userDetails={userDetails} />;
+  //     } else {
+  //       return <NotFounded />;
+  //     }
+  //   }
+  // }
 }
 export default Auth;

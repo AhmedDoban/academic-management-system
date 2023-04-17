@@ -8,25 +8,26 @@ import Head from "../../components/Header/Head";
 function ClassesData(props) {
   const params = useParams();
   const [item, setItem] = useState([]);
-  useEffect(() => {
-    axios.get(`/${params}`).then((response) => {
-      setItem(response.data.items);
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get(`/${params}`).then((response) => {
+  //     setItem(response.data.items);
+  //   });
+  // }, []);
+  
   return (
     <React.Fragment>
-      <Head />
+      {/* <Head /> */}
       <div className="specific-course">
         {/************************************* start Course Data Header ***************************************/}
-        <ClassesDataHeader
+        {/* <ClassesDataHeader
           h3="WELCOME TO Class Room"
           h5="take The Test."
           Link={`quiz/${params.id}`}
-        />
+        /> */}
         {/************************************* End Course Data Header ***************************************/}
 
         {/************************************* Start Video ***************************************/}
-        <div className="video" id="video">
+        {/* <div className="video" id="video">
           <Dots OtherStyle="top" />
           <Dots OtherStyle="bottom" />
           <div className="container" id="course">
@@ -87,12 +88,12 @@ function ClassesData(props) {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         {/************************************* End Video ***************************************/}
         <div className="spikes "></div>
 
         {/************************************* Start discription ***************************************/}
-        <div className="discription">
+        {/* <div className="discription">
           <div
             className="container"
             data-aos="fade-down"
@@ -141,9 +142,11 @@ function ClassesData(props) {
               <li>Microposts - Frontend CRUD for REST API (Webpack & Babel)</li>
             </ul>
           </div>
-        </div>
+        </div> */}
         {/************************************* End discription ***************************************/}
       </div>
+
+
     </React.Fragment>
   );
 }

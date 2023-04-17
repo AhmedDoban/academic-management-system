@@ -1,30 +1,47 @@
-import React from "react";
-import Blobs from "./../Blobs/Blobs";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import AuthUser from "../../../config/AuthUser";
+import React, { useState } from "react";
 import "./Login.css";
+import Blobs from "./../Blobs/Blobs";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.min.css";
-function Login() {
-  const { setToken, postData, logOut } = AuthUser();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+import { useNavigate } from "react-router-dom";
 
-  const HandleSubmit = (e) => {
-    postData(
-      "https://academic-management-system.000webhostapp.com/api/admin/login",
-      "Post",
-      { email, password }
-    ).then((data) => {
-      if (JSON.parse(data).status === "false") {
-        toast.error("Check entered data and Try again", {
-          autoClose: 15000,
-          theme: "colored",
-        });
-        logOut();
-      } else setToken(JSON.parse(data).data, JSON.parse(data).token);
-    });
+import "react-toastify/dist/ReactToastify.min.css";
+import axios from "axios";
+function Login(props) {
+  const [student_code, setStudent_code] = useState("");
+  const [student_nat_id, setStudent_nat_id] = useState("");
+  const Navigate = useNavigate();
+
+  const HandleSubmit = async (e) => {
+    await axios
+      .post(
+        "http://camp-coding.tech/fci_project/graduation/student_login.php",
+        { student_code, student_nat_id },
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "text/plain",
+          },
+        }
+      )
+      .then((res) => {
+        if (res.data.status === "success") {
+          localStorage.setItem("User", JSON.stringify(res.data.message));
+          localStorage.setItem("Login", "ture");
+          props.SetLogedOn(true);
+          Navigate("/home");
+        } else {
+          toast.error(res.data.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+        }
+      });
   };
 
   return (
@@ -45,24 +62,18 @@ function Login() {
           <div className="center-flex gap-20 col-flex width-full ">
             <div className="width-full">
               <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Enter Your Email"
-                required
-                onChange={(e) => setEmail(e.target.value)}
-                className="form-control"
+                type="text"
+                placeholder="Enter Your Student Code"
+                value={student_code}
+                onChange={(e) => setStudent_code(e.target.value)}
               />
             </div>
             <div className="width-full">
               <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Enter Your password"
-                required
-                onChange={(e) => setPassword(e.target.value)}
-                className="form-control"
+                type="text"
+                value={student_nat_id}
+                placeholder="Enter Your Student National ID"
+                onChange={(e) => setStudent_nat_id(e.target.value)}
               />
             </div>
 

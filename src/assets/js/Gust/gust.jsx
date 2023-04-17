@@ -4,12 +4,16 @@ import NotFounded from "../components/Not Founded/NotFounded";
 import Login from "./../components/Login/Login";
 import Home from "./Home/Home";
 
-function Gust() {
+function Gust(props) {
   return (
     <React.Fragment>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/login" element={<Login />} />
+        <Route
+          exact
+          path="/login"
+          element={<Login SetLogedOn={props.SetLogedOn} />}
+        />
         <Route path="*" element={<NotFounded to="/NotFounded" />} />
       </Routes>
     </React.Fragment>
