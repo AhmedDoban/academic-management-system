@@ -52,7 +52,7 @@ function Class() {
         {/***************** Classes  **********************/}
         <div className="subjects">
           <div className="container">
-            <Link className="card" to="/subjects/math">
+            <Link className="card" to="/subjects/Math">
               <h1>Math 1</h1>
               <Player
                 autoplay={true}
@@ -63,7 +63,7 @@ function Class() {
               ></Player>
             </Link>
 
-            <Link className="card">
+            <Link className="card" to="/subjects/Elctronics">
               <h1>Elctronics </h1>
               <Player
                 autoplay={true}
@@ -74,7 +74,7 @@ function Class() {
               ></Player>
             </Link>
 
-            <Link className="card">
+            <Link className="card" to="/subjects/Data structure">
               <h1> Data structure </h1>
               <Player
                 autoplay={true}
@@ -85,7 +85,7 @@ function Class() {
               ></Player>
             </Link>
 
-            <Link className="card">
+            <Link className="card" to="/subjects/English 1">
               <h1>English 1 </h1>
               <Player
                 autoplay={true}
