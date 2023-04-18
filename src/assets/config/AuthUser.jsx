@@ -27,11 +27,6 @@ export default function AuthUser() {
     Navigate("/home");
   };
 
-  const logOut = () => {
-    sessionStorage.clear();
-    Navigate("/login");
-  };
-
   async function postData(url = "", Method, data = {}) {
     var myHeaders = new Headers();
     myHeaders.append("Accept", "application/json");
@@ -48,7 +43,7 @@ export default function AuthUser() {
     };
 
     const response = await fetch(url, requestOptions).then((res) => res.text());
-    
+
     return response;
   }
 
@@ -58,6 +53,5 @@ export default function AuthUser() {
     postData,
     user,
     GetToken,
-    logOut,
   };
 }

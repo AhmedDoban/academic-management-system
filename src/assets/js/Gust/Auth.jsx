@@ -5,7 +5,7 @@ import Admin from "../Admin/Home/admin";
 import Instructor from "./../Instructor/Instructor";
 import NotFounded from "./../components/Not Founded/NotFounded";
 
-function Auth() {
+function Auth(props) {
   const { user } = AuthUser();
   const [userDetails, setUserDetails] = useState([]);
   const [userEmail, SetuserEmail] = useState("");
@@ -13,8 +13,7 @@ function Auth() {
   const Teacher_reg = /^[\w-\.]+@doctor+\.+com/gi;
   const admin_reg = /^[\w-\.]+@admin+\.+com/gi;
 
-  
-  return <Student />;
+  return <Student SetLogedOn={props.SetLogedOn} />;
   // useEffect(() => {
   //   featchUserDetails();
   // }, []);

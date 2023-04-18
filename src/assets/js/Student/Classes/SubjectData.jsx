@@ -115,6 +115,23 @@ function SubjectData() {
               style={{ width: "150px", height: "150px" }}
             ></Player>
           </Link>
+          {/***************** Notification  **********************/}
+          <Link
+            className="card"
+            data-aos="zoom-in"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1000"
+            to={`Notifications/${params.subject_id}`}
+          >
+            <h1>Notification</h1>
+            <Player
+              autoplay={true}
+              loop={true}
+              controls={false}
+              src="https://assets9.lottiefiles.com/packages/lf20_22votfwd.json"
+              style={{ width: "150px", height: "150px" }}
+            ></Player>
+          </Link>
           {/***************** inquiries  **********************/}
           <Link
             className="card"

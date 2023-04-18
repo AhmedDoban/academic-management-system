@@ -1,0 +1,42 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../../css/root.css");
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Notification
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Notification {
+  position: relative;
+  width: 100%;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.Notification .container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# No Summary
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+
+.No_Notification {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.No_Notification .No_NotificationPlayer {
+  width: 350px;
+  height: 350px;
+}
+.No_Notification p {
+  font-size: 18px;
+  font-weight: bold;
+}

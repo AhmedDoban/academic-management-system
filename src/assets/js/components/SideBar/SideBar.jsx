@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import "./sidebar.css";
-import { NavLink, Link } from "react-router-dom";
-import AuthUser from "../../../config/AuthUser";
-
-const SideBar = ({ children }) => {
+import { NavLink, Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+const SideBar = ({ children, SetLogedOn }) => {
+  const Navigate = useNavigate();
   const [active, setActive] = useState("fa-solid fa-bars");
   const sidebar = useRef(null);
   document.addEventListener("click", (e) => {
@@ -25,11 +26,63 @@ const SideBar = ({ children }) => {
     },
     [sidebar]
   );
-  const { token, logOut } = AuthUser();
-  const logoutUser = () => {
-    if (token !== undefined) {
-      logOut();
+
+  const [student_id, setStudent_id] = useState([]);
+  const url =
+    "http://camp-coding.tech/fci_project/graduation/student_logout.php";
+  const GetID = async function () {
+    try {
+      const response = await JSON.parse(localStorage.getItem("User"));
+      setStudent_id(response.student_id);
+    } catch (error) {
+      throw error;
     }
+  };
+  useEffect(() => {
+    GetID();
+  }, [url, student_id]);
+
+  const fetchData = async function () {
+    GetID();
+    try {
+      await axios
+        .post(
+          url,
+          { student_id: student_id },
+          {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "text/plain",
+            },
+          }
+        )
+        .then((response) => {
+          if (response.data.status === "success") {
+            toast.success(response.data.message, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
+            SetLogedOn(false);
+          }
+        });
+    } catch (error) {
+      throw error;
+    }
+  };
+  const logOut = () => {
+    localStorage.clear();
+    Navigate("/login");
+  };
+
+  const logoutUser = () => {
+    fetchData();
+    logOut();
   };
   const [Theme, SetTheme] = useState(localStorage.getItem("theme") || "light");
   const [Chek, SetChek] = useState(false);
@@ -116,6 +169,7 @@ const SideBar = ({ children }) => {
           </li>
         </ul>
       </div>
+      <ToastContainer />
     </React.Fragment>
   );
 };

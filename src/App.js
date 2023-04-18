@@ -19,7 +19,7 @@ function App() {
   if (!LogedIn) {
     return <Gust SetLogedOn={SetLogedOn} />;
   } else {
-    return <Auth />;
+    return <Auth SetLogedOn={SetLogedOn} />;
   }
 }
 

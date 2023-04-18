@@ -6,8 +6,8 @@ import Mountain from "../../../components/Mountain Template/Mountain";
 import "./Exams.css";
 function Exam() {
   const params = useParams();
-  const [student_id, setStudent_id] = useState([]);
   const [Exams, SetExams] = useState([]);
+  const [student_id, setStudent_id] = useState([]);
   const GetID = async function () {
     try {
       const response = await JSON.parse(localStorage.getItem("User"));

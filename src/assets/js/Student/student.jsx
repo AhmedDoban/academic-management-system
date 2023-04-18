@@ -23,6 +23,9 @@ const Exam = lazy(() => import("./Classes/Exams/Exam"));
 const JoinRoom = lazy(() => import("../components/video call/VideoCall"));
 const Viedos = lazy(() => import("./Classes/videos/Videos"));
 const Summary = lazy(() => import("./Classes/Summary/Summary"));
+const SubjectNotification = lazy(() =>
+  import("./Classes/SubjectNotification/SubjectNotification")
+);
 
 // table page
 const StudentTablePage = lazy(() => import("./Table/StudentTablePage"));
@@ -74,7 +77,7 @@ const Student = (props) => {
   return (
     <React.Fragment>
       <div className="page p-relative">
-        <SideBar>
+        <SideBar SetLogedOn={props.SetLogedOn}>
           <li>
             <NavLink to="table" onClick={open}>
               <i className="fa-solid fa-calendar-days"></i>
@@ -150,6 +153,10 @@ const Student = (props) => {
                     <Route path="Exam/:id" element={<Exam />} />
                     <Route path="Videos/:id" element={<Viedos />} />
                     <Route path="Summary/:id" element={<Summary />} />
+                    <Route
+                      path="Notifications/:id"
+                      element={<SubjectNotification />}
+                    />
                   </Route>
                   {/********** Table Page ***********/}
                   <Route path="/table" element={<StudentTablePage />} />
