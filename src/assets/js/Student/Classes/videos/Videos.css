@@ -1,0 +1,131 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../../css/root.css");
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Videos
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+
+.specific-course {
+  position: relative;
+  width: 100%;
+}
+.specific-course .video {
+  position: relative;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  background-color: var(--white-color);
+}
+.specific-course .holder {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white-color);
+  border: 1px solid #ddd;
+}
+.specific-course .holder .right {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.specific-course .holder .right .Frame {
+  width: 100%;
+  height: 550px;
+  outline: none;
+  border: none;
+}
+.specific-course .holder .right .info {
+  position: relative;
+  background-color: #f5f5f5;
+  padding: 10px;
+  font-size: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+.specific-course .holder .left {
+  min-width: 300px;
+  background-color: var(--white-color);
+  height: 100%;
+}
+.specific-course .holder .left .top-vedio {
+  padding: 20px;
+  width: 100%;
+  background-color: #f0f0f0;
+}
+.specific-course .holder .left .top-vedio p {
+  font-size: 17px;
+  color: var(--blue-color);
+  font-weight: bold;
+}
+.specific-course .holder .left ul {
+  height: 575px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.specific-course .holder .left ul::-webkit-scrollbar {
+  display: none;
+}
+.specific-course .holder .left ul li {
+  padding: 20px;
+  border-top: 1px solid #ececec;
+  cursor: pointer;
+  transition: var(--main-transition);
+  color: var(--black-color);
+}
+
+.specific-course .holder .left ul li:hover {
+  color: var(--main-color);
+  background-color: #fafafa;
+}
+.specific-course .holder .left ul li span {
+  display: block;
+  margin-top: 10px;
+  color: var(--main-p-color);
+}
+.specific-course .holder .left ul li:hover span {
+  color: var(--orange-color);
+  transition: var(--main-transition);
+}
+@media (max-width: 1200px) {
+  .specific-course .holder {
+    flex-direction: column-reverse;
+  }
+  .specific-course .holder .left {
+    width: 100%;
+  }
+  .specific-course .holder .right .Frame {
+    height: auto;
+    min-height: 350px;
+  }
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# No Videos
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+
+.No_Videos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.No_Videos .NoVidosPlayer {
+  width: 350px;
+  height: 350px;
+}
+.No_Videos p {
+  font-size: 18px;
+  font-weight: bold;
+}

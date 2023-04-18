@@ -52,7 +52,13 @@ function Class() {
         {/***************** Classes  **********************/}
         <div className="subjects">
           <div className="container">
-            <Link className="card" to="/subjects/Math">
+            <Link
+              className="card"
+              data-aos="zoom-in"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="1000"
+              to="/subjects/Math"
+            >
               <h1>Math 1</h1>
               <Player
                 autoplay={true}
@@ -63,7 +69,13 @@ function Class() {
               ></Player>
             </Link>
 
-            <Link className="card" to="/subjects/Elctronics">
+            <Link
+              className="card"
+              data-aos="zoom-in"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="1000"
+              to="/subjects/Elctronics"
+            >
               <h1>Elctronics </h1>
               <Player
                 autoplay={true}
@@ -74,7 +86,13 @@ function Class() {
               ></Player>
             </Link>
 
-            <Link className="card" to="/subjects/Data structure">
+            <Link
+              className="card"
+              data-aos="zoom-in"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="1000"
+              to="/subjects/Data structure"
+            >
               <h1> Data structure </h1>
               <Player
                 autoplay={true}
@@ -85,7 +103,13 @@ function Class() {
               ></Player>
             </Link>
 
-            <Link className="card" to="/subjects/English 1">
+            <Link
+              className="card"
+              data-aos="zoom-in"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="1000"
+              to="/subjects/English 1"
+            >
               <h1>English 1 </h1>
               <Player
                 autoplay={true}

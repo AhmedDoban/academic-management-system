@@ -18,6 +18,11 @@ const HomePage = lazy(() => import("../components/Home Page/HomePage"));
 const StudenClasses = lazy(() => import("./Classes/StudenClasses"));
 const ClassesData = lazy(() => import("./Classes/ClassesData"));
 const Quiz = lazy(() => import("./Quiz/Quiz"));
+const SubjectData = lazy(() => import("./Classes/SubjectData"));
+const Exam = lazy(() => import("./Classes/Exams/Exam"));
+const JoinRoom = lazy(() => import("../components/video call/VideoCall"));
+const Viedos = lazy(() => import("./Classes/videos/Videos"));
+const Summary = lazy(() => import("./Classes/Summary/Summary"));
 
 // table page
 const StudentTablePage = lazy(() => import("./Table/StudentTablePage"));
@@ -135,6 +140,16 @@ const Student = (props) => {
                       <Route path="" element={<ClassesData />} />
                       <Route path="quiz/:courseId" element={<Quiz />} />
                     </Route> */}
+                  </Route>
+                  <Route
+                    path="/Subject Data/:subject_id/:SubjectName?"
+                    element={<Outlet />}
+                  >
+                    <Route path="" element={<SubjectData />} />
+                    <Route path="video call/:id" element={<JoinRoom />} />
+                    <Route path="Exam/:id" element={<Exam />} />
+                    <Route path="Videos/:id" element={<Viedos />} />
+                    <Route path="Summary/:id" element={<Summary />} />
                   </Route>
                   {/********** Table Page ***********/}
                   <Route path="/table" element={<StudentTablePage />} />

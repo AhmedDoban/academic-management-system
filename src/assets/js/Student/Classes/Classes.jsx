@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { Link, Routes, Route, useParams } from "react-router-dom";
+import { Link, Routes, Route, useParams, json } from "react-router-dom";
 import Dots from "../../components/Dots/Dots";
 import axios from "axios";
 import { Player } from "@lottiefiles/react-lottie-player";
@@ -68,7 +68,6 @@ function Courses() {
     fetchData();
   }, [url, student_id]);
 
-  console.log(Classes);
   const [Search, setSearch] = useState("");
 
   return (
@@ -91,7 +90,7 @@ function Courses() {
         />
         <Route
           path=":generation_id"
-          element={<Select_Sub_generationSubjects Classes={Classes} />}
+          element={<Select_Sub_generationSubjects />}
         />
       </Routes>
     </React.Fragment>
@@ -179,7 +178,10 @@ function Select_Sub_generation(props) {
                               <p>
                                 <span>{p.generation_name} </span>
                               </p>
-                              <Link to={`/Class Room/${p.generation_id}`}>
+                              <Link
+                                to={`/Class Room/${p.generation_id}`}
+                                onClick={() => props.setItem(p)}
+                              >
                                 <i className="fa-solid fa-arrow-right rd-half color-white"></i>
                               </Link>
                             </div>
@@ -214,57 +216,90 @@ function Select_Sub_generation(props) {
 
 function Select_Sub_generationSubjects(props) {
   const params = useParams();
-  const [Subjects, SetSubjects] = useState([]);
-  const [Data, SetData] = useState([]);
+  const [student_id, setStudent_id] = useState([]);
+
+  const GetID = async function () {
+    try {
+      const response = await JSON.parse(localStorage.getItem("User"));
+      setStudent_id(response.student_id);
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  const [Classes, SetClasses] = useState([]);
+  console.log(Classes)
+  const url =
+    "http://camp-coding.tech/fci_project/graduation/select_sub_generation.php";
+
   useEffect(() => {
-    const Data = props.Classes.filter(
-      (p) => p.generation_id === params.generation_id
-    );
-    SetSubjects(Data[0]);
-    SetData(Subjects.subjects);
-  }, [Subjects]);
-  console.log(Data);
+    const fetchData = async function () {
+      GetID();
+      try {
+        await axios
+          .post(
+            url,
+            { student_id: student_id },
+            {
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "text/plain",
+              },
+            }
+          )
+          .then((response) => {
+            if (response.data.status === "success") {
+              SetClasses(
+                response.data.message.filter(
+                  (p) => p.generation_id === params.generation_id
+                )[0]
+              );
+            }
+          });
+      } catch (error) {
+        throw error;
+      }
+    };
+    fetchData();
+  }, [url, student_id]);
+
   return (
     <React.Fragment>
-      {props.loading ? (
-        <LodingFeachData />
-      ) : (
-        <React.Fragment>
-          <div className="Select_Sub_generationSubjects p-relative">
-            <h1
-              className="main-titel"
-              data-aos="fade-down"
+      <div className="Select_Sub_generationSubjects p-relative">
+        <h1
+          className="main-titel"
+          data-aos="fade-down"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+        >
+          <div className="div-circle"></div>
+          <div className="div-circle"></div>
+          <span>{Classes.generation_name} </span>
+        </h1>
+        <Dots OtherStyle="top" />
+        <Dots OtherStyle="bottom" />
+        <div className="container">
+          {Classes.subjects?.map((p) => (
+            <Link
+              className="Card"
+              data-aos="fade-right"
               data-aos-easing="ease-in-out"
               data-aos-duration="1000"
+              to={`/Subject Data/${p.subject_id}/${p.subject_name}?`}
             >
-              <div className="div-circle"></div>
-              <div className="div-circle"></div>
-              <span>{Subjects?.generation_name} </span>
-            </h1>
-            <Dots OtherStyle="top" />
-            <Dots OtherStyle="bottom" />
-            <div className="container">
-              {Data ? (
-                Data.map((p) => (
-                  <div className="Card">
-                    <Player
-                      autoplay={true}
-                      loop={true}
-                      controls={false}
-                      src="https://assets4.lottiefiles.com/packages/lf20_4XmSkB.json"
-                      className="PLayer"
-                    ></Player>
-                    <h3>{p.subject_name}</h3>
-                    <p> {p.subject_description}</p>
-                  </div>
-                ))
-              ) : (
-                <LodingFeachData />
-              )}
-            </div>
-          </div>
-        </React.Fragment>
-      )}
+              <Player
+                autoplay={true}
+                loop={true}
+                controls={false}
+                src="https://assets4.lottiefiles.com/packages/lf20_4XmSkB.json"
+                className="PLayer"
+              ></Player>
+              <h3>{p.subject_name}</h3>
+              <p> {p.subject_description}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
     </React.Fragment>
   );
 }

@@ -1,14 +1,7 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import { Users } from "../../../../dummyData";
 import { Link } from "react-router-dom";
 function Top_Instructor(props) {
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((res) => res.json())
-      .then((data) => setItems(data));
-  }, []);
   return (
     <React.Fragment>
       <div className="top_instructor">
