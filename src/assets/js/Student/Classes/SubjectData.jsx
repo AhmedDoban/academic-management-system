@@ -138,6 +138,7 @@ function SubjectData() {
             data-aos="zoom-in"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
+            to={`Inquiries/${params.subject_id}`}
           >
             <h1>Inquiries</h1>
             <Player

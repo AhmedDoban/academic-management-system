@@ -1,0 +1,65 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../../css/root.css");
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Inquiries
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Inquiries {
+  position: relative;
+  width: 100%;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.Inquiries .container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+.Inquiries .container .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: hsl(235, 24%, 19%);
+  width: 100%;
+  border-radius: var(--main-border-radius);
+  padding: 10px;
+  text-align: right;
+}
+.Inquiries .container .card p {
+  color: #fff;
+  text-align: right;
+}
+.Inquiries .container .card span {
+  position: relative;
+  background-color: var(--white-color);
+  width: 100%;
+  color: var(--blue-color);
+  padding: 5px;
+  border-radius: var(--main-border-radius);
+  font-weight: bold;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# No Inquiries
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.No_Inquiries {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.No_Inquiries .NoInquirieslayer {
+  width: 350px;
+  height: 350px;
+}
+.No_Inquiries p {
+  font-size: 18px;
+  font-weight: bold;
+}
