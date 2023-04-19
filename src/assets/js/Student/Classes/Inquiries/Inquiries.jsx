@@ -51,6 +51,7 @@ function Inquiries() {
                 theme: "colored",
               });
             }
+            fetchData();
           });
       } catch (error) {
         throw error;
@@ -68,36 +69,35 @@ function Inquiries() {
       });
     }
   };
-
+  const fetchData = async function () {
+    GetID();
+    try {
+      await axios
+        .post(
+          url,
+          { subject_id: params.subject_id },
+          {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "text/plain",
+            },
+          }
+        )
+        .then((response) => {
+          if (response.data.status === "success") {
+            SetInquiries(response.data.message);
+          }
+        });
+    } catch (error) {
+      throw error;
+    }
+  };
   const url =
     "http://camp-coding.tech/fci_project/graduation/select_inquiry.php";
 
   useEffect(() => {
-    const fetchData = async function () {
-      GetID();
-      try {
-        await axios
-          .post(
-            url,
-            { subject_id: params.subject_id },
-            {
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "text/plain",
-              },
-            }
-          )
-          .then((response) => {
-            if (response.data.status === "success") {
-              SetInquiries(response.data.message);
-            }
-          });
-      } catch (error) {
-        throw error;
-      }
-    };
     fetchData();
-  }, [url, student_id, HandleTextFeild]);
+  }, [url, student_id, params.subject_id]);
 
   return (
     <React.Fragment>

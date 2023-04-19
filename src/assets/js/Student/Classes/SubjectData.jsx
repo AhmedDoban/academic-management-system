@@ -105,6 +105,7 @@ function SubjectData() {
             data-aos="zoom-in"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
+            to={`Chat/${params.SubjectName}`}
           >
             <h1>Chat </h1>
             <Player

@@ -1,0 +1,98 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../../css/root.css");
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Chat
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Chat {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.Chat .messages {
+  padding: 15px 15px 80px 35px;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  color: var(--black-color);
+  background: rgba(24, 1, 1, 0.336);
+  backdrop-filter: blur(50px);
+  transition: var(--main-transition);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.Chat .messages h1 {
+  background-color: var(--white-color);
+  width: fit-content;
+  min-width: 150px;
+  padding: 15px;
+  margin: 0;
+  font-size: 18px;
+  border-radius: calc(var(--main-border-radius) * 2.5);
+  border-bottom-right-radius: 0;
+  transition: var(--main-transition);
+  text-align: right;
+}
+.Chat .messages::-webkit-scrollbar {
+  width: 0px;
+}
+.Chat .SendMessage {
+  position: absolute;
+  bottom: 10px;
+  left: 10%;
+  width: 80%;
+  height: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  overflow: hidden;
+}
+.Chat .SendMessage input {
+  width: 100%;
+  height: 100%;
+  padding: 8px 15px;
+  border: 0;
+  border-radius: 25px 0 0;
+  background-color: var(--white-color);
+  transition: var(--main-transition);
+  color: var(--black-color);
+  text-align: right;
+}
+.Chat .SendMessage .SendMessage-button {
+  height: inherit;
+  min-width: 50px;
+  border: 0;
+  cursor: pointer;
+  color: var(--black-color);
+  background-color: var(--white-color);
+  transition: var(--main-transition);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# No Chat
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.No_Exams {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.No_Exams .NoExamPlayer {
+  width: 350px;
+  height: 350px;
+}
+.No_Exams p {
+  font-size: 18px;
+  font-weight: bold;
+}
