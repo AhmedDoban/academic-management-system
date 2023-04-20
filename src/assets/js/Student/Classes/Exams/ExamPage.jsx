@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Exams.css";
 import Answers from "./Answers";
+import { ToastContainer, toast } from "react-toastify";
 
 function ExamPage() {
+  const navigate = useNavigate();
   const params = useParams();
   const [Exams, SetExams] = useState([]);
   const [student_id, setStudent_id] = useState([]);
@@ -83,12 +85,55 @@ function ExamPage() {
     fetchData();
   }, [APIQUE, student_id]);
 
+  let [Score, setScore] = useState(0);
+
+  const HandleFinish = async () => {
+    Question.map((p) =>
+      p.chosen_answer === p.question_valid_answer ? setScore(Score++) : null
+    );
+    try {
+      await axios
+        .post(
+          "http://camp-coding.tech/fci_project/graduation/upload_score.php",
+          {
+            exam_id: params.Exam_id,
+            student_id: student_id,
+            score: Score,
+            all_question: Question,
+          },
+          {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "text/plain",
+            },
+          }
+        )
+        .then((response) => {
+          if (response.data.status === "success") {
+            toast.success(response.data.message, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
+            navigate(-1);
+          }
+        });
+    } catch (error) {
+      throw error;
+    }
+  };
+
   return (
     <React.Fragment>
       <div className="ExamPage">
         <div className="headerExam">
           <h1 className="ExamName">Exam {Exams.exam_name}</h1>
-          <button>Fininsh</button>
+          <button onClick={HandleFinish}>Fininsh</button>
         </div>
         <div className="containerExam">
           <div className="left">
@@ -112,6 +157,7 @@ function ExamPage() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </React.Fragment>
   );
 }

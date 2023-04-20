@@ -10,7 +10,7 @@ function Answers(props) {
     });
     props.SetQuestions(newState);
 };
-console.log(props.Question);
+
 
   return (
     <React.Fragment>

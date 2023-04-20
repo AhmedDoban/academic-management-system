@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useEffect } from "react";
-import { Link, Routes, Route, useParams, json } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, Routes, Route, useParams } from "react-router-dom";
 import Dots from "../../components/Dots/Dots";
 import axios from "axios";
 import { Player } from "@lottiefiles/react-lottie-player";
