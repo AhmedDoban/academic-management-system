@@ -90,7 +90,6 @@ function Chat() {
     fetchData();
   }, [url, student_id, params.subject_id]);
 
-  console.log(Chat);
   return (
     <React.Fragment>
       <Blobs />

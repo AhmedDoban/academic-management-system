@@ -2,7 +2,47 @@
 # General
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 @import url("../../../../css/root.css");
-
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# exams
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.exams {
+  position: relative;
+  width: 100%;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.exams .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+}
+.exams .container .exam-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: hsl(235, 24%, 19%);
+  width: 100%;
+  border-radius: var(--main-border-radius);
+  padding: 15px;
+  overflow: hidden;
+}
+.exams .container .exam-card .ExamPlayer {
+  max-width: 100%;
+  height: 150px;
+}
+.exams .container .exam-card .examName {
+  color: var(--blue-color);
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+.exams .container .exam-card p {
+  font-weight: bold;
+}
+.exams .container .exam-card p span {
+  color: #fff;
+}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # No Exams
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -23,4 +63,118 @@
 .No_Exams p {
   font-size: 18px;
   font-weight: bold;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# exam  page
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.ExamPage {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #121212;
+}
+.ExamPage .headerExam {
+  background-color: #1e1e1e;
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ExamPage .headerExam h1 {
+  margin: 0;
+  font-size: 18px;
+}
+.ExamPage .headerExam button {
+  height: 100%;
+  padding: 5px 8px;
+  border: 0;
+  border-radius: var(--main-border-radius);
+  cursor: pointer;
+  font-weight: bold;
+  color: #1e1e1e;
+  transition: var(--main-transition);
+}
+.ExamPage .headerExam button:hover {
+  background-color: var(--green-color);
+  transition: var(--main-transition);
+  color: #fff;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# exam  page container
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.ExamPage .containerExam {
+  display: flex;
+}
+@media (max-width: 996px) {
+  .ExamPage .containerExam {
+    flex-direction: column;
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# exam  page left
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.ExamPage .containerExam .left {
+  width: 100%;
+  height: 100%;
+}
+
+.ExamPage .containerExam .left iframe {
+  width: 100%;
+  height: 100vh;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+}
+@media (max-width: 996px) {
+  .ExamPage .containerExam .left {
+    height: 35vh;
+  }
+  .ExamPage .containerExam .left iframe {
+    height: 100%;
+    width: 100% !important;
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# exam  page right
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.ExamPage .containerExam .right {
+  padding: 15px;
+  width: 100%;
+  height: 100%;
+}
+.ExamPage .containerExam .right li {
+  position: relative;
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+.ExamPage .containerExam .right li label {
+  text-align: right;
+  color: #fff;
+}
+.ExamPage .containerExam .right .option .answer-options {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  background-color:#1e1e1e;
+  padding: 10px;
+  border-radius: var(--main-border-radius);
+  color: #fff;
+}
+.ExamPage .containerExam .right .option .answer-options input {
+  cursor: pointer;
+}
+.ExamPage .containerExam .right .option span {
+  display: block;
+  position: relative;
+  width: 100%;
+  color: #fff;
+  text-align: right;
+  border-radius: var(--main-border-radius);
 }

@@ -28,6 +28,7 @@ const SubjectNotification = lazy(() =>
 );
 const Inquiries = lazy(() => import("./Classes/Inquiries/Inquiries"));
 const Chat = lazy(() => import("./Classes/Chat/Chat"));
+const ExamPage = lazy(() => import("./Classes/Exams/ExamPage"));
 
 // table page
 const StudentTablePage = lazy(() => import("./Table/StudentTablePage"));
@@ -152,7 +153,10 @@ const Student = (props) => {
                   >
                     <Route path="" element={<SubjectData />} />
                     <Route path="video call/:id" element={<JoinRoom />} />
-                    <Route path="Exam/:id" element={<Exam />} />
+                    <Route path="Exam/:id" element={<Outlet />}>
+                      <Route path="" element={<Exam />} />
+                      <Route path=":Exam_id" element={<ExamPage />} />
+                    </Route>
                     <Route path="Videos/:id" element={<Viedos />} />
                     <Route path="Summary/:id" element={<Summary />} />
                     <Route path="Chat/:id" element={<Chat />} />

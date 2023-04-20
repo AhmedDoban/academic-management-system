@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Mountain from "../../../components/Mountain Template/Mountain";
 import "./Exams.css";
@@ -45,8 +45,7 @@ function Exam() {
     };
     fetchData();
   }, [url, student_id]);
-  
-  console.log(Exams);
+
   return (
     <React.Fragment>
       <Mountain>
@@ -55,20 +54,46 @@ function Exam() {
         </div>
       </Mountain>
       <div className="exams">
-        <div className="container">
-          {Exams.length > 0 ? null : (
-            <div className="No_Exams">
-              <Player
-                autoplay={true}
-                loop={true}
-                controls={false}
-                src="https://assets10.lottiefiles.com/packages/lf20_zi2xpiyh.json"
-                className="NoExamPlayer"
-              ></Player>
-              <p>There is No Exams </p>
-            </div>
-          )}
-        </div>
+        {Exams.length > 0 ? (
+          <div className="container">
+            {Exams.map((Exam) => (
+              <Link
+                className="exam-card"
+                key={Exam.exam_id}
+                to={`${Exam.exam_id}`}
+              >
+                <Player
+                  autoplay={true}
+                  loop={true}
+                  controls={false}
+                  src="https://assets1.lottiefiles.com/packages/lf20_JyhocJ9San.json"
+                  className="ExamPlayer"
+                ></Player>
+                <p className="examName">{Exam.exam_name}</p>
+                <p>
+                  Start Time : <span>{Exam.exam_start_time}</span>
+                </p>
+                <p>
+                  Exam Time : <span>{Exam.exam_time}</span>
+                </p>
+                <p>
+                  End Time : <span>{Exam.exam_end_time}</span>
+                </p>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <div className="No_Exams">
+            <Player
+              autoplay={true}
+              loop={true}
+              controls={false}
+              src="https://assets10.lottiefiles.com/packages/lf20_zi2xpiyh.json"
+              className="NoExamPlayer"
+            ></Player>
+            <p>There is No Exams </p>
+          </div>
+        )}
       </div>
     </React.Fragment>
   );
