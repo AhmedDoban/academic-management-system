@@ -28,6 +28,7 @@ const SubjectData = lazy(() => import("./Class/SubjectData"));
 const Subjects = lazy(() => import("./Class/Subjects"));
 const Exams = lazy(() => import("./Class/Exams/Exams"));
 const NewExam = lazy(() => import("./Class/Exams/NewExam"));
+const EditExam = lazy(() => import("./Class/Exams/EditExam"));
 
 // library page
 const Library = lazy(() => import("../components/Library/Library"));
@@ -100,6 +101,12 @@ const Instructor = (props) => {
                       >
                         <Route path="" element={<Exams />} />
                         <Route path="CreateExam" element={<NewExam />} />
+                        <Route
+                          path="EditExam/:exam_id/:examName?/:handleotherdata?"
+                          element={<Outlet />}
+                        >
+                          <Route path="" element={<EditExam />} />
+                        </Route>
                       </Route>
                       {/********** Call Page ***********/}
                       <Route path="video call/:id" element={<JoinRoom />} />

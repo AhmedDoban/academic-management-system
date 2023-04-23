@@ -92,7 +92,11 @@ function Exams() {
         ) : Exams.length > 0 ? (
           <div className="container">
             {Exams.map((Exam) => (
-              <div className="exam-card" key={Exam.exam_id}>
+              <Link
+                className="exam-card"
+                key={Exam.exam_id}
+                to={`EditExam/${Exam.exam_id}/${Exam.exam_name}?`}
+              >
                 <Player
                   autoplay={true}
                   loop={true}
@@ -114,7 +118,7 @@ function Exams() {
                     </span>
                   )}
                 </p>
-              </div>
+              </Link>
             ))}
           </div>
         ) : (

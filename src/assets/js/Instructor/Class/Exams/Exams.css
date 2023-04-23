@@ -5,17 +5,20 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # exams
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.editExam,
 .exams {
   position: relative;
   width: 100%;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
 }
+.editExam .container,
 .exams .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 10px;
 }
+.editExam .container .editExam-card,
 .exams .container .exam-card {
   position: relative;
   display: flex;
@@ -27,6 +30,7 @@
   padding: 15px;
   overflow: hidden;
 }
+.editExam .container .editExam-card .ExamPlayer,
 .exams .container .exam-card .ExamPlayer {
   max-width: 100%;
   height: 150px;
@@ -154,4 +158,95 @@
 .newExam .input-field .CreateExam:hover {
   background-color: var(--green-color);
   color: var(--white-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# edit Exam
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.editExam .container .editExam-card p {
+  color: var(--white-color);
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  transition: var(--main-transition);
+}
+.editExam .container .editExam-card:hover p {
+  color: var(--blue-color);
+}
+.editExam .container .editExam-card.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 0;
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# edit Exam card filp
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.editExam .container .editExam-card input[type="file"] {
+  display: none;
+}
+.editExam .container .editExam-card.flip {
+  position: relative;
+  display: flex;
+  transform-style: preserve-3d;
+  transition: var(--main-transition);
+  transform-origin: center center;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  height: 250px;
+}
+.editExam .container .editExam-card.flip .face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  backface-visibility: hidden;
+  border-radius: var(--main-border-radius);
+}
+.editExam .container .editExam-card.flip .back {
+  transform: rotateY(-180deg);
+  background-color: black;
+}
+.editExam .container .editExam-card.flip.active {
+  transform: rotateY(180deg);
+}
+.editExam .container .editExam-card.flip .back .uploadFileBTN {
+  background-color: transparent;
+  cursor: pointer;
+  width: 100%;
+  border-radius: var(--main-border-radius);
+  color: var(--blue-color);
+  border: 0;
+}
+.editExam
+  .container
+  .editExam-card.flip
+  .back
+  .uploadFileBTN
+  .uploadFileBTNplayer {
+  max-width: 100%;
+  height: 50px;
+}
+.editExam .container .editExam-card.flip .back .progressbar {
+  position: relative;
+  width: 250px;
+  background-color: #eee;
+  height: 25px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+.editExam .container .editExam-card.flip .back .progressbar .progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--blue-color);
+  height: 100%;
 }
