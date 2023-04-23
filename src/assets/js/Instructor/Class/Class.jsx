@@ -87,7 +87,8 @@ function Class() {
                   data-aos="zoom-in"
                   data-aos-easing="ease-in-out"
                   data-aos-duration="1000"
-                  to={`/subjects/${p.subject_name}`}
+                  to={`/subjects/${p.subject_id}/${p.subject_name}?`}
+                  key={p.subject_id}
                 >
                   <h1>{p.subject_name}</h1>
                   <Player

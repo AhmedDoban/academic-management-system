@@ -17,15 +17,16 @@ import {
 } from "react-router-dom";
 
 import SideBar from "../components/SideBar/SideBar";
-import JoinRoom from "../components/video call/VideoCall";
-import SubjectData from "./Class/SubjectData";
-import Subjects from "./Class/Subjects";
 
 // home page
 const HomePage = lazy(() => import("../components/Home Page/HomePage"));
 
 // Class Room page
 const Class = lazy(() => import("./Class/Class"));
+const JoinRoom = lazy(() => import("../components/video call/VideoCall"));
+const SubjectData = lazy(() => import("./Class/SubjectData"));
+const Subjects = lazy(() => import("./Class/Subjects"));
+const Exams = lazy(() => import("./Class/Exams/Exams"));
 
 // library page
 const Library = lazy(() => import("../components/Library/Library"));
@@ -90,9 +91,12 @@ const Instructor = (props) => {
                   {/********** subjects Page ***********/}
                   <Route path="/subjects" element={<Outlet />}>
                     <Route path="" element={<Subjects />} />
-                    <Route path=":name" element={<SubjectData />} />
-                    {/********** Call Page ***********/}
-                    <Route path=":name/video call/:id" element={<JoinRoom />} />
+                    <Route path=":SubjectID/:SubjectName?" element={<Outlet />}>
+                      <Route path="" element={<SubjectData />} />
+                      <Route path="Exams" element={<Exams />} />
+                      {/********** Call Page ***********/}
+                      <Route path="video call/:id" element={<JoinRoom />} />
+                    </Route>
                   </Route>
                   {/********** Library Page ***********/}
                   <Route path="/library" element={<Library />}>

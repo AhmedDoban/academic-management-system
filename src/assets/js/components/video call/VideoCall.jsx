@@ -33,7 +33,6 @@ const VideoCall = (props) => {
     let init = async (name) => {
       client.on("user-published", async (user, mediaType) => {
         await client.subscribe(user, mediaType);
-        console.log("subscribe success");
         if (mediaType === "video") {
           setUsers((prevUsers) => {
             return [...prevUsers, user];
@@ -45,7 +44,6 @@ const VideoCall = (props) => {
       });
 
       client.on("user-unpublished", (user, type) => {
-        console.log("unpublished", user, type);
         if (type === "audio") {
           user.audioTrack?.stop();
         }
@@ -57,7 +55,6 @@ const VideoCall = (props) => {
       });
 
       client.on("user-left", (user) => {
-        console.log("leaving", user);
         setUsers((prevUsers) => {
           return prevUsers.filter((User) => User.uid !== user.uid);
         });
@@ -69,7 +66,6 @@ const VideoCall = (props) => {
     };
 
     if (ready && tracks) {
-      console.log("init ready");
       init(channelName);
     }
   }, [channelName, client, ready, tracks]);
@@ -127,7 +123,6 @@ export const Controls = (props) => {
   const [trackState, setTrackState] = useState({ video: true, audio: true });
 
   const mute = async (type) => {
-    console.log("client", client);
     if (type === "audio") {
       await tracks[0].setEnabled(!trackState.audio);
       setTrackState((ps) => {
@@ -180,7 +175,7 @@ export const Controls = (props) => {
 };
 
 const ChannelForm = (props) => {
-  const { channelName, handleJoin } = props;
+  const { channelName, handleJoin, SubjectName } = props;
 
   return (
     <React.Fragment>
@@ -192,6 +187,12 @@ const ChannelForm = (props) => {
             type="search"
             placeholder={channelName}
             value={channelName}
+            readOnly
+          />
+          <input
+            type="search"
+            placeholder={SubjectName}
+            value={SubjectName}
             readOnly
           />
           <button onClick={(e) => handleJoin(e)} className="submit-btn">
@@ -207,9 +208,18 @@ const JoinRoom = (props) => {
   const params = useParams();
   const [inCall, setInCall] = useState(false);
   const [channelName, setChannelName] = useState("");
+  const [SubjectName, SetSubjectName] = useState("");
+
   useEffect(() => {
-    setChannelName(params.id);
-  }, [params]);
+    setChannelName(
+      params.id
+        .split("")
+        .map((p) => p.charCodeAt())
+        .join("")
+    );
+    SetSubjectName(params.id);
+  }, [params.id]);
+
   const handleJoin = (e) => {
     e.preventDefault();
     setInCall(true);
@@ -224,6 +234,7 @@ const JoinRoom = (props) => {
           setInCall={setInCall}
           handleJoin={handleJoin}
           channelName={channelName}
+          SubjectName={SubjectName}
         />
       )}
     </div>
