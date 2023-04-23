@@ -56,7 +56,7 @@ const Instructor = (props) => {
   return (
     <React.Fragment>
       <div className="page p-relative">
-        <SideBar>
+        <SideBar SetLogedOn={props.SetLogedOn}>
           <li>
             <NavLink to="subjects" onClick={open}>
               <i className="fa-solid fa-flask"></i>

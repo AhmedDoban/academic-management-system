@@ -3,19 +3,22 @@ import "./Login.css";
 import Blobs from "./../Blobs/Blobs";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Select from "react-select";
 
 import "react-toastify/dist/ReactToastify.min.css";
 import axios from "axios";
 function Login(props) {
-  const [student_code, setStudent_code] = useState("");
-  const [student_nat_id, setStudent_nat_id] = useState("");
   const Navigate = useNavigate();
+  const [Code, SetCode] = useState("");
+  const [Nat_ID, SeNat_Id] = useState("");
 
   const HandleSubmit = async (e) => {
     await axios
       .post(
-        "http://camp-coding.tech/fci_project/graduation/student_login.php",
-        { student_code, student_nat_id },
+        props.Type.url,
+        props.Type.label === "Student"
+          ? { student_code: Code, student_nat_id: Nat_ID }
+          : { doctor_code: Code, doctor_pass: Nat_ID },
         {
           headers: {
             Accept: "application/json",
@@ -27,6 +30,7 @@ function Login(props) {
         if (res.data.status === "success") {
           localStorage.setItem("User", JSON.stringify(res.data.message));
           localStorage.setItem("Login", "ture");
+          localStorage.setItem("Type", props.Type.label);
           props.SetLogedOn(true);
           Navigate("/home");
         } else {
@@ -42,6 +46,10 @@ function Login(props) {
           });
         }
       });
+  };
+
+  const HandleTypechange = (event) => {
+    props.SetType(event);
   };
 
   return (
@@ -63,18 +71,26 @@ function Login(props) {
             <div className="width-full">
               <input
                 type="text"
-                placeholder="Enter Your Student Code"
-                value={student_code}
-                onChange={(e) => setStudent_code(e.target.value)}
+                placeholder={`Enter Your ${
+                  props.Type.label ? props.Type.label : ""
+                } Code`}
+                value={Code}
+                onChange={(e) => SetCode(e.target.value)}
               />
             </div>
             <div className="width-full">
               <input
                 type="text"
-                value={student_nat_id}
-                placeholder="Enter Your Student National ID"
-                onChange={(e) => setStudent_nat_id(e.target.value)}
+                value={Nat_ID}
+                placeholder={`Enter Your ${
+                  props.Type.label ? props.Type.label : ""
+                } National ID`}
+                onChange={(e) => SeNat_Id(e.target.value)}
               />
+            </div>
+
+            <div className="width-full">
+              <Select options={props.options} onChange={HandleTypechange} />
             </div>
 
             <div className="main-btn-overlay">

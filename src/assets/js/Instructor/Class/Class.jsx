@@ -9,27 +9,27 @@ function Class() {
   const [TextFeild, SetTextField] = useState("");
   const HandleTextFeild = () => {};
 
-  const [ID, SetID] = useState([]);
-  const [user, SetUser] = useState([]);
+  // const [ID, SetID] = useState([]);
+  // const [user, SetUser] = useState([]);
 
-  const GEtLocal = () => {
-    const userString = sessionStorage.getItem("User");
-    const User_detail = JSON.parse(userString);
-    SetID(User_detail.id);
-  };
+  // const GEtLocal = () => {
+  //   const userString = sessionStorage.getItem("User");
+  //   const User_detail = JSON.parse(userString);
+  //   SetID(User_detail.id);
+  // };
 
-  const fetchData = useCallback(async () => {
-    const data = await axios.get(
-      "https://academic-management-system.000webhostapp.com/api/get-student-with-relationship/" +
-        ID
-    );
-    SetUser(data.data.data);
-  });
+  // const fetchData = useCallback(async () => {
+  //   const data = await axios.get(
+  //     "https://academic-management-system.000webhostapp.com/api/get-student-with-relationship/" +
+  //       ID
+  //   );
+  //   SetUser(data.data.data);
+  // });
 
-  useEffect(() => {
-    GEtLocal();
-    fetchData();
-  }, [fetchData, user]);
+  // useEffect(() => {
+  //   GEtLocal();
+  //   fetchData();
+  // }, [fetchData, user]);
 
   return (
     <React.Fragment>

@@ -77,7 +77,8 @@ const SideBar = ({ children, SetLogedOn }) => {
   };
   const logOut = () => {
     localStorage.clear();
-    Navigate("/login");
+    Navigate("/");
+    window.location.reload(true);
   };
 
   const logoutUser = () => {

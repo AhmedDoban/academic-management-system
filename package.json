@@ -27,6 +27,7 @@
     "react-form-input-validation": "^2.1.0",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.2",
     "react-to-print": "^2.14.12",
     "react-toastify": "^9.1.1",
     "reactstrap": "^9.1.6",

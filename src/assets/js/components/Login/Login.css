@@ -49,3 +49,16 @@
   border-bottom: var(--main-border);
   background-color: transparent;
 }
+.css-b62m3t-container {
+  z-index: 99 !important;
+  border: none !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+}
+.css-13cymwt-control {
+  border: none !important;
+  outline: none !important;
+  border: var(--main-border) !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+}

@@ -12,7 +12,14 @@ function Gust(props) {
         <Route
           exact
           path="/login"
-          element={<Login SetLogedOn={props.SetLogedOn} />}
+          element={
+            <Login
+              SetLogedOn={props.SetLogedOn}
+              options={props.options}
+              SetType={props.SetType}
+              Type={props.Type}
+            />
+          }
         />
         <Route path="*" element={<NotFounded to="/NotFounded" />} />
       </Routes>

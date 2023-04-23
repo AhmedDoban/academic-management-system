@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 function OtherSetting(props) {
-  const [Data, SetData] = useState([]);
-  useEffect(() => {
-    SetData(props.Data);
-  }, []);
   return (
     <React.Fragment>
       <div
@@ -20,11 +16,11 @@ function OtherSetting(props) {
           </div>
           <div className="box">
             <h5>Email</h5>
-            <input type="text" readOnly value={Data.email} />
+            <input type="text" readOnly />
           </div>
           <div className="box">
             <h5>Phone</h5>
-            <input type="phone" maxLength={12} placeholder={Data.phone} />
+            <input type="phone" maxLength={12} />
           </div>
           <div className="box">
             <input type="button" value="Update Phone number" />
