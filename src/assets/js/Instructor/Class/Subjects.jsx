@@ -7,7 +7,6 @@ import axios from "axios";
 import LodingFeachData from "../../components/Loding Feach Data/LodingFeachData";
 function Subjects() {
   const [TextFeild, SetTextField] = useState("");
-  const HandleTextFeild = () => {};
 
   const [Doctor_id, setDoctor_id] = useState([]);
 
@@ -62,10 +61,13 @@ function Subjects() {
         <div className="data">
           <h1> Class Room</h1>
           <div className="card">
-            <i
-              className="fa-brands fa-searchengin"
-              onClick={HandleTextFeild}
-            ></i>
+            <Player
+              autoplay={true}
+              loop={true}
+              controls={false}
+              src="https://assets10.lottiefiles.com/private_files/lf30_jo7huq2d.json"
+              style={{ width: "50px", height: "50px" }}
+            ></Player>
             <input
               type="text"
               placeholder="Search . . . "
