@@ -6,7 +6,7 @@ import React, {
   useRef,
   useCallback,
 } from "react";
-import axios from "axios";
+
 import { Route, Routes, Navigate, Outlet, NavLink } from "react-router-dom";
 
 import SideBar from "../components/SideBar/SideBar";
@@ -141,11 +141,6 @@ const Student = (props) => {
                   <Route path="/Class Room" element={<StudenClasses />}>
                     <Route path="" exact />
                     <Route path=":generation_id" element={<StudenClasses />} />
-
-                    {/* <Route path=":id" element={<Outlet />}>
-                      <Route path="" element={<ClassesData />} />
-                      <Route path="quiz/:courseId" element={<Quiz />} />
-                    </Route> */}
                   </Route>
                   <Route
                     path="/Subject Data/:subject_id/:SubjectName?"

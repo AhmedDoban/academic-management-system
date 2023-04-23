@@ -7,7 +7,6 @@ import axios from "axios";
 import LodingFeachData from "../../components/Loding Feach Data/LodingFeachData";
 function Subjects() {
   const [TextFeild, SetTextField] = useState("");
-
   const [Doctor_id, setDoctor_id] = useState([]);
 
   const GetID = async function () {
@@ -54,7 +53,7 @@ function Subjects() {
     };
     fetchData();
   }, [url, Doctor_id]);
-  console.log(Classes);
+
   return (
     <React.Fragment>
       <Mountain>

@@ -41,6 +41,11 @@
   font-weight: bold;
   font-size: 40px;
 }
+@media (max-width: 776px) {
+  .mountain .data h1 {
+    font-size: 30px;
+  }
+}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # mountain card
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -74,7 +79,23 @@
   border: 0;
   color: var(--offwihte);
 }
-
+.mountain .card .btn-box {
+  position: relative;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--blue-color);
+  background-color: transparent;
+  color: #fff;
+  padding: 5px 8px;
+  cursor: pointer;
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
+}
+.mountain .card .btn-box:hover {
+  background-color: var(--blue-alt-color);
+}
 .mountain .card i {
   position: relative;
   min-width: 25px;

@@ -27,6 +27,7 @@ const JoinRoom = lazy(() => import("../components/video call/VideoCall"));
 const SubjectData = lazy(() => import("./Class/SubjectData"));
 const Subjects = lazy(() => import("./Class/Subjects"));
 const Exams = lazy(() => import("./Class/Exams/Exams"));
+const NewExam = lazy(() => import("./Class/Exams/NewExam"));
 
 // library page
 const Library = lazy(() => import("../components/Library/Library"));
@@ -93,7 +94,13 @@ const Instructor = (props) => {
                     <Route path="" element={<Subjects />} />
                     <Route path=":SubjectID/:SubjectName?" element={<Outlet />}>
                       <Route path="" element={<SubjectData />} />
-                      <Route path="Exams" element={<Exams />} />
+                      <Route
+                        path="Exams/:Examsid/:SubjectName?"
+                        element={<Outlet />}
+                      >
+                        <Route path="" element={<Exams />} />
+                        <Route path="CreateExam" element={<NewExam />} />
+                      </Route>
                       {/********** Call Page ***********/}
                       <Route path="video call/:id" element={<JoinRoom />} />
                     </Route>

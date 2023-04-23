@@ -5,7 +5,6 @@ import Mountain from "../../components/Mountain Template/Mountain";
 import "./Class.css";
 function SubjectData() {
   const params = useParams("");
-
   return (
     <React.Fragment>
       <Mountain>
@@ -21,7 +20,7 @@ function SubjectData() {
             data-aos="zoom-in"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
-            to={`Exams`}
+            to={`Exams/${params.SubjectID}/${params.SubjectName}?`}
           >
             <h1>Exam</h1>
             <Player
