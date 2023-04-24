@@ -5,7 +5,7 @@ import Mountain from "../../../../components/Mountain Template/Mountain";
 import "./SubjectData.css";
 function SubjectData() {
   const params = useParams("");
-  
+
   return (
     <React.Fragment>
       <Mountain>
@@ -32,12 +32,13 @@ function SubjectData() {
               style={{ width: "150px", height: "150px" }}
             ></Player>
           </Link>
-          {/***************** Tasks  **********************/}
+          {/***************** Add New Viedo  **********************/}
           <Link
             className="card"
             data-aos="zoom-in"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
+            to={`NewVideo/${params.subject_id}/${params.SubjectName}?`}
           >
             <h1>Add New Viedo</h1>
             <Player

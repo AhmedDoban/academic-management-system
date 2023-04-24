@@ -31,6 +31,7 @@ const NewExam = lazy(() => import("./Class/Exams/NewExam"));
 const EditExam = lazy(() => import("./Class/Exams/EditExam"));
 const AddNewQu = lazy(() => import("./Class/Exams/EditExam/AddNewQu"));
 const Viedos = lazy(() => import("../components/videos/Videos"));
+const NewVideo = lazy(() => import("./Class/New Video/NewVideo"));
 
 // library page
 const Library = lazy(() => import("../components/Library/Library"));
@@ -114,6 +115,12 @@ const Instructor = (props) => {
                           <Route path="addQu" element={<AddNewQu />} />
                         </Route>
                       </Route>
+                      {/********** New Videos Page ***********/}
+                      <Route
+                        path="NewVideo/:subject_id/:SubjectName?"
+                        element={<NewVideo />}
+                      />
+                      {/********** Videos Page ***********/}
                       <Route
                         path="Videos/:id"
                         element={

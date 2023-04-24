@@ -1,0 +1,82 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../../css/root.css");
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# New Video
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.NewVideo {
+  position: relative;
+  width: 100%;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.NewVideo .container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.NewVideo .container .input-card {
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
+  box-shadow: 1px 2px 5px 5px var(--white-color);
+}
+.NewVideo .container .input-card input,
+.NewVideo .container .input-card textarea {
+  position: relative;
+  width: 100%;
+  background-color: var(--white-color);
+  border: 0;
+  padding: 8px 14px;
+  transition: var(--main-transition);
+  cursor: pointer;
+  color: var(--black-color);
+  font-size: 15px;
+  border-radius: var(--main-border-radius);
+}
+.NewVideo .container .input-card textarea {
+  resize: none;
+  width: 100%;
+}
+.NewVideo .container .input-card input[type="text"] ~ label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 12px;
+  z-index: 1;
+  padding: 5px;
+  color: var(--black-color);
+  transition: var(--main-transition);
+  border-radius: var(--main-border-radius);
+  font-size: 18px;
+}
+.NewVideo .container .input-card input[type="text"]:focus ~ label,
+.NewVideo
+  .container
+  .input-card
+  input[type="text"]:not(:placeholder-shown)
+  ~ label {
+  top: 0;
+  color: var(--blue-color);
+  font-weight: bold;
+}
+.NewVideo .container .input-card button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  width: 100%;
+  color: var(--blue-color);
+  padding: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
