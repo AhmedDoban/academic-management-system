@@ -19,7 +19,7 @@ function Exams() {
 
   const [Exams, SetExams] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(params)
+ 
   const url =
     "https://camp-coding.tech/fci_project/graduation/doctor/select_exam.php";
 

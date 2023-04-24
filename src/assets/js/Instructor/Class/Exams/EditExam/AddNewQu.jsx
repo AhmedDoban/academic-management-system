@@ -5,7 +5,6 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "../Exams.css";
-import Select from "react-select";
 
 function AddNewQu() {
   const params = useParams("");
@@ -13,13 +12,29 @@ function AddNewQu() {
   const [question_answers, SetQuestionAnswers] = useState([]);
   const [question_answersField, Setquestion_answersField] = useState("");
   const [question_valid_answer, Setquestion_valid_answer] = useState("");
+  const [Answers, SetAnswers] = useState("");
+
+  useEffect(() => {}, [question_answers, Answers]);
 
   const AddAnswer = () => {
     if (question_answersField !== "") {
-      SetQuestionAnswers([...question_answers, question_answersField]);
+      if (!Answers.includes(question_answersField)) {
+        SetQuestionAnswers([
+          ...question_answers,
+          question_answersField,
+          "//CAMP//",
+        ]);
+
+        SetAnswers(
+          [...question_answers, ...question_answersField]
+            .join("")
+            .split("//CAMP//")
+        );
+      }
       Setquestion_answersField("");
     }
   };
+
   const HandleQuestionValidAnswer = (event) => {
     Setquestion_valid_answer(event.target.value);
   };
@@ -30,7 +45,7 @@ function AddNewQu() {
           "https://camp-coding.tech/fci_project/graduation/doctor/add_ques.php",
           {
             question_text: question_text,
-            question_answers: question_answers,
+            question_answers: question_answers.join(""),
             question_valid_answer: question_valid_answer,
             question_exam_quiz_id: params.exam_id,
             image: null,
@@ -43,7 +58,6 @@ function AddNewQu() {
           }
         )
         .then((response) => {
-          console.log(response.data);
           if (response.data.status === "success") {
             toast.success(response.data.message, {
               position: "top-right",
@@ -59,6 +73,7 @@ function AddNewQu() {
             SetQuestionAnswers([]);
             Setquestion_answersField("");
             Setquestion_valid_answer("");
+            SetAnswers("");
           }
         });
     } catch (error) {
@@ -137,15 +152,11 @@ function AddNewQu() {
                         Chose an Answer
                       </option>
 
-                      {question_answers
-                        .filter(
-                          (p, index) => question_answers.indexOf(p) === index
-                        )
-                        .map((p, index) => (
-                          <option value={p} key={index}>
-                            {p}
-                          </option>
-                        ))}
+                      {Answers.map((p, index) => (
+                        <option value={p} key={index}>
+                          {p}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </React.Fragment>
@@ -163,6 +174,7 @@ function AddNewQu() {
           ) : null}
         </div>
       </div>
+      <ToastContainer />
     </React.Fragment>
   );
 }

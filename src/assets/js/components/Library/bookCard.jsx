@@ -6,7 +6,7 @@ function BookCard(props) {
   return (
     <React.Fragment>
       <div className="books">
-        {props.bookData.length < 0 ? (
+        {props.bookData.length > 0 ? (
           <div
             className="container"
             data-aos="fade-down"
