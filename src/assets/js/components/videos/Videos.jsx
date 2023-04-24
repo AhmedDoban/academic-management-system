@@ -2,29 +2,19 @@ import React, { useState, useEffect } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Mountain from "../../../components/Mountain Template/Mountain";
+import Mountain from "../Mountain Template/Mountain";
 import "./Videos.css";
-import Dots from "../../../components/Dots/Dots";
+import Dots from "../Dots/Dots";
 
-function Viedos() {
+function Viedos(props) {
   const params = useParams();
-  const [student_id, setStudent_id] = useState([]);
   const [Video, SetVideo] = useState([]);
   const [VideoSRC, SetVideoSRC] = useState("");
-  const GetID = async function () {
-    try {
-      const response = await JSON.parse(localStorage.getItem("User"));
-      setStudent_id(response.student_id);
-    } catch (error) {
-      throw error;
-    }
-  };
-  const url =
-    "http://camp-coding.tech/fci_project/graduation/select_videos.php";
+
+  const url = props.url;
 
   useEffect(() => {
     const fetchData = async function () {
-      GetID();
       try {
         await axios
           .post(
@@ -47,8 +37,7 @@ function Viedos() {
       }
     };
     fetchData();
-  }, [url, student_id]);
-
+  }, [url]);
 
   return (
     <React.Fragment>
@@ -75,7 +64,10 @@ function Viedos() {
                   </div>
                   <ul>
                     {Video.map((video) => (
-                      <li onClick={() => SetVideoSRC(video.video_link)}>
+                      <li
+                        onClick={() => SetVideoSRC(video.video_link)}
+                        key={video.video_id}
+                      >
                         {video.video_title}
                         <span>{video.video_date}</span>
                       </li>

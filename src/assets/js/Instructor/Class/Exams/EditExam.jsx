@@ -4,13 +4,13 @@ import Mountain from "../../../components/Mountain Template/Mountain";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Link, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-
 import "./Exams.css";
+
 function EditExam() {
   const params = useParams("");
   const [file_attachment, Setfile_attachment] = useState(null);
   const [progress, setProgress] = useState();
-
+  console.log(params)
   const HandleUploadPDF = async (e) => {
     e.preventDefault();
     let formData = new FormData();
@@ -73,10 +73,7 @@ function EditExam() {
             ></Player>
             <p>Edit exam</p>
           </Link>
-          <Link
-            className="editExam-card"
-            // to={`EditExam/${Exam.exam_id}/${Exam.exam_name}?`}
-          >
+          <Link className="editExam-card" to={`addQu`}>
             <Player
               autoplay={true}
               loop={true}

@@ -14,6 +14,11 @@
   color: var(--black-color);
   margin: 10px auto;
 }
+.Loding-feachData .player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .Loding-feachData span {
   position: relative;
   width: 250px;
@@ -27,8 +32,8 @@
   background: linear-gradient(
     163deg,
     rgba(2, 0, 36, 1) 0%,
-    rgba(121, 9, 9, 1) 40%,
-    rgba(0, 212, 255, 1) 100%
+    rgb(156, 150, 150) 40%,
+    rgb(0, 51, 255) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -38,7 +43,7 @@
   content: "";
   width: 100%;
   height: 100%;
-  border: 5px solid rgb(9, 106, 121);
+  border: 5px solid var(--black-color);
   border-top-color: transparent;
   border-radius: 50%;
   animation: rotate 3s ease-in-out infinite;

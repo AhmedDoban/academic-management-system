@@ -14,6 +14,7 @@ const SideBar = ({ children, SetLogedOn }) => {
         setActive("fa-solid fa-bars");
       }
     }
+    return () => {};
   });
 
   const open = useCallback(
@@ -23,6 +24,7 @@ const SideBar = ({ children, SetLogedOn }) => {
       sidebar.current.classList.contains("open")
         ? setActive("fa-solid fa-xmark")
         : setActive("fa-solid fa-bars");
+      return () => {};
     },
     [sidebar]
   );

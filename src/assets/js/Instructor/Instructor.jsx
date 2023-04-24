@@ -24,11 +24,13 @@ const HomePage = lazy(() => import("../components/Home Page/HomePage"));
 // Class Room page
 const Class = lazy(() => import("./Class/Class"));
 const JoinRoom = lazy(() => import("../components/video call/VideoCall"));
-const SubjectData = lazy(() => import("./Class/SubjectData"));
+const SubjectData = lazy(() => import("./Class/Exams/SubjectData/SubjectData"));
 const Subjects = lazy(() => import("./Class/Subjects"));
 const Exams = lazy(() => import("./Class/Exams/Exams"));
 const NewExam = lazy(() => import("./Class/Exams/NewExam"));
 const EditExam = lazy(() => import("./Class/Exams/EditExam"));
+const AddNewQu = lazy(() => import("./Class/Exams/EditExam/AddNewQu"));
+const Viedos = lazy(() => import("../components/videos/Videos"));
 
 // library page
 const Library = lazy(() => import("../components/Library/Library"));
@@ -93,10 +95,13 @@ const Instructor = (props) => {
                   {/********** subjects Page ***********/}
                   <Route path="/subjects" element={<Outlet />}>
                     <Route path="" element={<Subjects />} />
-                    <Route path=":SubjectID/:SubjectName?" element={<Outlet />}>
+                    <Route
+                      path=":subject_id/:SubjectName?"
+                      element={<Outlet />}
+                    >
                       <Route path="" element={<SubjectData />} />
                       <Route
-                        path="Exams/:Examsid/:SubjectName?"
+                        path="Exams/:subject_id/:SubjectName?"
                         element={<Outlet />}
                       >
                         <Route path="" element={<Exams />} />
@@ -106,8 +111,15 @@ const Instructor = (props) => {
                           element={<Outlet />}
                         >
                           <Route path="" element={<EditExam />} />
+                          <Route path="addQu" element={<AddNewQu />} />
                         </Route>
                       </Route>
+                      <Route
+                        path="Videos/:id"
+                        element={
+                          <Viedos url="https://camp-coding.tech/fci_project/graduation/doctor/select_videos.php" />
+                        }
+                      />
                       {/********** Call Page ***********/}
                       <Route path="video call/:id" element={<JoinRoom />} />
                     </Route>

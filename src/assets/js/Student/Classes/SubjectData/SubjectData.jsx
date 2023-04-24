@@ -1,10 +1,12 @@
 import React from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Link, useParams } from "react-router-dom";
-import Mountain from "../../components/Mountain Template/Mountain";
-import "./Class.css";
+import Mountain from "../../../components/Mountain Template/Mountain";
+import "./SubjectData.css";
+
 function SubjectData() {
   const params = useParams("");
+
   return (
     <React.Fragment>
       <Mountain>
@@ -20,7 +22,7 @@ function SubjectData() {
             data-aos="zoom-in"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
-            to={`Exams/${params.SubjectID}/${params.SubjectName}?`}
+            to={`Exam/${params.subject_id}`}
           >
             <h1>Exam</h1>
             <Player
@@ -31,28 +33,14 @@ function SubjectData() {
               style={{ width: "150px", height: "150px" }}
             ></Player>
           </Link>
-          {/***************** Tasks  **********************/}
-          <Link
-            className="card"
-            data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-          >
-            <h1>Tasks</h1>
-            <Player
-              autoplay={true}
-              loop={true}
-              controls={false}
-              src="https://assets4.lottiefiles.com/packages/lf20_tFYxgv.json"
-              style={{ width: "150px", height: "150px" }}
-            ></Player>
-          </Link>
+
           {/***************** Videos  **********************/}
           <Link
             className="card"
             data-aos="zoom-in"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
+            to={`Videos/${params.subject_id}`}
           >
             <h1>Videos</h1>
             <Player
@@ -69,6 +57,7 @@ function SubjectData() {
             data-aos="zoom-in"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
+            to={`Summary/${params.subject_id}`}
           >
             <h1>Summary </h1>
             <Player
@@ -82,10 +71,10 @@ function SubjectData() {
           {/***************** call Room  **********************/}
           <Link
             className="card"
-            to={`video call/${params.SubjectName}`}
             data-aos="zoom-in"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
+            to={`video call/${params.SubjectName}`}
           >
             <h1>Call Room </h1>
             <Player
@@ -102,6 +91,7 @@ function SubjectData() {
             data-aos="zoom-in"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
+            to={`Chat/${params.SubjectName}`}
           >
             <h1>Chat </h1>
             <Player
@@ -112,12 +102,30 @@ function SubjectData() {
               style={{ width: "150px", height: "150px" }}
             ></Player>
           </Link>
+          {/***************** Notification  **********************/}
+          <Link
+            className="card"
+            data-aos="zoom-in"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1000"
+            to={`Notifications/${params.subject_id}`}
+          >
+            <h1>Notification</h1>
+            <Player
+              autoplay={true}
+              loop={true}
+              controls={false}
+              src="https://assets9.lottiefiles.com/packages/lf20_22votfwd.json"
+              style={{ width: "150px", height: "150px" }}
+            ></Player>
+          </Link>
           {/***************** inquiries  **********************/}
           <Link
             className="card"
             data-aos="zoom-in"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
+            to={`Inquiries/${params.subject_id}`}
           >
             <h1>Inquiries</h1>
             <Player

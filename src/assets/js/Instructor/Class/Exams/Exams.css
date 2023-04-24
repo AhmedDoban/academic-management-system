@@ -5,6 +5,7 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # exams
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.addQu,
 .editExam,
 .exams {
   position: relative;
@@ -249,4 +250,100 @@
   left: 0;
   background-color: var(--blue-color);
   height: 100%;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# addQu
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.addQu .input-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  background-color: transparent;
+  margin-bottom: 50px;
+  border-top: 0;
+}
+.addQu .input-field input {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  border-bottom: 1px solid var(--black-color);
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--black-color);
+}
+.addQu .input-field input ~ label {
+  position: absolute;
+  top: 10%;
+  left: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  color: var(--black-color);
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.addQu .input-field input:not(:placeholder-shown) ~ label,
+.addQu .input-field input:focus ~ label {
+  top: -20px;
+  color: var(--blue-color);
+}
+.addQu .input-field input:focus {
+  border-color: var(--blue-color);
+}
+.addQu .input-field .addQuBtn {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  min-width: 40px;
+  height: 40px;
+  border: 1px solid var(--green-color);
+  background-color: transparent;
+  transition: var(--main-transition);
+  border-radius: 50%;
+}
+.addQu .input-field .addQuBtn:hover {
+  background-color: var(--green-color);
+  color: var(--white-color);
+}
+.addQu .input-field select {
+  width: 100%;
+  border: 0;
+  background-color: var(--white-color);
+  padding: 5px 8px;
+  box-shadow: none;
+  color: var(--black-color);
+  cursor: pointer;
+}
+.addQu .input-field select:focus {
+  box-shadow: none;
+  outline: none;
+  border: none;
+}
+.addQu .input-field select option {
+  background-color: var(--white-color);
+  color: var(--black-color);
+}
+.addQu .input-field label {
+  color: var(--black-color);
+  transition: var(--black-color);
+  width: 100%;
+}
+.addQu .input-field .SubmitBun {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white-color);
+  width: 100%;
+  padding: 8px 8px;
+  border: 0;
+  cursor: pointer;
+  color: var(--black-color);
+  transition: var(--main-transition);
+}
+.addQu .input-field .SubmitBun:hover {
+  background-color: var(--blue-color);
 }

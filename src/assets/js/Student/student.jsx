@@ -16,12 +16,11 @@ const HomePage = lazy(() => import("../components/Home Page/HomePage"));
 
 // Class Room page
 const StudenClasses = lazy(() => import("./Classes/StudenClasses"));
-const ClassesData = lazy(() => import("./Classes/ClassesData"));
 const Quiz = lazy(() => import("./Quiz/Quiz"));
-const SubjectData = lazy(() => import("./Classes/SubjectData"));
+const SubjectData = lazy(() => import("./Classes/SubjectData/SubjectData"));
 const Exam = lazy(() => import("./Classes/Exams/Exam"));
 const JoinRoom = lazy(() => import("../components/video call/VideoCall"));
-const Viedos = lazy(() => import("./Classes/videos/Videos"));
+const Viedos = lazy(() => import("../components/videos/Videos"));
 const Summary = lazy(() => import("./Classes/Summary/Summary"));
 const SubjectNotification = lazy(() =>
   import("./Classes/SubjectNotification/SubjectNotification")
@@ -54,8 +53,6 @@ const SettingPage = lazy(() => import("./Setting/SettingPage"));
 
 // Student Call page
 const Call = lazy(() => import("../components/Call Room/CallRoom"));
-// Student Tasks page
-const Tasks = lazy(() => import("./Tasks/Tasks"));
 
 // notfound page
 const NotFounded = lazy(() => import("../components/Not Founded/NotFounded"));
@@ -111,12 +108,6 @@ const Student = (props) => {
               <span>Notes</span>
             </NavLink>
           </li>
-          <li>
-            <NavLink to="Tasks" onClick={open}>
-              <i className="fa-solid fa-diagram-project fa-fw"></i>
-              <span>Tasks</span>
-            </NavLink>
-          </li>
         </SideBar>
         <div className="content">
           <div className="pagewrapper display-flex gap-10">
@@ -152,7 +143,12 @@ const Student = (props) => {
                       <Route path="" element={<Exam />} />
                       <Route path=":Exam_id" element={<ExamPage />} />
                     </Route>
-                    <Route path="Videos/:id" element={<Viedos />} />
+                    <Route
+                      path="Videos/:id"
+                      element={
+                        <Viedos url="http://camp-coding.tech/fci_project/graduation/select_videos.php" />
+                      }
+                    />
                     <Route path="Summary/:id" element={<Summary />} />
                     <Route path="Chat/:id" element={<Chat />} />
                     <Route
@@ -188,8 +184,6 @@ const Student = (props) => {
                   </Route>
                   {/********** Friends Page ***********/}
                   <Route path="/Call" element={<Call />} />
-                  {/********** projects Page ***********/}
-                  <Route path="/Tasks" element={<Tasks />} />
                   {/********** Home Page ***********/}
                   <Route exact path="/" element={<HomePage />} />
                   {/********** Not Founded Page ***********/}

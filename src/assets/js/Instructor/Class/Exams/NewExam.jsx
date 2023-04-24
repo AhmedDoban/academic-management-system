@@ -14,7 +14,7 @@ function NewExam() {
     exam_date: "",
     exam_start: "",
     exam_end: "",
-    subject_id: params.SubjectID,
+    subject_id: params.subject_id,
   });
 
   const ChangeHandler = (e) => {
@@ -35,7 +35,6 @@ function NewExam() {
           }
         )
         .then((response) => {
-          console.log(response.data);
           if (response.data.status === "success") {
             toast.success(response.data.message, {
               position: "top-right",
@@ -55,8 +54,6 @@ function NewExam() {
     }
   };
 
-  console.log(DataForm);
-
   return (
     <React.Fragment>
       <Mountain>
@@ -72,7 +69,6 @@ function NewExam() {
               type="text"
               id="ExamName"
               name="exam_name"
-              value={DataForm.exam_name}
               onChange={ChangeHandler}
               placeholder=" "
             />
@@ -90,11 +86,11 @@ function NewExam() {
               type="range"
               name="exam_time"
               id="ExamTime"
-              value={DataForm.exam_time}
               onChange={ChangeHandler}
               min="1"
               max="5"
               step=".5"
+              value={DataForm.exam_time}
             />
           </div>
           {/* ******************** > Exam Date ********************/}
@@ -105,7 +101,6 @@ function NewExam() {
             <input
               type="date"
               name="exam_date"
-              value={DataForm.exam_date}
               id="ExamDate"
               onChange={ChangeHandler}
             />
@@ -117,7 +112,6 @@ function NewExam() {
             </label>
             <input
               type="time"
-              value={DataForm.exam_start}
               id="ExamStart"
               name="exam_start"
               onChange={ChangeHandler}
@@ -132,7 +126,6 @@ function NewExam() {
               type="time"
               onChange={ChangeHandler}
               id="ExamEnd"
-              value={DataForm.exam_end}
               name="exam_end"
             />
           </div>

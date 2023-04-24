@@ -19,7 +19,7 @@ function Exams() {
 
   const [Exams, SetExams] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  console.log(params)
   const url =
     "https://camp-coding.tech/fci_project/graduation/doctor/select_exam.php";
 
@@ -31,7 +31,7 @@ function Exams() {
         await axios
           .post(
             url,
-            { doctor_id: Doctor_id, subject_id: params.SubjectID },
+            { doctor_id: Doctor_id, subject_id: params.subject_id },
             {
               headers: {
                 Accept: "application/json",
@@ -52,16 +52,16 @@ function Exams() {
     };
     fetchData();
   }, [url, Doctor_id]);
-  console.log(Exams);
 
-  const compareDates = (date) => {
-    let nowdate = new Date().getTime();
-    let date2 = new Date(date).getTime();
+  const compareDates = (date, time) => {
+    const fullTime = date.toString() + " " + time.toString();
+    const givenDate = new Date(fullTime);
+    const currentDate = new Date();
 
-    if (nowdate > date2) {
-      return -1;
-    } else if (nowdate < date2) {
+    if (givenDate.getTime() >= currentDate.getTime()) {
       return 1;
+    } else if (givenDate.getTime() < currentDate.getTime()) {
+      return -1;
     } else {
       return 0;
     }
@@ -106,7 +106,7 @@ function Exams() {
                 ></Player>
                 <p className="examName">{Exam.exam_name}</p>
                 <p className="status">
-                  {compareDates(Exam.exam_date) > 0 ? (
+                  {compareDates(Exam.exam_date, Exam.exam_end_time) >= 0 ? (
                     <span>
                       <i className="fa-solid fa-circle RunningExam"></i>
                       Exam is Running now
@@ -115,6 +115,7 @@ function Exams() {
                     <span>
                       <i className="fa-solid fa-circle endedExam"></i>
                       Exam is ended
+                      {Exam.exam_date}
                     </span>
                   )}
                 </p>

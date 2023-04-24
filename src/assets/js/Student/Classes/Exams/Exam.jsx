@@ -18,7 +18,7 @@ function Exam() {
   };
 
   const url = "http://camp-coding.tech/fci_project/graduation/select_exam.php";
-
+  
   useEffect(() => {
     const fetchData = async function () {
       GetID();

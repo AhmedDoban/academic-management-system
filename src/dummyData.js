@@ -61,43 +61,6 @@ export const Users = [
   },
 ];
 
-export const CourcesDB = [
-  {
-    id: "html",
-    CourcesName: "HTML",
-    photo: require("./assets/img/Courses/html.png"),
-    teacher: require("./assets/img/avatars/team-1.jpg"),
-    CourcesTeacher: "ALi Esmaiel",
-  },
-  {
-    id: "css",
-    CourcesName: "CSS",
-    photo: require("./assets/img/Courses/css.png"),
-    teacher: require("./assets/img/avatars/team-2.jpg"),
-    CourcesTeacher: "ALi Esmaiel",
-  },
-  {
-    id: "php",
-    CourcesName: "PHP",
-    photo: require("./assets/img/Courses/php.png"),
-    teacher: require("./assets/img/avatars/team-3.jpg"),
-    CourcesTeacher: "ALi Esmaiel",
-  },
-  {
-    id: "myphp",
-    CourcesName: "my PHP",
-    photo: require("./assets/img/Courses/php.png"),
-    teacher: require("./assets/img/avatars/team-4.jpg"),
-    CourcesTeacher: "ALi Esmaiel",
-  },
-  {
-    id: "Laravel",
-    CourcesName: "laravel",
-    photo: require("./assets/img/Courses/html.png"),
-    teacher: require("./assets/img/avatars/team-1.jpg"),
-    CourcesTeacher: "ALi Esmaiel",
-  },
-];
 export const Questions = [
   {
     id: 1,

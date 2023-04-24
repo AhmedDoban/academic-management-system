@@ -6,14 +6,14 @@ function BookCard(props) {
   return (
     <React.Fragment>
       <div className="books">
-        <div
-          className="container"
-          data-aos="fade-down"
-          data-aos-easing="ease-in-out"
-          data-aos-duration="1000"
-        >
-          {props.bookData.length > 0 ? (
-            props.bookData.map((p) => {
+        {props.bookData.length < 0 ? (
+          <div
+            className="container"
+            data-aos="fade-down"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1000"
+          >
+            {props.bookData.map((p) => {
               if (
                 p.volumeInfo.imageLinks &&
                 p.volumeInfo.imageLinks.smallThumbnail !== undefined &&
@@ -47,11 +47,11 @@ function BookCard(props) {
                   </>
                 );
               }
-            })
-          ) : (
-            <LodingFeachData />
-          )}
-        </div>
+            })}
+          </div>
+        ) : (
+          <LodingFeachData />
+        )}
       </div>
     </React.Fragment>
   );
