@@ -1,7 +1,6 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useParams, useNavigate } from "react-router-dom";
-import Mountain from "../../../components/Mountain Template/Mountain";
 import "./NewVideo.css";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -66,11 +65,6 @@ function NewVideo() {
 
   return (
     <React.Fragment>
-      <Mountain>
-        <div className="data">
-          <h1>{params.SubjectName}</h1>
-        </div>
-      </Mountain>
       <div className="NewVideo">
         <div className="container">
           {/********************************** Video Title *******************************/}

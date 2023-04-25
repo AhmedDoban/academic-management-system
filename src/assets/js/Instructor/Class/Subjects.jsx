@@ -58,7 +58,7 @@ function Subjects() {
     <React.Fragment>
       <Mountain>
         <div className="data">
-          <h1> Class Room</h1>
+          <h1> Subjects </h1>
           <div className="card">
             <Player
               autoplay={true}

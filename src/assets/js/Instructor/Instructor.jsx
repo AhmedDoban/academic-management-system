@@ -24,14 +24,14 @@ const HomePage = lazy(() => import("../components/Home Page/HomePage"));
 // Class Room page
 const Class = lazy(() => import("./Class/Class"));
 const JoinRoom = lazy(() => import("../components/video call/VideoCall"));
-const SubjectData = lazy(() => import("./Class/Exams/SubjectData/SubjectData"));
+const SubjectData = lazy(() => import("./Class/SubjectData/SubjectData"));
 const Subjects = lazy(() => import("./Class/Subjects"));
 const Exams = lazy(() => import("./Class/Exams/Exams"));
 const NewExam = lazy(() => import("./Class/Exams/NewExam"));
 const EditExam = lazy(() => import("./Class/Exams/EditExam"));
 const AddNewQu = lazy(() => import("./Class/Exams/EditExam/AddNewQu"));
 const Viedos = lazy(() => import("../components/videos/Videos"));
-const NewVideo = lazy(() => import("./Class/New Video/NewVideo"));
+const VideoCenter = lazy(() => import("./Class/Vedio Center/VideoCenter"));
 
 // library page
 const Library = lazy(() => import("../components/Library/Library"));
@@ -117,9 +117,15 @@ const Instructor = (props) => {
                       </Route>
                       {/********** New Videos Page ***********/}
                       <Route
-                        path="NewVideo/:subject_id/:SubjectName?"
-                        element={<NewVideo />}
-                      />
+                        path="VideoCenter/:subject_id/:SubjectName?"
+                        element={<VideoCenter />}
+                      >
+                        <Route path="" exact />
+                        <Route path="DeleteVideo" />
+                        <Route path="EditVideo" />
+                        <Route path="showVideo" />
+                        <Route path="*" render={() => <Navigate to="/" />} />
+                      </Route>
                       {/********** Videos Page ***********/}
                       <Route
                         path="Videos/:id"

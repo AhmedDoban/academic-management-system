@@ -1,7 +1,7 @@
 import React from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Link, useParams } from "react-router-dom";
-import Mountain from "../../../../components/Mountain Template/Mountain";
+import Mountain from "../../../components/Mountain Template/Mountain";
 import "./SubjectData.css";
 function SubjectData() {
   const params = useParams("");
@@ -32,22 +32,21 @@ function SubjectData() {
               style={{ width: "150px", height: "150px" }}
             ></Player>
           </Link>
-          {/***************** Add New Viedo  **********************/}
+          {/***************** Video Center  **********************/}
           <Link
             className="card"
             data-aos="zoom-in"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
-            to={`NewVideo/${params.subject_id}/${params.SubjectName}?`}
+            to={`VideoCenter/${params.subject_id}/${params.SubjectName}?`}
           >
-            <h1>Add New Viedo</h1>
+            <h1>Video Center</h1>
             <Player
               autoplay={true}
               loop={true}
               controls={false}
               src="https://assets4.lottiefiles.com/packages/lf20_tFYxgv.json"
               style={{ width: "150px", height: "150px" }}
-              to={`videoNew/${params.subject_id}/${params.SubjectName}?`}
             ></Player>
           </Link>
           {/***************** Videos  **********************/}
