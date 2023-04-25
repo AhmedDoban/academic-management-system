@@ -4,25 +4,14 @@ import Blobs from "./../../../components/Blobs/Blobs";
 import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
-import { Player } from "@lottiefiles/react-lottie-player";
+import GetUser from "./GetUser";
 
 function Chat() {
   const params = useParams();
   const [Chat, SetChat] = useState([]);
-  const [student_id, setStudent_id] = useState([]);
-  const GetID = async function () {
-    try {
-      const response = await JSON.parse(localStorage.getItem("User"));
-      setStudent_id(response.student_id);
-    } catch (error) {
-      throw error;
-    }
-  };
-
   const [TextFeild, SetTextField] = useState("");
 
   const fetchData = async function () {
-    GetID();
     try {
       await axios
         .post(
@@ -44,6 +33,7 @@ function Chat() {
       throw error;
     }
   };
+
   const HandleTextFeild = useCallback(async () => {
     if (TextFeild !== "") {
       try {
@@ -64,6 +54,7 @@ function Chat() {
           .then((response) => {
             if (response.data.status === "success") {
               fetchData();
+              SetTextField("");
             }
           });
       } catch (error) {
@@ -88,7 +79,7 @@ function Chat() {
 
   useEffect(() => {
     fetchData();
-  }, [url, student_id, params.subject_id]);
+  }, [url, params.subject_id]);
 
   return (
     <React.Fragment>
@@ -96,8 +87,13 @@ function Chat() {
       <div className="Chat">
         <div className="messages">
           {Chat.map((message) => (
-            <div className="messages-data">
-              <h1>{message.message}</h1>
+            <div className="messages-data" key={Chat.chat_id}>
+              <h1>
+                {message.message}
+                <p>
+                  <GetUser student_id={message.student_id} />
+                </p>
+              </h1>
             </div>
           ))}
         </div>
