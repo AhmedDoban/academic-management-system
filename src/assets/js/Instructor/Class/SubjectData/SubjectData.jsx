@@ -72,8 +72,9 @@ function SubjectData() {
             data-aos="zoom-in"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
+            to={`SammaryCenter/${params.subject_id}/${params.SubjectName}?`}
           >
-            <h1>Summary </h1>
+            <h1>Summary Center</h1>
             <Player
               autoplay={true}
               loop={true}

@@ -270,8 +270,24 @@ html {
 # swal2-popup
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .swal2-popup {
-  background-color: var(--drak-color-style) !important;
+  background-color: var(--white-color) !important;
+  transition: var(--main-transition) !important;
+  border-radius: var(--main-border-radius) !important;
 }
+.swal2-popup .swal2-title {
+  color: var(--black-color) !important;
+  font-size: 18px !important;
+}
+.swal2-actions button {
+  border-radius: 50% !important;
+  width: 50px !important;
+  height: 50px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+}
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Box Styles
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/

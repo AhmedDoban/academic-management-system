@@ -42,7 +42,8 @@ function DeleteVideo() {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes",
+      confirmButtonText: '<i class="fa-solid fa-check"></i>',
+      cancelButtonText: '<i class="fas fa-times"></i>',
     }).then((result) => {
       if (result.isConfirmed) {
         try {

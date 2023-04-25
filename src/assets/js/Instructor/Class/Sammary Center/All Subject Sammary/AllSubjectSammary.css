@@ -1,0 +1,72 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../../../css/root.css");
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# allSubjectSammary
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.allSubjectSammary {
+  position: relative;
+  width: 100%;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.allSubjectSammary .container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.allSubjectSammary .card {
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
+  box-shadow: 1px 2px 5px 5px var(--white-color);
+}
+.allSubjectSammary .card .data {
+  position: relative;
+  width: 100%;
+  background-color: var(--white-color);
+  border: 0;
+  padding: 8px 14px;
+  transition: var(--main-transition);
+  cursor: pointer;
+  color: var(--black-color);
+  font-size: 15px;
+  border-radius: var(--main-border-radius);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.allSubjectSammary .card .data h1 {
+  color: var(--black-color);
+  transition: var(--main-transition);
+  font-size: 14px;
+}
+.allSubjectSammary .card .data .PDFPLAyer {
+  width: 30px;
+  height: 30px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# allSubjectSammary
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.No_Summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.No_Summary .No_SummaryPlayer {
+  width: 350px;
+  height: 350px;
+}
+.No_Summary p {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}

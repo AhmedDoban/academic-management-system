@@ -28,13 +28,13 @@ function VideoCenter() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="DeleteVideo">Delete Video</NavLink>
+                <NavLink to="DeleteVideo">Delete</NavLink>
               </li>
               <li>
-                <NavLink to="EditVideo">Edit Video</NavLink>
+                <NavLink to="EditVideo">Edit</NavLink>
               </li>
               <li>
-                <NavLink to="showVideo">show Video</NavLink>
+                <NavLink to="showVideo">show</NavLink>
               </li>
             </ul>
           </div>

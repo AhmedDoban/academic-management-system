@@ -18,6 +18,7 @@ import {
 
 import SideBar from "../components/SideBar/SideBar";
 
+
 // home page
 const HomePage = lazy(() => import("../components/Home Page/HomePage"));
 
@@ -32,6 +33,7 @@ const EditExam = lazy(() => import("./Class/Exams/EditExam"));
 const AddNewQu = lazy(() => import("./Class/Exams/EditExam/AddNewQu"));
 const Viedos = lazy(() => import("../components/videos/Videos"));
 const VideoCenter = lazy(() => import("./Class/Vedio Center/VideoCenter"));
+const SammaryCenter = lazy(() => import("./Class/Sammary Center/SammaryCenter"));
 
 // library page
 const Library = lazy(() => import("../components/Library/Library"));
@@ -115,7 +117,7 @@ const Instructor = (props) => {
                           <Route path="addQu" element={<AddNewQu />} />
                         </Route>
                       </Route>
-                      {/********** New Videos Page ***********/}
+                      {/********** Video Center Page ***********/}
                       <Route
                         path="VideoCenter/:subject_id/:SubjectName?"
                         element={<VideoCenter />}
@@ -124,6 +126,16 @@ const Instructor = (props) => {
                         <Route path="DeleteVideo" />
                         <Route path="EditVideo" />
                         <Route path="showVideo" />
+                        <Route path="*" render={() => <Navigate to="/" />} />
+                      </Route>
+                      {/********** Sammary Center Page ***********/}
+                      <Route
+                        path="SammaryCenter/:subject_id/:SubjectName?"
+                        element={<SammaryCenter />}
+                      >
+                        <Route path="" exact />
+                        <Route path="DeleteSammary" />
+                        <Route path="UploadSammary" />
                         <Route path="*" render={() => <Navigate to="/" />} />
                       </Route>
                       {/********** Videos Page ***********/}
