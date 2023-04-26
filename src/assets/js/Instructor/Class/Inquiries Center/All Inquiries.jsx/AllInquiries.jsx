@@ -44,7 +44,7 @@ function AllInquiries() {
         <div className="AllInquiries">
           <div className="container">
             {Inquiries.map((Inquirie) => (
-              <div className="card">
+              <div className="card" key={Inquirie.ask_id}>
                 <div className="data">
                   <p>{Inquirie.title} </p>
                   <span>

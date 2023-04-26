@@ -3,15 +3,28 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./AnswerInquiries.css";
-import { ToastContainer, toast } from "react-toastify";
+
+import AnswerInQuiriesInput from "./AnswerInQuiriesInput";
 
 function AnswerInquiries() {
   const params = useParams();
   const [Inquiries, SetInquiries] = useState([]);
+  const [doctor_id, setdoctor_id] = useState([]);
+
+  const GetID = async function () {
+    try {
+      const response = await JSON.parse(localStorage.getItem("User"));
+      setdoctor_id(response.doctor_id);
+    } catch (error) {
+      throw error;
+    }
+  };
+
   const url =
     "http://camp-coding.tech/fci_project/graduation/select_inquiry.php";
 
   const fetchData = async function () {
+    GetID();
     try {
       await axios
         .post(
@@ -41,14 +54,20 @@ function AnswerInquiries() {
   return (
     <React.Fragment>
       {Inquiries.length > 0 ? (
-        <div className="Inquiries">
+        <div className="AnswerInquiries">
           <div className="container">
             {Inquiries.map((Inquirie) => (
-              <div className="card">
-                <p>{Inquirie.title} </p>
-                <span>
-                  {Inquirie.answer ? Inquirie.answer : "Ther in no Answer "}
-                </span>
+              <div className="card" key={Inquirie.ask_id}>
+                <div className="data">
+                  <p>{Inquirie.title} </p>
+                  <span>{Inquirie.answer} </span>
+                </div>
+
+                <AnswerInQuiriesInput
+                  Inquirie={Inquirie}
+                  doctor_id={doctor_id}
+                  fetchData={fetchData}
+                />
               </div>
             ))}
           </div>
@@ -65,7 +84,6 @@ function AnswerInquiries() {
           <p>There is No Inquiries </p>
         </div>
       )}
-      <ToastContainer />
     </React.Fragment>
   );
 }

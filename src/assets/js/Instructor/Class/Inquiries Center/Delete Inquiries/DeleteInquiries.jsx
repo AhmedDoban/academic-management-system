@@ -3,6 +3,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./DeleteInquiries.css";
+import Swal from "sweetalert2";
 
 function DeleteInquiries() {
   const params = useParams();
@@ -37,8 +38,41 @@ function DeleteInquiries() {
     fetchData();
   }, [url, params.subject_id]);
 
-  const DeleteInquiriesHandelar = async () => {
-    
+  const DeleteInquiriesHandelar = (data) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: `You want to Delete ${data.video_title} ? `,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: '<i class="fa-solid fa-check"></i>',
+      cancelButtonText: '<i class="fas fa-times"></i>',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        try {
+          axios
+            .post(
+              `http://camp-coding.tech/fci_project/graduation//doctor/delete_inquiry.php`,
+              { question_id: data.ask_id },
+              {
+                headers: {
+                  Accept: "application/json",
+                  "Content-Type": "text/plain",
+                },
+              }
+            )
+            .then((response) => {
+              if (response.data.status === "success") {
+                Swal.fire("Deleted!", response.data.message, "success");
+                fetchData();
+              }
+            });
+        } catch (error) {
+          throw error;
+        }
+      }
+    });
   };
   return (
     <React.Fragment>
@@ -46,14 +80,14 @@ function DeleteInquiries() {
         <div className="DeleteInquiries">
           <div className="container">
             {Inquiries.map((Inquirie) => (
-              <div className="card">
+              <div className="card" key={Inquirie.ask_id}>
                 <div className="data">
                   <p>{Inquirie.title} </p>
                   <span>
                     {Inquirie.answer ? Inquirie.answer : "لا يوجد رد"}
                     <i
                       className="fa-solid fa-trash"
-                      onClick={DeleteInquiriesHandelar}
+                      onClick={() => DeleteInquiriesHandelar(Inquirie)}
                     ></i>
                   </span>
                 </div>
