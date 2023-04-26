@@ -12,7 +12,7 @@ function EditVideo() {
 
   const [video_title, Setvideo_title] = useState("");
   const [video_description, Setvideo_description] = useState("");
-  const [video_player_link, Setvideo_player_link] = useState("");
+  const [video_link, Setvideo_link] = useState("");
   const [video_id, Setvideo_id] = useState("");
   const [ValidData, SetValidData] = useState(false);
 
@@ -47,7 +47,7 @@ function EditVideo() {
       axios
         .post(
           `${url}/edit_video_data.php`,
-          { video_title, video_description, video_player_link, video_id },
+          { video_title, video_description, video_link, video_id },
           {
             headers: {
               Accept: "application/json",
@@ -90,7 +90,7 @@ function EditVideo() {
   const HandleEditVideo = (VidData) => {
     Setvideo_title(VidData.video_title);
     Setvideo_description(VidData.video_description);
-    Setvideo_player_link(VidData.video_link);
+    Setvideo_link(VidData.video_link);
     Setvideo_id(VidData.video_id);
     SetValidData(true);
   };
@@ -131,13 +131,13 @@ function EditVideo() {
             <div className="input-card">
               <input
                 type="text"
-                name="video_player_link"
-                id="video_player_link"
-                onChange={(e) => Setvideo_player_link(e.target.value)}
-                value={video_player_link}
+                name="video_link"
+                id="video_link"
+                onChange={(e) => Setvideo_link(e.target.value)}
+                value={video_link}
                 placeholder=" "
               />
-              <label htmlFor="video_player_link">Video link</label>
+              <label htmlFor="video_link">Video link</label>
             </div>
             {/********************************** Submit  *******************************/}
             <div className="input-card">

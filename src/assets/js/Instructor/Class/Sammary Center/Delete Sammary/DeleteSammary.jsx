@@ -11,29 +11,29 @@ function DeleteSammary() {
   const url =
     "http://camp-coding.tech/fci_project/graduation/select_summary.php";
 
+  const fetchData = async function () {
+    try {
+      await axios
+        .post(
+          url,
+          { subject_id: params.subject_id },
+          {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "text/plain",
+            },
+          }
+        )
+        .then((response) => {
+          if (response.data.status === "success") {
+            SetSummary(response.data.message);
+          }
+        });
+    } catch (error) {
+      throw error;
+    }
+  };
   useEffect(() => {
-    const fetchData = async function () {
-      try {
-        await axios
-          .post(
-            url,
-            { subject_id: params.subject_id },
-            {
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "text/plain",
-              },
-            }
-          )
-          .then((response) => {
-            if (response.data.status === "success") {
-              SetSummary(response.data.message);
-            }
-          });
-      } catch (error) {
-        throw error;
-      }
-    };
     fetchData();
   }, [url]);
 
@@ -65,6 +65,7 @@ function DeleteSammary() {
               console.log(response.data);
               if (response.data.status === "success") {
                 Swal.fire("Deleted!", response.data.message, "success");
+                fetchData();
               } else if (response.data.status === "error") {
                 Swal.fire(response.data.message);
               }

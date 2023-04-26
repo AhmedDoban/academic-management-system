@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import "./AllSubjectSammary.css";
 
@@ -43,7 +43,7 @@ function AllSubjectSammary() {
         <div className="allSubjectSammary">
           <div className="container">
             {Summary.map((pdf) => (
-              <div className="card" key={pdf.summary_id}>
+              <Link className="card" key={pdf.summary_id} to={pdf.summary_link}>
                 <div className="data">
                   <h1>{pdf.summary_name}</h1>
                   <Player
@@ -54,7 +54,7 @@ function AllSubjectSammary() {
                     className="PDFPLAyer"
                   ></Player>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
