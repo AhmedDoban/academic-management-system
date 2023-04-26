@@ -17,7 +17,7 @@ import {
 } from "react-router-dom";
 
 import SideBar from "../components/SideBar/SideBar";
-
+import InquiriesCenter from "./Class/Inquiries Center/InquiriesCenter";
 
 // home page
 const HomePage = lazy(() => import("../components/Home Page/HomePage"));
@@ -33,7 +33,9 @@ const EditExam = lazy(() => import("./Class/Exams/EditExam"));
 const AddNewQu = lazy(() => import("./Class/Exams/EditExam/AddNewQu"));
 const Viedos = lazy(() => import("../components/videos/Videos"));
 const VideoCenter = lazy(() => import("./Class/Vedio Center/VideoCenter"));
-const SammaryCenter = lazy(() => import("./Class/Sammary Center/SammaryCenter"));
+const SammaryCenter = lazy(() =>
+  import("./Class/Sammary Center/SammaryCenter")
+);
 
 // library page
 const Library = lazy(() => import("../components/Library/Library"));
@@ -147,6 +149,17 @@ const Instructor = (props) => {
                       />
                       {/********** Call Page ***********/}
                       <Route path="video call/:id" element={<JoinRoom />} />
+
+                      {/********** Inquiries Center Page ***********/}
+                      <Route
+                        path="InquiriesCenter/:subject_id/:SubjectName?"
+                        element={<InquiriesCenter />}
+                      >
+                        <Route path="" exact />
+                        <Route path="DeleteInquiries" />
+                        <Route path="AnswerInquiries" />
+                        <Route path="*" render={() => <Navigate to="/" />} />
+                      </Route>
                     </Route>
                   </Route>
                   {/********** Library Page ***********/}

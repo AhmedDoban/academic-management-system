@@ -1,0 +1,54 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../../css/root.css");
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Sammary Center
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.InquiriesCenter {
+  position: relative;
+  width: 100%;
+}
+.InquiriesCenter .menu {
+  position: relative;
+  width: 100%;
+}
+.InquiriesCenter .menu ul {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--black-color);
+}
+.InquiriesCenter .menu ul li a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  height: 50px;
+  cursor: pointer;
+  color: var(--black-color);
+  font-size: 18px;
+  transition: var(--main-transition);
+  overflow: hidden;
+}
+.InquiriesCenter .menu ul li a.active {
+  color: var(--blue-color);
+}
+.InquiriesCenter .menu ul li a::before {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: var(--black-color);
+  bottom: 0px;
+  left: -100%;
+  transition: var(--main-transition);
+  z-index: 3;
+}
+.InquiriesCenter .menu ul li a.active::before {
+  left: 0;
+}

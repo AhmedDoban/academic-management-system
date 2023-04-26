@@ -72,109 +72,121 @@
   width: 100%;
   padding: 0;
   margin: 0;
-  background-color: #121212;
 }
-.ExamPage .headerExam {
-  background-color: #1e1e1e;
-  width: 100%;
-  margin: 0;
-  padding: 20px;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.ExamPage .headerExam h1 {
-  margin: 0;
-  font-size: 18px;
-}
-.ExamPage .headerExam button {
+.mountain .container .data .FinshExam {
   height: 100%;
   padding: 5px 8px;
   border: 0;
   border-radius: var(--main-border-radius);
   cursor: pointer;
   font-weight: bold;
-  color: #1e1e1e;
+  color: var(--black-color);
   transition: var(--main-transition);
+  background-color: var(--white-color);
 }
-.ExamPage .headerExam button:hover {
+
+.mountain .container .data .FinshExam:hover {
   background-color: var(--green-color);
   transition: var(--main-transition);
   color: #fff;
 }
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# exam  page container
+# exam  page menu
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.ExamPage .containerExam {
-  display: flex;
-}
-@media (max-width: 996px) {
-  .ExamPage .containerExam {
-    flex-direction: column;
-  }
-}
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# exam  page left
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.ExamPage .containerExam .left {
+.ExamPage {
+  position: relative;
   width: 100%;
-  height: 100%;
+}
+.ExamPage .menu {
+  position: relative;
+  width: 100%;
+}
+.ExamPage .menu ul {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--black-color);
+}
+.ExamPage .menu ul li span {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  height: 50px;
+  cursor: pointer;
+  color: var(--black-color);
+  font-size: 18px;
+  transition: var(--main-transition);
+  overflow: hidden;
+}
+.ExamPage .menu ul li span.active {
+  color: var(--blue-color);
+}
+.ExamPage .menu ul li span::before {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: var(--black-color);
+  bottom: 0px;
+  left: -100%;
+  transition: var(--main-transition);
+  z-index: 3;
+}
+.ExamPage .menu ul li span.active::before {
+  left: 0;
 }
 
-.ExamPage .containerExam .left iframe {
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# exam  page ifame
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.ExamPage iframe {
   width: 100%;
   height: 100vh;
   border: 0;
   outline: 0;
   padding: 0;
-  margin: 0;
+  margin: 10px 0;
 }
-@media (max-width: 996px) {
-  .ExamPage .containerExam .left {
-    height: 35vh;
-  }
-  .ExamPage .containerExam .left iframe {
-    height: 100%;
-    width: 100% !important;
-  }
-}
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# exam  page right
+# exam Answers
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.ExamPage .containerExam .right {
-  padding: 15px;
+.ExamPage .option {
+  position: relative;
   width: 100%;
-  height: 100%;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
 }
-.ExamPage .containerExam .right li {
+.ExamPage .option .card li {
   position: relative;
   list-style: none;
   display: flex;
   gap: 10px;
   width: 100%;
 }
-.ExamPage .containerExam .right li label {
+.ExamPage .option .card span {
+  display: block;
+  width: 100%;
+  color: var(--black-color);
   text-align: right;
-  color: #fff;
+  padding: 0 10px;
 }
-.ExamPage .containerExam .right .option .answer-options {
+.ExamPage li label {
+  text-align: right;
+  color: var(--black-color);
+}
+.ExamPage .option .answer-options {
   display: flex;
   gap: 10px;
   margin: 20px 0;
-  background-color:#1e1e1e;
+  background-color: var(--white-color);
   padding: 10px;
   border-radius: var(--main-border-radius);
-  color: #fff;
-}
-.ExamPage .containerExam .right .option .answer-options input {
-  cursor: pointer;
-}
-.ExamPage .containerExam .right .option span {
-  display: block;
-  position: relative;
-  width: 100%;
-  color: #fff;
-  text-align: right;
-  border-radius: var(--main-border-radius);
+  color: var(--black-color);
 }

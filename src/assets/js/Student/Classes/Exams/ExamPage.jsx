@@ -4,6 +4,7 @@ import axios from "axios";
 import "./Exams.css";
 import Answers from "./Answers";
 import { ToastContainer, toast } from "react-toastify";
+import Mountain from "../../../components/Mountain Template/Mountain";
 
 function ExamPage() {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ function ExamPage() {
   const [Exams, SetExams] = useState([]);
   const [student_id, setStudent_id] = useState([]);
   const [Question, SetQuestions] = useState([]);
+  const [Togle, SetTogle] = useState(false);
 
   const GetID = async function () {
     try {
@@ -109,6 +111,7 @@ function ExamPage() {
           }
         )
         .then((response) => {
+          console.log(response.data);
           if (response.data.status === "success") {
             toast.success(response.data.message, {
               position: "top-right",
@@ -130,33 +133,62 @@ function ExamPage() {
 
   return (
     <React.Fragment>
+      <Mountain>
+        <div className="data">
+          <h1>Exam {Exams.exam_name}</h1>
+          <button onClick={HandleFinish} className="FinshExam">
+            Fininsh
+          </button>
+        </div>
+      </Mountain>
+
       <div className="ExamPage">
-        <div className="headerExam">
-          <h1 className="ExamName">Exam {Exams.exam_name}</h1>
-          <button onClick={HandleFinish}>Fininsh</button>
-        </div>
-        <div className="containerExam">
-          <div className="left">
-            <iframe id="iframepdf" src={Exams.papel_link}></iframe>
+        <div className="container">
+          <div className="menu">
+            <ul>
+              <li>
+                <span
+                  className={Togle ? "active" : null}
+                  onClick={() => SetTogle(!Togle)}
+                >
+                  PDf Data
+                </span>
+              </li>
+              <li>
+                <span
+                  className={Togle ? null : "active"}
+                  onClick={() => SetTogle(!Togle)}
+                >
+                  Answers
+                </span>
+              </li>
+            </ul>
           </div>
-          <div className="right">
-            {Question.map((p) => (
-              <div className="option" key={p.question_id}>
-                <span>{p.question_text}</span>
-                <div className="answer-options">
-                  <Answers
-                    Question={Question}
-                    SetQuestions={SetQuestions}
-                    Answers={p}
-                    question_id={p.question_id}
-                    question_valid_answer={p.question_valid_answer}
-                  />
+        </div>
+        {Togle ? (
+          <iframe id="iframepdf" src={Exams.papel_link}></iframe>
+        ) : (
+          <div className="option">
+            <div className="container">
+              {Question.map((p) => (
+                <div className="card" key={p.question_id}>
+                  <span>{p.question_text}</span>
+                  <div className="answer-options">
+                    <Answers
+                      Question={Question}
+                      SetQuestions={SetQuestions}
+                      Answers={p}
+                      question_id={p.question_id}
+                      question_valid_answer={p.question_valid_answer}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
+
       <ToastContainer />
     </React.Fragment>
   );

@@ -1,23 +1,22 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # General
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@import url("../../../../css/root.css");
-
+@import url("../../../../../css/root.css");
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Inquiries
+# AllInquiries
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.Inquiries {
+.AllInquiries {
   position: relative;
   width: 100%;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
 }
-.Inquiries .container {
+.AllInquiries .container {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.Inquiries .card {
+.AllInquiries .card {
   position: relative;
   width: 100%;
   background-color: transparent;
@@ -26,7 +25,7 @@
   transition: var(--main-transition);
   box-shadow: 1px 2px 5px 5px var(--white-color);
 }
-.Inquiries .card .data {
+.AllInquiries .card .data {
   position: relative;
   width: 100%;
   background-color: var(--white-color);
@@ -42,7 +41,7 @@
   flex-direction: column;
   gap: 2px;
 }
-.Inquiries .card .data p {
+.AllInquiries .card .data p {
   position: relative;
   width: 100%;
   color: var(--black-color);
@@ -52,26 +51,23 @@
   border-bottom: 1px solid var(--black-color);
   padding: 10px 0;
 }
-.Inquiries .card .data span {
+
+.AllInquiries .card .data span {
   position: relative;
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 0;
   color: var(--black-color);
   transition: var(--main-transition);
   font-size: 14px;
   text-align: right;
+  padding: 5px 0;
 }
-.Inquiries .card .data span i {
+.AllInquiries .card .data span i {
   color: var(--orange-color);
   transition: var(--main-transition);
-}
-.Inquiries .card .data .TitelInqu span i {
-  color: var(--green-color);
-  font-size: 14px;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # No Inquiries

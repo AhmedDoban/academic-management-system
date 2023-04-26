@@ -122,8 +122,9 @@ function SubjectData() {
             data-aos="zoom-in"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
+            to={`InquiriesCenter/${params.subject_id}/${params.SubjectName}?`}
           >
-            <h1>Inquiries</h1>
+            <h1>Inquiries Center</h1>
             <Player
               autoplay={true}
               loop={true}

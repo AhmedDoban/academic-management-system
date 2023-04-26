@@ -120,10 +120,28 @@ function Inquiries() {
           <div className="container">
             {Inquiries.map((Inquirie) => (
               <div className="card">
-                <p>{Inquirie.title} </p>
-                <span>
-                  {Inquirie.answer ? Inquirie.answer : "Ther in no Answer "}
-                </span>
+                <div className="data">
+                  <p className="TitelInqu">
+                    {Inquirie.answer ? (
+                      <span>
+                        <span>{Inquirie.title}</span>
+                        <i className="fa-solid fa-check"></i>
+                      </span>
+                    ) : (
+                      Inquirie.title
+                    )}
+                  </p>
+                  <span>
+                    {Inquirie.answer ? (
+                      Inquirie.answer
+                    ) : (
+                      <span>
+                        <span>لا يوجد رد</span>
+                        <i className="fa-solid fa-triangle-exclamation"></i>
+                      </span>
+                    )}
+                  </span>
+                </div>
               </div>
             ))}
           </div>
