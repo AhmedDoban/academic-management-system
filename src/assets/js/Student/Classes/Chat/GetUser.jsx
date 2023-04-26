@@ -4,7 +4,7 @@ import axios from "axios";
 function GetUser(props) {
   const [user, SetUser] = useState("");
   const url =
-    "http://camp-coding.tech/fci_project/graduation/select_profile_info.php";
+    "https://fci-project1231.000webhostapp.com/fci_project/select_profile_info.php";
 
   useEffect(() => {
     const GetUSerData = async () => {

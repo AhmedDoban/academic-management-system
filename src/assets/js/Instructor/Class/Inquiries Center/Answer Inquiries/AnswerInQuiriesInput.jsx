@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 function AnswerInQuiriesInput(props) {
   const [InquirieAnswer, SetInquirieAnswer] = useState("");
   const url =
-    "http://camp-coding.tech/fci_project/graduation/doctor/answer_inquiry.php";
+    "https://fci-project1231.000webhostapp.com/fci_project/doctor/answer_inquiry.php";
 
   const HandleAnswerInqu = async () => {
     if (InquirieAnswer !== "") {

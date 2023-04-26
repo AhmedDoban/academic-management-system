@@ -23,7 +23,7 @@ function NewVideo() {
     try {
       axios
         .post(
-          "https://camp-coding.tech/fci_project/graduation/doctor/add_video.php",
+          "https://fci-project1231.000webhostapp.com/fci_project/doctor/add_video.php",
           data,
           {
             headers: {

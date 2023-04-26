@@ -20,7 +20,7 @@ function SubjectNotification() {
   };
   //   console.log(Notification);
   const url =
-    "http://camp-coding.tech/fci_project/graduation/select_notification.php";
+    "https://fci-project1231.000webhostapp.com/fci_project/select_notification.php";
 
   useEffect(() => {
     const fetchData = async function () {

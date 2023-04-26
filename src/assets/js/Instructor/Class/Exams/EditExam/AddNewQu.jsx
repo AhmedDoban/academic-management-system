@@ -42,7 +42,7 @@ function AddNewQu() {
     try {
       await axios
         .post(
-          "https://camp-coding.tech/fci_project/graduation/doctor/add_ques.php",
+          "https://fci-project1231.000webhostapp.com/fci_project/doctor/add_ques.php",
           {
             question_text: question_text,
             question_answers: question_answers.join(""),

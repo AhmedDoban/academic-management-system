@@ -19,9 +19,9 @@ function Exams() {
 
   const [Exams, SetExams] = useState([]);
   const [loading, setLoading] = useState(true);
- 
+
   const url =
-    "https://camp-coding.tech/fci_project/graduation/doctor/select_exam.php";
+    "https://fci-project1231.000webhostapp.com/fci_project/doctor/select_exam.php";
 
   useEffect(() => {
     const fetchData = async function () {

@@ -9,7 +9,7 @@ function DeleteSammary() {
   const params = useParams();
   const [Summary, SetSummary] = useState([]);
   const url =
-    "http://camp-coding.tech/fci_project/graduation/select_summary.php";
+    "https://fci-project1231.000webhostapp.com/fci_project/select_summary.php";
 
   const fetchData = async function () {
     try {
@@ -52,7 +52,7 @@ function DeleteSammary() {
         try {
           axios
             .post(
-              `http://camp-coding.tech/fci_project/graduation/doctor/delete_summary.php`,
+              `https://fci-project1231.000webhostapp.com/fci_project/doctor/delete_summary.php`,
               { summary_id: data.summary_id, subject_id: params.subject_id },
               {
                 headers: {

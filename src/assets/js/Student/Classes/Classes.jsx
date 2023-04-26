@@ -36,7 +36,7 @@ function Courses() {
   const [loading, setLoading] = useState(true);
 
   const url =
-    "http://camp-coding.tech/fci_project/graduation/select_sub_generation.php";
+    "https://fci-project1231.000webhostapp.com/fci_project/select_sub_generation.php";
 
   useEffect(() => {
     const fetchData = async function () {
@@ -228,9 +228,9 @@ function Select_Sub_generationSubjects(props) {
   };
 
   const [Classes, SetClasses] = useState([]);
-  console.log(Classes)
+  console.log(Classes);
   const url =
-    "http://camp-coding.tech/fci_project/graduation/select_sub_generation.php";
+    "https://fci-project1231.000webhostapp.com/fci_project/select_sub_generation.php";
 
   useEffect(() => {
     const fetchData = async function () {

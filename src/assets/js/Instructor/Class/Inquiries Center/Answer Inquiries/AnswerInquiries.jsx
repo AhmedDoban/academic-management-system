@@ -21,7 +21,7 @@ function AnswerInquiries() {
   };
 
   const url =
-    "http://camp-coding.tech/fci_project/graduation/select_inquiry.php";
+    "https://fci-project1231.000webhostapp.com/fci_project/select_inquiry.php";
 
   const fetchData = async function () {
     GetID();

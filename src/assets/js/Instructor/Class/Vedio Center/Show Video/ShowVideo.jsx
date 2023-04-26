@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 function ShowVideo() {
   const params = useParams("");
   const [Videos, SetVideos] = useState([]);
-  const url = "https://camp-coding.tech/fci_project/graduation/doctor/";
+  const url = "https://fci-project1231.000webhostapp.com/fci_project/doctor/";
   console.log(Videos);
   const fetchData = async function () {
     try {

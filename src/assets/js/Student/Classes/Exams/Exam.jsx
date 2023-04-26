@@ -17,8 +17,9 @@ function Exam() {
     }
   };
 
-  const url = "http://camp-coding.tech/fci_project/graduation/select_exam.php";
-  
+  const url =
+    "https://fci-project1231.000webhostapp.com/fci_project/select_exam.php";
+
   useEffect(() => {
     const fetchData = async function () {
       GetID();

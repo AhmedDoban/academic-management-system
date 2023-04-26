@@ -144,7 +144,7 @@ const Instructor = (props) => {
                       <Route
                         path="Videos/:id"
                         element={
-                          <Viedos url="https://camp-coding.tech/fci_project/graduation/doctor/select_videos.php" />
+                          <Viedos url="https://fci-project1231.000webhostapp.com/fci_project/doctor/select_videos.php" />
                         }
                       />
                       {/********** Call Page ***********/}

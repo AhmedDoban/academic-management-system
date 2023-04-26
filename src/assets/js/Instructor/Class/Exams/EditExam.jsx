@@ -19,7 +19,7 @@ function EditExam() {
     try {
       await axios
         .post(
-          "https://camp-coding.tech/fci_project/graduation/doctor/upload_exam_papel_pdf.php",
+          "https://fci-project1231.000webhostapp.com/fci_project/doctor/upload_exam_papel_pdf.php",
           formData,
           {
             headers: {

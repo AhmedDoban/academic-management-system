@@ -9,7 +9,7 @@ function DeleteInquiries() {
   const params = useParams();
   const [Inquiries, SetInquiries] = useState([]);
   const url =
-    "http://camp-coding.tech/fci_project/graduation/select_inquiry.php";
+    "https://fci-project1231.000webhostapp.com/fci_project/select_inquiry.php";
 
   const fetchData = async function () {
     try {
@@ -53,7 +53,7 @@ function DeleteInquiries() {
         try {
           axios
             .post(
-              `http://camp-coding.tech/fci_project/graduation//doctor/delete_inquiry.php`,
+              `https://fci-project1231.000webhostapp.com/fci_project//doctor/delete_inquiry.php`,
               { question_id: data.ask_id },
               {
                 headers: {

@@ -8,7 +8,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 function EditVideo() {
   const params = useParams("");
   const [Videos, SetVideos] = useState([]);
-  const url = "https://camp-coding.tech/fci_project/graduation/doctor/";
+  const url = "https://fci-project1231.000webhostapp.com/fci_project/doctor/";
 
   const [video_title, Setvideo_title] = useState("");
   const [video_description, Setvideo_description] = useState("");

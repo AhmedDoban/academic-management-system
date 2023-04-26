@@ -9,7 +9,7 @@ function AllSubjectSammary() {
   const [Summary, SetSummary] = useState([]);
 
   const url =
-    "http://camp-coding.tech/fci_project/graduation/select_summary.php";
+    "https://fci-project1231.000webhostapp.com/fci_project/select_summary.php";
 
   useEffect(() => {
     const fetchData = async function () {

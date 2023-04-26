@@ -25,7 +25,7 @@ function NewExam() {
     try {
       await axios
         .post(
-          "https://camp-coding.tech/fci_project/graduation/doctor/add_exam.php",
+          "https://fci-project1231.000webhostapp.com/fci_project/doctor/add_exam.php",
           DataForm,
           {
             headers: {

@@ -13,12 +13,12 @@ function App() {
     {
       value: "Student",
       label: "Student",
-      url: "http://camp-coding.tech/fci_project/graduation/student_login.php",
+      url: "https://fci-project1231.000webhostapp.com/fci_project/student_login.php",
     },
     {
       value: "Doctor",
       label: "Doctor",
-      url: "https://camp-coding.tech/fci_project/graduation/doctor/doctor_login.php",
+      url: "https://fci-project1231.000webhostapp.com/fci_project/doctor/doctor_login.php",
     },
   ];
 
