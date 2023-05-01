@@ -5,7 +5,11 @@ import "./parent.css";
 
 // Students page
 const Students = lazy(() => import("./Students/Students"));
-const StudentData = lazy(() => import("./Students/StudentData"));
+const Subjects = lazy(() => import("./Students/Subjects/Subjects"));
+const SubjectData = lazy(() => import("./Students/Subject Data/SubjectData"));
+const SubjectExams = lazy(() =>
+  import("./Students/Subject Exams/SubjectExams")
+);
 
 // notfound page
 const NotFounded = lazy(() => import("../components/Not Founded/NotFounded"));
@@ -103,26 +107,35 @@ function Parent(props) {
             {/********** Students Page ***********/}
             <Route exact path="/Students" element={<Outlet />}>
               <Route path="" element={<Students />} />
-              <Route
-                path=":student_id/:student_name?"
-                element={<StudentData />}
-              />
+              <Route path=":student_id" element={<Outlet />}>
+                <Route path="" element={<Subjects />} />
+                <Route path=":generation_id" element={<Outlet />}>
+                  <Route path="" element={<SubjectData />} />
+                  <Route path=":subject_id" element={<SubjectExams />} />
+                </Route>
+              </Route>
             </Route>
             <Route exact path="/home" element={<Outlet />}>
               <Route path="" element={<Students />} />
-              <Route
-                path=":student_id/:student_name?"
-                element={<StudentData />}
-              />
+              <Route path=":student_id" element={<Outlet />}>
+                <Route path="" element={<Subjects />} />
+                <Route path=":generation_id" element={<Outlet />}>
+                  <Route path="" element={<SubjectData />} />
+                  <Route path=":subject_id" element={<SubjectExams />} />
+                </Route>
+              </Route>
             </Route>
 
             {/********** Students Page ***********/}
             <Route exact path="/" element={<Outlet />}>
               <Route path="" element={<Students />} />
-              <Route
-                path=":student_id/:student_name?"
-                element={<StudentData />}
-              />
+              <Route path=":student_id" element={<Outlet />}>
+                <Route path="" element={<Subjects />} />
+                <Route path=":generation_id" element={<Outlet />}>
+                  <Route path="" element={<SubjectData />} />
+                  <Route path=":subject_id" element={<SubjectExams />} />
+                </Route>
+              </Route>
             </Route>
 
             {/********** Not Founded Page ***********/}

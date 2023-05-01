@@ -18,7 +18,7 @@ function Students() {
               <Link
                 className="card"
                 key={Stu.parent_id}
-                to={`${Stu.student_id}/${Stu.student_name}?`}
+                to={`${Stu.student_id}`}
                 data-aos="zoom-in"
                 data-aos-easing="ease-in-out"
                 data-aos-duration="1000"

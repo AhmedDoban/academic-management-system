@@ -227,7 +227,7 @@ function Select_Sub_generationSubjects(props) {
   };
 
   const [Classes, SetClasses] = useState([]);
-  console.log(Classes);
+
   const url = `${process.env.REACT_APP_API}/select_sub_generation.php`;
 
   useEffect(() => {

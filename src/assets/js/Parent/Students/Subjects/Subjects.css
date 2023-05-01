@@ -1,23 +1,23 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # General
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@import "../../../css/root.css";
+@import "../../../../css/root.css";
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Students
+# studentData
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.students {
+.studentData {
   position: relative;
   width: 100%;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-top);
 }
-
-.students .container {
+.studentData .container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
 }
-.students .card {
+.studentData .container .card {
   position: relative;
   width: 100%;
   background-color: transparent;
@@ -27,7 +27,7 @@
   box-shadow: 1px 2px 5px 5px var(--white-color);
   height: 200px;
 }
-.students .card .data {
+.studentData .container .card .data {
   position: relative;
   width: 100%;
   height: 100%;
@@ -42,9 +42,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   gap: 2px;
 }
-.students .card .data h5 {
+.studentData .container .card .data p {
   position: relative;
   width: 100%;
   color: var(--black-color);
@@ -54,19 +55,22 @@
   padding: 10px 0;
   text-align: center;
 }
+.studentData .container .card .data .PLayer {
+  width: 100px;
+  position: relative;
+}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Students NO player
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .nostudent-container {
   position: relative;
   width: 100%;
-}
-.nostudent-container .container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+
 .nostudent-container .nostudent-player {
   width: 100%;
   height: 350px;
