@@ -86,3 +86,6 @@
 .css-1nmdiq5-menu div div:hover {
   background-color: var(--white-color) !important;
 }
+.css-1nmdiq5-menu div:first-child {
+  background-color: transparent !important;
+}

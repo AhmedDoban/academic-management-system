@@ -385,7 +385,7 @@
     rgba(110, 134, 225, 0.481),
     rgba(159, 159, 159, 0.432) 79%
   );
-  color: #fff;
+  color: var(--white-color);
   padding: 10px;
   border-radius: var(--main-border-radius);
   text-align: center;
@@ -408,6 +408,9 @@
   transition: var(--main-transition);
   border-radius: var(--main-border-radius);
   transform-origin: center center;
+}
+.main-btn:hover {
+  color: var(--black-color);
 }
 .main-btn:hover::before {
   width: 101%;
