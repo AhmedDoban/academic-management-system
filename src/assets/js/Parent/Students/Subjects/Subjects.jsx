@@ -3,13 +3,17 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { Player } from "@lottiefiles/react-lottie-player";
 import "./Subjects.css";
+import LodingFeachData from './../../../components/Loding Feach Data/LodingFeachData';
 function StudentData(props) {
   const params = useParams();
   const [select_solved, Set_select_solved] = useState([]);
+  const [loading, Setloading] = useState(false);
+
   const url = `${process.env.REACT_APP_API}/select_sub_generation.php`;
 
   const FeatchData = async () => {
     try {
+      Setloading(true);
       await axios
         .post(
           url,
@@ -26,6 +30,7 @@ function StudentData(props) {
         .then((res) => {
           if (res.data.status === "success") {
             Set_select_solved(res.data.message);
+            Setloading(false);
           }
         });
     } catch (err) {
@@ -39,7 +44,9 @@ function StudentData(props) {
   return (
     <React.Fragment>
       <div className="studentData">
-        {select_solved.length > 0 ? (
+        {loading ? (
+          <LodingFeachData />
+        ) : select_solved.length > 0 ? (
           <div className="container">
             {select_solved.map((Subjects) => (
               <Link
@@ -72,7 +79,7 @@ function StudentData(props) {
               src="https://assets7.lottiefiles.com/packages/lf20_jG18nt.json"
               className="nostudent-player"
             ></Player>
-            <p>Your Son haven't Taken any Exam Yet</p>
+            <p>Your Son haven't any Subjects</p>
           </div>
         )}
       </div>

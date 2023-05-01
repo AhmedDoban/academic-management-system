@@ -3,13 +3,16 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { Player } from "@lottiefiles/react-lottie-player";
 import "./SubjectData.css";
+import LodingFeachData from "./../../../components/Loding Feach Data/LodingFeachData";
 function SubjectData(props) {
   const params = useParams();
   const [select_solved, Set_select_solved] = useState({});
+  const [loading, Setloading] = useState(false);
   const url = `${process.env.REACT_APP_API}/select_sub_generation.php`;
 
   const FeatchData = async () => {
     try {
+      Setloading(true);
       await axios
         .post(
           url,
@@ -30,6 +33,7 @@ function SubjectData(props) {
                 (p) => p.generation_id === params.generation_id
               )[0]
             );
+            Setloading(false);
           }
         });
     } catch (err) {
@@ -44,7 +48,9 @@ function SubjectData(props) {
   return (
     <React.Fragment>
       <div className="SubjectData">
-        {select_solved.subjects ? (
+        {loading ? (
+          <LodingFeachData />
+        ) : select_solved.subjects ? (
           <div className="container">
             {select_solved.subjects.map((Subjects) => (
               <Link

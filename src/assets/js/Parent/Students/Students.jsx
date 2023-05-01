@@ -24,6 +24,13 @@ function Students() {
                 data-aos-duration="1000"
               >
                 <div className="data">
+                  <Player
+                    autoplay={true}
+                    loop={true}
+                    controls={false}
+                    src="https://assets8.lottiefiles.com/packages/lf20_4vlxeulb.json"
+                    className="playerUSer"
+                  ></Player>
                   <h5>{Stu.student_name}</h5>
                 </div>
               </Link>
