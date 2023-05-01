@@ -51,7 +51,7 @@ function DeleteSammary() {
         try {
           axios
             .post(
-              `https://fci-project1231.000webhostapp.com/fci_project/doctor/delete_summary.php`,
+              `${process.env.REACT_APP_API}/doctor/delete_summary.php`,
               { summary_id: data.summary_id, subject_id: params.subject_id },
               {
                 headers: {
@@ -82,7 +82,13 @@ function DeleteSammary() {
         <div className="DeleteSammary">
           <div className="container">
             {Summary.map((pdf) => (
-              <div className="card" key={pdf.summary_id}>
+              <div
+                className="card"
+                key={pdf.summary_id}
+                data-aos="zoom-in"
+                data-aos-easing="ease-in-out"
+                data-aos-duration="1000"
+              >
                 <div className="data">
                   <h1>{pdf.summary_name}</h1>
                   <i

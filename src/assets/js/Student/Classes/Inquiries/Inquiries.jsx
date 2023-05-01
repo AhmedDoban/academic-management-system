@@ -118,7 +118,12 @@ function Inquiries() {
         <div className="Inquiries">
           <div className="container">
             {Inquiries.map((Inquirie) => (
-              <div className="card">
+              <div
+                className="card"
+                data-aos="fade-down"
+                data-aos-easing="ease-in-out"
+                data-aos-duration="1000"
+              >
                 <div className="data">
                   <p className="TitelInqu">
                     {Inquirie.answer ? (

@@ -63,6 +63,9 @@ function EditExam() {
           <Link
             className="editExam-card"
             // to={`EditExam/${Exam.exam_id}/${Exam.exam_name}?`}
+            data-aos="zoom-in"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1000"
           >
             <Player
               autoplay={true}
@@ -73,7 +76,13 @@ function EditExam() {
             ></Player>
             <p>Edit exam</p>
           </Link>
-          <Link className="editExam-card" to={`addQu`}>
+          <Link
+            className="editExam-card"
+            to={`addQu`}
+            data-aos="zoom-in"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1000"
+          >
             <Player
               autoplay={true}
               loop={true}

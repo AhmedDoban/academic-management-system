@@ -42,7 +42,14 @@ function AllSubjectSammary() {
         <div className="allSubjectSammary">
           <div className="container">
             {Summary.map((pdf) => (
-              <Link className="card" key={pdf.summary_id} to={pdf.summary_link}>
+              <Link
+                className="card"
+                key={pdf.summary_id}
+                to={pdf.summary_link}
+                data-aos="zoom-in"
+                data-aos-easing="ease-in-out"
+                data-aos-duration="1000"
+              >
                 <div className="data">
                   <h1>{pdf.summary_name}</h1>
                   <Player

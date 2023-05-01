@@ -61,6 +61,9 @@ function Exam() {
                 className="exam-card"
                 key={Exam.exam_id}
                 to={`${Exam.exam_id}`}
+                data-aos="fade-down"
+                data-aos-easing="ease-in-out"
+                data-aos-duration="1000"
               >
                 <Player
                   autoplay={true}

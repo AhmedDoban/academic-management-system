@@ -41,7 +41,12 @@ function StudentData(props) {
       <div className="studentData">
         <div className="container">
           {select_solved.length > 0 ? (
-            <div className="card">
+            <div
+              className="card"
+              data-aos="zoom-in"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="1000"
+            >
               <div className="data"></div>
             </div>
           ) : (

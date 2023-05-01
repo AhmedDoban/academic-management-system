@@ -104,7 +104,12 @@ function EditVideo() {
         <div className="EditVideo">
           <div className="container">
             {/********************************** Video Title *******************************/}
-            <div className="input-card">
+            <div
+              className="input-card"
+              data-aos="zoom-in"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="1000"
+            >
               <input
                 type="text"
                 name="video_title"
@@ -116,7 +121,12 @@ function EditVideo() {
               <label htmlFor="video_title">Video Title</label>
             </div>
             {/********************************** video_description *******************************/}
-            <div className="input-card">
+            <div
+              className="input-card"
+              data-aos="zoom-in"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="1000"
+            >
               <textarea
                 name="video_description"
                 id="video_description"
@@ -140,7 +150,12 @@ function EditVideo() {
               <label htmlFor="video_link">Video link</label>
             </div>
             {/********************************** Submit  *******************************/}
-            <div className="input-card">
+            <div
+              className="input-card"
+              data-aos="zoom-in"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="1000"
+            >
               <button onClick={HandleBack}>
                 <Player
                   autoplay={true}
@@ -170,7 +185,12 @@ function EditVideo() {
           <div className="container">
             {Videos.map((Vi) => (
               <div className="card">
-                <div className="data">
+                <div
+                  className="data"
+                  data-aos="zoom-in"
+                  data-aos-easing="ease-in-out"
+                  data-aos-duration="1000"
+                >
                   <span>{Vi.video_title}</span>
                   <i
                     className="fa-solid fa-pen-to-square"
