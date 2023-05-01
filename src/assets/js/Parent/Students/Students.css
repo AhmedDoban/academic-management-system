@@ -1,0 +1,78 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import "../../../css/root.css";
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Students
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.students {
+  position: relative;
+  width: 100%;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-top);
+}
+
+.students .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+.students .card {
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
+  box-shadow: 1px 2px 5px 5px var(--white-color);
+  height: 200px;
+}
+.students .card .data {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white-color);
+  border: 0;
+  padding: 8px 14px;
+  transition: var(--main-transition);
+  cursor: pointer;
+  color: var(--black-color);
+  font-size: 15px;
+  border-radius: var(--main-border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+.students .card .data h5 {
+  position: relative;
+  width: 100%;
+  color: var(--black-color);
+  transition: var(--main-transition);
+  font-size: 16px;
+  text-align: right;
+  padding: 10px 0;
+  text-align: center;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Students
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.nostudent-container {
+  position: relative;
+  width: 100%;
+}
+.nostudent-container .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.nostudent-container .nostudent-player {
+  width: 100%;
+  height: 350px;
+}
+.nostudent-container p {
+  font-size: 18px;
+  color: var(--black-color);
+  font-weight: bold;
+}

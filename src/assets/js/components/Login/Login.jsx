@@ -29,13 +29,6 @@ function Login(props) {
         }
       )
       .then((res) => {
-        console.log(
-          props.Type.value === "Student"
-            ? { student_code: Code, student_nat_id: Nat_ID }
-            : props.Type.value === "Doctor"
-            ? { doctor_code: Code, doctor_pass: Nat_ID }
-            : { parent_nat_id: Code, parent_pass: Nat_ID }
-        );
         if (res.data.status === "success") {
           localStorage.setItem("User", JSON.stringify(res.data.message));
           localStorage.setItem("Login", "ture");
