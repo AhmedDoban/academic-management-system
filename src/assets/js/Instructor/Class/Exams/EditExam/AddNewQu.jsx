@@ -42,7 +42,7 @@ function AddNewQu() {
     try {
       await axios
         .post(
-          "https://fci-project1231.000webhostapp.com/fci_project/doctor/add_ques.php",
+          `${process.env.REACT_APP_API}/doctor/add_ques.php`,
           {
             question_text: question_text,
             question_answers: question_answers.join(""),

@@ -30,8 +30,7 @@ const SideBar = ({ children, SetLogedOn }) => {
   );
 
   const [student_id, setStudent_id] = useState([]);
-  const url =
-    "https://fci-project1231.000webhostapp.com/fci_project/student_logout.php";
+  const url = `${process.env.REACT_APP_API}/student_logout.php`;
   const GetID = async function () {
     try {
       const response = await JSON.parse(localStorage.getItem("User"));

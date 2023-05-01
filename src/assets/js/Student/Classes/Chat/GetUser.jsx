@@ -3,8 +3,7 @@ import axios from "axios";
 
 function GetUser(props) {
   const [user, SetUser] = useState("");
-  const url =
-    "https://fci-project1231.000webhostapp.com/fci_project/select_profile_info.php";
+  const url = `${process.env.REACT_APP_API}/select_profile_info.php`;
 
   useEffect(() => {
     const GetUSerData = async () => {

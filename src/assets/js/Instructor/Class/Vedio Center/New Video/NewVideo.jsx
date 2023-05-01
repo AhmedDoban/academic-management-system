@@ -22,16 +22,12 @@ function NewVideo() {
   const HandleUpLoadVideo = () => {
     try {
       axios
-        .post(
-          "https://fci-project1231.000webhostapp.com/fci_project/doctor/add_video.php",
-          data,
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "text/plain",
-            },
-          }
-        )
+        .post(`${process.env.REACT_APP_API}/doctor/add_video.php`, data, {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "text/plain",
+          },
+        })
         .then((response) => {
           if (response.data.status === "success") {
             toast.success(response.data.message, {

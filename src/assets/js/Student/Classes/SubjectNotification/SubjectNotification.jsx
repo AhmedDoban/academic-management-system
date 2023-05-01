@@ -19,8 +19,7 @@ function SubjectNotification() {
     }
   };
   //   console.log(Notification);
-  const url =
-    "https://fci-project1231.000webhostapp.com/fci_project/select_notification.php";
+  const url = `${process.env.REACT_APP_API}/select_notification.php`;
 
   useEffect(() => {
     const fetchData = async function () {

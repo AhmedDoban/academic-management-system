@@ -39,7 +39,7 @@ function Chat() {
       try {
         await axios
           .post(
-            "https://fci-project1231.000webhostapp.com/fci_project/add_message.php",
+            `${process.env.REACT_APP_API}/add_message.php`,
             {
               subject_id: params.subject_id,
               message: TextFeild,
@@ -74,8 +74,7 @@ function Chat() {
     }
   });
 
-  const url =
-    "https://fci-project1231.000webhostapp.com/fci_project/select_message.php";
+  const url = `${process.env.REACT_APP_API}/select_message.php`;
 
   useEffect(() => {
     fetchData();

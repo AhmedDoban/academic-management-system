@@ -24,8 +24,7 @@ function Class() {
   const [Classes, SetClasses] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const url =
-    "https://fci-project1231.000webhostapp.com/fci_project/doctor/select_doctor_sub.php";
+  const url = `${process.env.REACT_APP_API}/doctor/select_doctor_sub.php`;
 
   useEffect(() => {
     const fetchData = async function () {

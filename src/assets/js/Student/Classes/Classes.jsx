@@ -35,8 +35,7 @@ function Courses() {
   const [Classes, SetClasses] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const url =
-    "https://fci-project1231.000webhostapp.com/fci_project/select_sub_generation.php";
+  const url = `${process.env.REACT_APP_API}/select_sub_generation.php`;
 
   useEffect(() => {
     const fetchData = async function () {
@@ -229,8 +228,7 @@ function Select_Sub_generationSubjects(props) {
 
   const [Classes, SetClasses] = useState([]);
   console.log(Classes);
-  const url =
-    "https://fci-project1231.000webhostapp.com/fci_project/select_sub_generation.php";
+  const url = `${process.env.REACT_APP_API}/select_sub_generation.php`;
 
   useEffect(() => {
     const fetchData = async function () {

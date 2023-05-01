@@ -8,8 +8,7 @@ function AllSubjectSammary() {
   const params = useParams();
   const [Summary, SetSummary] = useState([]);
 
-  const url =
-    "https://fci-project1231.000webhostapp.com/fci_project/select_summary.php";
+  const url = `${process.env.REACT_APP_API}/select_summary.php`;
 
   useEffect(() => {
     const fetchData = async function () {

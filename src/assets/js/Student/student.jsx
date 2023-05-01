@@ -146,7 +146,9 @@ const Student = (props) => {
                     <Route
                       path="Videos/:id"
                       element={
-                        <Viedos url="https://fci-project1231.000webhostapp.com/fci_project/select_videos.php" />
+                        <Viedos
+                          url={`${process.env.REACT_APP_API}/select_videos.php`}
+                        />
                       }
                     />
                     <Route path="Summary/:id" element={<Summary />} />

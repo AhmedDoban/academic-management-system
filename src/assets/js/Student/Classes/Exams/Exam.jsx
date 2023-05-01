@@ -17,8 +17,7 @@ function Exam() {
     }
   };
 
-  const url =
-    "https://fci-project1231.000webhostapp.com/fci_project/select_exam.php";
+  const url = `${process.env.REACT_APP_API}/select_exam.php`;
 
   useEffect(() => {
     const fetchData = async function () {

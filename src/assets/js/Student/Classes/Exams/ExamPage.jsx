@@ -23,8 +23,7 @@ function ExamPage() {
     }
   };
 
-  const APIExam =
-    "https://fci-project1231.000webhostapp.com/fci_project/select_exam.php";
+  const APIExam = `${process.env.REACT_APP_API}/select_exam.php`;
 
   useEffect(() => {
     const fetchData = async function () {
@@ -57,8 +56,7 @@ function ExamPage() {
     fetchData();
   }, [APIExam, student_id]);
 
-  const APIQUE =
-    "https://fci-project1231.000webhostapp.com/fci_project/select_questions.php";
+  const APIQUE = `${process.env.REACT_APP_API}/select_questions.php`;
 
   useEffect(() => {
     const fetchData = async function () {
@@ -96,7 +94,7 @@ function ExamPage() {
     try {
       await axios
         .post(
-          "https://fci-project1231.000webhostapp.com/fci_project/upload_score.php",
+          `${process.env.REACT_APP_API}/upload_score.php`,
           {
             exam_id: params.Exam_id,
             student_id: student_id,

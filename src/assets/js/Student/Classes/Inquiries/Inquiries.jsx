@@ -25,7 +25,7 @@ function Inquiries() {
       try {
         await axios
           .post(
-            "https://fci-project1231.000webhostapp.com/fci_project/add_inquiry.php",
+            `${process.env.REACT_APP_API}/add_inquiry.php`,
             {
               subject_id: params.subject_id,
               student_id: student_id,
@@ -92,8 +92,7 @@ function Inquiries() {
       throw error;
     }
   };
-  const url =
-    "https://fci-project1231.000webhostapp.com/fci_project/select_inquiry.php";
+  const url = `${process.env.REACT_APP_API}/select_inquiry.php`;
 
   useEffect(() => {
     fetchData();

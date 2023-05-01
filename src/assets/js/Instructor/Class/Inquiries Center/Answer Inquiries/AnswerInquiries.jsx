@@ -20,8 +20,7 @@ function AnswerInquiries() {
     }
   };
 
-  const url =
-    "https://fci-project1231.000webhostapp.com/fci_project/select_inquiry.php";
+  const url = `${process.env.REACT_APP_API}/select_inquiry.php`;
 
   const fetchData = async function () {
     GetID();

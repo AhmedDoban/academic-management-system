@@ -20,8 +20,7 @@ function Exams() {
   const [Exams, SetExams] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const url =
-    "https://fci-project1231.000webhostapp.com/fci_project/doctor/select_exam.php";
+  const url = `${process.env.REACT_APP_API}/doctor/select_exam.php`;
 
   useEffect(() => {
     const fetchData = async function () {

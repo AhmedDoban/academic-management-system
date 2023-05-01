@@ -13,12 +13,12 @@ function App() {
     {
       value: "Student",
       label: "Student",
-      url: "https://fci-project1231.000webhostapp.com/fci_project/student_login.php",
+      url: `${process.env.REACT_APP_API}/student_login.php`,
     },
     {
       value: "Doctor",
       label: "Doctor",
-      url: "https://fci-project1231.000webhostapp.com/fci_project/doctor/doctor_login.php",
+      url: `${process.env.REACT_APP_API}/doctor/doctor_login.php`,
     },
   ];
 
