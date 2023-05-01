@@ -1,0 +1,50 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../css/root.css");
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Theme
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Theme {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 5;
+}
+.Theme input {
+  display: none;
+  opacity: 0;
+}
+.Theme span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 50px 1px var(--dark-blue) inset;
+  overflow: hidden;
+}
+.Theme span::before {
+  position: absolute;
+  content: "\f185";
+  font-family: var(--fa-style-family-classic);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  width: 25px;
+  height: 25px;
+  top: 2.5px;
+  color: var(--main-color);
+  border-radius: 50%;
+  background-color: var(--drak-color-style);
+  left: 5px;
+  transition: var(--main-transition);
+}
+.Theme input:checked + span::before {
+  left: calc(100% - 27.5px);
+  background-color: var(--blue-alt2-color);
+  content: "\f186";
+  color: var(--white-color);
+}

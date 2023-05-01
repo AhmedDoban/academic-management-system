@@ -9,9 +9,10 @@
   width: 100%;
   position: relative;
   background-attachment: fixed;
-  background-color: var(--purple-color);
   height: 100vh;
   overflow: hidden;
+  background-color: var(--main-page-color);
+  transition: var(--main-transition);
 }
 .landing .container {
   position: relative;

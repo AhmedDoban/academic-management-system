@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Player } from "@lottiefiles/react-lottie-player";
 import "./assets/css/normalize.css";
 import "./assets/css/framework.css";
 import "./assets/css/style.css";
@@ -12,13 +13,51 @@ function App() {
   const options = [
     {
       value: "Student",
-      label: "Student",
+      label: (
+        <div className="display-flex align-center gap-10">
+          <Player
+            autoplay={true}
+            loop={true}
+            controls={false}
+            src="https://assets5.lottiefiles.com/packages/lf20_4vlxeulb.json"
+            style={{ width: 40, height: 40 }}
+          ></Player>
+          <p className="color-black">Student </p>
+        </div>
+      ),
       url: `${process.env.REACT_APP_API}/student_login.php`,
     },
     {
       value: "Doctor",
-      label: "Doctor",
+      label: (
+        <div className="display-flex align-center gap-10">
+          <Player
+            autoplay={true}
+            loop={true}
+            controls={false}
+            src="https://assets3.lottiefiles.com/private_files/lf30_Zqz4rZ.json"
+            style={{ width: 40, height: 40 }}
+          ></Player>
+          <p className="color-black">Doctor </p>
+        </div>
+      ),
       url: `${process.env.REACT_APP_API}/doctor/doctor_login.php`,
+    },
+    {
+      value: "Parent",
+      label: (
+        <div className="display-flex align-center gap-10">
+          <Player
+            autoplay={true}
+            loop={true}
+            controls={false}
+            src="https://assets10.lottiefiles.com/packages/lf20_uwh9uhdt.json"
+            style={{ width: 40, height: 40 }}
+          ></Player>
+          <p className="color-black">Parent </p>
+        </div>
+      ),
+      url: `${process.env.REACT_APP_API}/parent_login.php`,
     },
   ];
 

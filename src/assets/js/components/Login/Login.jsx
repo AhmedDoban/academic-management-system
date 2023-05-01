@@ -16,9 +16,11 @@ function Login(props) {
     await axios
       .post(
         props.Type.url,
-        props.Type.label === "Student"
+        props.Type.value === "Student"
           ? { student_code: Code, student_nat_id: Nat_ID }
-          : { doctor_code: Code, doctor_pass: Nat_ID },
+          : props.Type.value === "Doctor"
+          ? { doctor_code: Code, doctor_pass: Nat_ID }
+          : { parent_nat_id: Code, parent_pass: Nat_ID },
         {
           headers: {
             Accept: "application/json",
@@ -27,10 +29,17 @@ function Login(props) {
         }
       )
       .then((res) => {
+        console.log(
+          props.Type.value === "Student"
+            ? { student_code: Code, student_nat_id: Nat_ID }
+            : props.Type.value === "Doctor"
+            ? { doctor_code: Code, doctor_pass: Nat_ID }
+            : { parent_nat_id: Code, parent_pass: Nat_ID }
+        );
         if (res.data.status === "success") {
           localStorage.setItem("User", JSON.stringify(res.data.message));
           localStorage.setItem("Login", "ture");
-          localStorage.setItem("Type", props.Type.label);
+          localStorage.setItem("Type", props.Type.value);
           props.SetLogedOn(true);
           Navigate("/home");
         } else {
@@ -72,7 +81,7 @@ function Login(props) {
               <input
                 type="text"
                 placeholder={`Enter Your ${
-                  props.Type.label ? props.Type.label : ""
+                  props.Type.value ? props.Type.value : ""
                 } Code`}
                 value={Code}
                 onChange={(e) => SetCode(e.target.value)}
@@ -83,7 +92,7 @@ function Login(props) {
                 type="text"
                 value={Nat_ID}
                 placeholder={`Enter Your ${
-                  props.Type.label ? props.Type.label : ""
+                  props.Type.value ? props.Type.value : ""
                 } National ID`}
                 onChange={(e) => SeNat_Id(e.target.value)}
               />

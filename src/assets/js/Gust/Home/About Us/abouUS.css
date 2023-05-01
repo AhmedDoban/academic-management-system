@@ -10,6 +10,7 @@
   width: 100%;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
+  background-color: var(--white-color);
 }
 .aboutUS .container {
   position: relative;

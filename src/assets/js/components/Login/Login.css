@@ -8,6 +8,8 @@
 .Signin {
   position: relative;
   min-height: 100vh;
+  background-color: var(--main-background-color);
+  transition: var(--main-transition);
 }
 
 .Signin .container {
@@ -48,12 +50,15 @@
   border: none;
   border-bottom: var(--main-border);
   background-color: transparent;
+  color: var(--black-color);
 }
 .css-b62m3t-container {
   z-index: 99 !important;
   border: none !important;
   box-shadow: none !important;
   cursor: pointer !important;
+  background-color: var(--main-background-color) !important;
+  color: var(--black-color) !important;
 }
 .css-13cymwt-control {
   border: none !important;
@@ -61,4 +66,23 @@
   border: var(--main-border) !important;
   box-shadow: none !important;
   cursor: pointer !important;
+  background-color: var(--main-background-color) !important;
+  color: var(--black-color) !important;
+}
+.css-1dimb5e-singleValue p {
+  color: var(--black-color);
+}
+.css-t3ipsp-control {
+  background-color: var(--main-background-color) !important;
+  color: var(--black-color) !important;
+}
+.css-1nmdiq5-menu {
+  background-color: var(--main-background-color) !important;
+}
+.css-1nmdiq5-menu p {
+  color: var(--black-color) !important;
+}
+
+.css-1nmdiq5-menu div div:hover {
+  background-color: var(--white-color) !important;
 }
