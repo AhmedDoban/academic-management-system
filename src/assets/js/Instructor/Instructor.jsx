@@ -7,14 +7,7 @@ import React, {
   useCallback,
 } from "react";
 
-import {
-  Route,
-  Routes,
-  Navigate,
-  NavLink,
-  Outlet,
-  useParams,
-} from "react-router-dom";
+import { Route, Routes, Navigate, NavLink, Outlet } from "react-router-dom";
 
 import SideBar from "../components/SideBar/SideBar";
 import InquiriesCenter from "./Class/Inquiries Center/InquiriesCenter";
@@ -30,6 +23,9 @@ const Subjects = lazy(() => import("./Class/Subjects"));
 const Exams = lazy(() => import("./Class/Exams/Exams"));
 const NewExam = lazy(() => import("./Class/Exams/NewExam"));
 const EditExam = lazy(() => import("./Class/Exams/EditExam"));
+const EditSelectedExam = lazy(() =>
+  import("./Class/Exams/EditExam/EditSelectedExam")
+);
 const AddNewQu = lazy(() => import("./Class/Exams/EditExam/AddNewQu"));
 const Viedos = lazy(() => import("../components/videos/Videos"));
 const VideoCenter = lazy(() => import("./Class/Vedio Center/VideoCenter"));
@@ -117,6 +113,10 @@ const Instructor = (props) => {
                         >
                           <Route path="" element={<EditExam />} />
                           <Route path="addQu" element={<AddNewQu />} />
+                          <Route
+                            path="EditExam/:exam_id"
+                            element={<EditSelectedExam />}
+                          />
                         </Route>
                       </Route>
                       {/********** Video Center Page ***********/}

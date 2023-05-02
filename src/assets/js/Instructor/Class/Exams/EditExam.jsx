@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Mountain from "../../../components/Mountain Template/Mountain";
 import { Player } from "@lottiefiles/react-lottie-player";
@@ -62,7 +62,7 @@ function EditExam() {
         <div className="container">
           <Link
             className="editExam-card"
-            // to={`EditExam/${Exam.exam_id}/${Exam.exam_name}?`}
+            to={`EditExam/${params.exam_id}`}
             data-aos="zoom-in"
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"

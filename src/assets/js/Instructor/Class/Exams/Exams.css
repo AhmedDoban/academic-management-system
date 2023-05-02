@@ -254,7 +254,32 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # addQu
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.addQu .input-field {
+.addQu {
+  position: relative;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  width: 100%;
+}
+.addQu .container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.addQu .card {
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
+  box-shadow: 1px 2px 5px 5px var(--white-color);
+  z-index: 1;
+}
+.addQu .card.dropDownCard {
+  position: relative;
+  z-index: 2;
+}
+.addQu .card .input-field {
   position: relative;
   display: flex;
   align-items: center;
@@ -262,20 +287,21 @@
   gap: 10px;
   width: 100%;
   background-color: transparent;
-  margin-bottom: 50px;
   border-top: 0;
+  background-color: var(--white-color);
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
 }
-.addQu .input-field input {
+.addQu .card .input-field input {
   position: relative;
   width: 100%;
   padding: 10px;
   border: 0;
-  border-bottom: 1px solid var(--black-color);
   background-color: transparent;
   cursor: pointer;
   color: var(--black-color);
 }
-.addQu .input-field input ~ label {
+.addQu .card .input-field input ~ label {
   position: absolute;
   top: 10%;
   left: 10px;
@@ -286,53 +312,34 @@
   cursor: pointer;
   transition: var(--main-transition);
 }
-.addQu .input-field input:not(:placeholder-shown) ~ label,
-.addQu .input-field input:focus ~ label {
+.addQu .card .input-field input:not(:placeholder-shown) ~ label,
+.addQu .card .input-field input:focus ~ label {
   top: -20px;
   color: var(--blue-color);
 }
-.addQu .input-field input:focus {
+.addQu .card .input-field input:focus {
   border-color: var(--blue-color);
 }
-.addQu .input-field .addQuBtn {
+.addQu .card .input-field .addQuBtn {
   position: relative;
   z-index: 2;
   cursor: pointer;
   min-width: 40px;
   height: 40px;
-  border: 1px solid var(--green-color);
+  border: 0;
   background-color: transparent;
   transition: var(--main-transition);
-  border-radius: 50%;
-}
-.addQu .input-field .addQuBtn:hover {
-  background-color: var(--green-color);
-  color: var(--white-color);
-}
-.addQu .input-field select {
-  width: 100%;
-  border: 0;
-  background-color: var(--white-color);
-  padding: 5px 8px;
-  box-shadow: none;
-  color: var(--black-color);
-  cursor: pointer;
-}
-.addQu .input-field select:focus {
-  box-shadow: none;
-  outline: none;
-  border: none;
-}
-.addQu .input-field select option {
-  background-color: var(--white-color);
   color: var(--black-color);
 }
-.addQu .input-field label {
+.addQu .card .input-field .addQuBtn:hover {
+  color: var(--blue-color);
+}
+.addQu .card .input-field label {
   color: var(--black-color);
   transition: var(--black-color);
   width: 100%;
 }
-.addQu .input-field .SubmitBun {
+.addQu .card .input-field .SubmitBun {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -343,7 +350,46 @@
   cursor: pointer;
   color: var(--black-color);
   transition: var(--main-transition);
+  border-radius: var(--main-border-radius);
 }
-.addQu .input-field .SubmitBun:hover {
+.addQu .card .input-field .SubmitBun:hover {
   background-color: var(--blue-color);
+  color: var(--white-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# addQu Options
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.addQu .card .input-field .Dropdown-root {
+  position: relative;
+  width: 100%;
+}
+.addQu .card .input-field .Dropdown-root .Dropdown-control {
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border: 0;
+  cursor: pointer;
+}
+.addQu .card .input-field .Dropdown-root .Dropdown-menu {
+  background-color: var(--grey-color);
+  color: var(--white-color);
+  border: 0;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: var(--main-transition);
+}
+.addQu .card .input-field .Dropdown-root .Dropdown-menu .Dropdown-option {
+  color: var(--white-color);
+}
+.addQu
+  .card
+  .input-field
+  .Dropdown-root
+  .Dropdown-menu
+  .Dropdown-option.is-selected {
+  background-color: var(--blue-color);
+}
+.addQu .card .input-field .Dropdown-root .Dropdown-menu .Dropdown-option:hover {
+  background-color: var(--main-overlay);
+  color: var(--blue-color);
+  transition: var(--main-transition);
 }

@@ -1,0 +1,199 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../../../css/root.css");
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# edit Exam
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.EditSelectedExam {
+  position: relative;
+  width: 100%;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.EditSelectedExam .container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.EditSelectedExam .container .card {
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
+  box-shadow: 1px 2px 5px 5px var(--white-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# edit Exam input-card
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.EditSelectedExam .container .input-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# edit Exam input-card valid Answer
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.EditSelectedExam .container .input-card p {
+  width: 100%;
+  position: relative;
+  padding: 8px 14px;
+  color: var(--black-color);
+  border-radius: var(--main-border-radius);
+  background-color: var(--white-color);
+  transition: var(--main-transition);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# edit Exam input-card Answers
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.EditSelectedExam .container .input-card .Dropdown-root {
+  position: relative;
+  width: 100%;
+}
+.EditSelectedExam .container .input-card .Dropdown-root .Dropdown-control {
+  border-radius: var(--main-border-radius);
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border: 0;
+  cursor: pointer;
+}
+.EditSelectedExam .container .input-card .Dropdown-root .Dropdown-menu {
+  border-radius: var(--main-border-radius);
+  background-color: var(--grey-color);
+  color: var(--white-color);
+  border: 0;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: var(--main-transition);
+}
+.EditSelectedExam
+  .container
+  .input-card
+  .Dropdown-root
+  .Dropdown-menu
+  .Dropdown-option {
+  color: var(--white-color);
+}
+.EditSelectedExam
+  .container
+  .input-card
+  .Dropdown-root
+  .Dropdown-menu
+  .Dropdown-option.is-selected {
+  background-color: var(--blue-color);
+}
+.EditSelectedExam
+  .container
+  .input-card
+  .Dropdown-root
+  .Dropdown-menu
+  .Dropdown-option:hover {
+  background-color: var(--main-overlay);
+  color: var(--blue-color);
+  transition: var(--main-transition);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# edit Exam input-card Qu TExt 
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.EditSelectedExam .container .input-card input {
+  position: relative;
+  width: 100%;
+  background-color: var(--white-color);
+  border: 0;
+  padding: 8px 14px;
+  transition: var(--main-transition);
+  cursor: pointer;
+  color: var(--black-color);
+  font-size: 15px;
+  border-radius: var(--main-border-radius);
+}
+.EditSelectedExam .container .input-card textarea {
+  resize: none;
+  width: 100%;
+}
+.EditSelectedExam .container .input-card input[type="text"] ~ label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 12px;
+  z-index: 1;
+  padding: 5px;
+  color: var(--black-color);
+  transition: var(--main-transition);
+  border-radius: var(--main-border-radius);
+  font-size: 18px;
+}
+.EditSelectedExam .container .input-card input[type="text"]:focus ~ label,
+.EditSelectedExam
+  .container
+  .input-card
+  input[type="text"]:not(:placeholder-shown)
+  ~ label {
+  top: 0;
+  color: var(--blue-color);
+  font-weight: bold;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# edit Exam Controllers
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.EditSelectedExam .container .Controllers {
+  position: relative;
+  width: 100%;
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(49%, 1fr));
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.EditSelectedExam .container .card button {
+  background-color: var(--white-color);
+  border: 0;
+  cursor: pointer;
+  min-width: 100%;
+  color: var(--blue-color);
+  padding: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  border-radius: var(--main-border-radius);
+}
+
+.EditSelectedExam .container .Controllers .card button .Player {
+  width: 50px;
+  height: 50px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# No Qu
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.NoQu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.NoQu .NoQuPlayer {
+  width: 350px;
+  height: 350px;
+}
+.NoQu p {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}

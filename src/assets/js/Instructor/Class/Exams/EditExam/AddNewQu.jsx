@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Mountain from "../../../../components/Mountain Template/Mountain";
-import { Player } from "@lottiefiles/react-lottie-player";
 import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 import "../Exams.css";
 
 function AddNewQu() {
@@ -36,7 +37,7 @@ function AddNewQu() {
   };
 
   const HandleQuestionValidAnswer = (event) => {
-    Setquestion_valid_answer(event.target.value);
+    Setquestion_valid_answer(event.value);
   };
   const add_ques = async () => {
     try {
@@ -91,83 +92,86 @@ function AddNewQu() {
       <div className="addQu">
         <div className="container">
           {/* ******************** > question_text ********************/}
-          <div
-            className="input-field"
-            data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-          >
-            <input
-              type="text"
-              id="Question_Text"
-              value={question_text}
-              onChange={(e) => Setquestion_text(e.target.value)}
-              placeholder=" "
-            />
-            <label htmlFor="Question_Text">
-              <i className="fa-solid fa-signature"></i>Question Text
-            </label>
+          <div className="card">
+            <div
+              className="input-field"
+              data-aos="zoom-in"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="1000"
+            >
+              <input
+                type="text"
+                id="Question_Text"
+                value={question_text}
+                onChange={(e) => Setquestion_text(e.target.value)}
+                placeholder=" "
+              />
+              <label htmlFor="Question_Text">
+                <i className="fa-solid fa-signature"></i>Question Text
+              </label>
+            </div>
           </div>
+
           {question_text !== "" ? (
             <React.Fragment>
               {/* ******************** > question_answers ********************/}
-              <div
-                className="input-field"
-                data-aos="zoom-in"
-                data-aos-easing="ease-in-out"
-                data-aos-duration="1000"
-              >
-                <input
-                  type="text"
-                  id="Question_Answers"
-                  value={question_answersField}
-                  onChange={(e) => Setquestion_answersField(e.target.value)}
-                  placeholder=" "
-                />
-                <label htmlFor="Question_Answers">
-                  <i className="fa-solid fa-signature"></i>Question Answers
-                </label>
-                <button onClick={AddAnswer} className="addQuBtn">
-                  <i className="fa-solid fa-plus"></i>
-                </button>
+              <div className="card">
+                <div
+                  className="input-field"
+                  data-aos="zoom-in"
+                  data-aos-easing="ease-in-out"
+                  data-aos-duration="1000"
+                >
+                  <input
+                    type="text"
+                    id="Question_Answers"
+                    value={question_answersField}
+                    onChange={(e) => Setquestion_answersField(e.target.value)}
+                    placeholder=" "
+                  />
+                  <label htmlFor="Question_Answers">
+                    <i className="fa-solid fa-signature"></i>Question Answers
+                  </label>
+                  <button onClick={AddAnswer} className="addQuBtn">
+                    <i className="fa-solid fa-plus"></i>
+                  </button>
+                </div>
               </div>
+
               {/********************* > question_answers ********************/}
               {question_answers.length > 0 ? (
                 <React.Fragment>
-                  <div
-                    className="input-field"
-                    data-aos="zoom-in"
-                    data-aos-easing="ease-in-out"
-                    data-aos-duration="1000"
-                  >
-                    <label htmlFor="Question_Valid_Answer">
-                      <i className="fa-solid fa-signature"></i>Question Valid
-                      Answer
-                    </label>
-                    <select
-                      onChange={HandleQuestionValidAnswer}
-                      id="Question_Valid_Answer"
+                  <div className="card dropDownCard">
+                    <div
+                      className="input-field"
+                      data-aos="zoom-in"
+                      data-aos-easing="ease-in-out"
+                      data-aos-duration="1000"
                     >
-                      <option disabled selected>
-                        Chose an Answer
-                      </option>
+                      <label htmlFor="Question_Valid_Answer">
+                        <i className="fa-solid fa-signature"></i>Question Valid
+                        Answer
+                      </label>
 
-                      {Answers.map((p, index) => (
-                        <option value={p} key={index}>
-                          {p}
-                        </option>
-                      ))}
-                    </select>
+                      <Dropdown
+                        options={Answers}
+                        onChange={HandleQuestionValidAnswer}
+                        placeholder=" Chose an Answer"
+                        value={Answers[0]}
+                      />
+                    </div>
                   </div>
                 </React.Fragment>
               ) : null}
 
               {/********************* > Submit question ********************/}
               {question_valid_answer !== "" ? (
-                <div className="input-field">
-                  <button className="SubmitBun" onClick={add_ques}>
-                    Submit
-                  </button>
+                <div className="card">
+                  <div className="input-field">
+                    <button className="SubmitBun" onClick={add_ques}>
+                      Submit
+                    </button>
+                  </div>
                 </div>
               ) : null}
             </React.Fragment>
