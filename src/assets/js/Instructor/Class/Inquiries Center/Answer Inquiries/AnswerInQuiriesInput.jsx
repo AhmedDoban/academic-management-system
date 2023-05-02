@@ -69,7 +69,6 @@ function AnswerInQuiriesInput(props) {
           <i class="fa-solid fa-paper-plane"></i>
         </button>
       </div>
-      <ToastContainer />
     </React.Fragment>
   );
 }

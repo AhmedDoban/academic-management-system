@@ -180,7 +180,6 @@ const Student = (props) => {
                   {/********** setting Page ***********/}
                   <Route path="setting" element={<SettingPage />}>
                     <Route path="" exact />
-                    <Route path="setting-password" />
                     <Route path="setting-email" />
                     <Route path="*" render={() => <Navigate to="/" />} />
                   </Route>
