@@ -150,12 +150,7 @@ function EditVideo() {
               <label htmlFor="video_link">Video link</label>
             </div>
             {/********************************** Submit  *******************************/}
-            <div
-              className="input-card"
-              data-aos="zoom-in"
-              data-aos-easing="ease-in-out"
-              data-aos-duration="1000"
-            >
+            <div className="input-card">
               <button onClick={HandleBack}>
                 <Player
                   autoplay={true}

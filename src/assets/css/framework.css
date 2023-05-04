@@ -360,6 +360,7 @@
   );
   border-radius: var(--main-border-radius);
   overflow: hidden;
+  z-index: 5;
 }
 .main-btn-overlay::after {
   position: absolute;
