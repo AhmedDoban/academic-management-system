@@ -1,12 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./assets/css/style.css";
+import "./assets/css/normalize.css";
 import { BrowserRouter } from "react-router-dom";
 import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import App from "./App";
-import Student from "./assets/js/Student/student";
-import Admin from "./assets/js/Admin/Home/admin";
-import Instructor from './assets/js/Instructor/Instructor';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
