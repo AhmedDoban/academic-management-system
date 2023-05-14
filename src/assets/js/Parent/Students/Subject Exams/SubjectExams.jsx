@@ -4,12 +4,19 @@ import axios from "axios";
 import { Player } from "@lottiefiles/react-lottie-player";
 import "./SubjectExams.css";
 import LodingFeachData from "./../../../components/Loding Feach Data/LodingFeachData";
+import { CircularProgressbarWithChildren } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
+
 function SubjectExams(props) {
   const params = useParams();
   const [Data, Set_Data] = useState([]);
+  const [Success, Set_Success] = useState(0);
+  const [Faild, Set_Faild] = useState(0);
+  const [Gpa, Set_Gpa] = useState(0);
+
   const [loading, Setloading] = useState(false);
   const url = `${process.env.REACT_APP_API}/select_solved.php`;
-  console.log(Data);
+
   const FeatchData = async () => {
     try {
       Setloading(true);
@@ -30,6 +37,22 @@ function SubjectExams(props) {
         .then((res) => {
           if (res.data.status === "success") {
             Set_Data(res.data.message);
+            let Success = 0;
+            let Faild = 0;
+            let gpa = 0;
+            let Hours = 0;
+            let ExamsLenght = res.data.message.length;
+            res.data.message.map((item) => {
+              let data = item.solved_exam_score.split("/");
+              if (data[0] >= data[1] / 2) {
+                Hours += 3;
+                gpa += data[0] / data[1];
+                Success++;
+              } else Faild++;
+            });
+            Set_Success((Success / ExamsLenght) * 100);
+            Set_Faild((Faild / ExamsLenght) * 100);
+            Set_Gpa(((gpa / Hours) * 100).toFixed(2));
             Setloading(false);
           }
         });
@@ -41,8 +64,89 @@ function SubjectExams(props) {
   useEffect(() => {
     FeatchData();
   }, []);
+
   return (
     <React.Fragment>
+      {loading || Data.length <= 0 ? null : (
+        <div className="progress-result">
+          <div className="container">
+            <div className="card">
+              <CircularProgressbarWithChildren
+                value={+Gpa}
+                className="Gpa"
+                circleRatio={0.75}
+                styles={{
+                  trail: {
+                    strokeLinecap: "butt",
+                    transform: "rotate(-135deg)",
+                    transformOrigin: "center center",
+                  },
+                  path: {
+                    strokeLinecap: "butt",
+                    transform: "rotate(-135deg)",
+                    transformOrigin: "center center",
+                  },
+                }}
+              >
+                <div className="data">
+                  <h1 className="GpaH">Gpa</h1>
+                  <p className="GpaH">{+Gpa} %</p>
+                </div>
+              </CircularProgressbarWithChildren>
+            </div>
+            <div className="card">
+              <CircularProgressbarWithChildren
+                value={+Success}
+                className="Success"
+                circleRatio={0.75}
+                styles={{
+                  trail: {
+                    strokeLinecap: "butt",
+                    transform: "rotate(-135deg)",
+                    transformOrigin: "center center",
+                  },
+                  path: {
+                    strokeLinecap: "butt",
+                    transform: "rotate(-135deg)",
+                    transformOrigin: "center center",
+                  },
+                }}
+              >
+                <div className="data">
+                  <h1 className="SuccessH">Success</h1>
+                  <p className="SuccessH">{+Success} %</p>
+                </div>
+              </CircularProgressbarWithChildren>
+            </div>
+
+            <div className="card">
+              <CircularProgressbarWithChildren
+                value={+Faild}
+                className="Faild"
+                circleRatio={0.75}
+                styles={{
+                  trail: {
+                    strokeLinecap: "butt",
+                    transform: "rotate(-135deg)",
+                    transformOrigin: "center center",
+                  },
+                  path: {
+                    strokeLinecap: "butt",
+                    transform: "rotate(-135deg)",
+                    transformOrigin: "center center",
+                  },
+                }}
+              >
+                <div className="data">
+                  <h1 className="FaildH">Faild</h1>
+                  <p className="FaildH">{+Faild} %</p>
+                </div>
+              </CircularProgressbarWithChildren>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="SubjectExams">
         {loading ? (
           <LodingFeachData />
