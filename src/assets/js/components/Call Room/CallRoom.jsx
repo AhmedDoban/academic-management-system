@@ -10,17 +10,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { v4 as uuidv4 } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-
-import avatar1 from "../../../img/avatars/female-1.png";
-import avatar2 from "../../../img/avatars/female-2.png";
-import avatar3 from "../../../img/avatars/female-3.png";
-import avatar4 from "../../../img/avatars/female-4.png";
-import avatar5 from "../../../img/avatars/female-5.png";
-import avatar6 from "../../../img/avatars/male-1.png";
-import avatar7 from "../../../img/avatars/male-2.png";
-import avatar8 from "../../../img/avatars/male-3.png";
-import avatar9 from "../../../img/avatars/male-4.png";
-import avatar10 from "../../../img/avatars/male-5.png";
+import Mountain from "./../Mountain Template/Mountain";
 
 const config: ClientConfig = {
   mode: "rtc",
@@ -101,31 +91,16 @@ const VideoCall = (props) => {
 
 const Videos = (props) => {
   const vedioRef = useRef();
-  const { users, tracks, imgavatar, userName } = props;
-
-  const HandleFullView = (e) => {
-    let select = document.querySelectorAll(".vid");
-    select.forEach((view) => {
-      view.classList.remove("active");
-    });
-    e.currentTarget.classList.add("active");
-  };
+  const { users, tracks } = props;
 
   return (
-    <div>
-      <div id="videos">
-        <AgoraVideoPlayer
-          className="vid active"
-          videoTrack={tracks[1]}
-          onClick={HandleFullView}
-          ref={vedioRef}
-        >
-          <div className="user-data">
-            <img src={imgavatar} alt="avatar" />
-            <h1>{userName}</h1>
-          </div>
-        </AgoraVideoPlayer>
-
+    <div className="videos">
+      <AgoraVideoPlayer
+        className="vid "
+        videoTrack={tracks[1]}
+        ref={vedioRef}
+      ></AgoraVideoPlayer>
+      <div className="other-users">
         {users.length > 0 &&
           users.map((user) => {
             if (user.videoTrack) {
@@ -134,13 +109,7 @@ const Videos = (props) => {
                   className="vid"
                   videoTrack={user.videoTrack}
                   key={user.uid}
-                  onClick={HandleFullView}
-                >
-                  <div className="user-data">
-                    <img src={imgavatar} alt="avatar" />
-                    <h1>{userName}</h1>
-                  </div>
-                </AgoraVideoPlayer>
+                ></AgoraVideoPlayer>
               );
             } else return null;
           })}
@@ -200,7 +169,9 @@ export const Controls = (props) => {
             : "fa-solid fa-microphone-slash no"
         }
         onClick={() => mute("audio")}
-      ></i>
+      >
+        <span>{trackState.audio ? "microphone" : "unmute"}</span>
+      </i>
       <i
         className={
           trackState.video
@@ -208,7 +179,9 @@ export const Controls = (props) => {
             : "fa-solid fa-video-slash no"
         }
         onClick={() => mute("video")}
-      ></i>
+      >
+        <span>{trackState.video ? "video" : "unmute"}</span>
+      </i>
       <i
         className={
           trackState.Share
@@ -216,123 +189,54 @@ export const Controls = (props) => {
             : "fa-solid fa-display no"
         }
         onClick={() => ShareScrean()}
-      ></i>
+      >
+        <span>{trackState.Share ? "Stop" : "Share Screen"}</span>
+      </i>
 
       {
         <i
           className="fa-solid fa-person-walking-dashed-line-arrow-right"
           onClick={() => leaveChannel()}
-        ></i>
+        >
+          <span>End Meeting</span>
+        </i>
       }
     </div>
   );
 };
 
 const ChannelForm = (props) => {
-  const {
-    channelName,
-    setChannelName,
-    handleJoin,
-    setimgavatar,
-    setUserName,
-    userName,
-  } = props;
+  const { channelName, setChannelName, handleJoin } = props;
   const [random, setRandom] = useState("");
   useEffect(() => {
     setRandom(uuidv4());
   }, []);
   return (
     <React.Fragment>
-      <div className="card">
-        <p>Call Room</p>
-
-        <form className="join">
-          <div className="avatar-container">
-            <div className="custom-avatar">
-              <input type="radio" id="ava1" name="fav" />
-              <label for="ava1" onClick={() => setimgavatar(avatar1)}>
-                <img src={avatar1} alt="ava1" />
-              </label>
+      <div className="ChannelForm">
+        <div className="container">
+          <div className="card">
+            <p>Call Room</p>
+            <form className="join">
+              <input
+                type="search"
+                placeholder="Enter Channel Name"
+                onChange={(e) => setChannelName(e.target.value)}
+                value={channelName}
+              />
+              <button onClick={(e) => handleJoin(e)} className="submit-btn">
+                Join
+              </button>
+            </form>
+            <div className="random-channal">
+              <h5>Random Channel</h5>
+              <div className="data">
+                <p>{random}</p>
+                <CopyToClipboard text={random}>
+                  <i className="fa-regular fa-clone CopyToClipboard"></i>
+                </CopyToClipboard>
+              </div>
             </div>
-            <div className="custom-avatar">
-              <input type="radio" id="ava2" name="fav" />
-              <label for="ava2" onClick={() => setimgavatar(avatar2)}>
-                <img src={avatar2} alt="ava2" />
-              </label>
-            </div>
-            <div className="custom-avatar">
-              <input type="radio" id="ava3" name="fav" />
-              <label for="ava3" onClick={() => setimgavatar(avatar3)}>
-                <img src={avatar3} alt="ava3" />
-              </label>
-            </div>
-            <div className="custom-avatar">
-              <input type="radio" id="ava4" name="fav" />
-              <label for="ava4" onClick={() => setimgavatar(avatar4)}>
-                <img src={avatar4} alt="ava4" />
-              </label>
-            </div>
-            <div className="custom-avatar">
-              <input type="radio" id="ava5" name="fav" />
-              <label for="ava5" onClick={() => setimgavatar(avatar5)}>
-                <img src={avatar5} alt="ava5" />
-              </label>
-            </div>
-            <div className="custom-avatar">
-              <input type="radio" id="ava6" name="fav" />
-              <label for="ava6" onClick={() => setimgavatar(avatar6)}>
-                <img src={avatar6} alt="ava6" />
-              </label>
-            </div>
-            <div className="custom-avatar">
-              <input type="radio" id="ava7" name="fav" />
-              <label for="ava7" onClick={() => setimgavatar(avatar7)}>
-                <img src={avatar7} alt="ava7" />
-              </label>
-            </div>
-            <div className="custom-avatar">
-              <input type="radio" id="ava8" name="fav" />
-              <label for="ava8" onClick={() => setimgavatar(avatar8)}>
-                <img src={avatar8} alt="ava8" />
-              </label>
-            </div>
-            <div className="custom-avatar">
-              <input type="radio" id="ava9" name="fav" />
-              <label for="ava9" onClick={() => setimgavatar(avatar9)}>
-                <img src={avatar9} alt="ava9" />
-              </label>
-            </div>
-            <div className="custom-avatar">
-              <input type="radio" id="ava10" name="fav" />
-              <label for="ava10" onClick={() => setimgavatar(avatar10)}>
-                <img src={avatar10} alt="ava10" />
-              </label>
-            </div>
-          </div>
-
-          <input
-            type="text"
-            placeholder="Your Name"
-            onChange={(e) => setUserName(e.target.value)}
-            value={userName}
-          />
-          <input
-            type="search"
-            placeholder="Enter Channel Name"
-            onChange={(e) => setChannelName(e.target.value)}
-            value={channelName}
-          />
-          <button onClick={(e) => handleJoin(e)} className="submit-btn">
-            Join
-          </button>
-        </form>
-        <div className="random-channal">
-          <h5>Random Channel</h5>
-          <div className="data">
-            <p>{random}</p>
-            <CopyToClipboard text={random}>
-              <i className="fa-regular fa-clone CopyToClipboard"></i>
-            </CopyToClipboard>
           </div>
         </div>
       </div>
@@ -343,25 +247,9 @@ const ChannelForm = (props) => {
 const CallRoom = () => {
   const [inCall, setInCall] = useState(false);
   const [channelName, setChannelName] = useState("");
-  const [userName, setUserName] = useState("");
-  const [imgavatar, setimgavatar] = useState("");
 
   const handleJoin = (e) => {
     e.preventDefault();
-    if (userName === "") {
-      toast.error("You Must Enter Your Name", {
-        autoClose: 15000,
-        theme: "colored",
-      });
-      return;
-    }
-    if (imgavatar === "") {
-      toast.error("You Must Choose from avatars", {
-        autoClose: 15000,
-        theme: "colored",
-      });
-      return;
-    }
     if (channelName === "") {
       toast.error("You Must Enter Channel Name", {
         autoClose: 15000,
@@ -373,27 +261,29 @@ const CallRoom = () => {
   };
 
   return (
-    <div className="video-container">
+    <React.Fragment>
       {inCall ? (
-        <VideoCall
-          setInCall={setInCall}
-          channelName={channelName}
-          userName={userName}
-          imgavatar={imgavatar}
-        />
+        <div className="video-container">
+          <VideoCall setInCall={setInCall} channelName={channelName} />
+        </div>
       ) : (
-        <ChannelForm
-          setInCall={setInCall}
-          setChannelName={setChannelName}
-          handleJoin={handleJoin}
-          channelName={channelName}
-          setimgavatar={setimgavatar}
-          userName={userName}
-          setUserName={setUserName}
-        />
+        <React.Fragment>
+          <Mountain>
+            <div className="data">
+              <h1>Call Room</h1>
+            </div>
+          </Mountain>
+
+          <ChannelForm
+            setInCall={setInCall}
+            setChannelName={setChannelName}
+            handleJoin={handleJoin}
+            channelName={channelName}
+          />
+        </React.Fragment>
       )}
       <ToastContainer />
-    </div>
+    </React.Fragment>
   );
 };
 

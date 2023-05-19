@@ -7,44 +7,35 @@
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .video-container {
   position: relative;
-  background-color: var(--main-page-color);
   width: 100%;
-  padding: 0;
-  background-color: var(--white-color);
-  background-image: linear-gradient(
-      var(--main-background-color) 1.9000000000000001px,
-      transparent 1.9000000000000001px
-    ),
-    linear-gradient(
-      to right,
-      var(--main-background-color) 1.9000000000000001px,
-      var(--white-color) 1.9000000000000001px
-    );
-  background-size: 38px 38px;
-  padding: 0 0 30px 0;
-  min-height: 100vh;
+  background-color: #191b28;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column-reverse;
+  height: 100vh;
 }
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Student Friends call card form
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.video-container .card {
+.ChannelForm {
   position: relative;
-  min-width: 240px;
-  min-height: 240px;
-  max-width: 95%;
-  max-height: 95%;
-  padding: 20px;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.ChannelForm .card {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: var(--white-color);
-  border-radius: 4px;
-  color: #333;
-  box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.4);
-  border-radius: var(--main-border-radius);
   transition: var(--main-transition);
+  border-radius: var(--main-border-radius);
+  padding: 20px;
   animation: pop-up 1.5s alternate;
 }
 @keyframes pop-up {
@@ -59,7 +50,7 @@
     transform: scale(1);
   }
 }
-.video-container .card:after {
+.ChannelForm .card:after {
   position: absolute;
   content: "";
   right: -10px;
@@ -70,39 +61,31 @@
   border-right: 10px solid transparent;
   border-bottom: 10px solid #1a044e;
 }
-.video-container .card p {
+.ChannelForm .card input {
+  background-color: var(--black-color);
+  padding: 12px 8px;
+  transition: var(--main-transition);
+  border: 0;
+  color: var(--white-color);
+  border-radius: var(--main-border-radius);
+}
+.ChannelForm .card p {
   text-align: center;
   font-size: 20px;
   font-weight: bold;
   letter-spacing: 4px;
   line-height: 28px;
   margin-bottom: 10px;
+  color: var(--black-color);
 }
-.video-container .card form {
+.ChannelForm .card form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-.video-container .card form input {
-  position: relative;
-  border: none;
-  border-bottom: 1px solid #d4d4d4;
-  padding: 10px;
   width: 100%;
-  background: transparent;
-  margin-bottom: 15px;
-  transition: all 0.25s ease;
-  color: var(--black-color);
 }
 
-.video-container .card form input:focus {
-  outline: none;
-  border-bottom: 1px solid #0d095e;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-    "sans-serif";
-}
-
-.video-container .card form .submit-btn {
+.ChannelForm .card form .submit-btn {
   position: absolute;
   border-radius: 30px;
   border-bottom-right-radius: 0;
@@ -121,177 +104,156 @@
   box-shadow: -5px 6px 20px 0px rgba(26, 26, 26, 0.4);
   border: 0;
 }
-.video-container .card form .submit-btn:hover {
+.ChannelForm .card form .submit-btn:hover {
   background-color: #07013d;
   box-shadow: -5px 6px 20px 0px rgba(88, 88, 88, 0.569);
 }
-.video-container .card form .avatar-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-.video-container .card form .avatar-container .custom-avatar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 75px;
-  overflow: hidden;
-}
-.video-container
-  .card
-  form
-  .avatar-container
-  .custom-avatar
-  input[type="radio"] {
-  display: none;
-}
-.video-container .card form .avatar-container .custom-avatar label {
-  width: 100%;
-  padding: 15px;
-  border: 3px solid var(--grey-alt-color);
-  border-radius: 50%;
-  transition: var(--main-transition);
-  overflow: hidden;
-  cursor: pointer;
-  opacity: 0.5;
-}
-.video-container
-  .card
-  form
-  .avatar-container
-  .custom-avatar
-  input:checked
-  + label {
-  border: 3px solid var(--green-color);
-  opacity: 1;
-}
-.video-container .card form .avatar-container .custom-avatar label img {
-  max-width: 100%;
-  object-position: center center;
-  object-fit: cover;
-  transform: scale(1.6) translateY(4px);
-  z-index: 0;
-}
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Student Friends call random-channal
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.video-container .random-channal,
-.video-container .card .random-channal .data {
+.ChannelForm .random-channal,
+.ChannelForm .card .random-channal .data {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin: 10px 0;
 }
-.video-container .random-channal h5 {
+.ChannelForm .random-channal h5 {
   font-size: 18px;
   color: var(--red-color);
   letter-spacing: 2px;
 }
-.video-container .card .random-channal .data {
+.ChannelForm .card .random-channal .data {
   flex-direction: row;
+  gap: 15px;
+  text-align: center;
 }
-.video-container .card .random-channal .data p {
-  max-width: 240px;
+.ChannelForm .card .random-channal .data p {
+  width: 100%;
   font-size: 18px;
   letter-spacing: 0;
   line-height: 1;
 }
-.video-container .card .random-channal .CopyToClipboard {
+.ChannelForm .card .random-channal .CopyToClipboard {
   cursor: pointer;
   transition: var(--main-transition);
+  color: var(--black-color);
 }
-.video-container .card .random-channal .CopyToClipboard:hover {
+.ChannelForm .card .random-channal .CopyToClipboard:hover {
   color: var(--red-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Student Friends call controllers
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .video-container .controls {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
   padding: 10px;
+  height: 10vh;
+  background-color: #1c1e2e;
 }
 .video-container .controls i {
-  width: 55px;
-  height: 55px;
   background-color: var(--red-color);
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 15px;
+  padding: 15px 15px;
   color: #fff;
-  border-radius: 50%;
   cursor: pointer;
   transition: var(--main-transition);
+  border-radius: var(--main-border-radius);
+  font-size: 18px;
+  text-transform: capitalize;
+}
+@media (max-width: 992px) {
+  .video-container .controls i span {
+    display: none;
+  }
+}
+.video-container .controls i span {
+  position: relative;
+  font-size: 14px;
+  text-transform: capitalize;
+  letter-spacing: 2px;
 }
 .video-container .controls i.yes {
-  background-color: var(--green-color);
+  background-color: #1078f9;
 }
 .video-container .controls i.no {
-  background-color: var(--grey-alt-color);
+  background-color: #232736;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Student Friends call vedio container
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-#videos {
+.videos {
   position: relative;
-  height: 85vh;
+  height: 90vh;
   width: 100vw;
   margin: auto;
-  align-self: flex-start;
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
-  gap: 10px;
+  display: flex;
   justify-items: center;
   align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 10px 0 10px 10px;
+  border-bottom: 0.1px solid #2c2c4e;
 }
-#videos .vid {
+
+.videos .other-users {
+  padding: 10px 5px;
   position: relative;
-  width: 98%;
+  width: 250px;
+  height: 90vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #1c1e2e;
+  border-bottom: 0.1px solid #2c2c4e;
+  border-left: 0.1px solid #2c2c4e;
+}
+
+.videos .other-users::-webkit-scrollbar-track,
+.videos .other-users::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+.videos .vid {
+  position: relative;
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  outline: 1px solid var(--main-color);
-  border: 5px solid transparent;
+  border: none;
   border-radius: var(--main-border-radius);
   overflow: hidden;
 }
-#videos .vid.active {
-  grid-area: 1 / 1 / span 4 / span 4;
+.videos .other-users .vid {
+  width: 100%;
+  min-height: 150px;
+  max-height: 151px;
+  border-radius: var(--main-border-radius);
 }
-@media (max-width: 768px) {
-  #videos .vid.active {
-    grid-area: 1 / 1 / span 5 / span 5;
+@media (max-width: 992px) {
+  .videos {
+    flex-direction: column;
+    padding: 10px 10px 0 10px;
   }
-}
-
-#videos .vid .user-data {
-  position: absolute;
-
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  top: 5px;
-  left: 5px;
-  display: none;
-  z-index: 1;
-}
-#videos .vid .user-data img {
-  width: 50px;
-  height: 50px;
-  background-color: var(--black-color);
-  border-radius: 50%;
-}
-#videos .vid .user-data h1 {
-  color: var(--grey-alt-color);
-  font-size: 25px;
-  margin: 0;
-}
-#videos .vid.active .user-data {
-  display: flex;
+  .videos .other-users {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    overflow-x: scroll;
+    flex-direction: row;
+    border-left: 0;
+    border-top: 0.1px solid #2c2c4e;
+  }
+  .videos .other-users .vid {
+    min-width: 150px;
+  }
 }
