@@ -62,12 +62,15 @@
   border-bottom: 10px solid #1a044e;
 }
 .ChannelForm .card input {
-  background-color: var(--black-color);
+  background-color: var(--grey-alt-color);
   padding: 12px 8px;
   transition: var(--main-transition);
   border: 0;
   color: var(--white-color);
   border-radius: var(--main-border-radius);
+}
+.ChannelForm .card input::placeholder {
+  color: var(--white-color);
 }
 .ChannelForm .card p {
   text-align: center;
@@ -232,6 +235,7 @@
   border: none;
   border-radius: var(--main-border-radius);
   overflow: hidden;
+  background-color: #000;
 }
 .videos .other-users .vid {
   width: 100%;

@@ -95,11 +95,7 @@ const Videos = (props) => {
 
   return (
     <div className="videos">
-      <AgoraVideoPlayer
-        className="vid "
-        videoTrack={tracks[1]}
-        ref={vedioRef}
-      ></AgoraVideoPlayer>
+      <AgoraVideoPlayer className="vid" videoTrack={tracks[1]} ref={vedioRef} />
       <div className="other-users">
         {users.length > 0 &&
           users.map((user) => {
@@ -109,7 +105,7 @@ const Videos = (props) => {
                   className="vid"
                   videoTrack={user.videoTrack}
                   key={user.uid}
-                ></AgoraVideoPlayer>
+                />
               );
             } else return null;
           })}

@@ -9,6 +9,7 @@ import {
 
 import "react-toastify/dist/ReactToastify.min.css";
 import { useParams } from "react-router-dom";
+import Mountain from "./../Mountain Template/Mountain";
 
 const config: ClientConfig = {
   mode: "rtc",
@@ -83,35 +84,24 @@ const VideoCall = (props) => {
 const Videos = (props) => {
   const { users, tracks } = props;
 
-  const HandleFullView = (e) => {
-    let select = document.querySelectorAll(".vid");
-    select.forEach((view) => {
-      view.classList.remove("active");
-    });
-    e.currentTarget.classList.add("active");
-  };
-
   return (
     <div>
-      <div id="videos">
-        <AgoraVideoPlayer
-          className="vid active"
-          videoTrack={tracks[1]}
-          onClick={HandleFullView}
-        ></AgoraVideoPlayer>
-        {users.length > 0 &&
-          users.map((user) => {
-            if (user.videoTrack) {
-              return (
-                <AgoraVideoPlayer
-                  className="vid"
-                  videoTrack={user.videoTrack}
-                  key={user.uid}
-                  onClick={HandleFullView}
-                ></AgoraVideoPlayer>
-              );
-            } else return null;
-          })}
+      <div className="videos">
+        <AgoraVideoPlayer className="vid" videoTrack={tracks[1]} />
+        <div className="other-users">
+          {users.length > 0 &&
+            users.map((user) => {
+              if (user.videoTrack) {
+                return (
+                  <AgoraVideoPlayer
+                    className="vid"
+                    videoTrack={user.videoTrack}
+                    key={user.uid}
+                  />
+                );
+              } else return null;
+            })}
+        </div>
       </div>
     </div>
   );
@@ -120,7 +110,11 @@ const Videos = (props) => {
 export const Controls = (props) => {
   const client = useClient();
   const { tracks, setStart, setInCall } = props;
-  const [trackState, setTrackState] = useState({ video: true, audio: true });
+  const [trackState, setTrackState] = useState({
+    video: true,
+    audio: true,
+    Share: false,
+  });
 
   const mute = async (type) => {
     if (type === "audio") {
@@ -144,6 +138,16 @@ export const Controls = (props) => {
     setStart(false);
     setInCall(false);
   };
+  const ShareScrean = async () => {
+    if (navigator.mediaDevices.getDisplayMedia) {
+      navigator.mediaDevices.getDisplayMedia({
+        audio: true,
+        vedio: {
+          curser: "always",
+        },
+      });
+    }
+  };
 
   return (
     <div className="controls">
@@ -154,7 +158,9 @@ export const Controls = (props) => {
             : "fa-solid fa-microphone-slash no"
         }
         onClick={() => mute("audio")}
-      ></i>
+      >
+        <span>{trackState.audio ? "microphone" : "unmute"}</span>
+      </i>
       <i
         className={
           trackState.video
@@ -162,13 +168,27 @@ export const Controls = (props) => {
             : "fa-solid fa-video-slash no"
         }
         onClick={() => mute("video")}
-      ></i>
+      >
+        <span>{trackState.video ? "video" : "unmute"}</span>
+      </i>
+      <i
+        className={
+          trackState.Share
+            ? "fa-solid fa-display yes"
+            : "fa-solid fa-display no"
+        }
+        onClick={() => ShareScrean()}
+      >
+        <span>{trackState.Share ? "Stop" : "Share Screen"}</span>
+      </i>
 
       {
         <i
           className="fa-solid fa-person-walking-dashed-line-arrow-right"
           onClick={() => leaveChannel()}
-        ></i>
+        >
+          <span>End Meeting</span>
+        </i>
       }
     </div>
   );
@@ -179,26 +199,30 @@ const ChannelForm = (props) => {
 
   return (
     <React.Fragment>
-      <div className="card">
-        <p>Call Room</p>
+      <div className="ChannelForm">
+        <div className="container">
+          <div className="card">
+            <p>Call Room</p>
 
-        <form className="join">
-          <input
-            type="search"
-            placeholder={channelName}
-            value={channelName}
-            readOnly
-          />
-          <input
-            type="search"
-            placeholder={SubjectName}
-            value={SubjectName}
-            readOnly
-          />
-          <button onClick={(e) => handleJoin(e)} className="submit-btn">
-            Join
-          </button>
-        </form>
+            <form className="join">
+              <input
+                type="search"
+                placeholder={channelName}
+                value={channelName}
+                readOnly
+              />
+              <input
+                type="search"
+                placeholder={SubjectName}
+                value={SubjectName}
+                readOnly
+              />
+              <button onClick={(e) => handleJoin(e)} className="submit-btn">
+                Join
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </React.Fragment>
   );
@@ -226,18 +250,28 @@ const JoinRoom = (props) => {
   };
 
   return (
-    <div className="video-container">
+    <React.Fragment>
       {inCall ? (
-        <VideoCall setInCall={setInCall} channelName={channelName} />
+        <div className="video-container">
+          <VideoCall setInCall={setInCall} channelName={channelName} />
+        </div>
       ) : (
-        <ChannelForm
-          setInCall={setInCall}
-          handleJoin={handleJoin}
-          channelName={channelName}
-          SubjectName={SubjectName}
-        />
+        <React.Fragment>
+          <Mountain>
+            <div className="data">
+              <h1>Call Room</h1>
+            </div>
+          </Mountain>
+
+          <ChannelForm
+            setInCall={setInCall}
+            handleJoin={handleJoin}
+            channelName={channelName}
+            SubjectName={SubjectName}
+          />
+        </React.Fragment>
       )}
-    </div>
+    </React.Fragment>
   );
 };
 
