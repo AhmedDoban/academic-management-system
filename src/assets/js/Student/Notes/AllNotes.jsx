@@ -2,14 +2,19 @@ import React from "react";
 import Blobs from "./../../components/Blobs/Blobs";
 import CardBlur from "./../../components/Card Blur/CardBlur";
 import { Link } from "react-router-dom";
+import Mountain from "./../../components/Mountain Template/Mountain";
 
 function AllNotes(props) {
   return (
     <React.Fragment>
-      <Blobs />
+      <Mountain>
+        <div className="data">
+          <h1>Notes</h1>
+        </div>
+      </Mountain>
       <div className="notes">
+        <Blobs />
         <div className="container">
-          <h1 className="notes_title">Notes</h1>
           <div className="notes-container">
             {/************ Add note  **************/}
             <CardBlur>

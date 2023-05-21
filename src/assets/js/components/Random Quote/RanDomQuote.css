@@ -10,37 +10,7 @@
   position: relative;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
-  overflow: hidden;
-}
-.RounDomQuote .container > h1 {
-  position: relative;
-  color: var(--main-color);
-  display: block;
-  margin: 10px auto;
-  text-align: center;
-  z-index: 3;
-  width: fit-content;
-}
-.RounDomQuote::before,
-.RounDomQuote::after {
-  position: absolute;
-  content: "";
-  background-color: var(--orange-color);
-  width: 25%;
-  height: 250%;
-  border-radius: var(--main-border-radius);
-  transform: skew(-45deg);
-  transition: var(--main-transition);
-}
-.RounDomQuote::before {
-  bottom: 0;
-  right: 0;
-  transform-origin: bottom right;
-}
-.RounDomQuote::after {
-  top: 0;
-  left: 0;
-  transform-origin: top left;
+  background-color: var(--white-color);
 }
 .quote_container {
   position: relative;

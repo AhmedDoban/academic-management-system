@@ -134,7 +134,6 @@ function WhatOffer(props) {
           {/******************** End ********************************/}
         </div>
       </div>
-      <div className="spikes"></div>
     </React.Fragment>
   );
 }

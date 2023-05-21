@@ -29,12 +29,14 @@ function Gust(props) {
       Root.setProperty("--white-color", "#fff");
       Root.setProperty("--black-color", "#000");
       Root.setProperty("--main-p-color", "#777");
+      Root.setProperty("--main-overlay", "rgba(125, 125, 125, 0.7)");
     } else {
       Root.setProperty("--main-background-color", "#121212");
       Root.setProperty("--main-page-color", "#121212  ");
       Root.setProperty("--white-color", "#1e1e1e");
       Root.setProperty("--black-color", "#fff");
       Root.setProperty("--main-p-color", "#fff");
+      Root.setProperty("--main-overlay", "rgba(47, 47, 47, 0.7)");
     }
   };
   return (

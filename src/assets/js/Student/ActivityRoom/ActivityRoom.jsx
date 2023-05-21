@@ -3,14 +3,19 @@ import Blobs from "./../../components/Blobs/Blobs";
 import { Link } from "react-router-dom";
 import "./ActivityRoom.css";
 import CardBlur from "../../components/Card Blur/CardBlur";
+import Mountain from "../../components/Mountain Template/Mountain";
 
 function ActivityRoom() {
   return (
     <React.Fragment>
-      <Blobs />
+      <Mountain>
+        <div className="data">
+          <h1>Welcome To Activity Room</h1>
+        </div>
+      </Mountain>
       <div className="ActivityRoom">
+        <Blobs />
         <div className="container">
-          <h1 className="main-titel-2 ">Welcome To Activity Room</h1>
           <div className="activity-container">
             <Link className="box" to="drawing">
               <CardBlur>

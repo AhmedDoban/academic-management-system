@@ -151,6 +151,10 @@ p {
   background-color: var(--main-background-color);
   overflow: hidden;
 }
+.gust-home {
+  width: 100%;
+  overflow: hidden;
+}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Content 
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/

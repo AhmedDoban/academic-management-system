@@ -6,67 +6,74 @@
 # Landing
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .landing {
-  width: 100%;
   position: relative;
+  width: 100%;
+  background-color: var(--white-color);
   background-attachment: fixed;
-  height: 100vh;
-  overflow: hidden;
-  background-color: var(--main-page-color);
+  background-image: url("../../../../img/landing.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  transition: var(--main-transition);
+  overflow-y: hidden;
+}
+.landing::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-overlay);
+  backdrop-filter: blur(0px);
   transition: var(--main-transition);
 }
 .landing .container {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  height: 100vh;
-  gap: 20px;
+  flex-direction: column;
+  text-align: center;
+  gap: 15px;
+  height: 85vh;
 }
 
-.landing .container .right {
-  position: relative;
-  width: 100%;
-}
-.landing .container .right img {
-  position: relative;
-  max-width: 100%;
-}
-.landing .container .left {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
 .landing .container h2 {
   font-size: 48px;
   font-weight: 700;
-  margin-bottom: 20px;
-  color: var(--main-color);
+  color: var(--main-background-color);
+  letter-spacing: 3px;
+  font-family: "Trebuchet MS";
+  text-transform: capitalize;
   text-align: center;
 }
+
 .landing .container h2 span {
   display: block;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 800;
-  letter-spacing: 1px;
+  letter-spacing: 3px;
+  font-family: "Trebuchet MS";
   text-transform: capitalize;
-  color: #fff;
+  color: var(--main-color);
   margin: 10px 0;
 }
 .landing .container .typeWriter {
   display: block;
   margin: 0px 0 20px 0;
   font-size: 30px;
-  color: var(--ant-primary-color);
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 400;
+  color: var(--main-background-color);
+  font-weight: 600;
 }
 .landing .container a {
+  position: relative;
+  height: 50px;
   font-family: var(--font-primary);
   font-weight: 500;
-  font-size: 15px;
+  font-size: 18px;
   letter-spacing: 1px;
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 14px 40px;
   border-radius: 50px;
   transition: 0.3s;
@@ -74,17 +81,67 @@
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
   border: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(50px);
 }
+
 .landing .container a:hover {
   border-color: rgba(255, 255, 255, 0.5);
 }
 @media (max-width: 776px) {
   .landing .container {
-    flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
   }
-  .landing .container .left {
-    align-items: center;
+}
+.landing .waves {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 60px;
+}
+
+.wave1 use {
+  animation: move-forever1 10s linear infinite;
+  animation-delay: -2s;
+}
+
+.wave2 use {
+  animation: move-forever2 8s linear infinite;
+  animation-delay: -2s;
+}
+
+.wave3 use {
+  animation: move-forever3 6s linear infinite;
+  animation-delay: -2s;
+  fill: var(--white-color);
+}
+
+@keyframes move-forever1 {
+  0% {
+    transform: translate(85px, 0%);
+  }
+
+  100% {
+    transform: translate(-90px, 0%);
+  }
+}
+
+@keyframes move-forever2 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+
+@keyframes move-forever3 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+
+  100% {
+    transform: translate(85px, 0%);
   }
 }

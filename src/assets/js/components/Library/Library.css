@@ -2,18 +2,75 @@
 # General
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 @import "../../../css/root.css";
-html {
-  scroll-behavior: smooth;
+.Library {
+  position: relative;
+  background-color: var(--white-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Library head-Section
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .Library .head-Section {
   position: relative;
-  height: calc(100vh - 62px);
+  height: calc(100vh - 200px);
   width: 100%;
   background-color: var(--main-page-color);
 }
+.Library .waves {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 60px;
+  background-color: var(--main-page-color);
+}
+
+.wave1 use {
+  animation: move-forever1 10s linear infinite;
+  animation-delay: -2s;
+}
+
+.wave2 use {
+  animation: move-forever2 8s linear infinite;
+  animation-delay: -2s;
+}
+
+.wave3 use {
+  animation: move-forever3 6s linear infinite;
+  animation-delay: -2s;
+  fill: var(--white-color);
+}
+
+@keyframes move-forever1 {
+  0% {
+    transform: translate(85px, 0%);
+  }
+
+  100% {
+    transform: translate(-90px, 0%);
+  }
+}
+
+@keyframes move-forever2 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+
+@keyframes move-forever3 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Library head-Section container .Book-Reader-user
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .Library .head-Section .container .Book-Reader-user {
   position: absolute;
   left: -100px;
@@ -21,32 +78,7 @@ html {
   opacity: 0.6;
   z-index: -1;
 }
-.Library .head-Section::before {
-  position: absolute;
-  content: "";
-  width: 25%;
-  height: 100%;
-  background-color: var(--orange-color);
-  top: 0;
-  left: 0;
-  z-index: 2;
-  transition: var(--main-transition);
-  transform: skewX(-45deg);
-  transform-origin: top left;
-}
-.Library .head-Section::after {
-  position: absolute;
-  content: "";
-  width: 25%;
-  height: 100%;
-  background-color: var(--orange-color);
-  right: 0;
-  bottom: 0;
-  z-index: 2;
-  transition: var(--main-transition);
-  transform: skewX(-45deg);
-  transform-origin: bottom left;
-}
+
 .Library .head-Section .container {
   position: relative;
   display: flex;
@@ -139,7 +171,7 @@ html {
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .Library .content {
   position: relative;
-  padding-top: var(--main-padding-top);
+  padding-top: calc(var(--main-padding-top) * 2);
   padding-bottom: var(--main-padding-bottom);
 }
 .Library .content .books {

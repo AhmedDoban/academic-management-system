@@ -2,10 +2,7 @@ import React, { useRef } from "react";
 import "./StudentTablePage.css";
 import { useReactToPrint } from "react-to-print";
 import { useDownloadExcel } from "react-export-table-to-excel";
-import Footer from "../../components/Footer/Footer";
-
-import Head from "../../components/Header/Head";
-import RanDomQuote from "../../components/Random Quote/RanDomQuote";
+import Mountain from "./../../components/Mountain Template/Mountain";
 
 class StudentTable extends React.PureComponent {
   render() {
@@ -149,28 +146,25 @@ function StudentTablePage(props) {
   });
   return (
     <React.Fragment>
-      <Head />
-      <div className="toolbar">
-        <div className="management">
-          <h1>Student table</h1>
-          <div className="control">
-            <button onClick={handlePrint}>
-              <i className="fa-solid fa-print"></i>
-            </button>
-            <button onClick={onDownload}>
-              <i className="fa-solid fa-cloud-arrow-down"></i>
-            </button>
+      <Mountain>
+        <div className="data">
+          <h1>Student table </h1>
+          <div className="card">
+            <div className="button-control">
+              <button onClick={handlePrint}>
+                <i className="fa-solid fa-print"></i>
+                print
+              </button>
+              <button onClick={onDownload}>
+                <i className="fa-solid fa-cloud-arrow-down"></i>
+                download
+              </button>
+            </div>
           </div>
         </div>
+      </Mountain>
 
-        <StudentTable
-          ref={componentRef}
-          currentTableRef={tableRef}
-          {...props}
-        />
-      </div>
-      <RanDomQuote />
-      <Footer />
+      <StudentTable ref={componentRef} currentTableRef={tableRef} {...props} />
     </React.Fragment>
   );
 }
