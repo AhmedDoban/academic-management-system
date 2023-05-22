@@ -1,13 +1,13 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import AuthUser from "../../../config/AuthUser";
+// import AuthUser from "../../../config/AuthUser";
 function SideBarAdminPage() {
-  const { token, logOut } = AuthUser();
-  const logoutUser = () => {
-    if (token !== undefined) {
-      logOut();
-    }
-  };
+  // const { token, logOut } = AuthUser();
+  // const logoutUser = () => {
+  //   if (token !== undefined) {
+  //     logOut();
+  //   }
+  // };
   return (
     <React.Fragment>
       <div className="SideBarAdminPage">
@@ -38,7 +38,7 @@ function SideBarAdminPage() {
             </NavLink>
           </li>
           <li>
-            <Link to="/" onClick={logoutUser}>
+            <Link to="/">
               <i className="fa-solid fa-right-from-bracket"></i>
               <span>Log out</span>
             </Link>
