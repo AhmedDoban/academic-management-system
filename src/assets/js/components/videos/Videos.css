@@ -37,6 +37,17 @@
   align-items: center;
   height: 100%;
 }
+.specific-course .holder .right .NoSelectedPlayer {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+.specific-course .holder .right p {
+  position: relative;
+  transition: var(--main-transition);
+  color: var(--black-color);
+  letter-spacing: 2px;
+}
 .specific-course .holder .right .Frame {
   width: 100%;
   height: 550px;
@@ -75,13 +86,22 @@
   display: none;
 }
 .specific-course .holder .left ul li {
+  position: relative;
   padding: 20px;
   border-top: 1px solid #ececec;
   cursor: pointer;
   transition: var(--main-transition);
   color: var(--black-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-
+.specific-course .holder .left ul li img {
+  width: 60px;
+  height: 100%;
+  border-radius: var(--main-border-radius);
+  object-fit: cover;
+}
 .specific-course .holder .left ul li:hover {
   color: var(--main-color);
   background-color: #fafafa;

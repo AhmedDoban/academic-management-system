@@ -10,9 +10,15 @@ function Viedos(props) {
   const params = useParams();
   const [Video, SetVideo] = useState([]);
   const [VideoSRC, SetVideoSRC] = useState("");
+  const [VideoTitel, SetVideoTitel] = useState("");
 
   const url = props.url;
+  console.log(Video);
 
+  const HandleViewVideo = (data) => {
+    SetVideoSRC(data.video_link);
+    SetVideoTitel(data.video_title);
+  };
   useEffect(() => {
     const fetchData = async function () {
       try {
@@ -65,18 +71,41 @@ function Viedos(props) {
                   <ul>
                     {Video.map((video) => (
                       <li
-                        onClick={() => SetVideoSRC(video.video_link)}
+                        onClick={() => HandleViewVideo(video)}
                         key={video.video_id}
                       >
-                        {video.video_title}
-                        <span>{video.video_date}</span>
+                        <div className="img">
+                          <img
+                            src={video.video_image_link}
+                            alt={video.video_title}
+                          />
+                        </div>
+                        <div className="data">
+                          {video.video_title}
+                          <span>{video.video_date}</span>
+                        </div>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div className="right">
-                  <iframe className="Frame" src={VideoSRC}></iframe>
-                  <div className="info">Everything About The </div>
+                  {VideoSRC ? (
+                    <React.Fragment>
+                      <iframe className="Frame" src={VideoSRC}></iframe>
+                      <div className="info">{VideoTitel}</div>
+                    </React.Fragment>
+                  ) : (
+                    <React.Fragment>
+                      <Player
+                        autoplay={true}
+                        loop={true}
+                        controls={false}
+                        src="https://assets7.lottiefiles.com/packages/lf20_7bfNOv.json"
+                        className="NoSelectedPlayer"
+                      />
+                      <p>Select Video </p>
+                    </React.Fragment>
+                  )}
                 </div>
               </div>
             </div>
