@@ -75,7 +75,7 @@ function Courses() {
         <Route
           path="/"
           element={
-            <Select_Sub_generation
+            <SELECT_SUB_GENERATION
               Search={Search}
               setSearch={setSearch}
               loading={loading}
@@ -96,7 +96,7 @@ function Courses() {
   );
 }
 
-function Select_Sub_generation(props) {
+function SELECT_SUB_GENERATION(props) {
   return (
     <React.Fragment>
       {props.loading ? (
@@ -126,7 +126,7 @@ function Select_Sub_generation(props) {
             data-aos-duration="1000"
           >
             {/************************** Start input and some options ****************************/}
-            <div className="header between-flex">
+            <div className="header">
               <div className="input-absulote">
                 <input
                   type="text"
@@ -213,9 +213,14 @@ function Select_Sub_generation(props) {
   );
 }
 
-function Select_Sub_generationSubjects(props) {
+function Select_Sub_generationSubjects() {
   const params = useParams();
+  const [visible, setVisible] = useState(8);
+  const showMore = () => setVisible((p) => p + 3);
+
   const [student_id, setStudent_id] = useState([]);
+  const [show, setShow] = useState("grid");
+  const [Search, setSearch] = useState("");
 
   const GetID = async function () {
     try {
@@ -264,6 +269,7 @@ function Select_Sub_generationSubjects(props) {
   return (
     <React.Fragment>
       <div className="Select_Sub_generationSubjects p-relative">
+        {/**************************** Titel  **********************************************/}
         <h1
           className="main-titel"
           data-aos="fade-down"
@@ -274,29 +280,77 @@ function Select_Sub_generationSubjects(props) {
           <div className="div-circle"></div>
           <span>{Classes.generation_name} </span>
         </h1>
+        {/**************************** End Titel **********************************************/}
+
+        {/**************************** Dots**********************************************/}
         <Dots OtherStyle="top" />
         <Dots OtherStyle="bottom" />
+        {/**************************** Start Container **********************************************/}
         <div className="container">
-          {Classes.subjects?.map((p) => (
-            <Link
-              className="Card"
-              data-aos="fade-right"
-              data-aos-easing="ease-in-out"
-              data-aos-duration="1000"
-              to={`/Subject Data/${p.subject_id}/${p.subject_name}?`}
-            >
-              <Player
-                autoplay={true}
-                loop={true}
-                controls={false}
-                src="https://assets4.lottiefiles.com/packages/lf20_4XmSkB.json"
-                className="PLayer"
-              ></Player>
-              <h3>{p.subject_name}</h3>
-              <p> {p.subject_description}</p>
-            </Link>
-          ))}
+          {/**************************** Header Search and show style**********************************************/}
+          <div
+            className="header "
+            data-aos="fade-down"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1000"
+          >
+            <div className="input-absulote">
+              <input
+                type="text"
+                className="width-full"
+                placeholder="Search for subject Name"
+                value={Search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
+
+            <i
+              className="fa-solid fa-border-all style active"
+              onClick={() => setShow("grid")}
+              data-style="grid"
+            ></i>
+            <i
+              className="fa-solid fa-grip-lines style"
+              onClick={() => setShow("list")}
+              data-style="list"
+            ></i>
+          </div>
         </div>
+        {/**************************** End Container **********************************************/}
+
+        {/**************************** Start Container **********************************************/}
+        <div className={`container ${show}`}>
+          {Classes.subjects
+            ?.filter((searchData) => {
+              return Search === ""
+                ? searchData
+                : searchData.subject_name.toLowerCase().includes(Search);
+            })
+            .slice(0, visible)
+            .map((p) => (
+              <Link
+                className="Card"
+                data-aos="fade-right"
+                data-aos-easing="ease-in-out"
+                data-aos-duration="1000"
+                to={`/Subject Data/${p.subject_id}/${p.subject_name}?`}
+                key={p.id}
+              >
+                <Player
+                  autoplay={true}
+                  loop={true}
+                  controls={false}
+                  src="https://assets4.lottiefiles.com/packages/lf20_4XmSkB.json"
+                  className="PLayer"
+                ></Player>
+                <div className="data">
+                  <h3>{p.subject_name}</h3>
+                  <p> {p.subject_description}</p>
+                </div>
+              </Link>
+            ))}
+        </div>
+        {/**************************** End Container **********************************************/}
       </div>
     </React.Fragment>
   );

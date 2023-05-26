@@ -8,28 +8,37 @@
   background-color: var(--white-color);
 }
 
-.student-courses-container .header {
+.student-courses-container .header,
+.Select_Sub_generationSubjects .container .header {
   position: relative;
   width: 100%;
   margin: 20px 0px;
-  gap: 5px;
+  gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  border-radius: var(--main-border-radius);
 }
 
-.student-courses-container .header .input-absulote {
+.student-courses-container .header .input-absulote,
+.Select_Sub_generationSubjects .container .header .input-absulote {
   width: 100%;
   position: relative;
   overflow: hidden;
   border-radius: var(--main-border-radius);
-  box-shadow: 0px 10px 10px -3px rgba(0, 0, 0, 0.2);
 }
-.student-courses-container .header .input-absulote input {
-  padding: 10px 8px;
+.student-courses-container .header .input-absulote input,
+.Select_Sub_generationSubjects .container .header .input-absulote input {
+  padding: 10px 12px;
   border: none;
   border-radius: var(--main-border-radius);
-  background-color: var(--white-color);
   color: var(--black-color);
+  background-color: var(--main-background-color);
 }
-.student-courses-container .header .input-absulote i {
+.student-courses-container .header .input-absulote i,
+.Select_Sub_generationSubjects .container .header .input-absulote i {
   position: absolute;
   top: 0;
   right: 0;
@@ -39,7 +48,8 @@
   border-radius: 0;
   box-shadow: none;
 }
-.student-courses-container .header i {
+.student-courses-container .header i,
+.Select_Sub_generationSubjects .container .header i {
   width: 35px;
   height: 35px;
   display: flex;
@@ -52,7 +62,8 @@
   font-size: large;
   box-shadow: 0px 10 px 10px -3px rgba(0, 0, 0, 0.2);
 }
-.student-courses-container .header i.active {
+.student-courses-container .header i.active,
+.Select_Sub_generationSubjects .container .header i.active {
   background-color: var(--green-color);
 }
 
@@ -431,70 +442,6 @@
 }
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-  # course data discription
-  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.specific-course .discription {
-  padding-top: var(--main-padding-top);
-  padding-bottom: var(--main-padding-bottom);
-  position: relative;
-  background-color: var(--main-page-color);
-}
-.specific-course .discription .container .details-head {
-  position: relative;
-  font-size: 50px;
-  font-weight: bold;
-  color: var(--main-color);
-}
-.specific-course .discription .container .details-head::before {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 5px;
-  background-color: var(--white-color);
-  bottom: 0;
-}
-.specific-course .discription .container .description-titel {
-  font-weight: bold;
-  margin: 10px 0px;
-  font-size: 30px;
-  color: var(--red-color);
-}
-.specific-course .discription .container .description-titel + p {
-  padding: 10px 20px;
-  letter-spacing: 1.1px;
-  line-height: 1.5;
-  font-size: 16px;
-  text-align: justify;
-  font-weight: 500px;
-  color: #fff;
-}
-.specific-course
-  .discription
-  .container
-  .description-titel
-  + .projects-counter
-  li {
-  position: relative;
-  padding: 10px 0 10px 50px;
-  counter-increment: section;
-  font-weight: bold;
-  color: #fff;
-}
-
-.specific-course
-  .discription
-  .container
-  .description-titel
-  + .projects-counter
-  li::before {
-  position: absolute;
-  content: counter(section) " - ";
-  left: 0;
-  font-weight: bold;
-  color: var(--orange-color);
-}
-
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
   # top Select_Sub_generationSubjects
   ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 
@@ -502,8 +449,12 @@
   position: relative;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
+  background-color: var(--white-color);
 }
-.Select_Sub_generationSubjects .container {
+/*******************************************************
+  # Container Grid Card
+*********************************************************/
+.Select_Sub_generationSubjects .container.grid {
   position: relative;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
@@ -511,30 +462,88 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 10px;
 }
-@media (max-width: 776px) {
-  .Select_Sub_generationSubjects .container {
-    grid-template-columns: repeat(auto-fill, minmax(170px, 0.5fr));
+@media (max-width: 550px) {
+  .Select_Sub_generationSubjects .container.grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   }
 }
-.Select_Sub_generationSubjects .container .Card {
+/*******************************************************
+  # Container list Card
+*********************************************************/
+.Select_Sub_generationSubjects .container.list {
+  position: relative;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+/*******************************************************
+  # Grid Card
+*********************************************************/
+.Select_Sub_generationSubjects .container.grid .Card {
+  position: relative;
   width: 100%;
   padding: 10px;
   min-height: 300px;
   background-color: var(--white-color);
   border-radius: var(--main-border-radius);
+  box-shadow: 0px 10px 8px 4px var(--main-background-color);
+  transition: var(--main-transition);
 }
-.Select_Sub_generationSubjects .container .Card .PLayer {
+.Select_Sub_generationSubjects .container.grid .Card .PLayer {
   width: 100%;
 }
-.Select_Sub_generationSubjects .container .Card h3 {
+.Select_Sub_generationSubjects .container.grid .Card h3 {
   width: 100%;
   text-align: center;
   color: var(--blue-color);
 }
-.Select_Sub_generationSubjects .container .Card p {
+.Select_Sub_generationSubjects .container.grid .Card p {
   width: 100%;
   text-align: center;
   padding: 20px 10px;
+  color: var(--black-color);
+}
+/*******************************************************
+  # list Card
+*********************************************************/
+
+.Select_Sub_generationSubjects .container.list .Card {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--white-color);
+  border-radius: var(--main-border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  box-shadow: 0px 10px 8px 4px var(--main-background-color);
+  transition: var(--main-transition);
+}
+.Select_Sub_generationSubjects .container.list .Card .PLayer {
+  height: 100px;
+}
+.Select_Sub_generationSubjects .container.list .Card .data {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+.Select_Sub_generationSubjects .container.list .Card h3 {
+  width: 100%;
+  text-align: left;
+  color: var(--blue-color);
+}
+.Select_Sub_generationSubjects .container.list .Card p {
+  width: 100%;
+  text-align: left;
+  padding: 0px;
+  color: var(--black-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
   # top instructor
