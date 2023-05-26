@@ -56,12 +56,12 @@
   background-color: var(--white-color);
   height: 100%;
 }
-.specific-course .holder .left .top-vedio {
+.specific-course .holder .left .top-video {
   padding: 20px;
   width: 100%;
   background-color: #f0f0f0;
 }
-.specific-course .holder .left .top-vedio p {
+.specific-course .holder .left .top-video p {
   font-size: 17px;
   color: var(--blue-color);
   font-weight: bold;

@@ -90,12 +90,12 @@ const VideoCall = (props) => {
 };
 
 const Videos = (props) => {
-  const vedioRef = useRef();
+  const videoRef = useRef();
   const { users, tracks } = props;
 
   return (
     <div className="videos">
-      <AgoraVideoPlayer className="vid" videoTrack={tracks[1]} ref={vedioRef} />
+      <AgoraVideoPlayer className="vid" videoTrack={tracks[1]} ref={videoRef} />
       <div className="other-users">
         {users.length > 0 &&
           users.map((user) => {
@@ -140,7 +140,7 @@ export const Controls = (props) => {
     if (navigator.mediaDevices.getDisplayMedia) {
       navigator.mediaDevices.getDisplayMedia({
         audio: true,
-        vedio: {
+        video: {
           curser: "always",
         },
       });

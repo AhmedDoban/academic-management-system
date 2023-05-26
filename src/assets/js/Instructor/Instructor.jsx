@@ -28,7 +28,7 @@ const EditSelectedExam = lazy(() =>
 );
 const AddNewQu = lazy(() => import("./Class/Exams/EditExam/AddNewQu"));
 const Viedos = lazy(() => import("../components/videos/Videos"));
-const VideoCenter = lazy(() => import("./Class/Vedio Center/VideoCenter"));
+const VideoCenter = lazy(() => import("./Class/Video Center/VideoCenter"));
 const SammaryCenter = lazy(() =>
   import("./Class/Sammary Center/SammaryCenter")
 );

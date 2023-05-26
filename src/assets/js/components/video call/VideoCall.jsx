@@ -142,7 +142,7 @@ export const Controls = (props) => {
     if (navigator.mediaDevices.getDisplayMedia) {
       navigator.mediaDevices.getDisplayMedia({
         audio: true,
-        vedio: {
+        video: {
           curser: "always",
         },
       });

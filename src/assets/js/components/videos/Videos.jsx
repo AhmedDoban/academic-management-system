@@ -59,7 +59,7 @@ function Viedos(props) {
                 data-aos-duration="1000"
               >
                 <div className="left">
-                  <div className="top-vedio">
+                  <div className="top-video">
                     <p>Videos</p>
                   </div>
                   <ul>

@@ -22,7 +22,7 @@ function CoursesControl() {
               type="courses"
               col1="Course Name"
               col2="Course Teacher"
-              col3="Courses Vedio len"
+              col3="Courses video len"
               Serach={Serach}
             />
           </div>
