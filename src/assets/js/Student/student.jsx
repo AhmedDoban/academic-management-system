@@ -19,16 +19,16 @@ const StudenClasses = lazy(() => import("./Classes/StudenClasses"));
 const Quiz = lazy(() => import("./Quiz/Quiz"));
 const SubjectData = lazy(() => import("./Classes/SubjectData/SubjectData"));
 const Exam = lazy(() => import("./Classes/Exams/Exam"));
-const JoinRoom = lazy(() => import("../components/video call/VideoCall"));
+const ExamPage = lazy(() => import("./Classes/Exams/ExamPage"));
 const Viedos = lazy(() => import("../components/videos/Videos"));
 const Summary = lazy(() => import("./Classes/Summary/Summary"));
+const JoinRoom = lazy(() => import("../components/video call/VideoCall"));
 const SubjectNotification = lazy(() =>
   import("./Classes/SubjectNotification/SubjectNotification")
 );
 const Inquiries = lazy(() => import("./Classes/Inquiries/Inquiries"));
 const Chat = lazy(() => import("./Classes/Chat/Chat"));
-const ExamPage = lazy(() => import("./Classes/Exams/ExamPage"));
-
+const ChatBot = lazy(() => import("./Classes/Chat Bot/ChatBot"));
 // table page
 const StudentTablePage = lazy(() => import("./Table/StudentTablePage"));
 
@@ -152,12 +152,13 @@ const Student = (props) => {
                       }
                     />
                     <Route path="Summary/:id" element={<Summary />} />
-                    <Route path="Chat/:id" element={<Chat />} />
                     <Route
                       path="Notifications/:id"
                       element={<SubjectNotification />}
                     />
                     <Route path="Inquiries/:id" element={<Inquiries />} />
+                    <Route path="Chat/:id" element={<Chat />} />
+                    <Route path="ChatBot" element={<ChatBot />} />
                   </Route>
                   {/********** Table Page ***********/}
                   <Route path="/table" element={<StudentTablePage />} />

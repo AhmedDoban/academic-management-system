@@ -167,3 +167,15 @@ export const Questions = [
     ],
   },
 ];
+export const Chatbot = [
+  {
+    id: 1,
+    message: "How are You",
+    answer: "Fine ..!  What about you ?",
+  },
+  {
+    id: 2,
+    message: "Hi",
+    answer: "Hi Nice To Meet You . How can I Help ?",
+  },
+];

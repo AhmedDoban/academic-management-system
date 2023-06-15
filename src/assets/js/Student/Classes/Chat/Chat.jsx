@@ -1,17 +1,23 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "./Chat.css";
-import Blobs from "./../../../components/Blobs/Blobs";
 import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import GetUser from "./GetUser";
+import Mountain from "../../../components/Mountain Template/Mountain";
 
 function Chat() {
   const params = useParams();
   const [Chat, SetChat] = useState([]);
   const [TextFeild, SetTextField] = useState("");
+  const [StudentId, SetStudentID] = useState("");
 
+  const GetId = () => {
+    let Id = JSON.parse(localStorage.getItem("User"));
+    SetStudentID(Id.student_id);
+  };
   const fetchData = async function () {
+    GetId();
     try {
       await axios
         .post(
@@ -34,7 +40,7 @@ function Chat() {
     }
   };
 
-  const HandleTextFeild = useCallback(async () => {
+  const HandleMessageFeild = useCallback(async () => {
     if (TextFeild !== "") {
       try {
         await axios
@@ -73,7 +79,34 @@ function Chat() {
       });
     }
   });
-
+  const HandleMessageKey = useCallback(async (e) => {
+    if (e.key === "Enter") {
+      try {
+        await axios
+          .post(
+            `${process.env.REACT_APP_API}/add_message.php`,
+            {
+              subject_id: params.subject_id,
+              message: TextFeild,
+            },
+            {
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "text/plain",
+              },
+            }
+          )
+          .then((response) => {
+            if (response.data.status === "success") {
+              fetchData();
+              SetTextField("");
+            }
+          });
+      } catch (error) {
+        throw error;
+      }
+    }
+  });
   const url = `${process.env.REACT_APP_API}/select_message.php`;
 
   useEffect(() => {
@@ -82,17 +115,22 @@ function Chat() {
 
   return (
     <React.Fragment>
-      <Blobs />
       <div className="Chat">
+        <Mountain />
         <div className="messages">
           {Chat.map((message) => (
-            <div className="messages-data" key={Chat.chat_id}>
-              <h1>
-                {message.message}
-                <p>
-                  <GetUser student_id={message.student_id} />
-                </p>
-              </h1>
+            <div
+              className={
+                message.student_id === StudentId
+                  ? "messages-data right"
+                  : "messages-data left"
+              }
+              key={Chat.chat_id}
+            >
+              <p>
+                <GetUser student_id={message.student_id} />
+              </p>
+              <h1>{message.message}</h1>
             </div>
           ))}
         </div>
@@ -102,8 +140,17 @@ function Chat() {
             placeholder=""
             value={TextFeild}
             onChange={(e) => SetTextField(e.target.value)}
+            onKeyPress={HandleMessageKey}
+            className={TextFeild.length > 0 ? "active" : ""}
           />
-          <button className="SendMessage-button" onClick={HandleTextFeild}>
+          <button
+            className={
+              TextFeild.length > 0
+                ? "SendMessage-button active"
+                : "SendMessage-button"
+            }
+            onClick={HandleMessageFeild}
+          >
             <i className="fa-solid fa-paper-plane"></i>
           </button>
         </div>

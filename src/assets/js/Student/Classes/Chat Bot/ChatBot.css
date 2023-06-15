@@ -3,41 +3,41 @@
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 @import url("../../../../css/root.css");
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Chat 
+# Chatbot Bot
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.Chat {
+.Chatbot {
   position: relative;
   width: 100%;
   background-color: #282c34;
 }
-.Chat .mountain {
+.Chatbot .mountain {
   height: 0;
 }
-.Chat .messages {
+.Chatbot .messages {
   position: relative;
   padding: 15px 15px 80px 15px;
   width: 100%;
   height: 100vh;
   backdrop-filter: blur(50px);
   overflow-y: scroll;
+  transition: var(--main-transition);
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: var(--main-transition);
 }
-.Chat .messages .messages-data.left {
+.Chatbot .messages .messages-data.left {
   display: flex;
   flex-direction: row;
   gap: 15px;
   width: 100%;
 }
-.Chat .messages .messages-data.right {
+.Chatbot .messages .messages-data.right {
   display: flex;
   flex-direction: row-reverse;
   gap: 15px;
   width: 100%;
 }
-.Chat .messages h1 {
+.Chatbot .messages h1 {
   position: relative;
   background-color: var(--white-color);
   color: var(--black-color);
@@ -51,10 +51,10 @@
   border-radius: calc(var(--main-border-radius));
   transition: var(--main-transition);
 }
-.Chat .messages .messages-data.right h1 {
+.Chatbot .messages .messages-data.right h1 {
   text-align: right;
 }
-.Chat .messages .messages-data.left h1::before {
+.Chatbot .messages .messages-data.left h1::before {
   position: absolute;
   content: "";
   border-width: 8px;
@@ -65,7 +65,7 @@
   transition: var(--main-transition);
   transform: translateY(-50%);
 }
-.Chat .messages .messages-data.right h1::before {
+.Chatbot .messages .messages-data.right h1::before {
   position: absolute;
   content: "";
   border-width: 8px;
@@ -76,7 +76,7 @@
   transition: var(--main-transition);
   transform: translateY(-50%);
 }
-.Chat .messages p {
+.Chatbot .messages p {
   position: relative;
   margin: 0;
   font-size: 14px;
@@ -89,10 +89,10 @@
   justify-content: center;
   align-items: center;
 }
-.Chat .messages::-webkit-scrollbar {
+.Chatbot .messages::-webkit-scrollbar {
   width: 0px;
 }
-.Chat .SendMessage {
+.Chatbot .SendMessage {
   position: absolute;
   bottom: 0px;
   left: 0;
@@ -103,7 +103,7 @@
   align-items: center;
   overflow: hidden;
 }
-.Chat .SendMessage input {
+.Chatbot .SendMessage input {
   width: 80%;
   height: 100%;
   padding: 8px 15px;
@@ -114,10 +114,10 @@
   text-align: right;
   transition: var(--main-transition);
 }
-.Chat .SendMessage input.active {
+.Chatbot .SendMessage input.active {
   border-radius: 25px 0 0;
 }
-.Chat .SendMessage .SendMessage-button {
+.Chatbot .SendMessage .SendMessage-button {
   height: inherit;
   min-width: 50px;
   border-radius: 0 25px 0px 0;
@@ -130,7 +130,7 @@
   transition: var(--main-transition);
   transform: translateX(-50%);
 }
-.Chat .SendMessage .SendMessage-button.active {
+.Chatbot .SendMessage .SendMessage-button.active {
   opacity: 1;
   z-index: 9999;
   transform: translateX(0);

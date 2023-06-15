@@ -85,23 +85,6 @@ function SubjectData() {
               style={{ width: "150px", height: "150px" }}
             ></Player>
           </Link>
-          {/***************** call Room  **********************/}
-          <Link
-            className="card"
-            data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-            to={`Chat/${params.SubjectName}`}
-          >
-            <h1>Chat </h1>
-            <Player
-              autoplay={true}
-              loop={true}
-              controls={false}
-              src="https://assets9.lottiefiles.com/private_files/lf30_z588h1j0.json"
-              style={{ width: "150px", height: "150px" }}
-            ></Player>
-          </Link>
           {/***************** Notification  **********************/}
           <Link
             className="card"
@@ -133,6 +116,40 @@ function SubjectData() {
               loop={true}
               controls={false}
               src="https://assets8.lottiefiles.com/packages/lf20_FyZ3MPhoNm.json"
+              style={{ width: "150px", height: "150px" }}
+            ></Player>
+          </Link>
+          {/***************** Chat Room  **********************/}
+          <Link
+            className="card"
+            data-aos="zoom-in"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1000"
+            to={`Chat/${params.SubjectName}`}
+          >
+            <h1>Chat Room</h1>
+            <Player
+              autoplay={true}
+              loop={true}
+              controls={false}
+              src="https://assets9.lottiefiles.com/private_files/lf30_z588h1j0.json"
+              style={{ width: "150px", height: "150px" }}
+            ></Player>
+          </Link>
+          {/***************** Chat Bot  **********************/}
+          <Link
+            className="card"
+            data-aos="zoom-in"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1000"
+            to={`ChatBot`}
+          >
+            <h1>Chat Bot</h1>
+            <Player
+              autoplay={true}
+              loop={true}
+              controls={false}
+              src="https://assets5.lottiefiles.com/packages/lf20_4soa34Y516.json"
               style={{ width: "150px", height: "150px" }}
             ></Player>
           </Link>
