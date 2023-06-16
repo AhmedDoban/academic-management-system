@@ -4,7 +4,7 @@
 
 <p id="description" align="center">Academic Management System is an online software system designed to support teaching and learning in an educational setting. Online teaching is not that different from teaching in a face-to-face environment. You as the instructor are still teaching students with different learning styles and developing a learning community. Online teaching simply uses different tools and approaches to reach learning objectives. Online learning sometimes called eLearning generally refers to computer-enhanced learning that makes use of Internet-mediated communications. It is used to refer to the professional field in which educators plan and design course materials learning activities approaches to assessment and teaching strategies that are appropriate for a virtual learning environment. Academic Management System is an online software system designed to also support student activity tools and not finally other tools to help him in study like TODO NOTES and library.</p>
 
-# 🚀 <a src="https://academic-management-system-git-main-ahmeddoban.vercel.app" > Demo </a>
+# 🚀 <a href="https://academic-management-system-git-main-ahmeddoban.vercel.app" > Demo </a>
 
 <h2>Project Screenshots</h2>
 
