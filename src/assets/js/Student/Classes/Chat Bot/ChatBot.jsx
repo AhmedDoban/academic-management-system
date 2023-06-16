@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./ChatBot.css";
 import Mountain from "../../../components/Mountain Template/Mountain";
 import { Chatbot } from "../../../../../dummyData.js";
 function ChatBot(props) {
+  const MessageRef = useRef();
   const [TextFeild, SetTextField] = useState("");
   const [Chat, SetChat] = useState([
     {
@@ -32,6 +33,8 @@ function ChatBot(props) {
             answer: result,
           },
         ]);
+        SetTextField("");
+        MessageRef.current.scrollTop = MessageRef.current.scrollHeight;
       }
     }
   };
@@ -53,6 +56,8 @@ function ChatBot(props) {
           answer: result,
         },
       ]);
+      SetTextField("");
+      MessageRef.current.scrollTop = MessageRef.current.scrollHeight;
     }
   };
 
@@ -60,7 +65,7 @@ function ChatBot(props) {
     <React.Fragment>
       <div className="Chatbot">
         <Mountain />
-        <div className="messages">
+        <div className="messages" ref={MessageRef}>
           {Chat.map((message) => (
             <React.Fragment>
               <div

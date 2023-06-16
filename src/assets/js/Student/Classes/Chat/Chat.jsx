@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import "./Chat.css";
 import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -7,6 +7,7 @@ import GetUser from "./GetUser";
 import Mountain from "../../../components/Mountain Template/Mountain";
 
 function Chat() {
+  const MessageRef = useRef();
   const params = useParams();
   const [Chat, SetChat] = useState([]);
   const [TextFeild, SetTextField] = useState("");
@@ -61,6 +62,7 @@ function Chat() {
             if (response.data.status === "success") {
               fetchData();
               SetTextField("");
+              MessageRef.current.scrollTop = MessageRef.current.scrollHeight;
             }
           });
       } catch (error) {
@@ -100,6 +102,7 @@ function Chat() {
             if (response.data.status === "success") {
               fetchData();
               SetTextField("");
+              MessageRef.current.scrollTop = MessageRef.current.scrollHeight;
             }
           });
       } catch (error) {
@@ -117,7 +120,7 @@ function Chat() {
     <React.Fragment>
       <div className="Chat">
         <Mountain />
-        <div className="messages">
+        <div className="messages" ref={MessageRef}>
           {Chat.map((message) => (
             <div
               className={
