@@ -44,11 +44,17 @@ Here're some of the project's best features
 
 </details >
 
+<details >
+<summary>Other features</summary>
+
     - Class room Table
     - Todo
     - Notes
     - Library
     - Parent Page
+
+</details >
+
 
 <h2>🛠️ Installation Steps</h2>
 
