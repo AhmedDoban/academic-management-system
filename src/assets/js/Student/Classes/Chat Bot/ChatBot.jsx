@@ -54,11 +54,22 @@ function ChatBot(props) {
   const HandleMessageFeild = () => {
     if (TextFeild !== "") {
       let data = [];
-      data = Chatbot.filter((data) =>
-        data.message.toLowerCase().includes(TextFeild.toLowerCase())
-      );
+      data = Chatbot.filter((itemParent) => {
+        for (let i = 0; i < itemParent.patterns.length; i++) {
+          if (
+            itemParent.patterns[i]
+              .toLowerCase()
+              .includes(TextFeild.toLowerCase())
+          ) {
+            return itemParent;
+          }
+        }
+      });
+
       const result =
-        data.length > 0 ? data.slice(0, 1)[0].answer : "Sorry I Can't answer";
+        data.length > 0
+          ? data.slice(0, 1)[0].responses
+          : "Sorry I Can't answer";
 
       SetChat([
         ...Chat,
