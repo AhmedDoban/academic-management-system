@@ -1,6 +1,6 @@
-# <p align="center" id="title">academic-management-system</p>
+# <p align="center" id="title">Academic Management System</p>
 
-<p align="center"><img src="https://github.com/AhmedDoban/academic-management-system/assets/73547094/bbeef1c5-76a3-4275-8d7d-804c0cdf5c4a" alt="project-image"></p>
+<p align="center"><img src="https://github.com/AhmedDoban/academic-management-system/assets/73547094/587e1b5f-654d-4da3-9e6f-9ecc2d46d41a" alt="project-image"></p>
 
 <p id="description" align="center">Academic Management System is an online software system designed to support teaching and learning in an educational setting. Online teaching is not that different from teaching in a face-to-face environment. You as the instructor are still teaching students with different learning styles and developing a learning community. Online teaching simply uses different tools and approaches to reach learning objectives. Online learning sometimes called eLearning generally refers to computer-enhanced learning that makes use of Internet-mediated communications. It is used to refer to the professional field in which educators plan and design course materials learning activities approaches to assessment and teaching strategies that are appropriate for a virtual learning environment. Academic Management System is an online software system designed to also support student activity tools and not finally other tools to help him in study like TODO NOTES and library.</p>
 
@@ -55,13 +55,12 @@ Here're some of the project's best features
 
 </details >
 
-
 <h2>🛠️ Installation Steps</h2>
 
 <p>1. Create a Project First</p>
 
 ```
-npx create-react-appp academic-management-system
+npx create-react-app academic-management-system
 ```
 
 <p>2. install all dependencys</p>
