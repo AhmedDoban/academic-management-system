@@ -12,18 +12,31 @@ function ChatBot(props) {
     },
   ]);
 
-  useEffect(() => {}, [Chat]);
+  useEffect(() => {
+    MessageRef.current.scrollTop = MessageRef.current.scrollHeight;
+  }, [Chat]);
 
   /******************* Enter Key **************************/
   const HandleMessageKey = async (e) => {
     if (e.key === "Enter") {
       if (TextFeild !== "") {
         let data = [];
-        data = Chatbot.filter((data) =>
-          data.message.toLowerCase().includes(TextFeild.toLowerCase())
-        );
+        data = Chatbot.filter((itemParent) => {
+          for (let i = 0; i < itemParent.patterns.length; i++) {
+            if (
+              itemParent.patterns[i]
+                .toLowerCase()
+                .includes(TextFeild.toLowerCase())
+            ) {
+              return itemParent;
+            }
+          }
+        });
+
         const result =
-          data.length > 0 ? data.slice(0, 1)[0].answer : "Sorry I Can't answer";
+          data.length > 0
+            ? data.slice(0, 1)[0].responses
+            : "Sorry I Can't answer";
 
         SetChat([
           ...Chat,
@@ -34,7 +47,6 @@ function ChatBot(props) {
           },
         ]);
         SetTextField("");
-        MessageRef.current.scrollTop = MessageRef.current.scrollHeight;
       }
     }
   };
@@ -57,7 +69,6 @@ function ChatBot(props) {
         },
       ]);
       SetTextField("");
-      MessageRef.current.scrollTop = MessageRef.current.scrollHeight;
     }
   };
 

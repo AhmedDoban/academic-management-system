@@ -16,6 +16,7 @@ function Chat() {
   const GetId = () => {
     let Id = JSON.parse(localStorage.getItem("User"));
     SetStudentID(Id.student_id);
+    MessageRef.current.scrollTop = MessageRef.current.scrollHeight;
   };
   const fetchData = async function () {
     GetId();
@@ -62,7 +63,6 @@ function Chat() {
             if (response.data.status === "success") {
               fetchData();
               SetTextField("");
-              MessageRef.current.scrollTop = MessageRef.current.scrollHeight;
             }
           });
       } catch (error) {
@@ -102,7 +102,6 @@ function Chat() {
             if (response.data.status === "success") {
               fetchData();
               SetTextField("");
-              MessageRef.current.scrollTop = MessageRef.current.scrollHeight;
             }
           });
       } catch (error) {
@@ -114,6 +113,7 @@ function Chat() {
 
   useEffect(() => {
     fetchData();
+    MessageRef.current.scrollTop = MessageRef.current.scrollHeight;
   }, [url, params.subject_id]);
 
   return (
