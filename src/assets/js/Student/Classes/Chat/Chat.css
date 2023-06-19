@@ -122,6 +122,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--white-color);
+  transition: var(--main-transition);
   overflow: hidden;
 }
 .Chat .SendMessage input {
@@ -129,19 +131,14 @@
   height: 100%;
   padding: 8px 15px;
   border: 0;
-  border-radius: 25px 25px 0 0;
-  background-color: var(--white-color);
+  background-color: transparent;
   color: var(--black-color);
   text-align: right;
   transition: var(--main-transition);
 }
-.Chat .SendMessage input.active {
-  border-radius: 25px 0 0;
-}
 .Chat .SendMessage .SendMessage-button {
   height: inherit;
   min-width: 50px;
-  border-radius: 0 25px 0px 0;
   border: 0;
   cursor: pointer;
   color: var(--black-color);
@@ -150,6 +147,10 @@
   z-index: -9999;
   transition: var(--main-transition);
   transform: translateX(-50%);
+}
+.Chat .SendMessage .SendMessage-button:hover {
+  background-color: var(--blue-color);
+  color: var(--white-color);
 }
 .Chat .SendMessage .SendMessage-button.active {
   opacity: 1;

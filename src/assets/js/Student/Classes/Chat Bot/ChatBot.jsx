@@ -129,7 +129,6 @@ function ChatBot(props) {
             value={TextFeild}
             onChange={(e) => SetTextField(e.target.value)}
             onKeyPress={HandleMessageKey}
-            className={TextFeild.length > 0 ? "active" : ""}
           />
           <button
             className={
