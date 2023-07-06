@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CustomAdminInputsHead from "./../components/CustomAdminInputsHead";
+import CustomAdminInputsHead from "../components/Custom Admin Input Head/CustomAdminInputsHead";
 import CustomTable from "../components/CustomTable";
 
 function TeacherControl() {
@@ -7,11 +7,9 @@ function TeacherControl() {
   return (
     <React.Fragment>
       <div className="TeacherControl">
-        <h1 className="main-titel-2">Teacher Page</h1>
         <div className="studentControl-container">
           <CustomAdminInputsHead
             Title="Teacher"
-            searchName="Search For Teacher Name"
             linkTo="addNewTeacher"
             Serach={Serach}
             SetSearch={SetSearch}
@@ -19,11 +17,10 @@ function TeacherControl() {
           <div className="data">
             <CustomTable
               type="teacher"
-              api="https://academic-management-system.000webhostapp.com/api/get-all-doctors"
-              col1="First Name"
-              col2="Last Name"
-              col3="Phone"
-              col5="gender"
+              api={`${process.env.REACT_APP_API}/admin/select_all_doctors.php`}
+              col1="Name"
+              col2="Code"
+              col3="Pass"
               Serach={Serach}
             />
           </div>

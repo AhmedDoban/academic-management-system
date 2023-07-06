@@ -58,36 +58,7 @@ function Parent(props) {
         <Mountain>
           <div className="data">
             <h1> {LocalTitel} </h1>
-            <div className="contentData">
-              <label htmlFor="Theme" className="ThemeMountain">
-                <input
-                  type="checkbox"
-                  name="Theme"
-                  id="Theme"
-                  onChange={HandleThemeChange}
-                  checked={Chek}
-                />
-                <span></span>
-              </label>
-              <ul>
-                <li>
-                  <NavLink
-                    to="/Students"
-                    onClick={() => SetLocalTitel("Students")}
-                    end
-                  >
-                    <i className="fa-solid fa-users"></i>
-                    <span>Students</span>
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink onClick={logOut} to="/">
-                    <i className="fa-solid fa-right-from-bracket"></i>
-                    <span>log-out </span>
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
+       
           </div>
         </Mountain>
         <Suspense

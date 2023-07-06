@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import CustomStudentTable from "../components/CustomTable";
-import CustomAdminInputsHead from "./../components/CustomAdminInputsHead";
+import CustomAdminInputsHead from "../components/Custom Admin Input Head/CustomAdminInputsHead";
 
 function StudentControl() {
   const [Serach, SetSearch] = useState("");
   return (
     <React.Fragment>
       <div className="StudentControl">
-        <h1 className="main-titel-2">Student Page</h1>
         <div className="studentControl-container">
           <CustomAdminInputsHead
             Title="Student"
@@ -19,13 +18,11 @@ function StudentControl() {
           <div className="data">
             <CustomStudentTable
               type="student"
-              api="https://academic-management-system.000webhostapp.com/api/get-all-students-with-relationship"
-              col1="First Name"
-              col2="Last Name"
-              col3="Phone"
-              col4="GPA"
-              col5="gender"
-              api_Delete="https://academic-management-system.000webhostapp.com/api/delete-student"
+              api={`${process.env.REACT_APP_API}/admin/select_all_students.php`}
+              col1="Name"
+              col2="Student Code"
+              col3="student Nat Id"
+              api_Delete=""
               Serach={Serach}
             />
           </div>

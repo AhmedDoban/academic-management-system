@@ -3,11 +3,8 @@ import { Link } from "react-router-dom";
 function Options(props) {
   return (
     <React.Fragment>
-      <Link className="edit" to={props.Edit}>
-        <i className="fa-solid fa-user-pen"></i>
-      </Link>
       <Link className="view" to={props.View}>
-        <i className="fa-sharp fa-solid fa-eye"></i>
+        <i className="fa-solid fa-pen"></i>
       </Link>
       <Link className="delete" to="" onClick={props.HandleDelete}>
         <i className="fa-solid fa-trash"></i>

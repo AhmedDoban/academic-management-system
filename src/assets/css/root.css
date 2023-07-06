@@ -244,6 +244,7 @@ html {
   color: var(--black-color);
   font-size: 28px;
   margin: 20px;
+  transition: var(--main-transition);
 }
 
 .main-titel-2::before,
@@ -263,7 +264,7 @@ html {
 }
 .main-titel-2::after {
   width: 100%;
-  background-color: #ddd;
+  background-color: #eee;
   z-index: 1;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
@@ -286,20 +287,4 @@ html {
   justify-content: center;
   align-items: center;
   padding: 0 !important;
-}
-
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Box Styles
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.blue-alt-back {
-  background-color: #0077ff2c !important;
-  color: var(--blue-color) !important;
-}
-.orange-alt-back {
-  background-color: #f59e0b2c !important;
-  color: var(--main-color) !important;
-}
-.green-alt-back {
-  background-color: #22c55e2c !important;
-  color: var(--green-color) !important;
 }

@@ -102,10 +102,7 @@ function SELECT_SUB_GENERATION(props) {
       {props.loading ? (
         <LodingFeachData />
       ) : (
-        <div
-          className="student-courses-container"
-          id="student-courses-container"
-        >
+        <div className="student-courses-container" id="Subjects">
           <h1
             className="main-titel"
             data-aos="fade-down"
@@ -268,7 +265,7 @@ function Select_Sub_generationSubjects() {
 
   return (
     <React.Fragment>
-      <div className="Select_Sub_generationSubjects p-relative">
+      <div className="Select_Sub_generationSubjects p-relative" id="Subjects">
         {/**************************** Titel  **********************************************/}
         <h1
           className="main-titel"

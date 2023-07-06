@@ -1,19 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CountUp from "react-countup";
+import "./Box.css";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 function Box(props) {
   return (
     <React.Fragment>
-      <div className={`box`} data-aos="zoom-in">
-        <Link to={props.link} className={`${props.otherStyle}`}>
-          <i className={props.className}></i>
-          <p>
-            <CountUp start={0} end={props.data} duration={2} separator=" " />
-          </p>
-          <span>{props.Titel}</span>
-        </Link>
-      </div>
+      <Link to={props.link} className="box" data-aos="zoom-in">
+        <Player
+          autoplay={true}
+          loop={true}
+          controls={false}
+          src={props.linkPlayer}
+          className="playerData"
+        />
+        <p>
+          <CountUp start={0} end={props.data} duration={2} separator=" " />
+        </p>
+        <h5>{props.Titel}</h5>
+      </Link>
     </React.Fragment>
   );
 }

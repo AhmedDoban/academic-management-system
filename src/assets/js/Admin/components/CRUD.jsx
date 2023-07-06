@@ -1,7 +1,6 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-
 // HANDLE Delete api
 export const HandleDelete = (api, target) => {
   Swal.fire({
@@ -11,7 +10,8 @@ export const HandleDelete = (api, target) => {
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Yes",
+    confirmButtonText: `<i class="fa-solid fa-check"></i>`,
+    cancelButtonText: `<i class="fa-solid fa-xmark"></i>`,
   }).then((result) => {
     if (result.isConfirmed) {
       axios.delete(`${api}/${target}`);

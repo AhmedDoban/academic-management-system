@@ -1,90 +1,74 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import CustomInputField from "./../components/CustomInputField";
 import axios from "axios";
-function StudentDeatils(props) {
-  const params = useParams([]);
+import "./Student.css";
+
+function StudentDeatils() {
+  const params = useParams();
   const [Student, setStudent] = useState([]);
   useEffect(() => {
-    axios
-      .get(`http://localhost:3000/students/${params.id}`)
-      .then((reasponse) => setStudent(reasponse.data));
-  }, []);
+    GetData();
+  }, [params.id]);
+
+  const GetData = async () => {
+    try {
+      await axios
+        .get(`${process.env.REACT_APP_API}/admin/select_all_students.php`)
+        .then((data) =>
+          setStudent(
+            data.data.filter((user) => user.student_id === params.id)[0]
+          )
+        );
+    } catch (err) {
+      throw err;
+    }
+  };
   return (
     <React.Fragment>
       <div className="StudentDeatils">
-        {/********************* Student Details **************************/}
-        <h5 className="main-titel-2">Student Details </h5>
-        <div className="data">
-          <div className="left">
-            {Student.profilePicture ? (
-              <img src={Student.profilePicture} alt={Student.firstName} />
-            ) : (
-              <img src={require("../../../img/user.png")} />
-            )}
-          </div>
-          <div className="right">
-            <div className="general details">
-              <CustomInputField
-                data={Student.firstName}
-                DataLabel="First Name"
-              />
-              <CustomInputField data={Student.lastName} DataLabel="last Name" />
-              <CustomInputField data={Student.email} DataLabel="Email" />
-              <CustomInputField data={Student.password} DataLabel="password" />
-              <CustomInputField data={Student.phone} DataLabel="phone" />
-              <CustomInputField data={Student.date} DataLabel="date OF Birth" />
-              <CustomInputField data={Student.gender} DataLabel="gender" />
+        <div
+          className="data"
+          data-aos="zoom-in"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+        >
+          <div className="editButton">Edit</div>
+          <h1 className="title">Information</h1>
+          <div className="item">
+            <img
+              src={require("../../../img/user.png")}
+              alt=""
+              className="itemImg"
+            />
+            <div className="details">
+              <h1 className="itemTitle">{Student.student_name}</h1>
+              <div className="detailItem">
+                <span className="itemKey">Student ID :</span>
+                <span className="itemValue">{Student.student_id}</span>
+              </div>
+              <div className="detailItem">
+                <span className="itemKey">Phone :</span>
+                <span className="itemValue">+20 11111111111</span>
+              </div>
+              <div className="detailItem">
+                <span className="itemKey">company :</span>
+                <span className="itemValue">FCI - TU</span>
+              </div>
+              <div className="detailItem">
+                <span className="itemKey">Student nat ID :</span>
+                <span className="itemValue">{Student.student_nat_id}</span>
+              </div>
+              <div className="detailItem">
+                <span className="itemKey">Student Code :</span>
+                <span className="itemValue">{Student.student_code}</span>
+              </div>
+              <div className="detailItem">
+                <span className="itemKey">Parent Id :</span>
+                <span className="itemValue">{Student.parent_id}</span>
+              </div>
             </div>
           </div>
         </div>
-        {/*********************End Student Details **************************/}
-        {/*********************  More Details **************************/}
-        <h5 className="main-titel-2">More Details </h5>
-        <div className="data">
-          <div className="right">
-            <div className="general details">
-              <CustomInputField data={Student.country} DataLabel="country" />
-              <CustomInputField data={Student.city} DataLabel="City" />
-              <CustomInputField data={Student.gpa} DataLabel="gpa" />
-            </div>
-          </div>
-        </div>
-        {/********************* End More Details**************************/}
-        {/*********************  Parent Details **************************/}
-        <h5 className="main-titel-2">Parent Details </h5>
-        <div className="data">
-          <div className="right">
-            <div className="general details">
-              <CustomInputField
-                data={Student.fatherInfo?.name}
-                DataLabel="Parent Name"
-              />
-              <CustomInputField
-                data={Student.fatherInfo?.PhoneNumber}
-                DataLabel="Parent P.N"
-              />
-              <CustomInputField
-                data={Student.fatherInfo?.job}
-                DataLabel="parent Work"
-              />
-            </div>
-          </div>
-        </div>
-        {/********************* End Parent Details**************************/}
-        {/*********************  Student Courses **************************/}
-        <h5 className="main-titel-2">Student Courses</h5>
-        <div className="data">
-          <div className="right">
-            <ol>
-              {Student.CoursesID?.map((p) => (
-                <li key={p}>{p}</li>
-              ))}
-            </ol>
-          </div>
-        </div>
-
-        {/********************* End Parent Details**************************/}
       </div>
     </React.Fragment>
   );

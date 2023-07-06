@@ -1,0 +1,26 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Sort
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.sort-table {
+  display: none;
+}
+@media (max-width: 992px) {
+  .sort-table {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+  .sort-table .sort {
+    position: relative;
+    width: 100%;
+  }
+  .sort-table i {
+    color: var(--blue-color);
+
+    cursor: pointer;
+  }
+}

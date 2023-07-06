@@ -2,15 +2,14 @@ import React, { lazy, Suspense } from "react";
 import { Outlet, Route, Routes } from "react-router-dom";
 import "../style/admin.css";
 import AdminHome from "./AdminHome";
-
-const SideBarAdminPage = lazy(() => import("../components/SideBarAdminPage"));
+import Weather from "../components/Weather/Weather";
 const StudentControl = lazy(() => import("./../Student/StudentControl"));
 const TeacherControl = lazy(() => import("./../Teacher/TeacherControl"));
 const CoursesControl = lazy(() => import("./../Courses/CoursesControl"));
 const AddNewStudent = lazy(() => import("../Student/AddNewStudent"));
 const StudentDeatils = lazy(() => import("./../Student/StudentDeatils"));
 const TeacherDetails = lazy(() => import("../Teacher/TeacherDetails"));
-const UpDataStudentInfo = lazy(() => import("./../Student/UpDataStudentInfo"));
+
 const NotFounded = lazy(() =>
   import("./../../components/Not Founded/NotFounded")
 );
@@ -18,7 +17,7 @@ function Admin(props) {
   return (
     <React.Fragment>
       <div className="Admin">
-        <SideBarAdminPage />
+        <Weather />
         <div className="Admin-pages-container">
           <Suspense
             fallback={
@@ -38,14 +37,13 @@ function Admin(props) {
                 <Route path="" element={<StudentControl />} />
                 <Route path=":id" element={<StudentDeatils />} />
                 <Route path="addNewStudent" element={<AddNewStudent />} />
-                <Route path="edit/:id" element={<UpDataStudentInfo />} />
               </Route>
 
-              <Route path="teachers" element={<Outlet />}>
+              <Route path="teacher" element={<Outlet />}>
                 <Route path="" element={<TeacherControl />} />
                 <Route path=":id" element={<TeacherDetails />} />
               </Route>
-              <Route path="courses" element={<Outlet />}>
+              <Route path="Classes" element={<Outlet />}>
                 <Route path="" element={<CoursesControl />} />
               </Route>
               <Route path="/home" element={<AdminHome />} />

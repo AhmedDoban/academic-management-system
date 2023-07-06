@@ -1,0 +1,63 @@
+.StudentDeatils {
+  position: relative;
+  display: flex;
+  gap: 10px;
+}
+
+.StudentDeatils .data {
+  position: relative;
+  padding: 20px;
+  background-color: var(--white-color);
+  flex: 1;
+  box-shadow: var(--main-box-shadow);
+  border-radius: var(--main-border-radius);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.StudentDeatils .data .item {
+  display: flex;
+  gap: 20px;
+}
+@media (max-width: 992px) {
+  .StudentDeatils,
+  .StudentDeatils .data,
+  .StudentDeatils .data .item {
+    flex-direction: column;
+  }
+}
+.StudentDeatils .data .item .itemImg {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: var(--main-border-radius);
+}
+.StudentDeatils .editButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #7451f8;
+  background-color: #7551f818;
+  cursor: pointer;
+  border-radius: 0px 0px 0px 5px;
+}
+.StudentDeatils .data .details .itemTitle {
+  margin-bottom: 10px;
+  color: #555;
+}
+.StudentDeatils .data .details .detailItem {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.StudentDeatils .data .details .itemKey {
+  font-weight: bold;
+  color: gray;
+  margin-right: 5px;
+}
+.StudentDeatils .data .details .itemValue {
+  font-weight: 300;
+}

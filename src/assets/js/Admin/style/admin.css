@@ -2,149 +2,14 @@
 # General
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 @import url("../../../css/root.css");
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# admin page
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .Admin {
-  display: flex;
-}
-.SideBarAdminPage {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  background-color: var(--blue-alt2-color);
-  width: 250px;
-}
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# sidebar
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.SideBarAdminPage h5 {
   position: relative;
-  text-align: center;
-  color: #fff;
-  margin: 20px 20px 50px auto;
-  font-size: 20px;
-}
-@media (min-width: 768px) {
-  .SideBarAdminPage > h5::before,
-  .SideBarAdminPage > h5::after {
-    position: absolute;
-    content: "";
-    background-color: #888;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .SideBarAdminPage > h5::before {
-    width: 80%;
-    height: 2px;
-    bottom: -20px;
-  }
-  .SideBarAdminPage > h5::after {
-    width: 15px;
-    height: 15px;
-    border: 3px solid #fff;
-    border-radius: 50%;
-    bottom: -29px;
-  }
-}
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# sidebar links
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.SideBarAdminPage ul li {
+  background-color: var(--main-background-color);
+  width: 100%;
+  min-height: 100vh;
   transition: var(--main-transition);
 }
-.SideBarAdminPage ul li a {
-  position: relative;
-  display: flex;
-  align-items: center;
-  font-size: 18px;
-  color: var(--white-color);
-  border-radius: var(--main-border-radius);
-  padding: 10px;
-  background-color: var(--grey-color);
-  transition: all 0.3s ease-in-out;
-  margin: 20px 20px 25px 20px;
-}
 
-.SideBarAdminPage ul li a::before,
-.SideBarAdminPage ul li a::after {
-  position: absolute;
-  content: "";
-  width: 20px;
-  height: 20px;
-  right: 0;
-  background-color: transparent;
-  border-radius: 50%;
-  z-index: -1;
-  opacity: 0;
-  transition: all 0.4s steps(100);
-}
-.SideBarAdminPage ul li a:hover::before,
-.SideBarAdminPage ul li a.active::before {
-  opacity: 1;
-  top: -20px;
-  box-shadow: 10px 10px 0 0px #fff;
-}
-.SideBarAdminPage ul li a:hover::after,
-.SideBarAdminPage ul li a.active::after {
-  opacity: 1;
-  bottom: -20px;
-  box-shadow: 10px -10px 0 0px #fff;
-}
-
-.SideBarAdminPage ul li a:hover,
-.SideBarAdminPage ul li a.active {
-  background-color: #ffff;
-  color: var(--main-color);
-  margin: 20px 0px 25px 20px;
-}
-.SideBarAdminPage ul li a span {
-  font-size: 14px;
-  margin-left: 10px;
-  font-weight: bold;
-}
-@media (max-width: 767px) {
-  .SideBarAdminPage {
-    width: 58px;
-  }
-  .SideBarAdminPage > h5 {
-    margin-bottom: 35px;
-    writing-mode: vertical-rl;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    font-size: 20px;
-  }
-  .SideBarAdminPage ul li a span {
-    display: none;
-  }
-  .SideBarAdminPage ul li a {
-    font-size: 14px;
-    border-radius: var(--main-border-radius);
-    transition: var(--main-transition);
-    margin: 10px 10px 5px 10px;
-  }
-  .SideBarAdminPage ul li a::before,
-  .SideBarAdminPage ul li a::after {
-    width: 15px;
-    height: 15px;
-  }
-  .SideBarAdminPage ul li a:hover::before,
-  .SideBarAdminPage ul li a.active::before {
-    top: -15px;
-    box-shadow: 8px 8px 0 0px #fff;
-  }
-  .SideBarAdminPage ul li a:hover::after,
-  .SideBarAdminPage ul li a.active::after {
-    bottom: -15px;
-    box-shadow: 8px -8px 0 0px #fff;
-  }
-  .SideBarAdminPage ul li a:hover,
-  .SideBarAdminPage ul li a.active {
-    margin: 10px 0px 10px 20px;
-  }
-}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Admin-pages-container
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -152,47 +17,24 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  padding: 20px;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Custom Admin Inputs Head
+# admin Home page
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.CustomAdminInputsHead {
+.AdminHome {
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
 }
-
-.CustomAdminInputsHead input[type="search"] {
-  width: 100%;
-  padding: 8px 10px;
-  background-color: #fff;
-  border: 0;
-  border-bottom: 1px solid var(--grey-color);
-  transition: var(--main-transition);
-}
-.CustomAdminInputsHead a {
-  position: relative;
-  background-color: var(--green-color);
-  color: #fff;
-  border: 0;
-  outline: 0;
-  cursor: pointer;
-  padding: 4px 8px;
-  min-width: 160px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-@media (max-width: 767px) {
-  .CustomAdminInputsHead a {
-    min-width: auto;
-    font-size: 14px;
-    padding: 4px 8px;
-    font-weight: normal;
-    text-align: center;
+@media (max-width: 992px) {
+  .AdminHome {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
   }
 }
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Custom Input Field
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -258,57 +100,44 @@
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .CustomTable table {
   position: relative;
-  border-spacing: 1;
-  border-collapse: collapse;
-  background: #fff;
-  border-radius: 10px;
-  width: 100%;
   margin: 20px auto;
-  overflow: hidden;
-}
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# CustomTable
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.CustomTable .sort-table {
-  display: none;
-}
-@media (max-width: 992px) {
-  .CustomTable .sort-table {
-    position: relative;
-    display: block;
-    width: 100%;
-    margin-top: 20px;
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    align-items: center;
-  }
-  .CustomTable .sort-table select {
-    width: 100%;
-    padding: 0 20px;
-    cursor: pointer;
-    outline: none;
-    border-radius: 0;
-  }
-  .CustomTable .sort-table select option {
-    cursor: pointer;
-    border-radius: none;
-    background-color: #111111;
-    color: #fff;
-  }
+  width: 100%;
+  height: 100%;
+  background-color: var(--white-color);
+  border-spacing: 1;
+  border: 0;
+  padding: 8px 14px;
+  transition: var(--main-transition);
+  cursor: pointer;
+  color: var(--black-color);
+  font-size: 15px;
+  border-radius: var(--main-border-radius);
 }
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # CustomTable see more
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .CustomTable .See-More {
+  position: relative;
   width: 100%;
-  padding: 10px;
-  background-color: #111111;
-  color: #fff;
-  font-size: 18px;
-  border: 1px solid var(--grey-color);
+  height: auto;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
+  box-shadow: 1px 2px 5px 5px var(--white-color);
+}
+.CustomTable .See-More button {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 4px 14px;
+  transition: var(--main-transition);
   cursor: pointer;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  font-size: 18px;
   border-radius: var(--main-border-radius);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
@@ -337,22 +166,13 @@
   height: 35px;
   border-radius: 50%;
 }
-.CustomTable tr:nth-child(odd) {
-  background-color: #fff;
-}
-
-/* Background-color of the even rows */
-.CustomTable tr:nth-child(even) {
-  background-color: #f5f5f5;
-}
 .CustomTable table th {
   position: relative;
   font-size: 18px;
-  color: #fff;
+  color: var(--black-color);
   line-height: 1.2;
   font-weight: unset;
   height: 40px;
-  background: #111111;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # CustomTable options
@@ -415,257 +235,4 @@
     text-transform: uppercase;
     color: var(--grey-color);
   }
-  /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-   # Custom Table   options
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-  .CustomTable table tr .Options {
-    justify-content: flex-end;
-  }
-  .CustomTable table tr .Options a {
-    font-size: 14px;
-  }
-}
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# admin Home page
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.AdminHome {
-  position: relative;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 20px;
-}
-
-@media (max-width: 992px) {
-  .AdminHome {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 10px;
-  }
-}
-.AdminHome .box {
-  position: relative;
-  width: 100%;
-  height: 250px;
-  border-radius: var(--main-border-radius);
-}
-.AdminHome .box a {
-  position: relative;
-  background-color: #fff;
-  width: 100%;
-  height: 250px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 5px;
-  font-size: 30px;
-  font-weight: bold;
-  border-radius: var(--main-border-radius);
-  padding: 20px;
-}
-.AdminHome .box a i {
-  position: absolute;
-  font-size: 100px;
-  opacity: 0.7;
-  right: 15px;
-  bottom: 15px;
-}
-
-.AdminHome .box a span {
-  font-size: 25px;
-}
-.AdminHome .box a p {
-  color: #fff;
-  font-weight: bold;
-}
-
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# student Control container
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.studentControl-container {
-  padding: 20px;
-}
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Student :/id Deatils
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.TeacherDeatils .data,
-.StudentDeatils .data {
-  padding: 20px;
-  display: flex;
-  gap: 10px;
-}
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Student :/id Deatils left data
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.TeacherDeatils .data .left,
-.StudentDeatils .data .left {
-  position: relative;
-  width: 350px;
-  height: 350px;
-}
-.TeacherDeatils .data .left img,
-.StudentDeatils .data .left img {
-  position: relative;
-  width: 350px;
-  height: 350px;
-  border-radius: var(--main-border-radius);
-}
-
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Student :/id Deatils righr data
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.TeacherDeatils .data .right,
-.StudentDeatils .data .right {
-  position: relative;
-  width: 100%;
-}
-
-@media (max-width: 992px) {
-  .TeacherDeatils .data,
-  .StudentDeatils .data {
-    flex-direction: column;
-  }
-  .TeacherDeatils .data .left,
-  .TeacherDeatils .data .left img,
-  .StudentDeatils .data .left,
-  .StudentDeatils .data .left img {
-    margin: 0 auto;
-    max-width: 100%;
-    object-fit: cover;
-  }
-}
-
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Student :/id Deatils righr data ol
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.inpus-filds-container .data .right ol,
-.StudentDeatils .data .right ol {
-  padding: 0px 0 20px 0;
-  position: relative;
-}
-.inpus-filds-container .data .right ol li,
-.StudentDeatils .data .right ol li {
-  padding: 10px 8px;
-  background-color: #fafafa;
-  border: 1px solid #eee;
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 20px;
-  cursor: pointer;
-  border-radius: var(--main-border-radius);
-}
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# add new student
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.add-new-student,
-.add-new-student form,
-.img-container {
-  position: relative;
-}
-.add-new-student form {
-  padding: 20px;
-  display: flex;
-  gap: 15px;
-}
-
-.add-new-student form .img-container {
-  min-width: 350px;
-  height: 350px;
-  max-width: 100%;
-}
-.add-new-student form .img-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: var(--main-border-radius);
-}
-@media (max-width: 992px) {
-  .add-new-student form {
-    flex-direction: column;
-  }
-  .add-new-student form .img-container,
-  .add-new-student form .img-container img {
-    min-width: 150px;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-}
-
-.add-new-student form .img-container img + input,
-.add-new-student form .img-container label {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: transparent;
-  border-radius: var(--main-border-radius);
-  opacity: 0;
-  transition: var(--main-transition);
-  cursor: pointer;
-}
-.add-new-student form .img-container label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  flex-direction: column;
-  gap: 10px;
-  font-size: 18px;
-}
-.add-new-student form .img-container label i {
-  font-size: 60px;
-}
-.add-new-student form .img-container:hover label {
-  background-color: #0000004d;
-  opacity: 1;
-}
-.add-new-student form .inpus-filds-container {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-.add-new-student form .inpus-filds-container input {
-  position: relative;
-  width: 100%;
-  display: block;
-  height: 100%;
-  margin-bottom: 10px;
-  padding: 4px;
-  border-radius: var(--main-border-radius);
-  border: 2px solid #eee;
-  background-color: #fafafa;
-  font-size: 14px;
-}
-.add-new-student form .inpus-filds-container .gender {
-  width: 100%;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.add-new-student form .inpus-filds-container .gender label {
-  font-size: 25px;
-  text-align: right;
-  margin-right: 15px;
-}
-.add-new-student form .inpus-filds-container .gender input {
-  width: fit-content;
-  margin-right: 15px;
-}
-.add-new-student form .inpus-filds-container button[type="submit"],
-.inpus-filds-container .data .right input[type="button"] {
-  background-color: var(--green-color);
-  color: #fff;
-  padding: 10px;
-  cursor: pointer;
-  border: 1px solid #eee;
-  border-radius: 0;
-  transition: var(--main-transition);
-}
-.add-new-student form .inpus-filds-container button[type="submit"]:disabled {
-  background-color: var(--grey-color);
 }

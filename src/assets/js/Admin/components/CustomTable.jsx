@@ -3,6 +3,8 @@ import axios from "axios";
 import Options from "./Options";
 import { HandleDelete } from "./CRUD";
 import LodingFeachData from "../../components/Loding Feach Data/LodingFeachData";
+import Sort from "./Sort/Sort";
+
 function CustomTable(props) {
   const api = props.api;
   const [DATA, setDATA] = useState([]);
@@ -10,8 +12,7 @@ function CustomTable(props) {
   const [Order, SetOrder] = useState("ASC");
 
   useEffect(() => {
-    axios.get(api).then((reasponse) => setDATA(reasponse.data.data));
-    console.log(DATA);
+    axios.get(api).then((reasponse) => setDATA(reasponse.data));
   }, [HandleDelete]);
 
   // Sort Table
@@ -35,73 +36,18 @@ function CustomTable(props) {
       SetOrder("ASC");
     }
   };
-  const [value, setValue] = React.useState("id");
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
   return (
     <React.Fragment>
       {DATA.length !== 0 ? (
         <div className="CustomTable">
-          <div className="sort-table">
-            <select onChange={handleChange}>
-              {/************ ID **************/}
-              <option value="ID">ID</option>
-              {/************ First name or course name **************/}
-              <option
-                value={
-                  props.type === "student"
-                    ? "firstName"
-                    : props.type === "teacher"
-                    ? "firstName"
-                    : "CourcesName"
-                }
-              >
-                {props.col1}
-              </option>
-              {/************ last name or course Teacher **************/}
-              <option
-                value={
-                  props.type === "student"
-                    ? "lastName"
-                    : props.type === "teacher"
-                    ? "lastName"
-                    : "CourcesTeacher"
-                }
-              >
-                {props.col2}
-              </option>
-              {/************ Phone or course teacher **************/}
-              <option
-                value={
-                  props.type === "student"
-                    ? "phone"
-                    : props.type === "teacher"
-                    ? "phone"
-                    : "CourcesTeacher"
-                }
-              >
-                {props.col3}
-              </option>
-              {/************ Gender **************/}
-              <option
-                value={
-                  props.type === "student"
-                    ? "gender"
-                    : props.type === "teacher"
-                    ? "gender"
-                    : "CourcesTeacher"
-                }
-              >
-                {props.col5}
-              </option>
-            </select>
-            <i
-              className="fa-solid fa-sort"
-              onClick={() => SortTable(value)}
-            ></i>
-          </div>
+          <Sort
+            type={props.type}
+            SortTable={SortTable}
+            col1={props.col1}
+            col2={props.col2}
+            col3={props.col3}
+          />
           <table>
             <thead>
               <tr>
@@ -109,64 +55,69 @@ function CustomTable(props) {
                 <th>
                   <i
                     className="fa-solid fa-sort"
-                    onClick={() => SortTable("id")}
+                    onClick={() =>
+                      SortTable(
+                        props.type === "student"
+                          ? "student_id"
+                          : props.type === "teacher"
+                          ? "doctor_id"
+                          : "subject_id"
+                      )
+                    }
                   ></i>
                   id
                 </th>
                 {/************ IMAGE **************/}
                 <th>image</th>
-                {/************ First name or course name **************/}
+                {/************ name or course name **************/}
                 <th>
                   <i
                     className="fa-solid fa-sort"
                     onClick={() =>
                       SortTable(
                         props.type === "student"
-                          ? "firstName"
+                          ? "student_name"
                           : props.type === "teacher"
-                          ? "firstName"
-                          : "CourcesName"
+                          ? "doctor_name"
+                          : "subject_name"
                       )
                     }
                   ></i>
                   {props.col1}
                 </th>
-                {/************ last name or course Teacher **************/}
+                {/************ student_code or subject_description **************/}
                 <th>
                   <i
                     className="fa-solid fa-sort"
                     onClick={() =>
                       SortTable(
-                        props.type === "student" ? "lastName" : "CourcesTeacher"
+                        props.type === "student"
+                          ? "student_code"
+                          : props.type === "teacher"
+                          ? "doctor_code"
+                          : "subject_description"
                       )
                     }
                   ></i>
                   {props.col2}
                 </th>
-                {/************ Phone or course teacher **************/}
+                {/************ student_nat_id or course generation_id **************/}
                 <th>
                   <i
                     className="fa-solid fa-sort"
                     onClick={() =>
                       SortTable(
-                        props.type === "student" ? "phone" : "CourcesTeacher"
+                        props.type === "student"
+                          ? "student_nat_id"
+                          : props.type === "teacher"
+                          ? "doctor_pass"
+                          : "generation_id"
                       )
                     }
                   ></i>
                   {props.col3}
                 </th>
-                {/************ Gender **************/}
-                <th>
-                  <i
-                    className="fa-solid fa-sort"
-                    onClick={() =>
-                      SortTable(
-                        props.type === "student" ? "gender" : "CourcesTeacher"
-                      )
-                    }
-                  ></i>
-                  {props.col5}
-                </th>
+
                 {/************ options **************/}
                 <th>options</th>
               </tr>
@@ -177,65 +128,76 @@ function CustomTable(props) {
                 return props.Serach.toLowerCase() === ""
                   ? item
                   : props.type === "student"
-                  ? item.firstName.toLowerCase().includes(props.Serach)
-                  : item.CourcesName.toLowerCase().includes(props.Serach);
+                  ? item.student_name.toLowerCase().includes(props.Serach)
+                  : props.type === "teacher"
+                  ? item.doctor_name.toLowerCase().includes(props.Serach)
+                  : item.subject_name.toLowerCase().includes(props.Serach);
               })
                 .slice(0, View)
-
-                .map((p) => (
-                  <tr key={p.id}>
+                .map((p, index) => (
+                  <tr key={index}>
                     {/************ ID **************/}
-                    <td data-label="id">{p.id}</td>
+                    <td data-label="id">
+                      {props.type === "student"
+                        ? p.student_id
+                        : props.type === "teacher"
+                        ? p.doctor_id
+                        : p.subject_id}
+                    </td>
                     {/************ IMAGE **************/}
                     <td data-label="image">
                       <img
-                        src={p.profilePicture}
+                        src={require("../../../img/user.png")}
                         alt={
-                          props.type === "student" ? p.firstName : p.CourcesName
+                          props.type === "student"
+                            ? p.student_name
+                            : props.type === "teacher"
+                            ? p.doctor_id
+                            : p.id
                         }
                       />
                     </td>
-                    {/************ First name or course name **************/}
+                    {/************ name or course name **************/}
                     <td data-label={props.col1}>
                       {props.type === "student"
-                        ? p.firstName
+                        ? p.student_name
                         : props.type === "teacher"
-                        ? p.firstName
-                        : p.CourcesName}
+                        ? p.doctor_name
+                        : p.subject_name}
                     </td>
-                    {/************ last name or course Teacher **************/}
+                    {/************ code or subject_description **************/}
                     <td data-label={props.col2}>
-                      {props.type === "student"
-                        ? p.lastName
-                        : props.type === "teacher"
-                        ? p.lastName
-                        : p.CourcesTeacher}
+                      {props.type === "student" ? (
+                        p.student_code
+                      ) : props.type === "teacher" ? (
+                        p.doctor_code
+                      ) : (
+                        <p>{p.subject_description.slice(0, 20)}...</p>
+                      )}
                     </td>
-                    {/************ Phone or course teacher **************/}
+                    {/************ student_nat_id or course generation_id **************/}
                     <td data-label={props.col3}>
                       {props.type === "student"
-                        ? p.phone
+                        ? p.student_nat_id
                         : props.type === "teacher"
-                        ? p.phone
-                        : p.CourcesTeacher}
+                        ? p.doctor_pass
+                        : p.generation_id}
                     </td>
-                    {/************ Gender **************/}
-                    <td data-label={props.col4}>
-                      {props.type === "student"
-                        ? p.gender
-                        : props.type === "teacher"
-                        ? p.gender
-                        : p.CourcesTeacher}
-                    </td>
+
                     {/************ options **************/}
                     <td data-label="options">
                       <div className="Options">
                         <Options
-                          View={`/${props.type}/${p.id}`}
+                          View={`/${props.type}/${
+                            props.type === "student"
+                              ? p.student_id
+                              : props.type === "teacher"
+                              ? p.doctor_id
+                              : p.subject_id
+                          }`}
                           HandleDelete={() =>
                             HandleDelete(props.api_Delete, p.id)
                           }
-                          Edit={`/${props.type}/edit/${p.id}`}
                         />
                       </div>
                     </td>
@@ -244,12 +206,9 @@ function CustomTable(props) {
             </tbody>
           </table>
           {DATA.length >= View ? (
-            <input
-              type="button"
-              onClick={() => SetView(View + 5)}
-              value="See More"
-              className="See-More"
-            />
+            <div className="See-More">
+              <button onClick={() => SetView(View + 5)}>See More</button>
+            </div>
           ) : null}
         </div>
       ) : (

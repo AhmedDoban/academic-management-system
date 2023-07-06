@@ -1,60 +1,46 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import CountUp from "react-countup";
 import axios from "axios";
 import Box from "../components/Home Box Admin/Box";
-import Weather from "./../components/Weather/Weather";
 
-function AdminHome(props) {
+function AdminHome() {
   const [Student, setStudent] = useState([]);
   const [Teacher, setTeacher] = useState([]);
   const [Courses, setCourses] = useState([]);
   useEffect(() => {
     axios
-      .get(
-        "https://academic-management-system.000webhostapp.com/api/get-all-students"
-      )
-      .then((reasponse) => setStudent(reasponse.data.data));
+      .get(`${process.env.REACT_APP_API}/admin/select_all_students.php`)
+      .then((reasponse) => setStudent(reasponse.data));
     axios
-      .get(
-        "https://academic-management-system.000webhostapp.com/api/get-all-courses"
-      )
-      .then((reasponse) => setCourses(reasponse.data.data));
+      .get(`${process.env.REACT_APP_API}/admin/select_all_subject.php`)
+      .then((reasponse) => setCourses(reasponse.data));
     axios
-      .get(
-        "https://academic-management-system.000webhostapp.com/api/get-all-doctors"
-      )
-      .then((reasponse) => setTeacher(reasponse.data.data));
+      .get(`${process.env.REACT_APP_API}/admin/select_all_doctors.php`)
+      .then((reasponse) => setTeacher(reasponse.data));
   }, []);
 
   return (
     <React.Fragment>
-      <h1 className="main-titel-2">Admin Page</h1>
-      <Weather />
       <div className="AdminHome">
         {/****************** Student Box **********************/}
         <Box
           link="/student"
           data={Student.length}
-          Titel="Number of Students"
-          className="fa-regular fa-user"
-          otherStyle="blue-alt-back"
+          Titel="Students"
+          linkPlayer="https://assets8.lottiefiles.com/packages/lf20_4vlxeulb.json"
         />
         {/****************** Teachers Box **********************/}
         <Box
-          link="/teachers"
+          link="/teacher"
           data={Teacher.length}
-          Titel="Number of Teachers"
-          className="fa-solid fa-chalkboard-user"
-          otherStyle="orange-alt-back "
+          Titel="Instractors"
+          linkPlayer="https://assets1.lottiefiles.com/packages/lf20_ikvz7qhc.json"
         />
-        {/****************** Courses Box **********************/}
+        {/****************** Classes Box **********************/}
         <Box
-          link="/courses"
+          link="/Classes"
           data={Courses.length}
-          Titel="Number of Courses"
-          className="fa-solid fa-graduation-cap fa-fw"
-          otherStyle="green-alt-back"
+          Titel="Classes"
+          linkPlayer="https://assets1.lottiefiles.com/packages/lf20_k0D4i8.json"
         />
       </div>
     </React.Fragment>
