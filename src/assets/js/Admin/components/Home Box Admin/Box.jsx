@@ -7,7 +7,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 function Box(props) {
   return (
     <React.Fragment>
-      <Link to={props.link} className="box" data-aos="zoom-in">
+      <Link to={props.link} className="box-card-Admin" data-aos="zoom-in">
         <Player
           autoplay={true}
           loop={true}

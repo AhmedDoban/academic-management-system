@@ -50,6 +50,41 @@ function EditExam() {
       throw error;
     }
   };
+  console.log(params);
+  const HandelDeleteExam = async () => {
+    try {
+      await axios
+        .post(
+          `${process.env.REACT_APP_API}doctor/delete_exam.php`,
+          {
+            exam_id: params.exam_id,
+          },
+          {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          if (response.data.status === "success") {
+            toast.success(response.data.message, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
+          }
+        });
+    } catch (error) {
+      throw error;
+    }
+  };
 
   return (
     <React.Fragment>
@@ -131,7 +166,10 @@ function EditExam() {
             </div>
           </div>
 
-          <button className="editExam-card button">
+          <button
+            className="editExam-card button"
+            onClick={() => HandelDeleteExam()}
+          >
             <Player
               autoplay={true}
               loop={true}

@@ -52,7 +52,7 @@ function DeleteInquiries() {
         try {
           axios
             .post(
-              `https://fci-project1231.000webhostapp.com/fci_project//doctor/delete_inquiry.php`,
+              `${process.env.REACT_APP_API}/doctor/delete_inquiry.php`,
               { question_id: data.ask_id },
               {
                 headers: {

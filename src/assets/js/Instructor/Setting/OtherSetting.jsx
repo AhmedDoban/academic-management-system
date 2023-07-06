@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 function OtherSetting(props) {
   return (
@@ -15,12 +15,12 @@ function OtherSetting(props) {
             <p>you can only change the phone number</p>
           </div>
           <div className="box">
-            <h5>Email</h5>
-            <input type="text" readOnly />
+            <h5>Company</h5>
+            <input type="text" readOnly placeholder="FCI - TU" />
           </div>
           <div className="box">
             <h5>Phone</h5>
-            <input type="phone" maxLength={12} />
+            <input type="phone" maxLength={12} placeholder="+20 11111111111" />
           </div>
           <div className="box">
             <input type="button" value="Update Phone number" />

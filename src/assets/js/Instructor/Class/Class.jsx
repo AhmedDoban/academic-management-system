@@ -5,11 +5,9 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { Link } from "react-router-dom";
 import Mountain from "./../../components/Mountain Template/Mountain";
 import LodingFeachData from "./../../components/Loding Feach Data/LodingFeachData";
+import { ToastContainer, toast } from "react-toastify";
 
 function Class() {
-  const [TextFeild, SetTextField] = useState("");
-  const HandleTextFeild = () => {};
-
   const [Doctor_id, setDoctor_id] = useState([]);
 
   const GetID = async function () {
@@ -56,6 +54,21 @@ function Class() {
     fetchData();
   }, [url, Doctor_id]);
 
+  const [CreateField, SetCreateField] = useState(false);
+
+  const [Data, SetData] = useState({
+    subject_name: "",
+    subject_description: "",
+    generation_id: "",
+  });
+
+  const HandeADD = async () => {
+    const CloneData = [...Classes];
+    CloneData.push(Data);
+    SetClasses(CloneData);
+    SetCreateField(false);
+  };
+
   return (
     <React.Fragment>
       <div className="classRoom">
@@ -63,13 +76,11 @@ function Class() {
           <div className="data">
             <h1> Class Room</h1>
             <div className="card">
-              <i className="fa-solid fa-plus" onClick={HandleTextFeild}></i>
-              <input
-                type="text"
-                placeholder="Create a New Class"
-                value={TextFeild}
-                onChange={(e) => SetTextField(e.target.value)}
+              <i
+                className="fa-solid fa-plus"
+                onClick={() => SetCreateField(!CreateField)}
               />
+              <input type="text" placeholder="Create a New Class" disabled />
             </div>
           </div>
         </Mountain>
@@ -78,6 +89,55 @@ function Class() {
         <div className="subjects">
           {loading ? (
             <LodingFeachData />
+          ) : CreateField ? (
+            <div className="add-new-Class">
+              <div className="container">
+                <div className="card-input">
+                  <input
+                    type="search"
+                    id="subject_name"
+                    value={Data.subject_name}
+                    onChange={(e) =>
+                      SetData({ ...Data, subject_name: e.target.value })
+                    }
+                    placeholder=" "
+                  />
+                  <label htmlFor="subject_name">Subject Name</label>
+                </div>
+                <div className="card-input">
+                  <input
+                    type="search"
+                    id="subject_description"
+                    value={Data.subject_description}
+                    onChange={(e) =>
+                      SetData({
+                        ...Data,
+                        subject_description: e.target.value,
+                      })
+                    }
+                    placeholder=" "
+                  />
+                  <label htmlFor="subject_description">
+                    Subject Description
+                  </label>
+                </div>
+                <div className="card-input">
+                  <input
+                    type="search"
+                    id="generation_id"
+                    value={Data.generation_id}
+                    onChange={(e) =>
+                      SetData({ ...Data, generation_id: e.target.value })
+                    }
+                    placeholder=" "
+                  />
+                  <label htmlFor="generation_id">Generation Id</label>
+                </div>
+                <div className="card-input">
+                  <button onClick={() => HandeADD()}> Add</button>
+                </div>
+              </div>
+            </div>
           ) : (
             <div className="container">
               {Classes.map((p) => (
@@ -105,6 +165,7 @@ function Class() {
 
         {/***************** End **********************/}
       </div>
+      <ToastContainer />
     </React.Fragment>
   );
 }
