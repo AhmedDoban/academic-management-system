@@ -18,7 +18,7 @@ function CoursesControl() {
           <div className="data">
             <CustomTable
               api="https://camp-coding.tech/fci_project/graduation/admin/select_all_subject.php"
-              type="courses"
+              type="Classes"
               col1="Course Name"
               col2="Course Teacher"
               col3="Cource Level"

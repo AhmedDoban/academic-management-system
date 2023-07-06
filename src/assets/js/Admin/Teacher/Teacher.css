@@ -1,3 +1,6 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# teacher Deatils
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .TeacherDeatils {
   position: relative;
   display: flex;
@@ -60,4 +63,73 @@
 }
 .TeacherDeatils .data .details .itemValue {
   font-weight: 300;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Add teacher
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.add-new-teacher {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+.add-new-teacher .card {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
+  box-shadow: 1px 2px 5px 5px var(--white-color);
+}
+.add-new-teacher .card input {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white-color);
+  border: 0;
+  padding: 8px 14px;
+  transition: var(--main-transition);
+  cursor: pointer;
+  color: var(--black-color);
+  font-size: 15px;
+  border-radius: var(--main-border-radius);
+}
+
+.add-new-teacher .card input ~ label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 12px;
+  z-index: 1;
+  padding: 5px;
+  color: var(--black-color);
+  transition: var(--main-transition);
+  border-radius: var(--main-border-radius);
+  font-size: 18px;
+}
+.add-new-teacher .card input:focus ~ label,
+.add-new-teacher .card input:not(:placeholder-shown) ~ label {
+  top: 0;
+  color: var(--blue-color);
+  font-weight: bold;
+}
+.add-new-teacher .card button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background-color: var(--white-color);
+  padding: 8px 14px;
+  transition: var(--main-transition);
+  cursor: pointer;
+  color: var(--black-color);
+  font-size: 15px;
+  border-radius: var(--main-border-radius);
 }

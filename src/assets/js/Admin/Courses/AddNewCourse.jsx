@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import "./Student.css";
+import "./Courses.css";
 import axios from "axios";
 
-function AddNewStudent() {
+export default function AddNewCourse() {
   let Navigate = useNavigate();
 
   const [Data, SetData] = useState({
-    student_name: "",
-    student_nat_id: "",
-    parent_nat_id: "",
+    subject_name: "",
+    subject_description: "",
+    generation_id: "",
   });
 
   const HandeADD = async () => {
     await axios
-      .post(`${process.env.REACT_APP_API}admin/create_student.php`, Data, {
+      .post(`${process.env.REACT_APP_API}admin/create_subject.php`, Data, {
         headers: {
           Accept: "application/json",
           "Content-Type": "text/plain",
@@ -27,7 +27,7 @@ function AddNewStudent() {
             autoClose: 15000,
             theme: "colored",
           });
-          Navigate("/Student");
+          Navigate("/Classes");
         } else {
           toast.error(res.data.message, {
             autoClose: 15000,
@@ -36,44 +36,43 @@ function AddNewStudent() {
         }
       });
   };
-
   return (
     <React.Fragment>
-      <h5 className="main-titel-2">Add New Student</h5>
-      <div className="add-new-student">
+      <h5 className="main-titel-2">Add New Class</h5>
+      <div className="add-new-Class">
         <div className="card">
           <input
             type="search"
-            id="student_name"
-            value={Data.student_name}
-            onChange={(e) => SetData({ ...Data, student_name: e.target.value })}
+            id="subject_name"
+            value={Data.subject_name}
+            onChange={(e) => SetData({ ...Data, subject_name: e.target.value })}
             placeholder=" "
           />
-          <label htmlFor="student_name">Student Name</label>
+          <label htmlFor="subject_name">Subject Name</label>
         </div>
         <div className="card">
           <input
             type="search"
-            id="student_nat_id"
-            value={Data.student_nat_id}
+            id="subject_description"
+            value={Data.subject_description}
             onChange={(e) =>
-              SetData({ ...Data, student_nat_id: e.target.value })
+              SetData({ ...Data, subject_description: e.target.value })
             }
             placeholder=" "
           />
-          <label htmlFor="student_nat_id">Student Nat ID</label>
+          <label htmlFor="subject_description">Subject Description</label>
         </div>
         <div className="card">
           <input
             type="search"
-            id="parent_nat_id"
-            value={Data.parent_nat_id}
+            id="generation_id"
+            value={Data.generation_id}
             onChange={(e) =>
-              SetData({ ...Data, parent_nat_id: e.target.value })
+              SetData({ ...Data, generation_id: e.target.value })
             }
             placeholder=" "
           />
-          <label htmlFor="parent_nat_id">Parent Nat Id</label>
+          <label htmlFor="generation_id">Generation Id</label>
         </div>
         <div className="card">
           <button onClick={() => HandeADD()}> Add</button>
@@ -83,4 +82,3 @@ function AddNewStudent() {
     </React.Fragment>
   );
 }
-export default AddNewStudent;
