@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./wether.css";
-import LodingFeachData from "../../../components/Loding Feach Data/LodingFeachData";
 import Mountain from "./../../../components/Mountain Template/Mountain";
 import { Link, NavLink, Navigate } from "react-router-dom";
 function Weather() {

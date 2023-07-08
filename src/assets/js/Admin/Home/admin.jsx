@@ -25,42 +25,44 @@ function Admin(props) {
     <React.Fragment>
       <div className="Admin">
         <Weather />
-        <div className="Admin-pages-container">
-          <Suspense
-            fallback={
-              <div className="pre-loader">
-                <img src={require("../../../img/book.png")} alt="" />
-                <div className="dots-loader">
-                  <div></div>
-                  <div></div>
-                  <div></div>
+        <div className="container">
+          <div className="Admin-pages-container">
+            <Suspense
+              fallback={
+                <div className="pre-loader">
+                  <img src={require("../../../img/book.png")} alt="" />
+                  <div className="dots-loader">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                  <p>academic management system</p>
                 </div>
-                <p>academic management system</p>
-              </div>
-            }
-          >
-            <Routes>
-              <Route path="student" element={<Outlet />}>
-                <Route path="" element={<StudentControl />} />
-                <Route path=":id" element={<StudentDeatils />} />
-                <Route path="addNewStudent" element={<AddNewStudent />} />
-              </Route>
+              }
+            >
+              <Routes>
+                <Route path="student" element={<Outlet />}>
+                  <Route path="" element={<StudentControl />} />
+                  <Route path=":id" element={<StudentDeatils />} />
+                  <Route path="addNewStudent" element={<AddNewStudent />} />
+                </Route>
 
-              <Route path="teacher" element={<Outlet />}>
-                <Route path="" element={<TeacherControl />} />
-                <Route path=":id" element={<TeacherDetails />} />
-                <Route path="addNewTeacher" element={<AddNewTeacher />} />
-              </Route>
-              <Route path="Classes" element={<Outlet />}>
-                <Route path="" element={<CoursesControl />} />
-                <Route path=":id" element={<CoursesDetails />} />
-                <Route path="addNewCourse" element={<AddNewCourse />} />
-              </Route>
-              <Route path="/home" element={<AdminHome />} />
-              <Route path="/" element={<AdminHome />} />
-              <Route path="*" element={<NotFounded to="/NotFounded" />} />
-            </Routes>
-          </Suspense>
+                <Route path="teacher" element={<Outlet />}>
+                  <Route path="" element={<TeacherControl />} />
+                  <Route path=":id" element={<TeacherDetails />} />
+                  <Route path="addNewTeacher" element={<AddNewTeacher />} />
+                </Route>
+                <Route path="Classes" element={<Outlet />}>
+                  <Route path="" element={<CoursesControl />} />
+                  <Route path=":id" element={<CoursesDetails />} />
+                  <Route path="addNewCourse" element={<AddNewCourse />} />
+                </Route>
+                <Route path="/home" element={<AdminHome />} />
+                <Route path="/" element={<AdminHome />} />
+                <Route path="*" element={<NotFounded to="/NotFounded" />} />
+              </Routes>
+            </Suspense>
+          </div>
         </div>
       </div>
     </React.Fragment>
