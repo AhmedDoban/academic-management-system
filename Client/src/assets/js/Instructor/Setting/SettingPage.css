@@ -1,9 +1,4 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# General
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@import url("../../../css/root.css");
-
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Student Setting Page
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .StudentSettingPage {
@@ -54,7 +49,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--black-color);
+  color: var(--main-text-color);
   font-weight: 500;
   height: 100%;
   height: 50px;
@@ -67,7 +62,7 @@
   content: "";
   width: calc(100% - 30px);
   bottom: 0%;
-  background-color: var(--black-color);
+  background-color: var(--main-text-color);
   height: 1px;
   transition: var(--main-transition);
   left: -100%;
@@ -115,7 +110,7 @@
 }
 
 .StudentProfile .box input[type="button"] {
-  background-color: var(--black-color);
+  background-color: var(--main-text-color);
   width: fit-content;
   color: var(--white-color);
   display: flex;

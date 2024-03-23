@@ -20,7 +20,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  border-bottom: 1px solid var(--black-color);
+  border-bottom: 1px solid var(--main-text-color);
 }
 .InquiriesCenter .menu ul li a {
   position: relative;
@@ -30,7 +30,7 @@
   padding: 0 20px;
   height: 50px;
   cursor: pointer;
-  color: var(--black-color);
+  color: var(--main-text-color);
   font-size: 18px;
   transition: var(--main-transition);
   overflow: hidden;
@@ -43,7 +43,7 @@
   content: "";
   height: 2px;
   width: 100%;
-  background-color: var(--black-color);
+  background-color: var(--main-text-color);
   bottom: 0px;
   left: -100%;
   transition: var(--main-transition);

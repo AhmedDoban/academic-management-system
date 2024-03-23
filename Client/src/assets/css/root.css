@@ -10,7 +10,7 @@
   --main-white-alt: #eee;
   --offwihte: #faf5ec;
   --footer-background-color: #f5f9f7;
-  --footer-dark: #111111;
+  --drak-color-style: #111111;
   --main-transition: all 0.3s ease-in-out;
   --main-padding-top: 50px;
   --main-padding-bottom: 50px;
@@ -228,7 +228,7 @@ html {
   border-radius: var(--main-border-radius) !important;
 }
 .swal2-popup .swal2-title {
-  color: var(--black-color) !important;
+  color: var(--main-text-color) !important;
   font-size: 18px !important;
 }
 .swal2-actions button {

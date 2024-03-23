@@ -82,7 +82,7 @@ function WhatOffer() {
                 for online learning has risen significantly, and it will
                 continue doing so in the future.
               </p>
-              <Link to="">
+              <Link to="/Login">
                 Try Now <i className="fa-solid fa-rocket"></i>
               </Link>
             </div>

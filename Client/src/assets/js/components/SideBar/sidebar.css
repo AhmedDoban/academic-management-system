@@ -17,6 +17,7 @@
 }
 .sidebar.open {
   left: 0;
+  box-shadow: var(--main-box-shadow);
 }
 .sidebar .bullet {
   position: absolute;
@@ -39,7 +40,7 @@
   position: relative;
   text-align: center;
   margin-bottom: 30px;
-  color: var(--black-color);
+  color: var(--main-text-color);
 }
 /*
   remove this comment if you want it to be sticy
@@ -81,7 +82,7 @@
   width: 80%;
   height: 2px;
   bottom: -20px;
-  background-color: var(--black-color);
+  background-color: var(--main-text-color);
 }
 .sidebar > h3::after {
   bottom: -29px;
@@ -106,7 +107,7 @@
 .sidebar ul li.options::before {
   position: absolute;
   content: "";
-  background-color: var(--black-color);
+  background-color: var(--main-text-color);
   width: 80%;
   height: 2px;
   left: 0;
@@ -119,7 +120,7 @@
   letter-spacing: 2px;
   margin-bottom: 5px;
   font-weight: bold;
-  color: var(--main-color);
+  color: var(--orange-color);
 }
 .sidebar ul li.options label {
   position: relative;
@@ -164,9 +165,10 @@
   transition: var(--main-transition);
 }
 .sidebar ul li.options input[type="checkbox"]:checked + span::before {
-  background-color: var(--blue-alt2-color);
+  background-color: var(--main-color-hover);
   content: "\f186";
   left: calc(100% - 25px);
+  color: #fff;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
   # sidebar links
@@ -175,7 +177,7 @@
   display: flex;
   align-items: center;
   font-size: 14px;
-  color: var(--black-color);
+  color: var(--main-text-color);
   border-radius: var(--main-border-radius);
   padding: 10px;
   transition: var(--main-transition);

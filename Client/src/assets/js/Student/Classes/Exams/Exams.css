@@ -80,7 +80,7 @@
   border-radius: var(--main-border-radius);
   cursor: pointer;
   font-weight: bold;
-  color: var(--black-color);
+  color: var(--main-text-color);
   transition: var(--main-transition);
   background-color: var(--white-color);
 }
@@ -109,7 +109,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  border-bottom: 1px solid var(--black-color);
+  border-bottom: 1px solid var(--main-text-color);
 }
 .ExamPage .menu ul li span {
   position: relative;
@@ -119,7 +119,7 @@
   padding: 0 20px;
   height: 50px;
   cursor: pointer;
-  color: var(--black-color);
+  color: var(--main-text-color);
   font-size: 18px;
   transition: var(--main-transition);
   overflow: hidden;
@@ -132,7 +132,7 @@
   content: "";
   height: 2px;
   width: 100%;
-  background-color: var(--black-color);
+  background-color: var(--main-text-color);
   bottom: 0px;
   left: -100%;
   transition: var(--main-transition);
@@ -173,13 +173,13 @@
 .ExamPage .option .card span {
   display: block;
   width: 100%;
-  color: var(--black-color);
+  color: var(--main-text-color);
   text-align: right;
   padding: 0 10px;
 }
 .ExamPage li label {
   text-align: right;
-  color: var(--black-color);
+  color: var(--main-text-color);
 }
 .ExamPage .option .answer-options {
   display: flex;
@@ -188,5 +188,5 @@
   background-color: var(--white-color);
   padding: 10px;
   border-radius: var(--main-border-radius);
-  color: var(--black-color);
+  color: var(--main-text-color);
 }

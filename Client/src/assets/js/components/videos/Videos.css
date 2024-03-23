@@ -45,7 +45,7 @@
 .specific-course .holder .right p {
   position: relative;
   transition: var(--main-transition);
-  color: var(--black-color);
+  color: var(--main-text-color);
   letter-spacing: 2px;
 }
 .specific-course .holder .right .Frame {
@@ -91,7 +91,7 @@
   border-top: 1px solid #ececec;
   cursor: pointer;
   transition: var(--main-transition);
-  color: var(--black-color);
+  color: var(--main-text-color);
   display: flex;
   align-items: center;
   gap: 10px;

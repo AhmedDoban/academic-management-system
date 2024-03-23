@@ -106,9 +106,9 @@
   width: 100%;
   background-color: transparent;
   border: 0;
-  border-bottom: 0.5px solid var(--black-color);
+  border-bottom: 0.5px solid var(--main-text-color);
   padding: 10px;
-  color: var(--black-color);
+  color: var(--main-text-color);
   transition: var(--main-transition);
 }
 .newExam .input-field label {
@@ -118,7 +118,7 @@
   gap: 10px;
   font-size: 17px;
   padding: 10px;
-  color: var(--black-color);
+  color: var(--main-text-color);
   transition: var(--main-transition);
   letter-spacing: 5px;
 }
@@ -150,7 +150,7 @@
   margin-left: auto;
   padding: 5px 14px;
   border: 1px solid var(--green-color);
-  color: var(--black-color);
+  color: var(--main-text-color);
   background-color: transparent;
   cursor: pointer;
   border-radius: var(--main-border-radius);
@@ -299,7 +299,7 @@
   border: 0;
   background-color: transparent;
   cursor: pointer;
-  color: var(--black-color);
+  color: var(--main-text-color);
 }
 .addQu .card .input-field input ~ label {
   position: absolute;
@@ -308,7 +308,7 @@
   width: 100%;
   height: 100%;
   background-color: transparent;
-  color: var(--black-color);
+  color: var(--main-text-color);
   cursor: pointer;
   transition: var(--main-transition);
 }
@@ -329,14 +329,14 @@
   border: 0;
   background-color: transparent;
   transition: var(--main-transition);
-  color: var(--black-color);
+  color: var(--main-text-color);
 }
 .addQu .card .input-field .addQuBtn:hover {
   color: var(--blue-color);
 }
 .addQu .card .input-field label {
-  color: var(--black-color);
-  transition: var(--black-color);
+  color: var(--main-text-color);
+  transition: var(--main-text-color);
   width: 100%;
 }
 .addQu .card .input-field .SubmitBun {
@@ -348,7 +348,7 @@
   padding: 8px 8px;
   border: 0;
   cursor: pointer;
-  color: var(--black-color);
+  color: var(--main-text-color);
   transition: var(--main-transition);
   border-radius: var(--main-border-radius);
 }
@@ -365,7 +365,7 @@
 }
 .addQu .card .input-field .Dropdown-root .Dropdown-control {
   background-color: var(--white-color);
-  color: var(--black-color);
+  color: var(--main-text-color);
   border: 0;
   cursor: pointer;
 }

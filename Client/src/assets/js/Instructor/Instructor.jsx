@@ -14,7 +14,6 @@ import InquiriesCenter from "./Class/Inquiries Center/InquiriesCenter";
 
 // Class Room page
 const Class = lazy(() => import("./Class/Class"));
-const JoinRoom = lazy(() => import("../components/video call/VideoCall"));
 const SubjectData = lazy(() => import("./Class/SubjectData/SubjectData"));
 const Subjects = lazy(() => import("./Class/Subjects"));
 const Exams = lazy(() => import("./Class/Exams/Exams"));
@@ -143,8 +142,6 @@ const Instructor = (props) => {
                           />
                         }
                       />
-                      {/********** Call Page ***********/}
-                      <Route path="video call/:id" element={<JoinRoom />} />
 
                       {/********** Inquiries Center Page ***********/}
                       <Route

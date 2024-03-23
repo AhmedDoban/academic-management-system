@@ -147,5 +147,5 @@
 .weather .mountain .data ul li a.active {
   background-color: var(--white-color);
   transition: var(--main-transition);
-  color: var(--black-color);
+  color: var(--main-text-color);
 }

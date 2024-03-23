@@ -33,7 +33,7 @@
   padding: 8px 14px;
   transition: var(--main-transition);
   cursor: pointer;
-  color: var(--black-color);
+  color: var(--main-text-color);
   font-size: 15px;
   border-radius: var(--main-border-radius);
   display: flex;
@@ -67,7 +67,7 @@
   padding: 8px 14px;
   transition: var(--main-transition);
   cursor: pointer;
-  color: var(--black-color);
+  color: var(--main-text-color);
   font-size: 15px;
   border-radius: var(--main-border-radius);
 }
@@ -82,7 +82,7 @@
   left: 12px;
   z-index: 1;
   padding: 5px;
-  color: var(--black-color);
+  color: var(--main-text-color);
   transition: var(--main-transition);
   border-radius: var(--main-border-radius);
   font-size: 18px;

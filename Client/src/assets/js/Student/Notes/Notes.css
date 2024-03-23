@@ -87,22 +87,22 @@
   border: 0;
   padding: 8px 5px;
   font-size: 14px;
-  color: var(--black-color);
+  color: var(--main-text-color);
 }
 .notes .notes-container .CardBlur .note-footer input::placeholder {
-  color: var(--black-color);
+  color: var(--main-text-color);
 }
 .notes .notes-container .CardBlur .note-footer button {
   padding: 5px;
   background-color: transparent;
-  color: var(--black-color);
-  border: 1.6px solid var(--black-color);
+  color: var(--main-text-color);
+  border: 1.6px solid var(--main-text-color);
   border-radius: var(--main-border-radius);
   cursor: pointer;
   transition: var(--main-transition);
 }
 .notes .notes-container .CardBlur .note-footer button:hover {
-  background-color: var(--black-color);
+  background-color: var(--main-text-color);
   color: var(--white-color);
 }
 .notes .notes-container .CardBlur:not(:first-child) .note-footer {
@@ -121,7 +121,7 @@
   line-height: 1.7;
 }
 .notes .notes-container .CardBlur .Note-Data p {
-  color: var(--black-color);
+  color: var(--main-text-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Notes note-details-controllar
@@ -140,17 +140,17 @@
   border: 0;
   padding: 12px 18px;
   font-size: 18px;
-  color: var(--black-color);
+  color: var(--main-text-color);
   border-radius: var(--main-border-radius);
   backdrop-filter: blur(14px);
 }
 .note-details-controllar .input::placeholder {
-  color: var(--black-color);
+  color: var(--main-text-color);
 }
 .note-details-controllar button {
   padding: 10px 15px;
   background-color: #ffffff5a;
-  color: var(--black-color);
+  color: var(--main-text-color);
   border: 1.6px solid #ffffff5a;
   border-radius: var(--main-border-radius);
   backdrop-filter: blur(14px);
@@ -181,7 +181,7 @@
   font-weight: 600px;
   line-height: 1.7;
   white-space: pre-wrap;
-  color: var(--black-color);
+  color: var(--main-text-color);
 }
 .text-area-contaienr .CardBlur {
   min-height: calc(100vh - 150px);

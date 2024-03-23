@@ -1,5 +1,3 @@
-""
-
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Todo
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -11,7 +9,6 @@
   content: "";
   width: 100%;
   height: 300px;
-  background: linear-gradient(290deg, #43b5c1 10%, #000002 69%);
   background-image: url("../../../img/Todo/bg-desktop.jpg");
   background-size: cover;
   top: 0;
@@ -91,26 +88,25 @@
   height: 100%;
   background-color: transparent;
   border: 0;
-  color: var(--offwihte);
+  color: #fff;
 }
 
 .STudent-Todo-list .container .card i {
   position: relative;
-  min-width: 25px;
-  height: 25px;
+  min-width: 35px;
+  height: 35px;
   margin-right: 15px;
-  border: 1px solid var(--blue-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--blue-color);
+  color: var(--main-color);
   border-radius: 50%;
   left: 10px;
   cursor: pointer;
   transition: var(--main-transition);
 }
 .STudent-Todo-list .container .card i:hover {
-  background-color: var(--blue-alt-color);
+  background-color: var(--main-color);
   color: #fff;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
@@ -128,14 +124,14 @@
   gap: 10px;
 }
 .STudent-Todo-list .container .card .info button {
-  color: var(--grey-color);
+  color: var(--main-p-color);
   background-color: transparent;
   border: 0;
   cursor: pointer;
   transition: var(--main-transition);
 }
 .STudent-Todo-list .container .card .info button.active {
-  color: var(--blue-color);
+  color: var(--main-color);
 }
 .STudent-Todo-list .container .card .info button:hover {
   color: #fff;
@@ -166,7 +162,7 @@
   content: "";
   width: 14px;
   height: 14px;
-  border: 2px solid var(--gray-color);
+  border: 2px solid var(--main-p-color);
   left: 0;
   top: 50%;
   transform: translatey(-50%);
@@ -174,7 +170,7 @@
   transition: var(--main-transition);
 }
 .STudent-Todo-list .container .card .box label:hover::before {
-  border: 2px solid var(--blue-color);
+  border: 2px solid var(--main-color);
 }
 .STudent-Todo-list .container .card .box label::after {
   position: absolute;
@@ -185,7 +181,7 @@
   top: 50%;
   width: 18px;
   height: 18px;
-  background-color: var(--blue-color);
+  background-color: var(--main-color);
   border-radius: 3px;
   font-size: 12px;
   display: flex;
@@ -202,7 +198,7 @@
   input[type="checkbox"]:checked
   + label {
   transition: var(--main-transition);
-  color: var(--blue-color);
+  color: var(--main-color);
   text-decoration: line-through;
 }
 .STudent-Todo-list
@@ -238,5 +234,5 @@
   text-decoration: none;
 }
 .STudent-Todo-list .container .card .box.checkAll label::before {
-  border: 2px solid var(--blue-color);
+  border: 2px solid var(--main-color);
 }

@@ -19,7 +19,7 @@ const Exam = lazy(() => import("./Classes/Exams/Exam"));
 const ExamPage = lazy(() => import("./Classes/Exams/ExamPage"));
 const Viedos = lazy(() => import("../components/videos/Videos"));
 const Summary = lazy(() => import("./Classes/Summary/Summary"));
-const JoinRoom = lazy(() => import("../components/video call/VideoCall"));
+
 const SubjectNotification = lazy(() =>
   import("./Classes/SubjectNotification/SubjectNotification")
 );
@@ -47,9 +47,6 @@ const NoteDetails = lazy(() => import("./Notes/NoteDetails"));
 
 // setting page
 const SettingPage = lazy(() => import("./Setting/SettingPage"));
-
-// Student Call page
-const Call = lazy(() => import("../components/Call Room/CallRoom"));
 
 // notfound page
 const NotFounded = lazy(() => import("../components/Not Founded/NotFounded"));
@@ -79,12 +76,6 @@ const Student = (props) => {
             <NavLink to="table" onClick={open}>
               <i className="fa-solid fa-calendar-days"></i>
               <span>Table</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="Call" onClick={open}>
-              <i className="fa-solid fa-phone"></i>
-              <span>Call</span>
             </NavLink>
           </li>
           <li>
@@ -127,12 +118,18 @@ const Student = (props) => {
                     <Route path="" exact />
                     <Route path=":generation_id" element={<StudenClasses />} />
                   </Route>
+                  <Route path="" element={<StudenClasses />}>
+                    <Route path="" exact />
+                    <Route
+                      path="/Class Room/:generation_id"
+                      element={<StudenClasses />}
+                    />
+                  </Route>
                   <Route
                     path="/Subject Data/:subject_id/:SubjectName?"
                     element={<Outlet />}
                   >
                     <Route path="" element={<SubjectData />} />
-                    <Route path="video call/:id" element={<JoinRoom />} />
                     <Route path="Exam/:id" element={<Outlet />}>
                       <Route path="" element={<Exam />} />
                       <Route path=":Exam_id" element={<ExamPage />} />
@@ -178,9 +175,6 @@ const Student = (props) => {
                     <Route path="setting-email" />
                     <Route path="*" render={() => <Navigate to="/" />} />
                   </Route>
-                  {/********** Friends Page ***********/}
-                  <Route path="/Call" element={<Call />} />
-
                   {/********** Not Founded Page ***********/}
                   <Route path="*" element={<NotFounded to="/NotFounded" />} />
                 </Routes>

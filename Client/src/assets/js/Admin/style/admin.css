@@ -49,7 +49,7 @@
   padding: 8px 14px;
   transition: var(--main-transition);
   cursor: pointer;
-  color: var(--black-color);
+  color: var(--main-text-color);
   font-size: 15px;
   border-radius: var(--main-border-radius);
 }
@@ -76,7 +76,7 @@
   transition: var(--main-transition);
   cursor: pointer;
   background-color: var(--white-color);
-  color: var(--black-color);
+  color: var(--main-text-color);
   font-size: 18px;
   border-radius: var(--main-border-radius);
 }
@@ -109,7 +109,7 @@
 .CustomTable table th {
   position: relative;
   font-size: 18px;
-  color: var(--black-color);
+  color: var(--main-text-color);
   line-height: 1.2;
   font-weight: unset;
   height: 40px;

@@ -139,6 +139,7 @@ p {
 .page {
   display: flex;
   background-color: var(--main-background-color);
+  min-height: 100vh;
 }
 .gust-home {
   width: 100%;

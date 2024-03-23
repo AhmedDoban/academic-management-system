@@ -36,7 +36,7 @@
   padding: 8px 14px;
   transition: var(--main-transition);
   cursor: pointer;
-  color: var(--black-color);
+  color: var(--main-text-color);
   font-size: 15px;
   border-radius: var(--main-border-radius);
   display: flex;
@@ -48,7 +48,7 @@
 .SubjectData .container .card .data p {
   position: relative;
   width: 100%;
-  color: var(--black-color);
+  color: var(--main-text-color);
   transition: var(--main-transition);
   font-size: 16px;
   text-align: right;
@@ -77,6 +77,6 @@
 }
 .nostudent-container p {
   font-size: 18px;
-  color: var(--black-color);
+  color: var(--main-text-color);
   font-weight: bold;
 }

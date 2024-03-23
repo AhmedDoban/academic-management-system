@@ -32,7 +32,11 @@ function Courses() {
     }
   };
 
-  const [Classes, SetClasses] = useState([]);
+  const [Classes, SetClasses] = useState([
+    {
+      generation_name: "askldj",
+    },
+  ]);
   const [loading, setLoading] = useState(true);
 
   const url = `${process.env.REACT_APP_API}/select_sub_generation.php`;
@@ -103,25 +107,9 @@ function SELECT_SUB_GENERATION(props) {
         <LodingFeachData />
       ) : (
         <div className="student-courses-container" id="Subjects">
-          <h1
-            className="main-titel"
-            data-aos="fade-down"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-          >
-            <div className="div-circle"></div>
-            <div className="div-circle"></div>
-            <span>Classes </span>
-          </h1>
           <Dots OtherStyle="top" />
           <Dots OtherStyle="bottom" />
-
-          <div
-            className="container"
-            data-aos="fade-down"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-          >
+          <div className="container" data-aos="fade-down">
             {/************************** Start input and some options ****************************/}
             <div className="header">
               <div className="input-absulote">
@@ -159,31 +147,25 @@ function SELECT_SUB_GENERATION(props) {
                           .includes(props.Search);
                   })
                     .slice(0, props.visible)
-                    .map((p) => (
-                      <div className="card" key={p.generation_id}>
+                    .map((ele) => (
+                      <Link
+                        className="card"
+                        key={ele.generation_id}
+                        to={`/Class Room/${ele.generation_id}`}
+                        onClick={() => props.setItem(ele)}
+                      >
                         <div className="info">
                           <Player
                             autoplay={true}
                             loop={true}
                             controls={false}
-                            src="https://assets7.lottiefiles.com/packages/lf20_yg29hewu.json"
+                            src={require("../../../img/Players/Books.json")}
                             className="PLayer"
-                          ></Player>
-                          <div className="footer-container-cousres width-full">
-                            <div className="box-footer between-flex width-full">
-                              <p>
-                                <span>{p.generation_name} </span>
-                              </p>
-                              <Link
-                                to={`/Class Room/${p.generation_id}`}
-                                onClick={() => props.setItem(p)}
-                              >
-                                <i className="fa-solid fa-arrow-right rd-half color-white"></i>
-                              </Link>
-                            </div>
-                          </div>
+                          />
+
+                          <p>{ele.generation_name}</p>
                         </div>
-                      </div>
+                      </Link>
                     ))}
                 </div>
                 {props.Classes.length >= props.visible ? (
@@ -228,7 +210,12 @@ function Select_Sub_generationSubjects() {
     }
   };
 
-  const [Classes, SetClasses] = useState([]);
+  const [Classes, SetClasses] = useState([
+    {
+      id: "",
+      subject_name: "asd",
+    },
+  ]);
 
   const url = `${process.env.REACT_APP_API}/select_sub_generation.php`;
 
@@ -285,12 +272,7 @@ function Select_Sub_generationSubjects() {
         {/**************************** Start Container **********************************************/}
         <div className="container">
           {/**************************** Header Search and show style**********************************************/}
-          <div
-            className="header "
-            data-aos="fade-down"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-          >
+          <div className="header " data-aos="fade-down">
             <div className="input-absulote">
               <input
                 type="text"
@@ -328,8 +310,6 @@ function Select_Sub_generationSubjects() {
               <Link
                 className="Card"
                 data-aos="fade-right"
-                data-aos-easing="ease-in-out"
-                data-aos-duration="1000"
                 to={`/Subject Data/${p.subject_id}/${p.subject_name}?`}
                 key={p.id}
               >
@@ -339,7 +319,7 @@ function Select_Sub_generationSubjects() {
                   controls={false}
                   src="https://assets4.lottiefiles.com/packages/lf20_4XmSkB.json"
                   className="PLayer"
-                ></Player>
+                />
                 <div className="data">
                   <h3>{p.subject_name}</h3>
                   <p> {p.subject_description}</p>

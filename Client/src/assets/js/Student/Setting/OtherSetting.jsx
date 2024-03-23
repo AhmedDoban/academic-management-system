@@ -48,12 +48,7 @@ function OtherSetting() {
 
   return (
     <React.Fragment>
-      <div
-        className="StudentProfile"
-        data-aos="fade-right"
-        data-aos-easing="ease-in-out"
-        data-aos-duration="1000"
-      >
+      <div className="StudentProfile" data-aos="fade-right">
         {loading ? (
           <LodingFeachData />
         ) : (

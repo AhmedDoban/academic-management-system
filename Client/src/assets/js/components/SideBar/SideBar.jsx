@@ -102,19 +102,23 @@ const SideBar = ({ children, SetLogedOn }) => {
   }, [Theme, children]);
   const CheckCurrentTheme = () => {
     let Root = document.documentElement.style;
-    // if (Theme === "light") {
-    //   Root.setProperty("--main-background-color", "#f1f5f9");
-    //   Root.setProperty("--main-page-color", "#1b575b");
-    //   Root.setProperty("--white-color", "#fff");
-    //   Root.setProperty("--black-color", "#000");
-    //   Root.setProperty("--main-p-color", "#777");
-    // } else {
-    //   Root.setProperty("--main-background-color", "#121212");
-    //   Root.setProperty("--main-page-color", "#121212  ");
-    //   Root.setProperty("--white-color", "#1e1e1e");
-    //   Root.setProperty("--black-color", "#fff");
-    //   Root.setProperty("--main-p-color", "#fff");
-    // }
+    if (Theme === "light") {
+      Root.setProperty("--main-background-color", "#f1f5f9");
+      Root.setProperty("--footer-background-color", "#f5f9f7");
+      Root.setProperty("--white-color", "#fff");
+      Root.setProperty("--main-white-alt", "#eee");
+      Root.setProperty("--main-text-color", "#000");
+      Root.setProperty("--main-p-color", "#777");
+      Root.setProperty("--main-overlay", "rgba(125, 125, 125, 0.7)");
+    } else {
+      Root.setProperty("--main-background-color", "#121212");
+      Root.setProperty("--footer-background-color", "#111111");
+      Root.setProperty("--white-color", "#1e1e1e");
+      Root.setProperty("--main-text-color", "#fff");
+      Root.setProperty("--main-white-alt", "#303841");
+      Root.setProperty("--main-p-color", "#eee");
+      Root.setProperty("--main-overlay", "rgba(47, 47, 47, 0.7)");
+    }
   };
   return (
     <React.Fragment>
@@ -139,13 +143,7 @@ const SideBar = ({ children, SetLogedOn }) => {
           </li>
 
           <li>
-            <NavLink to="home" onClick={open}>
-              <i className="fa-solid fa-house"></i>
-              <span>Home</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="Class Room" onClick={open}>
+            <NavLink to="/" onClick={open}>
               <i className="fa-solid fa-graduation-cap fa-fw"></i>
               <span>Class Room</span>
             </NavLink>

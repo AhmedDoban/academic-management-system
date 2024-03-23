@@ -9,7 +9,7 @@ function LodingFeachData() {
           autoplay={true}
           loop={true}
           controls={false}
-          src="https://assets2.lottiefiles.com/packages/lf20_x62chJ.json"
+          src={require("../../../img/Players/Loading.json")}
           className="player"
         />
         <span>Loading</span>

@@ -23,7 +23,7 @@
 .box-card-Admin h5 {
   position: relative;
   width: 100%;
-  color: var(--black-color);
+  color: var(--main-text-color);
   transition: var(--main-transition);
   font-size: 16px;
   text-align: right;

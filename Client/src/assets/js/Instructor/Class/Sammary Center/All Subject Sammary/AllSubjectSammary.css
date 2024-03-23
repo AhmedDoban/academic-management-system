@@ -33,7 +33,7 @@
   padding: 8px 14px;
   transition: var(--main-transition);
   cursor: pointer;
-  color: var(--black-color);
+  color: var(--main-text-color);
   font-size: 15px;
   border-radius: var(--main-border-radius);
   display: flex;
@@ -41,7 +41,7 @@
   align-items: center;
 }
 .allSubjectSammary .card .data h1 {
-  color: var(--black-color);
+  color: var(--main-text-color);
   transition: var(--main-transition);
   font-size: 14px;
 }

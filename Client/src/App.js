@@ -5,6 +5,7 @@ import "./assets/css/framework.css";
 import "./assets/css/style.css";
 import Guest from "./assets/js/Guest/Guest";
 import Auth from "./assets/js/Guest/Auth";
+import Student from "./assets/js/Student/student";
 
 function App() {
   const [LogedIn, SetLogedOn] = useState(false);
@@ -72,7 +73,7 @@ function App() {
 
   if (!LogedIn) {
     return (
-      <Guest
+      <Student
         SetLogedOn={SetLogedOn}
         options={options}
         SetType={SetType}

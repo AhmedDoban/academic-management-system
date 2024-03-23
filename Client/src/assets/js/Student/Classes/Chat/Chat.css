@@ -55,7 +55,7 @@
 .Chat .messages h1 {
   position: relative;
   background-color: var(--white-color);
-  color: var(--black-color);
+  color: var(--main-text-color);
   margin: 0;
   width: fit-content;
   min-width: 184.5px;
@@ -132,7 +132,7 @@
   padding: 8px 15px;
   border: 0;
   background-color: transparent;
-  color: var(--black-color);
+  color: var(--main-text-color);
   text-align: right;
   transition: var(--main-transition);
 }
@@ -141,7 +141,7 @@
   min-width: 50px;
   border: 0;
   cursor: pointer;
-  color: var(--black-color);
+  color: var(--main-text-color);
   background-color: var(--white-color);
   opacity: 0;
   z-index: -9999;
