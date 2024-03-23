@@ -10,6 +10,7 @@ import React, {
 import { Route, Routes, Navigate, Outlet, NavLink } from "react-router-dom";
 
 import SideBar from "../components/SideBar/SideBar";
+import Loading from "../components/Loading/Loading";
 
 // Class Room page
 const StudenClasses = lazy(() => import("./Classes/StudenClasses"));
@@ -100,18 +101,7 @@ const Student = (props) => {
         <div className="content">
           <div className="pagewrapper display-flex gap-10">
             <div className="width-full">
-              <Suspense
-                fallback={
-                  <div className="pre-loader">
-                    <div className="dots-loader">
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                    </div>
-                    <p>academic management system</p>
-                  </div>
-                }
-              >
+              <Suspense fallback={<Loading />}>
                 <Routes>
                   {/********** Courses Page ***********/}
                   <Route path="/Class Room" element={<StudenClasses />}>

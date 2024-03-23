@@ -2,6 +2,7 @@ import React, { useEffect, lazy, Suspense, useState } from "react";
 import { NavLink, Navigate, Outlet, Route, Routes } from "react-router-dom";
 import Mountain from "./../components/Mountain Template/Mountain";
 import "./parent.css";
+import Loading from "../components/Loading/Loading";
 
 // Students page
 const Students = lazy(() => import("./Students/Students"));
@@ -90,18 +91,7 @@ function Parent(props) {
             </div>
           </div>
         </Mountain>
-        <Suspense
-          fallback={
-            <div className="pre-loader">
-              <div className="dots-loader">
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              <p>academic management system</p>
-            </div>
-          }
-        >
+        <Suspense fallback={<Loading />}>
           <Routes>
             {/********** Students Page ***********/}
             <Route exact path="/Students" element={<Outlet />}>

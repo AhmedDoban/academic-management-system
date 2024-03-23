@@ -3,6 +3,7 @@ import { Outlet, Route, Routes } from "react-router-dom";
 import "../style/admin.css";
 import AdminHome from "./AdminHome";
 import Weather from "../components/Weather/Weather";
+import Loading from "../../components/Loading/Loading";
 
 // Students
 const StudentControl = lazy(() => import("./../Student/StudentControl"));
@@ -27,18 +28,7 @@ function Admin(props) {
         <Weather />
         <div className="container">
           <div className="Admin-pages-container">
-            <Suspense
-              fallback={
-                <div className="pre-loader">
-                  <div className="dots-loader">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                  <p>academic management system</p>
-                </div>
-              }
-            >
+            <Suspense fallback={<Loading />}>
               <Routes>
                 <Route path="student" element={<Outlet />}>
                   <Route path="" element={<StudentControl />} />
