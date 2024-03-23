@@ -8,7 +8,6 @@ function ShowVideo() {
   const params = useParams("");
   const [Videos, SetVideos] = useState([]);
   const url = `${process.env.REACT_APP_API}/doctor/`;
-  console.log(Videos);
   const fetchData = async function () {
     try {
       await axios

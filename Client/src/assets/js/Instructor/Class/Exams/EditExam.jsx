@@ -50,7 +50,7 @@ function EditExam() {
       throw error;
     }
   };
-  console.log(params);
+
   const HandelDeleteExam = async () => {
     try {
       await axios
@@ -67,7 +67,6 @@ function EditExam() {
           }
         )
         .then((response) => {
-          console.log(response.data);
           if (response.data.status === "success") {
             toast.success(response.data.message, {
               position: "top-right",

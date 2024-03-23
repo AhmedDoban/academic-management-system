@@ -13,7 +13,6 @@ function Viedos(props) {
   const [VideoTitel, SetVideoTitel] = useState("");
 
   const url = props.url;
-  console.log(Video);
 
   const HandleViewVideo = (data) => {
     SetVideoSRC(data.video_link);

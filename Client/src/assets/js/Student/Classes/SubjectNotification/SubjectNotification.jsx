@@ -18,7 +18,7 @@ function SubjectNotification() {
       throw error;
     }
   };
-  //   console.log(Notification);
+  
   const url = `${process.env.REACT_APP_API}/select_notification.php`;
 
   useEffect(() => {

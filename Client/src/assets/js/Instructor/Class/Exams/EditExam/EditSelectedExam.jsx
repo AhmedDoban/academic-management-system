@@ -116,7 +116,6 @@ function EditSelectedExam() {
         )
         .then((response) => {
           if (response.data.status === "success") {
-            console.log(response.data.message.questions);
             HandleShowExam();
           }
         });

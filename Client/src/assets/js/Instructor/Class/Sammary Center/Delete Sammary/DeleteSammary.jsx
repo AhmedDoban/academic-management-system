@@ -61,7 +61,7 @@ function DeleteSammary() {
               }
             )
             .then((response) => {
-              console.log(response.data);
+  
               if (response.data.status === "success") {
                 Swal.fire("Deleted!", response.data.message, "success");
                 fetchData();

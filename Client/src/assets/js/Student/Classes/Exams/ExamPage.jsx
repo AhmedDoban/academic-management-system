@@ -109,7 +109,6 @@ function ExamPage() {
           }
         )
         .then((response) => {
-          console.log(response.data);
           if (response.data.status === "success") {
             toast.success(response.data.message, {
               position: "top-right",
