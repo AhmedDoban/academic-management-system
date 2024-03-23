@@ -1,0 +1,85 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# General
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@import url("../../../../css/root.css");
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Student  home page Student sammaryData
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.sammaryData {
+  position: relative;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  margin: 0;
+  background-color: var(--white-color);
+}
+.sammaryData .container {
+  position: relative;
+}
+.sammaryData .header-data h1 {
+  font-size: 80px;
+  color: var(--main-text-color);
+}
+.sammaryData .header-data a {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: var(--main-color);
+  border-radius: 4px 4px 4px 4px;
+  padding: 20px 50px 20px 50px;
+  color: #fff;
+  transition: var(--main-transition);
+  display: inline-block;
+  margin-bottom: 50px;
+}
+.sammaryData .header-data a:hover {
+  background-color: var(--main-color-hover);
+  animation: up 1.5s alternate infinite;
+}
+@keyframes up {
+  100% {
+    transform: translateY(-25%);
+  }
+}
+@media (max-width: 767px) {
+  .sammaryData .header-data {
+    text-align: center;
+  }
+  .sammaryData .header-data h1 {
+    font-size: 35px;
+  }
+}
+.sammaryData .footer-data .box {
+  background-color: var(--main-white-alt);
+  color: #fff;
+}
+.sammaryData .footer-data .box a i {
+  font-size: 20px;
+  margin-left: 10px;
+  animation: left 0.8s alternate-reverse infinite;
+}
+@keyframes left {
+  100% {
+    transform: translateX(-25%);
+  }
+}
+.sammaryData .footer-data .box i {
+  font-size: 50px;
+  color: var(--red-color);
+  margin-right: 40px;
+}
+.sammaryData .footer-data .box .data-box p {
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+@media (max-width: 767px) {
+  .sammaryData .footer-data .box {
+    flex-direction: column;
+    text-align: center;
+  }
+  .sammaryData .footer-data .box i {
+    margin: 0;
+  }
+}
