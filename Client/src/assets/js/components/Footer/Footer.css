@@ -6,6 +6,7 @@
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
   background-color: var(--main-white-alt);
+  background-color: var(--footer-background-color);
 }
 .footer .contact h1 {
   position: relative;

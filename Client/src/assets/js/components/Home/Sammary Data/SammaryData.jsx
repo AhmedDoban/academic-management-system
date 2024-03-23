@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./SammaryData.css";
+
 function SammaryData(props) {
   return (
     <React.Fragment>
@@ -8,44 +8,29 @@ function SammaryData(props) {
         <div className="container" data-aos="fade-up">
           {/******************** Header info ********************************/}
           <div className="header-data">
-            <h1>
-              Learn With Us. <br />
-              Improve With Us
-            </h1>
-            <Link to="">
-              Start Now <i className="fa-solid fa-rocket"></i>{" "}
-            </Link>
+            <h1 className="main-titel">Learn With Us , Improve With Us</h1>
           </div>
           {/******************** Footer Data ********************************/}
           <div className="footer-data grid-30-350px">
             {/******************** Box1 ********************************/}
-            <div className="box p-20 center-flex gap-20" data-aos="fade-up">
+            <div className="box p-20 center-flex gap-20">
               <i className="fa-solid fa-book"></i>
               <div className="data-box">
                 <p>Library with 50,000+ Books</p>
-                <Link to="/library">
-                  read More <i className="fa-solid fa-arrow-right"></i>
-                </Link>
               </div>
             </div>
             {/******************** Box2 ********************************/}
-            <div className="box p-20 center-flex gap-20" data-aos="fade-up">
+            <div className="box p-20 center-flex gap-20">
               <i className="fa-solid fa-graduation-cap"></i>
               <div className="data-box">
                 <p>70,000+ Graduates</p>
-                <Link to="">
-                  read More <i className="fa-solid fa-arrow-right"></i>
-                </Link>
               </div>
             </div>
             {/******************** Box3 ********************************/}
-            <div className="box p-20 center-flex gap-20" data-aos="fade-up">
+            <div className="box p-20 center-flex gap-20">
               <i className="fa-sharp fa-solid fa-desktop"></i>
               <div className="data-box">
                 <p>Latest Computer Studies</p>
-                <Link href="">
-                  read More <i className="fa-solid fa-arrow-right"></i>
-                </Link>
               </div>
             </div>
             {/******************** End Boxs ********************************/}

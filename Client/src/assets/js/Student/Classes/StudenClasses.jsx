@@ -3,13 +3,12 @@ import Courses from "./Classes";
 import TopInstructor from "./TopInstructor";
 import RanDomQuote from "../../components/Random Quote/RanDomQuote";
 import ClassesDataHeader from "./ClassesDataHeader";
-import Head from "../../components/Header/Head";
+
 import Footer from "../../components/Footer/Footer";
 import "./Classes.css";
 function StudenClasses(props) {
   return (
     <React.Fragment>
-      <Head />
       {/************************************* start Course Data Header ***************************************/}
       <ClassesDataHeader
         h3="WELCOME TO Class Room "

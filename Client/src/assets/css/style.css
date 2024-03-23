@@ -104,7 +104,7 @@ p {
   color: var(--main-p-color);
   line-height: 1.8;
   font-size: 1rem;
-  color: #767676;
+  color: var(--main-p-color);
   font-weight: 400;
 }
 

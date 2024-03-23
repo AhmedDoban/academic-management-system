@@ -54,12 +54,13 @@
   letter-spacing: 1.2px;
   width: fit-content;
   margin: 0 auto;
+  padding: 0 40px 0 0;
 }
 .RounDomQuote p::before {
   position: absolute;
   color: var(--red-color);
   content: "\f52d";
-  right: -20%;
+  right: 0;
   font-weight: 900;
   font-family: "Font awesome 5 free";
 }

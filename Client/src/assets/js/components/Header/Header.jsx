@@ -25,6 +25,7 @@ function Head() {
     let Root = document.documentElement.style;
     if (Theme === "light") {
       Root.setProperty("--main-background-color", "#f1f5f9");
+      Root.setProperty("--footer-background-color", "#f5f9f7");
       Root.setProperty("--white-color", "#fff");
       Root.setProperty("--main-white-alt", "#eee");
       Root.setProperty("--main-text-color", "#000");
@@ -32,6 +33,7 @@ function Head() {
       Root.setProperty("--main-overlay", "rgba(125, 125, 125, 0.7)");
     } else {
       Root.setProperty("--main-background-color", "#121212");
+      Root.setProperty("--footer-background-color", "#111111");
       Root.setProperty("--white-color", "#1e1e1e");
       Root.setProperty("--main-text-color", "#fff");
       Root.setProperty("--main-white-alt", "#303841");
@@ -67,8 +69,11 @@ function Head() {
         <i
           className="fa-solid fa-bars nav-mobile"
           onClick={() => SetMenuActive((prev) => !prev)}
-        ></i>
+        />
         <ul className={MenuActive ? "navlinks active" : "navlinks"}>
+          <li>
+            <h1 className="mobile-header">Academic mangement system</h1>
+          </li>
           <li>
             <NavLink to="/">
               <i className="fa-solid fa-house"></i>Home

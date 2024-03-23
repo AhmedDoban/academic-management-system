@@ -16,7 +16,7 @@
 }
 .Signin .container h1 {
   position: relative;
-  color: #4d5983;
+  color: var(--main-color);
   font-weight: bold;
   font-size: 50px;
   padding: 0 0 20px 0;
@@ -39,8 +39,7 @@
   color: var(--main-color);
   font-weight: bold;
 }
-.Signin .container input,
-.landing.home .input-section input {
+.Signin .container input {
   padding: 10px;
   width: 100%;
   border: none;
@@ -48,6 +47,7 @@
   background-color: transparent;
   color: var(--main-text-color);
 }
+
 .css-b62m3t-container {
   z-index: 99 !important;
   border: none !important;

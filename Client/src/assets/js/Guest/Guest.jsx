@@ -3,12 +3,12 @@ import { Route, Routes } from "react-router-dom";
 import NotFounded from "../components/Not Founded/NotFounded";
 import Login from "../components/Login/Login";
 import Home from "../components/Home/Home";
-import Head from "../components/Header/Head";
+import Header from "../components/Header/Header";
 
 function Gust(props) {
   return (
     <React.Fragment>
-      <Head />
+      <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route

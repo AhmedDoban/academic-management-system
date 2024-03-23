@@ -5,7 +5,6 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import Footer from "../../components/Footer/Footer";
-import Head from "./../../components/Header/Head";
 import Dots from "../../components/Dots/Dots";
 import BookDetails from "./BookDetails";
 import { Routes } from "react-router-dom";
@@ -64,7 +63,7 @@ function Library() {
 
   return (
     <React.Fragment>
-      <Head />
+
       <div className="Library">
         <div className="head-Section">
           <div className="container">

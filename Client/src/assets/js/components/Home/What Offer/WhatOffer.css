@@ -1,9 +1,4 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# General
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@import url("../../../../css/root.css");
-
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Student  home page Student What We Offer
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .WhatOffer {
@@ -75,7 +70,7 @@
   margin-bottom: 50px;
 }
 .WhatOffer .container .box a:hover {
-  background-color: #7bdcb5;
+  background-color: var(--main-color-hover);
   animation: up 1.5s alternate infinite;
 }
 @keyframes up {

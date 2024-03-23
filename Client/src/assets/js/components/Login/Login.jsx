@@ -59,10 +59,7 @@ function Login(props) {
         <Blobs />
         <div className="container center-flex gap-20 " data-aos="zoom-in">
           <h1>Login</h1>
-          <p className="txt-center">
-            Welcome back ! login to get full access
-            <span className="display-block "></span>
-          </p>
+          <p className="txt-center">Welcome back ! login to get full access</p>
           <div className="center-flex gap-20 col-flex width-full ">
             <div className="width-full">
               <input

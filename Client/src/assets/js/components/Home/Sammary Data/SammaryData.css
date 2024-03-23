@@ -17,8 +17,8 @@
   position: relative;
 }
 .sammaryData .header-data h1 {
-  font-size: 80px;
-  color: var(--main-text-color);
+  /* font-size: 80px; */
+  /* color: var(--main-text-color); */
 }
 .sammaryData .header-data a {
   font-family: "Montserrat", Sans-serif;
@@ -66,7 +66,7 @@
 }
 .sammaryData .footer-data .box i {
   font-size: 50px;
-  color: var(--red-color);
+  color: var(--main-color);
   margin-right: 40px;
 }
 .sammaryData .footer-data .box .data-box p {
