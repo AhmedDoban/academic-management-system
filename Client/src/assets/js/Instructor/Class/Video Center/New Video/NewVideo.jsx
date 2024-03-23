@@ -3,7 +3,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { useParams, useNavigate } from "react-router-dom";
 import "./NewVideo.css";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 function NewVideo() {
   const params = useParams("");
@@ -111,7 +111,6 @@ function NewVideo() {
           </div>
         </div>
       </div>
-      <ToastContainer />
     </React.Fragment>
   );
 }

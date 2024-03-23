@@ -7,7 +7,7 @@ import axios from "axios";
 import Mountain from "../../../../components/Mountain Template/Mountain";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useParams } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useEffect } from "react";
 
 function EditSelectedExam() {
@@ -258,7 +258,6 @@ function EditSelectedExam() {
           </div>
         )}
       </div>
-      <ToastContainer />
     </React.Fragment>
   );
 }

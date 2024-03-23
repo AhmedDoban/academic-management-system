@@ -3,7 +3,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./AllInquiries.css";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 function AllInquiries() {
   const params = useParams();
@@ -79,7 +79,6 @@ function AllInquiries() {
           <p>There is No Inquiries </p>
         </div>
       )}
-      <ToastContainer />
     </React.Fragment>
   );
 }

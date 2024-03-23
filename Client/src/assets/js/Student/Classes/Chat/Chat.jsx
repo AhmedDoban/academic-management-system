@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import "./Chat.css";
 import { useParams } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import axios from "axios";
 import GetUser from "./GetUser";
 import Mountain from "../../../components/Mountain Template/Mountain";
@@ -157,7 +157,6 @@ function Chat() {
           </button>
         </div>
       </div>
-      <ToastContainer />
     </React.Fragment>
   );
 }

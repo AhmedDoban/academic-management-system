@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Link, useParams } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "./UploadSammary.css";
 
 function UploadSammary() {
@@ -123,7 +123,6 @@ function UploadSammary() {
           </div>
         </div>
       </div>
-      <ToastContainer />
     </React.Fragment>
   );
 }

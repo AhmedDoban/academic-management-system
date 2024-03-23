@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Mountain from "../../../../components/Mountain Template/Mountain";
 import { useParams } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import "../Exams.css";
@@ -178,7 +178,6 @@ function AddNewQu() {
           ) : null}
         </div>
       </div>
-      <ToastContainer />
     </React.Fragment>
   );
 }

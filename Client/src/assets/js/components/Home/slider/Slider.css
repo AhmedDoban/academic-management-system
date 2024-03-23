@@ -9,7 +9,6 @@
   display: flex;
   height: 100%;
   width: 100%;
-  /* transition: var(--main-transition); */
 }
 
 .awssld__content {
@@ -129,7 +128,7 @@
 }
 .awssld__bullets--loading,
 .awssld__bullets--active {
-  background-color: var(--main-color) !important;
+  background-color: var(--red-color) !important;
 }
 @media (max-width: 992px) {
   .slider_Setting div {

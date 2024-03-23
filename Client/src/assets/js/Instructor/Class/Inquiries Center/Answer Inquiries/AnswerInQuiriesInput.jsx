@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 function AnswerInQuiriesInput(props) {
   const [InquirieAnswer, SetInquirieAnswer] = useState("");

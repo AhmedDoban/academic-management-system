@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./StudentTodo.css";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.min.css";
+import { toast } from "react-toastify";
 
 function StudentTodo() {
   // Todo input add
@@ -200,7 +199,6 @@ function StudentTodo() {
           ))}
         </div>
       </div>
-      <ToastContainer />
     </React.Fragment>
   );
 }

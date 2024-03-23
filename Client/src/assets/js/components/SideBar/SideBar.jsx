@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import "./sidebar.css";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 const SideBar = ({ children, SetLogedOn }) => {
   const Navigate = useNavigate();
   const [active, setActive] = useState("fa-solid fa-bars");
@@ -171,7 +171,6 @@ const SideBar = ({ children, SetLogedOn }) => {
           </li>
         </ul>
       </div>
-      <ToastContainer />
     </React.Fragment>
   );
 };

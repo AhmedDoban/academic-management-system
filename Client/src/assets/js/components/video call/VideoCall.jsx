@@ -7,7 +7,7 @@ import {
   ClientConfig,
 } from "agora-rtc-sdk-ng";
 
-import "react-toastify/dist/ReactToastify.min.css";
+import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 import Mountain from "./../Mountain Template/Mountain";
 

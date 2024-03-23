@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "./Courses.css";
 import axios from "axios";
@@ -78,7 +78,6 @@ export default function AddNewCourse() {
           <button onClick={() => HandeADD()}> Add</button>
         </div>
       </div>
-      <ToastContainer />
     </React.Fragment>
   );
 }

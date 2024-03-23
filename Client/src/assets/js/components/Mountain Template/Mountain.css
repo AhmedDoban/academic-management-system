@@ -1,8 +1,4 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# General
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@import url("../../../css/root.css");
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Mountain
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .mountain {
@@ -78,7 +74,7 @@
   height: 100%;
   background-color: transparent;
   border: 0;
-  color: var(--offwihte);
+  color: #fff;
 }
 .mountain .card .btn-box {
   position: relative;
@@ -86,7 +82,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--blue-color);
+  border: 1px solid var(--main-color);
   background-color: transparent;
   color: #fff;
   padding: 5px 8px;
@@ -95,23 +91,22 @@
   transition: var(--main-transition);
 }
 .mountain .card .btn-box:hover {
-  background-color: var(--blue-alt-color);
+  background-color: var(--main-color-hover);
 }
 .mountain .card i {
   position: relative;
-  min-width: 25px;
-  height: 25px;
+  min-width: 35px;
+  height: 35px;
   margin-right: 15px;
-  border: 1px solid var(--blue-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--blue-color);
+  color: var(--main-color);
   border-radius: 50%;
   cursor: pointer;
   transition: var(--main-transition);
 }
 .mountain .card i:hover {
-  background-color: var(--blue-alt-color);
+  background-color: var(--main-color-hover);
   color: #fff;
 }

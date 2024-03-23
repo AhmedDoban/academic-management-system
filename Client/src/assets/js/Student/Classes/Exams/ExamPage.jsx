@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Exams.css";
 import Answers from "./Answers";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import Mountain from "../../../components/Mountain Template/Mountain";
 
 function ExamPage() {
@@ -186,8 +186,6 @@ function ExamPage() {
           </div>
         )}
       </div>
-
-      <ToastContainer />
     </React.Fragment>
   );
 }

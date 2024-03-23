@@ -3,7 +3,7 @@ import "./Exams.css";
 import axios from "axios";
 import Mountain from "../../../components/Mountain Template/Mountain";
 import { useParams, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 function NewExam() {
   const params = useParams("");
@@ -133,7 +133,6 @@ function NewExam() {
           </div>
         </div>
       </div>
-      <ToastContainer />
     </React.Fragment>
   );
 }

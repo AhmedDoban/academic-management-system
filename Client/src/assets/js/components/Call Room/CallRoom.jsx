@@ -8,8 +8,8 @@ import {
 } from "agora-rtc-sdk-ng";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { v4 as uuidv4 } from "uuid";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.min.css";
+import { toast } from "react-toastify";
+
 import Mountain from "./../Mountain Template/Mountain";
 
 const config: ClientConfig = {
@@ -278,7 +278,6 @@ const CallRoom = () => {
           />
         </React.Fragment>
       )}
-      <ToastContainer />
     </React.Fragment>
   );
 };

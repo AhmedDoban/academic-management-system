@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Mountain from "../../../components/Mountain Template/Mountain";
 import "./Inquiries.css";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 function Inquiries() {
   const params = useParams();
@@ -162,7 +162,6 @@ function Inquiries() {
           <p>There is No Inquiries </p>
         </div>
       )}
-      <ToastContainer />
     </React.Fragment>
   );
 }

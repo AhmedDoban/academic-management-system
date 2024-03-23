@@ -5,7 +5,6 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { Link } from "react-router-dom";
 import Mountain from "./../../components/Mountain Template/Mountain";
 import LodingFeachData from "./../../components/Loding Feach Data/LodingFeachData";
-import { ToastContainer, toast } from "react-toastify";
 
 function Class() {
   const [Doctor_id, setDoctor_id] = useState([]);
@@ -165,7 +164,6 @@ function Class() {
 
         {/***************** End **********************/}
       </div>
-      <ToastContainer />
     </React.Fragment>
   );
 }

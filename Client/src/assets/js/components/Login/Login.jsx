@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import Blobs from "./../Blobs/Blobs";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 import axios from "axios";
@@ -98,7 +98,6 @@ function Login(props) {
           </div>
         </div>
       </div>
-      <ToastContainer />
     </React.Fragment>
   );
 }

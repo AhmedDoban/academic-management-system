@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.min.css";
+import { toast } from "react-toastify";
 import { Route, Routes } from "react-router-dom";
 import AllNotes from "./AllNotes";
 import NoteDetails from "./NoteDetails";
@@ -80,7 +79,6 @@ function Notes() {
         />
         <Route path="*" element={<NotFounded to="/NotFounded" />} />
       </Routes>
-      <ToastContainer />
     </React.Fragment>
   );
 }

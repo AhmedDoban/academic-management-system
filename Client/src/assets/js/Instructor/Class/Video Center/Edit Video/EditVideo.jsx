@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./EditVideo.css";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { Player } from "@lottiefiles/react-lottie-player";
 
 function EditVideo() {
@@ -197,8 +197,6 @@ function EditVideo() {
           </div>
         </div>
       )}
-
-      <ToastContainer />
     </React.Fragment>
   );
 }
