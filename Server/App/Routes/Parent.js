@@ -38,4 +38,15 @@ Router.route("/Register").post(
   Parent_controllers.Parent_Register
 );
 
+// Routes Handelar /API/Student/Parent_id
+Router.route("/:Parent_id").post(
+  JWT.Verify_Token,
+  Verify_User("PARENT", "ADMIN"),
+  [
+    body("_id").notEmpty().withMessage("_id is not Valid"),
+    body("Token").notEmpty().withMessage("Token is not Valid"),
+  ],
+  Parent_controllers.Get_Specific_Parent
+);
+
 export default Router;

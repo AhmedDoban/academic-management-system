@@ -119,7 +119,46 @@ const Parent_Register = async (Req, Res) => {
   }
 };
 
+// Get Specific Parent from database
+const Get_Specific_Parent = async (Req, Res) => {
+  const Parent_id = Req.params.Parent_id;
+  const { _id, Token } = Req.body;
+
+  const Errors = validationResult(Req);
+  // Body Validation Before Searching in the database to increase performance
+  if (!Errors.isEmpty()) {
+    return Res.json({
+      Status: Codes.FAILD,
+      Status_Code: Codes.FAILD_CODE,
+      message: "Can't Get Data please Try again later",
+      data: Errors.array().map((arr) => arr.msg),
+    });
+  }
+
+  try {
+    // GEt Parent Data From the Data Base
+    const Parent = await Parent_Model.findOne(
+      { _id, Token },
+      { password: 0, __v: 0, Role: 0 }
+    );
+    if (Parent_id === _id && Parent !== null) {
+      // return Parent data
+      return Res.json({
+        Status: Codes.SUCCESS,
+        Status_Code: Codes.SUCCESS_CODE,
+        Data: Parent,
+      });
+    }
+  } catch (err) {
+    Res.json({
+      Status: Codes.FAILD,
+      Status_Code: Codes.FAILD_CODE,
+      message: "Parent not founded",
+    });
+  }
+};
 export default {
   Parent_Login,
   Parent_Register,
+  Get_Specific_Parent,
 };

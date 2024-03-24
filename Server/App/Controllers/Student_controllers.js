@@ -131,7 +131,47 @@ const Studetn_Register = async (Req, Res) => {
   }
 };
 
+// Get Specific Student from database
+const Get_Specific_Student = async (Req, Res) => {
+  const Student_id = Req.params.Student_id;
+  const { _id, Token } = Req.body;
+
+  const Errors = validationResult(Req);
+  // Body Validation Before Searching in the database to increase performance
+  if (!Errors.isEmpty()) {
+    return Res.json({
+      Status: Codes.FAILD,
+      Status_Code: Codes.FAILD_CODE,
+      message: "Can't Get Data please Try again later",
+      data: Errors.array().map((arr) => arr.msg),
+    });
+  }
+
+  try {
+    // GEt Student Data From the Data Base
+    const Student = await Student_Model.findOne(
+      { _id, Token },
+      { password: 0, __v: 0, Role: 0 }
+    );
+    if (Student_id === _id && Student !== null) {
+      // return Student data
+      return Res.json({
+        Status: Codes.SUCCESS,
+        Status_Code: Codes.SUCCESS_CODE,
+        Data: Student,
+      });
+    }
+  } catch (err) {
+    Res.json({
+      Status: Codes.FAILD,
+      Status_Code: Codes.FAILD_CODE,
+      message: "Student not founded",
+    });
+  }
+};
+
 export default {
   Studetn_Login,
   Studetn_Register,
+  Get_Specific_Student,
 };

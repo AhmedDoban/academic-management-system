@@ -24,7 +24,7 @@ const Verify_Token = async (Req, Res, Next) => {
   }
 
   try {
-    await JWT.verify(Token, process.env.JWT_SECRET_KEY);
+    const Verifyed_User = await JWT.verify(Token, process.env.JWT_SECRET_KEY);
     Req.Verifyed_User = Verifyed_User;
     Next();
   } catch (err) {

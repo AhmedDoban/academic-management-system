@@ -41,4 +41,15 @@ Router.route("/Register").post(
   Student_controllers.Studetn_Register
 );
 
+// Routes Handelar /API/Student/Student_id
+Router.route("/:Student_id").post(
+  JWT.Verify_Token,
+  Verify_User("STUDENT", "ADMIN"),
+  [
+    body("_id").notEmpty().withMessage("_id is not Valid"),
+    body("Token").notEmpty().withMessage("Token is not Valid"),
+  ],
+  Student_controllers.Get_Specific_Student
+);
+
 export default Router;
