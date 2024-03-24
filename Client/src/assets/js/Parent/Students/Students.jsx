@@ -1,23 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Students.css";
 import { Link } from "react-router-dom";
 import { Player } from "@lottiefiles/react-lottie-player";
+import { useSelector } from "react-redux";
 function Students() {
-  const [Students_Of_Parent, Set_Students_Of_Parent] = useState([]);
+  const Students = useSelector((state) => state.User.user.Childrens);
 
   return (
     <React.Fragment>
       <div className="students">
         <div className="container">
-          {Students_Of_Parent.length > 0 ? (
-            Students_Of_Parent.map((Stu) => (
+          {Students.length > 0 ? (
+            Students.map((Stu) => (
               <Link
                 className="card"
-                key={Stu.parent_id}
-                to={`${Stu.student_id}`}
+                key={Stu._id}
+                to={`${Stu._id}`}
                 data-aos="zoom-in"
-                data-aos-easing="ease-in-out"
-                data-aos-duration="1000"
               >
                 <div className="data">
                   <Player
@@ -27,7 +26,7 @@ function Students() {
                     src={require("../../../img/Players/ParentStudents.json")}
                     className="playerUSer"
                   />
-                  <h5>{Stu.student_name}</h5>
+                  <h5>{Stu.name}</h5>
                 </div>
               </Link>
             ))
