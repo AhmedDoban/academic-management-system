@@ -1,5 +1,6 @@
 // import schema from user modle
 import Parent_Model from "../Model/Parent_Model.js";
+import Student_Model from "../Model/Student_Model.js";
 import { validationResult } from "express-validator";
 import bcrypt from "bcrypt";
 import Codes from "../utils/Codes.js";
@@ -34,14 +35,21 @@ const Parent_Login = async (Req, Res) => {
     } else {
       const USER_Password = await bcrypt.compare(password, USER.password);
       if (USER && USER_Password) {
+        const Childrens = await Student_Model.find(
+          {
+            parent_national_ID: national_ID,
+          },
+          { password: 0, __v: 0, Role: 0 }
+        );
+        const Parent = await Parent_Model.findOne(
+          { national_ID },
+          { password: 0, __v: 0, Role: 0 }
+        );
         // return ther user data
         return Res.json({
           Status: Codes.SUCCESS,
           Status_Code: Codes.SUCCESS_CODE,
-          Data: await Parent_Model.findOne(
-            { national_ID },
-            { password: 0, __v: 0, Role: 0 }
-          ),
+          Data: { Childrens, Parent },
         });
       } else {
         // here found email but the password does not match
@@ -137,8 +145,14 @@ const Get_Specific_Parent = async (Req, Res) => {
 
   try {
     // GEt Parent Data From the Data Base
+    const Childrens = await Student_Model.find(
+      {
+        parent_national_ID: national_ID,
+      },
+      { password: 0, __v: 0, Role: 0 }
+    );
     const Parent = await Parent_Model.findOne(
-      { _id, Token },
+      { national_ID },
       { password: 0, __v: 0, Role: 0 }
     );
     if (Parent_id === _id && Parent !== null) {
@@ -146,7 +160,7 @@ const Get_Specific_Parent = async (Req, Res) => {
       return Res.json({
         Status: Codes.SUCCESS,
         Status_Code: Codes.SUCCESS_CODE,
-        Data: Parent,
+        Data: { Childrens, Parent },
       });
     }
   } catch (err) {
