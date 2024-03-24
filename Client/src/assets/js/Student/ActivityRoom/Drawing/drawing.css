@@ -1,8 +1,4 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# General
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@import url("../../../../css/root.css");
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # drawing
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .drawing {
@@ -29,7 +25,7 @@
   position: fixed;
   width: 250px;
   height: 100vh;
-  background-color: var(--purple-color);
+  background-color: var(--white-color);
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -39,13 +35,14 @@
 }
 .DrawingOptions.active {
   right: 0;
+  box-shadow: var(--main-box-shadow);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Drawing Options icon-container
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .DrawingOptions .icon-container {
   position: absolute;
-  background-color: var(--purple-color);
+  background-color: var(--main-color);
   top: 25%;
   left: -30px;
   width: 30px;

@@ -17,6 +17,7 @@
   --main-border-radius: 0.5em;
   --red-color: #f44336;
   --orange-color: #f59e0b;
+  --green-color: #22c55e;
   --main-box-shadow: 0px 0px 30px rgba(184, 184, 184, 0.19);
 
   /* --drak-color-style: #111111;
@@ -39,7 +40,7 @@
   --blue-alt-color: #0d69d5;
   --blue-alt2-color: #09729c;
   --orange-color: #f59e0b;
-  --green-color: #22c55e;
+
   --grey-color: #888;
   --ant-primary-color: rgb(255, 81, 0);
   --ant-primary-color-disabled: #ffcda3;

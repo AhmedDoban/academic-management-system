@@ -43,20 +43,22 @@ export const UserRegister = createAsyncThunk(
 export const Login_USER_Local = createAsyncThunk(
   "User/Login_USER_Local",
   async () => {
-    const { Token: TOKEN, _id: _ID } = JSON.parse(
-      localStorage.getItem("Token")
-    );
-
-    const Data = await axios.post(
-      `${process.env.REACT_APP_API_URL}/Users/${_ID}`,
-      { _id: _ID, Token: TOKEN },
-      {
-        headers: {
-          Authorization: TOKEN,
-        },
-      }
-    );
-    return Data.data;
+    const { Token, _id } = JSON.parse(localStorage.getItem("Token"));
+    const Type = JSON.parse(localStorage.getItem("TYPE"));
+    try {
+      const Data = await axios.post(
+        `${process.env.REACT_APP_API}/${Type}/${_id}`,
+        { _id, Token },
+        {
+          headers: {
+            Authorization: Token,
+          },
+        }
+      );
+      return Data.data;
+    } catch (err) {
+      Toast_Handelar("error", "Sorry we can't get your data !");
+    }
   }
 );
 
@@ -67,18 +69,14 @@ const UserSlice = createSlice({
     loading: false,
     Token: "",
     IsLogin: false,
-    Type: "",
   },
   reducers: {
     Login_Local: (State, action) => {
       const CheckLogin = JSON.parse(
         localStorage.getItem("Academic_System_Login")
       );
-      const type = JSON.parse(localStorage.getItem("TYPE"));
-
-      if (CheckLogin !== null && type !== null) {
+      if (CheckLogin !== null) {
         State.IsLogin = true;
-        State.Type = type;
         return;
       } else {
         State.IsLogin = false;
@@ -96,7 +94,6 @@ const UserSlice = createSlice({
       State.loading = false;
       if (action.payload.Status !== "Faild") {
         State.IsLogin = true;
-        State.Type = action.meta.arg.Type;
         State.user = action.payload.Data;
         State.Token = action.payload.Data.Token;
         localStorage.setItem("Academic_System_Login", JSON.stringify(true));
@@ -111,6 +108,12 @@ const UserSlice = createSlice({
       } else {
         Toast_Handelar("error", action.payload.message);
       }
+    });
+    builder.addCase(Login_USER_Local.pending, (State, action) => {
+      State.loading = true;
+    });
+    builder.addCase(Login_USER_Local.rejected, (State, action) => {
+      State.loading = true;
     });
     builder.addCase(Login_USER_Local.fulfilled, (State, action) => {
       State.loading = false;

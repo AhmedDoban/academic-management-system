@@ -5,8 +5,10 @@ import Blobs from "../../components/Blobs/Blobs";
 import Select from "react-select";
 import { UserLogin } from "./../../../Toolkit/Slices/UserSlice";
 import { Player } from "@lottiefiles/react-lottie-player";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const Navigate = useNavigate();
   const [Password, SetPassword] = useState("");
   const [Nat_ID, SeNat_Id] = useState("");
   const [Url, SetUrl] = useState("");
@@ -70,6 +72,21 @@ function Login() {
     SetType(event.value);
   };
 
+  const handleLogin = () => {
+    Dispatch(
+      UserLogin({
+        password: Password,
+        URL: Url,
+        national_ID: Nat_ID,
+        Type: Type,
+      })
+    ).then((res) => {
+      if (res.payload.Status === "Success") {
+        Navigate("/");
+      }
+    });
+  };
+
   return (
     <React.Fragment>
       <div className="Signin ">
@@ -104,16 +121,7 @@ function Login() {
               <button
                 type="button"
                 className="center-flex gap-20 main-btn width-full"
-                onClick={() =>
-                  Dispatch(
-                    UserLogin({
-                      password: Password,
-                      URL: Url,
-                      national_ID: Nat_ID,
-                      Type: Type,
-                    })
-                  )
-                }
+                onClick={() => handleLogin()}
               >
                 <i className="fas fa-arrow-right-to-bracket "></i> Continue
               </button>

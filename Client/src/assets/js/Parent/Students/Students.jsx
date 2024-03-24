@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Students.css";
 import { Link } from "react-router-dom";
 import { Player } from "@lottiefiles/react-lottie-player";
 function Students() {
   const [Students_Of_Parent, Set_Students_Of_Parent] = useState([]);
-  useEffect(() => {
-    const Data = localStorage.getItem("User");
-    Set_Students_Of_Parent(JSON.parse(Data));
-  }, []);
 
   return (
     <React.Fragment>
@@ -28,9 +24,9 @@ function Students() {
                     autoplay={true}
                     loop={true}
                     controls={false}
-                    src="https://assets8.lottiefiles.com/packages/lf20_4vlxeulb.json"
+                    src={require("../../../img/Players/ParentStudents.json")}
                     className="playerUSer"
-                  ></Player>
+                  />
                   <h5>{Stu.student_name}</h5>
                 </div>
               </Link>
@@ -42,7 +38,7 @@ function Students() {
                   autoplay={true}
                   loop={true}
                   controls={false}
-                  src="https://assets2.lottiefiles.com/packages/lf20_ei2gf306.json"
+                  src={require("../../../img/Players/ParentNoStudents.json")}
                   className="nostudent-player"
                 ></Player>
                 <p>There is No Students </p>

@@ -21,55 +21,9 @@ function Courses() {
     setShow(e.target.dataset.style);
   };
   /**************** End *******************************************************/
-  const [student_id, setStudent_id] = useState([]);
 
-  const GetID = async function () {
-    try {
-      const response = await JSON.parse(localStorage.getItem("User"));
-      setStudent_id(response.student_id);
-    } catch (error) {
-      throw error;
-    }
-  };
-
-  const [Classes, SetClasses] = useState([
-    {
-      generation_name: "askldj",
-    },
-  ]);
+  const [Classes, SetClasses] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const url = `${process.env.REACT_APP_API}/select_sub_generation.php`;
-
-  useEffect(() => {
-    const fetchData = async function () {
-      GetID();
-      try {
-        setLoading(true);
-        await axios
-          .post(
-            url,
-            { student_id: student_id },
-            {
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "text/plain",
-              },
-            }
-          )
-          .then((response) => {
-            if (response.data.status === "success") {
-              SetClasses(response.data.message);
-            }
-          });
-      } catch (error) {
-        throw error;
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [url, student_id]);
 
   const [Search, setSearch] = useState("");
 

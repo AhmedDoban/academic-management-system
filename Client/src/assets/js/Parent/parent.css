@@ -1,9 +1,4 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# General
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@import "../../css/root.css";
-
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Parent
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .parent {
@@ -50,7 +45,7 @@
   .ThemeMountain
   input[type="checkbox"]:checked
   + span {
-  background-color: var(--drak-color-style);
+  background-color: var(--main-text-color);
 }
 
 .parent
@@ -68,17 +63,18 @@
   font-weight: 900;
   width: 22px;
   height: 22px;
-  background-color: var(--drak-color-style);
+  background-color: var(--main-color);
   left: 3px;
   border-radius: 50%;
   top: 50%;
   transform: translateY(-50%);
   transition: var(--main-transition);
-  color: var(--main-color);
+  color: #fff;
 }
 
 .mountain .data .ThemeMountain input[type="checkbox"]:checked + span::before {
-  background-color: var(--blue-alt2-color);
+  background-color: #fff;
+  color: var(--main-color);
   content: "\f186";
   left: calc(100% - 25px);
 }
@@ -107,7 +103,7 @@
   cursor: pointer;
   transition: var(--main-transition);
   border-radius: var(--main-border-radius);
-  color: var(--white-color);
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,7 +111,7 @@
 }
 .parent .mountain .data ul li a:hover,
 .parent .mountain .data ul li a.active {
-  background-color: var(--white-color);
+  background-color: var(--main-color);
   transition: var(--main-transition);
-  color: var(--main-text-color);
+  color: #fff;
 }

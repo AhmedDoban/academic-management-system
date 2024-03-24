@@ -6,11 +6,11 @@ import Parent from "../Parent/Parent";
 
 function Auth(props) {
   if (JSON.parse(localStorage.getItem("TYPE")) === "Student") {
-    return <Student SetLogedOn={props.SetLogedOn} />;
-  } else if (JSON.parse(localStorage.getItem("TYPE")) === "Doctor") {
-    return <Instructor SetLogedOn={props.SetLogedOn} />;
+    return <Student />;
+  } else if (JSON.parse(localStorage.getItem("TYPE")) === "Instractor") {
+    return <Instructor />;
   } else if (JSON.parse(localStorage.getItem("TYPE")) === "Parent") {
-    return <Parent SetLogedOn={props.SetLogedOn} />;
+    return <Parent />;
   }
 }
 export default Auth;

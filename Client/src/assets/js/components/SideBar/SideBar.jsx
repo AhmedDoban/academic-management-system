@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import "./sidebar.css";
 import { NavLink, Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { toast } from "react-toastify";
-const SideBar = ({ children, SetLogedOn }) => {
+
+const SideBar = ({ children }) => {
   const Navigate = useNavigate();
   const [active, setActive] = useState("fa-solid fa-bars");
   const sidebar = useRef(null);
@@ -29,63 +28,12 @@ const SideBar = ({ children, SetLogedOn }) => {
     [sidebar]
   );
 
-  const [student_id, setStudent_id] = useState([]);
-  const url = `${process.env.REACT_APP_API}/student_logout.php`;
-  const GetID = async function () {
-    try {
-      const response = await JSON.parse(localStorage.getItem("User"));
-      setStudent_id(response.student_id);
-    } catch (error) {
-      throw error;
-    }
-  };
-  useEffect(() => {
-    GetID();
-  }, [url, student_id]);
-
-  const fetchData = async function () {
-    GetID();
-    try {
-      await axios
-        .post(
-          url,
-          { student_id: student_id },
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "text/plain",
-            },
-          }
-        )
-        .then((response) => {
-          if (response.data.status === "success") {
-            toast.success(response.data.message, {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-            SetLogedOn(false);
-          }
-        });
-    } catch (error) {
-      throw error;
-    }
-  };
-  const logOut = () => {
+  const logoutUser = () => {
     localStorage.clear();
     Navigate("/");
     window.location.reload(true);
   };
 
-  const logoutUser = () => {
-    fetchData();
-    logOut();
-  };
   const [Theme, SetTheme] = useState(localStorage.getItem("theme") || "light");
   const [Chek, SetChek] = useState(false);
   const toggleTheme = () => {
@@ -120,6 +68,7 @@ const SideBar = ({ children, SetLogedOn }) => {
       Root.setProperty("--main-overlay", "rgba(47, 47, 47, 0.7)");
     }
   };
+
   return (
     <React.Fragment>
       <div className="sidebar" ref={sidebar}>
