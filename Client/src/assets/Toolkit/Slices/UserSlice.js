@@ -14,6 +14,18 @@ export const UserLogin = createAsyncThunk("User/Login", async (USER) => {
   }
 });
 
+export const UserRegister = createAsyncThunk("User/Register", async (USER) => {
+  try {
+    const Data = await axios.post(`${USER.URL}`, {
+      national_ID: USER.national_ID,
+      password: USER.password,
+    });
+    return Data.data;
+  } catch (err) {
+    Toast_Handelar("error", "Something happens wrong !");
+  }
+});
+
 export const Login_USER_Local = createAsyncThunk(
   "User/Login_USER_Local",
   async () => {

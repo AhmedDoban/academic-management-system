@@ -63,8 +63,9 @@ const Studetn_Login = async (Req, Res) => {
 };
 // login Student authentication
 const Studetn_Register = async (Req, Res) => {
-  const { Mobile, email, name, national_ID, password } = Req.body;
-  
+  const { Mobile, email, name, national_ID, password, parent_national_ID } =
+    Req.body;
+
   // Body Validation Before Searching in the database to increase performance
   const Errors = validationResult(Req);
 

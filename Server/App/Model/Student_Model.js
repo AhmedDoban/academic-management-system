@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 const Student_Model = mongoose.Schema(
   {
     name: { type: String, required: true },
+    parent_national_ID: { type: Number, required: true },
     national_ID: { type: Number, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },

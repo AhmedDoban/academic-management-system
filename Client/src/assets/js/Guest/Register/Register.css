@@ -85,3 +85,115 @@
 .css-1nmdiq5-menu div:first-child {
   background-color: transparent !important;
 }
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Register page Mobile
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Register .container .mobile-input {
+  z-index: 9999;
+}
+.react-tel-input {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 0 !important;
+}
+.Register .container .react-tel-input:focus {
+  background-color: transparent;
+}
+.Register .container .react-tel-input .form-control {
+  padding-left: 48px;
+  width: 100%;
+  border-radius: 0 !important;
+  outline: 0 !important;
+}
+.Register .container .react-tel-input .form-control:focus {
+  background-color: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+}
+.Register .container .react-tel-input .flag-dropdown {
+  background-color: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+}
+.Register .container .react-tel-input .flag-dropdown:hover {
+  border: 0 !important;
+}
+.Register .container .react-tel-input .flag-dropdown .country-list {
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
+}
+
+.Register .container .react-tel-input .selected-flag.open:before,
+.Register .container .react-tel-input .selected-flag:before,
+.Register .container .react-tel-input .selected-flag {
+  border: 0 !important;
+  outline: 0 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.react-tel-input .country-list .country.highlight {
+  background-color: var(--main-color-hover) !important;
+}
+.Register .container .react-tel-input .selected-flag:focus {
+  border: 0 !important;
+  outline: 0 !important;
+}
+.Register .container .react-tel-input .flag-dropdown .country-list li:hover {
+  background-color: var(--main-color);
+  color: #fff !important;
+}
+.Register
+  .container
+  .react-tel-input
+  .flag-dropdown
+  .country-list
+  li
+  .dial-code {
+  color: var(--main-text-color) !important;
+}
+.Register
+  .container
+  .react-tel-input
+  .flag-dropdown
+  .country-list
+  li:hover
+  .dial-code {
+  color: #fff !important;
+}
+.flag:focus {
+  outline: 0 !important;
+  border: 0 !important;
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Register page HandleSubmitAction
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Register .container .HandleSubmitAction {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.Register .container .HandleSubmitAction button {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 10px;
+  border: 0;
+  width: 100%;
+  background-color: var(--main-color);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 0.5em;
+}
+.Register .container .HandleSubmitAction button.active {
+  background-color: #eee;
+}

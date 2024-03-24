@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Loading from "../components/Loading/Loading";
 
-const Home = lazy(() => import("../components/Home/Home"));
+const Home = lazy(() => import("./Home/Home"));
 const Login = lazy(() => import("./Login/Login"));
 const Register = lazy(() => import("./Register/Register"));
 const NotFounded = lazy(() => import("../components/Not Founded/NotFounded"));
