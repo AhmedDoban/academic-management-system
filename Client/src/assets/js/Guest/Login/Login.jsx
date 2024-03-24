@@ -10,6 +10,7 @@ function Login() {
   const [Password, SetPassword] = useState("");
   const [Nat_ID, SeNat_Id] = useState("");
   const [Url, SetUrl] = useState("");
+  const [Type, SetType] = useState("");
 
   const Dispatch = useDispatch();
 
@@ -66,6 +67,7 @@ function Login() {
 
   const HandleTypechange = (event) => {
     SetUrl(event.url);
+    SetType(event.value);
   };
 
   return (
@@ -108,6 +110,7 @@ function Login() {
                       password: Password,
                       URL: Url,
                       national_ID: Nat_ID,
+                      Type: Type,
                     })
                   )
                 }

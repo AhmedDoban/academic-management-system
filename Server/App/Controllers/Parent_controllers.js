@@ -1,5 +1,4 @@
-// import schema from STUDENT modle
-import Student_Model from "../Model/Student_Model.js";
+// import schema from user modle
 import Parent_Model from "../Model/Parent_Model.js";
 import { validationResult } from "express-validator";
 import bcrypt from "bcrypt";
@@ -7,12 +6,13 @@ import Codes from "../utils/Codes.js";
 import JWT from "../Utils/JWT.js";
 import fs from "fs";
 
-// login Student authentication
-const Studetn_Login = async (Req, Res) => {
+// login Parent authentication
+const Parent_Login = async (Req, Res) => {
   const { national_ID, password } = Req.body;
 
   // Body Validation Before Searching in the database to increase performance
   const Errors = validationResult(Req);
+
   if (!Errors.isEmpty()) {
     return Res.json({
       Status: Codes.FAILD,
@@ -23,22 +23,22 @@ const Studetn_Login = async (Req, Res) => {
   }
   try {
     // Searching in the database with email may be email is wrong
-    const STUDENT = await Student_Model.findOne({ national_ID });
-    if (STUDENT === null) {
+    const USER = await Parent_Model.findOne({ national_ID });
+    if (USER === null) {
       // invalid data in the body and not match the data in the database
       return Res.json({
         Status: Codes.FAILD,
         Status_Code: Codes.FAILD_CODE,
-        message: "Studnt account is not exist !",
+        message: "Parent account is not exist !",
       });
     } else {
-      const STUDENT_Password = await bcrypt.compare(password, STUDENT.password);
-      if (STUDENT && STUDENT_Password) {
-        // return ther STUDENT data
+      const USER_Password = await bcrypt.compare(password, USER.password);
+      if (USER && USER_Password) {
+        // return ther user data
         return Res.json({
           Status: Codes.SUCCESS,
           Status_Code: Codes.SUCCESS_CODE,
-          Data: await Student_Model.findOne(
+          Data: await Parent_Model.findOne(
             { national_ID },
             { password: 0, __v: 0, Role: 0 }
           ),
@@ -62,10 +62,9 @@ const Studetn_Login = async (Req, Res) => {
   }
 };
 
-// Register Student authentication
-const Studetn_Register = async (Req, Res) => {
-  const { Mobile, email, name, national_ID, password, parent_national_ID } =
-    Req.body;
+// Register Parent authentication
+const Parent_Register = async (Req, Res) => {
+  const { Mobile, email, name, national_ID, password } = Req.body;
 
   // Body Validation Before Searching in the database to increase performance
   const Errors = validationResult(Req);
@@ -74,51 +73,40 @@ const Studetn_Register = async (Req, Res) => {
     return Res.json({
       Status: Codes.FAILD,
       Status_Code: Codes.FAILD_CODE,
-      message: "Can't Register please Try again later",
+      message: "Can't login please Try again later",
       Data: Errors.array().map((arr) => arr.msg),
     });
   }
   try {
-    const Check_Parent = await Parent_Model.findOne({
-      national_ID: parent_national_ID,
-    });
-    if (Check_Parent == null) {
-      return Res.json({
-        Status: Codes.FAILD,
-        Status_Code: Codes.FAILD_CODE,
-        message: "Create Parent account FIrst !",
-      });
-    }
     // Searching in the database with email may be email is wrong
-    const Check_Student = await Student_Model.findOne({ national_ID });
-    if (Check_Student) {
+    const Check_Parent = await Parent_Model.findOne({ national_ID });
+    if (Check_Parent) {
       return Res.json({
         Status: Codes.FAILD,
         Status_Code: Codes.FAILD_CODE,
-        message: "Student Is already exist",
+        message: "Parent Is already exist",
       });
     } else {
       const Hashed_Password = await bcrypt.hash(
         password,
         +process.env.HASH_PASSWORD
       );
-      const Student = new Student_Model({
+      const Parent = new Parent_Model({
         name: name,
         email: email,
-        Role: "STUDENT",
+        Role: "PARENT",
         password: Hashed_Password,
         Mobile: Mobile,
         national_ID: national_ID,
-        parent_national_ID: parent_national_ID,
       });
-      Student.Token = await JWT.Genetate_Token(Student);
-      await Student.save();
+      Parent.Token = await JWT.Genetate_Token(Parent);
+      await Parent.save();
 
-      // return STUDENT data after saving it in the database
+      // return user data after saving it in the database
       return Res.json({
         Status: Codes.SUCCESS,
         Status_Code: Codes.SUCCESS_CODE,
-        message: "Student account Created Successfully !",
+        message: "Parent account Created Successfully !",
       });
     }
   } catch (err) {
@@ -132,6 +120,6 @@ const Studetn_Register = async (Req, Res) => {
 };
 
 export default {
-  Studetn_Login,
-  Studetn_Register,
+  Parent_Login,
+  Parent_Register,
 };

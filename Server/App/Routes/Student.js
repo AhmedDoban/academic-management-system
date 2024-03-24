@@ -31,6 +31,9 @@ Router.route("/Register").post(
     body("national_ID")
       .matches(/^[\d+]{14}$/)
       .withMessage("national ID is not Valid"),
+    body("parent_national_ID")
+      .matches(/^[\d+]{14}$/)
+      .withMessage("national ID is not Valid"),
     body("password")
       .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g)
       .withMessage("Password is not Valid"),

@@ -5,11 +5,11 @@ import Instructor from "../Instructor/Instructor";
 import Parent from "../Parent/Parent";
 
 function Auth(props) {
-  if (localStorage.getItem("Type") === "Student") {
+  if (JSON.parse(localStorage.getItem("TYPE")) === "Student") {
     return <Student SetLogedOn={props.SetLogedOn} />;
-  } else if (localStorage.getItem("Type") === "Doctor") {
+  } else if (JSON.parse(localStorage.getItem("TYPE")) === "Doctor") {
     return <Instructor SetLogedOn={props.SetLogedOn} />;
-  } else if (localStorage.getItem("Type") === "Parent") {
+  } else if (JSON.parse(localStorage.getItem("TYPE")) === "Parent") {
     return <Parent SetLogedOn={props.SetLogedOn} />;
   }
 }

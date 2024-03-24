@@ -14,7 +14,6 @@ const Parents_Model = mongoose.Schema(
     },
     Avatar: { type: String, default: "Uploads/avatar.jpg" },
     Mobile: { type: String, default: "" },
-    Students: { type: Array, default: [] },
   },
   {
     collection: "Parents",

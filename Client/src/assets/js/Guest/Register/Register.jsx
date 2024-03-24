@@ -217,7 +217,9 @@ function Register() {
               <button
                 type="button"
                 className="center-flex gap-20 main-btn width-full"
-                onClick={() => Dispatch(UserRegister(User))}
+                onClick={() =>
+                  Dispatch(UserRegister({ USER: User, URL: Role, Type: Type }))
+                }
               >
                 <i className="fas fa-arrow-right-to-bracket "></i> Register Now
               </button>

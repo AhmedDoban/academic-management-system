@@ -5,6 +5,7 @@ import "dotenv/config";
 import cors from "cors";
 
 import Student from "./App/Routes/Student.js";
+import Parent from "./App/Routes/Parent.js";
 
 // make a conection to data base
 mongoose
@@ -17,6 +18,7 @@ App.use(express.json());
 App.use(cors());
 
 App.use("/API/Student", Student);
+App.use("/API/Parent", Parent);
 App.use("*", (Req, Res) => {
   Res.status(200).json({
     Status: "Faild",
