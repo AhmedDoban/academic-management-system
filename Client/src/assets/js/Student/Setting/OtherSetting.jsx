@@ -1,50 +1,9 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import LodingFeachData from "../../components/Loding Feach Data/LodingFeachData";
+import { useSelector } from "react-redux";
 
 function OtherSetting() {
-  const [user, SetUser] = useState({});
-  const [student_id, setStudent_id] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const url = `${process.env.REACT_APP_API}/select_profile_info.php`;
-  const GetID = async function () {
-    try {
-      const response = await JSON.parse(localStorage.getItem("User"));
-      setStudent_id(response.student_id);
-    } catch (error) {
-      throw error;
-    }
-  };
-  useEffect(() => {
-    const fetchData = async function () {
-      GetID();
-      try {
-        setLoading(true);
-        await axios
-          .post(
-            url,
-            { student_id: student_id },
-            {
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "text/plain",
-              },
-            }
-          )
-          .then((response) => {
-            if (response.data.status === "success") {
-              SetUser(response.data.message);
-            }
-          });
-      } catch (error) {
-        throw error;
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [url, student_id]);
+  const { loading, user } = useSelector((state) => state.User);
 
   return (
     <React.Fragment>
@@ -55,18 +14,39 @@ function OtherSetting() {
           <div className="container">
             <div className="box">
               <h5>Other Data</h5>
-              <p>you can only change the phone number</p>
+              <p>
+                you can only change the phone number and Your current Location
+              </p>
             </div>
             <div className="box">
-              <h5>Student Code</h5>
-              <input type="text" readOnly value={user.student_code} />
+              <h5>Location</h5>
+              <input
+                type="phone"
+                readOnly
+                value={user.Location}
+                placeholder="Enter Your Location"
+              />
+            </div>
+            <div className="box">
+              <h5>Email</h5>
+              <input
+                type="phone"
+                readOnly
+                value={user.email}
+                placeholder="Enter Your Email"
+              />
             </div>
             <div className="box">
               <h5>Phone</h5>
-              <input type="phone" maxLength={12} placeholder="01#########" />
+              <input
+                type="phone"
+                maxLength={12}
+                placeholder="01#########"
+                value={user.Mobile}
+              />
             </div>
             <div className="box">
-              <input type="button" value="Update Phone number" />
+              <input type="button" value="Update" />
             </div>
           </div>
         )}

@@ -1,50 +1,9 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import LodingFeachData from "../../components/Loding Feach Data/LodingFeachData";
+import { useSelector } from "react-redux";
 
 function Profile(props) {
-  const [user, SetUser] = useState({});
-  const [student_id, setStudent_id] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const url = `${process.env.REACT_APP_API}/select_profile_info.php`;
-  const GetID = async function () {
-    try {
-      const response = await JSON.parse(localStorage.getItem("User"));
-      setStudent_id(response.student_id);
-    } catch (error) {
-      throw error;
-    }
-  };
-  useEffect(() => {
-    const fetchData = async function () {
-      GetID();
-      try {
-        setLoading(true);
-        await axios
-          .post(
-            url,
-            { student_id: student_id },
-            {
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "text/plain",
-              },
-            }
-          )
-          .then((response) => {
-            if (response.data.status === "success") {
-              SetUser(response.data.message);
-            }
-          });
-      } catch (error) {
-        throw error;
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [url, student_id]);
+  const { loading, user } = useSelector((state) => state.User);
 
   return (
     <React.Fragment>
@@ -59,23 +18,23 @@ function Profile(props) {
             </div>
             <div className="box">
               <h5>Name</h5>
-              <input type="text" readOnly value={user.student_name} />
+              <input type="text" readOnly value={user.name} />
             </div>
             <div className="box">
-              <h5>Student national ID </h5>
-              <input type="text" readOnly value={user.student_nat_id} />
-            </div>
-            <div className="box">
-              <h5>Grade</h5>
-              <input type="text" readOnly value="2" />
-            </div>
-            <div className="box">
-              <h5>Number of Courses</h5>
-              <input type="text" readOnly value="4" />
+              <h5>National ID </h5>
+              <input type="text" readOnly value={user.national_ID} />
             </div>
             <div className="box">
               <h5>Gpa</h5>
-              <input type="text" readOnly value="4" />
+              <input
+                type="text"
+                readOnly
+                value={
+                  user.Gpa.Hours_X_Creadit === 0
+                    ? "0"
+                    : user.Gpa.Hours_X_Creadit / user.Gpa.All_Semester_Hours
+                }
+              />
             </div>
           </div>
         )}

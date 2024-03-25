@@ -1,41 +1,129 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Student Setting Page
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.StudentSettingPage {
+.InstractorSettingPage {
   position: relative;
 }
-.StudentSettingPage::before {
-  position: absolute;
-  content: "";
+.InstractorSettingPage .img-name-settingpage {
+  position: relative;
   width: 100%;
-  height: 20vh;
-  background: linear-gradient(290deg, #43b5c1 10%, #000002 69%);
-  opacity: 0.7;
-}
-.StudentSettingPage .container {
-  position: relative;
-}
-.StudentSettingPage .container .img-name-settingpage > img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-top: calc(10vh);
-  margin-left: 2.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-top: var(--main-padding-top);
   transition: var(--main-transition);
 }
-.StudentSettingPage .container .img-name-settingpage h1 {
-  color: var(--dark-blue);
+
+.InstractorSettingPage .img-name-settingpage::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(var(--main-color) 50%, #ffffff00 50%);
+  opacity: 0.7;
+  transition: var(--main-transition);
+}
+.InstractorSettingPage .img-name-settingpage .container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.InstractorSettingPage .img-name-settingpage .img-container {
+  position: relative;
+  min-width: 150px;
+  min-height: 150px;
+  width: 150px;
+  height: 150px;
+}
+.InstractorSettingPage .img-name-settingpage .img-container label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.InstractorSettingPage .img-name-settingpage .img-container label::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "Upload";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  transition: var(--main-transition);
+}
+.InstractorSettingPage
+  .img-name-settingpage
+  .img-container
+  label:hover::before {
+  opacity: 0.6;
+  z-index: 2;
+}
+.InstractorSettingPage .img-name-settingpage img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: var(--main-transition);
+  background-color: aliceblue;
+  transition: var(--main-transition);
+}
+.InstractorSettingPage .img-name-settingpage h1 {
+  color: var(--main-color);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.InstractorSettingPage .img-name-settingpage h1 button {
+  padding: 8px 12px;
+  position: relative;
+  background-color: var(--main-color);
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  border-radius: var(--main-border-radius);
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.InstractorSettingPage .img-name-settingpage h1 button:hover {
+  background-color: var(--main-color-hover);
 }
 @media (max-width: 767px) {
-  .StudentSettingPage .container .img-name-settingpage {
+  .InstractorSettingPage .img-name-settingpage {
     text-align: center;
   }
+  .InstractorSettingPage .img-name-settingpage h1 {
+    text-align: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .InstractorSettingPage .img-name-settingpage .container {
+    align-items: center;
+  }
 }
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
   # Student Setting Page student details
   ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.StudentSettingPage .setting-name {
+.InstractorSettingPage .setting-name {
   position: relative;
   display: flex;
   justify-content: center;
@@ -44,7 +132,7 @@
   border-bottom: 1px solid #c0c0c0;
   margin-bottom: 20px;
 }
-.StudentSettingPage .setting-name li a {
+.InstractorSettingPage .setting-name li a {
   position: relative;
   display: flex;
   justify-content: center;
@@ -57,7 +145,7 @@
   padding: 0 20px;
   overflow: hidden;
 }
-.StudentSettingPage .setting-name li a::before {
+.InstractorSettingPage .setting-name li a::before {
   position: absolute;
   content: "";
   width: calc(100% - 30px);
@@ -67,68 +155,68 @@
   transition: var(--main-transition);
   left: -100%;
 }
-.StudentSettingPage .setting-name li a.active::before {
+.InstractorSettingPage .setting-name li a.active::before {
   left: 15%;
 }
-.StudentProfile {
+.InstractorProfile {
   position: relative;
   padding-top: calc(var(--main-padding-top) / 4);
   padding-bottom: var(--main-padding-bottom);
 }
-.StudentProfile .box:not(:first-child) {
+.InstractorProfile .box:not(:first-child) {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 50px;
 }
-.StudentProfile .box {
+.InstractorProfile .box {
   padding: 20px;
 }
-.StudentProfile .box:not(:last-child) {
+.InstractorProfile .box:not(:last-child) {
   border-bottom: 1px solid #c0c0c0;
 }
-.StudentProfile .box h5 {
+.InstractorProfile .box h5 {
   font-size: 18px;
   width: 30%;
-  color: var(--blue-color);
+  color: var(--main-color);
   font-weight: 600;
   letter-spacing: 1.1px;
   opacity: 0.7;
 }
-.StudentProfile .box:first-child h5 {
+.InstractorProfile .box:first-child h5 {
   margin-bottom: 20px;
   font-weight: 800;
 }
-.StudentProfile .box input {
+.InstractorProfile .box input {
   width: 100%;
-  color: var(--grey-color);
   padding: 10px 20px;
   border-radius: var(--main-border-radius);
   border: none;
   cursor: default;
   background-color: var(--white-color);
+  color: var(--main-text-color);
 }
 
-.StudentProfile .box input[type="button"] {
-  background-color: var(--main-text-color);
+.InstractorProfile .box input[type="button"] {
+  background-color: var(--main-color);
   width: fit-content;
-  color: var(--white-color);
+  color: #fff;
   display: flex;
   margin: 0 0 0 auto;
   cursor: pointer;
 }
 @media (max-width: 767px) {
-  .StudentProfile .box {
+  .InstractorProfile .box {
     text-align: center;
     flex-direction: column;
     gap: 10px !important;
   }
 
-  .StudentProfile .box h5 {
+  .InstractorProfile .box h5 {
     width: 100%;
     margin-bottom: 5px;
   }
-  .StudentProfile .box input {
+  .InstractorProfile .box input {
     text-align: center;
   }
 }

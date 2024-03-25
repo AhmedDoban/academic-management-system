@@ -69,6 +69,10 @@ const UserSlice = createSlice({
     loading: false,
     Token: "",
     IsLogin: false,
+    changeAvatar: {
+      status: false,
+      path: "",
+    },
   },
   reducers: {
     Login_Local: (State, action) => {
@@ -80,6 +84,16 @@ const UserSlice = createSlice({
         return;
       } else {
         State.IsLogin = false;
+      }
+    },
+    ChangeStatus: (State, action) => {
+      State.changeAvatar.status = action.payload;
+    },
+    HandleChandeAvatar: (State, action) => {
+      if (State.changeAvatar.status) {
+        State.changeAvatar.path = action.payload;
+      } else {
+        State.user.Avatar = action.payload;
       }
     },
   },
@@ -130,6 +144,7 @@ const UserSlice = createSlice({
   },
 });
 
-export const { Login_Local } = UserSlice.actions;
+export const { Login_Local, ChangeStatus, HandleChandeAvatar } =
+  UserSlice.actions;
 
 export default UserSlice.reducer;

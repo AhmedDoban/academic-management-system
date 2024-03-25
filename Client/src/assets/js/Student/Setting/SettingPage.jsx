@@ -1,64 +1,85 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { NavLink, Routes, Route } from "react-router-dom";
 import NotFounded from "../../components/Not Founded/NotFounded";
 import "./SettingPage.css";
 import Profile from "./Profile";
+import Passwordpage from "./Passwordpage";
 import OtherSetting from "./OtherSetting";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import Toast_Handelar from "../../components/Toast_Handelar";
+import {
+  ChangeStatus,
+  HandleChandeAvatar,
+} from "../../../Toolkit/Slices/UserSlice";
 
 function SettingPage(props) {
-  const [user, SetUser] = useState({});
-  const [student_id, setStudent_id] = useState([]);
+  const { user, changeAvatar } = useSelector((state) => state.User);
+  const [File, setFile] = useState(null);
+  const Dispatch = useDispatch();
 
-  const url = `${process.env.REACT_APP_API}/select_profile_info.php`;
-  const GetID = async function () {
-    try {
-      const response = await JSON.parse(localStorage.getItem("User"));
-      setStudent_id(response.student_id);
-    } catch (error) {
-      throw error;
+  const HandleChageFile = (e) => {
+    const NewFile = e.target.files[0];
+    if (NewFile.type.split("/")[0] === "image") {
+      if ((NewFile.size / 1000).toFixed(0) >= 1028) {
+        Toast_Handelar("error", "File size cannot exceed more than 1MB");
+      } else {
+        setFile(NewFile);
+        Dispatch(ChangeStatus(true));
+        Dispatch(HandleChandeAvatar(URL.createObjectURL(NewFile)));
+      }
+    } else {
+      Toast_Handelar("error", "File Must be an image !");
     }
   };
-  useEffect(() => {
-    const fetchData = async function () {
-      GetID();
-      try {
-        await axios
-          .post(
-            url,
-            { student_id: student_id },
-            {
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "text/plain",
-              },
-            }
-          )
-          .then((response) => {
-            if (response.data.status === "success") {
-              SetUser(response.data.message);
-            }
-          });
-      } catch (error) {
-        throw error;
-      }
-    };
-    fetchData();
-  }, [url, student_id]);
+
+  const HandeAvatarGlobal = () => {
+    // Dispatch(Change_User_Avatar(File));
+    Dispatch(ChangeStatus(false));
+    Dispatch(HandleChandeAvatar(URL.createObjectURL(File)));
+  };
 
   return (
     <React.Fragment>
       <div className="StudentSettingPage">
-        <div className="container">
-          <div className="img-name-settingpage">
-            <img src={require("../../../img/student.jpg")} alt="Student " />
-            <h1>{user.student_name}</h1>
+        <div className="img-name-settingpage">
+          <div className="container">
+            <div className="img-container">
+              <input
+                type="file"
+                hidden
+                onChange={(e) => HandleChageFile(e)}
+                id="UserImage"
+              />
+              <label htmlFor="UserImage">
+                <img
+                  src={changeAvatar.status ? changeAvatar.path : user.Avatar}
+                  alt="User"
+                />
+              </label>
+            </div>
+            <h1>
+              Stu : {user.name.split(" ")[0]}{" "}
+              {changeAvatar.status && (
+                <button
+                  onClick={() => HandeAvatarGlobal()}
+                  className="buttonStyle"
+                >
+                  Update
+                </button>
+              )}
+            </h1>
           </div>
+        </div>
+
+        <div className="container">
           <ul className="setting-name">
             <li>
               <NavLink to="/setting" end>
                 My Details
               </NavLink>
+            </li>
+            <li>
+              <NavLink to="/setting/setting-password">Password</NavLink>
             </li>
             <li>
               <NavLink to="/setting/setting-other">Other</NavLink>
@@ -67,6 +88,7 @@ function SettingPage(props) {
         </div>
         <Routes>
           <Route exact path="" element={<Profile />} />
+          <Route path="setting-password" element={<Passwordpage />} />
           <Route path="setting-other" element={<OtherSetting />} />
           <Route path="*" element={<NotFounded to="/NotFounded" />} />
         </Routes>

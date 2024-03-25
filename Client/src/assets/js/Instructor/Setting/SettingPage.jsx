@@ -1,22 +1,77 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import { NavLink, Routes, Route } from "react-router-dom";
 import NotFounded from "../../components/Not Founded/NotFounded";
-import Footer from "../../components/Footer/Footer";
 import "./SettingPage.css";
 import Profile from "./Profile";
 import Passwordpage from "./Passwordpage";
 import OtherSetting from "./OtherSetting";
+import { useDispatch, useSelector } from "react-redux";
+import Toast_Handelar from "../../components/Toast_Handelar";
+import {
+  ChangeStatus,
+  HandleChandeAvatar,
+} from "../../../Toolkit/Slices/UserSlice";
 
 function SettingPage(props) {
+  const { user, changeAvatar } = useSelector((state) => state.User);
+  const [File, setFile] = useState(null);
+  const Dispatch = useDispatch();
+
+  const HandleChageFile = (e) => {
+    const NewFile = e.target.files[0];
+    if (NewFile.type.split("/")[0] === "image") {
+      if ((NewFile.size / 1000).toFixed(0) >= 1028) {
+        Toast_Handelar("error", "File size cannot exceed more than 1MB");
+      } else {
+        setFile(NewFile);
+        Dispatch(ChangeStatus(true));
+        Dispatch(HandleChandeAvatar(URL.createObjectURL(NewFile)));
+      }
+    } else {
+      Toast_Handelar("error", "File Must be an image !");
+    }
+  };
+
+  const HandeAvatarGlobal = () => {
+    // Dispatch(Change_User_Avatar(File));
+    Dispatch(ChangeStatus(false));
+    Dispatch(HandleChandeAvatar(URL.createObjectURL(File)));
+  };
 
   return (
     <React.Fragment>
-      <div className="StudentSettingPage">
-        <div className="container">
-          <div className="img-name-settingpage">
-            {/* <img src={require("../../../img/user.png")} alt="slide 1 " /> */}
-            {/* <h1>{user.doctor_name} </h1> */}
+      <div className="InstractorSettingPage">
+        <div className="img-name-settingpage">
+          <div className="container">
+            <div className="img-container">
+              <input
+                type="file"
+                hidden
+                onChange={(e) => HandleChageFile(e)}
+                id="UserImage"
+              />
+              <label htmlFor="UserImage">
+                <img
+                  src={changeAvatar.status ? changeAvatar.path : user.Avatar}
+                  alt="User"
+                />
+              </label>
+            </div>
+            <h1>
+              Dr : {user.name.split(" ")[0]}{" "}
+              {changeAvatar.status && (
+                <button
+                  onClick={() => HandeAvatarGlobal()}
+                  className="buttonStyle"
+                >
+                  Update
+                </button>
+              )}
+            </h1>
           </div>
+        </div>
+
+        <div className="container">
           <ul className="setting-name">
             <li>
               <NavLink to="/setting" end>
@@ -37,8 +92,6 @@ function SettingPage(props) {
           <Route path="setting-other" element={<OtherSetting />} />
           <Route path="*" element={<NotFounded to="/NotFounded" />} />
         </Routes>
-
-        <Footer />
       </div>
     </React.Fragment>
   );

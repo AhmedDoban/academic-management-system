@@ -4,35 +4,119 @@
 .StudentSettingPage {
   position: relative;
 }
-.StudentSettingPage::before {
+.StudentSettingPage .img-name-settingpage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-top: var(--main-padding-top);
+  transition: var(--main-transition);
+}
+
+.StudentSettingPage .img-name-settingpage::before {
   position: absolute;
   content: "";
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 20vh;
-  background: var(--main-color);
+  height: 100%;
+  background-image: linear-gradient(var(--main-color) 50%, #ffffff00 50%);
   opacity: 0.7;
+  transition: var(--main-transition);
 }
-.StudentSettingPage .container {
+.StudentSettingPage .img-name-settingpage .container {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-.StudentSettingPage .container .img-name-settingpage > img {
+.StudentSettingPage .img-name-settingpage .img-container {
+  position: relative;
+  min-width: 150px;
+  min-height: 150px;
   width: 150px;
   height: 150px;
+}
+.StudentSettingPage .img-name-settingpage .img-container label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.StudentSettingPage .img-name-settingpage .img-container label::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "Upload";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  transition: var(--main-transition);
+}
+.StudentSettingPage .img-name-settingpage .img-container label:hover::before {
+  opacity: 0.6;
+  z-index: 2;
+}
+.StudentSettingPage .img-name-settingpage img {
+  position: relative;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  margin-top: calc(10vh);
-  margin-left: 2.5%;
   transition: var(--main-transition);
   background-color: aliceblue;
+  transition: var(--main-transition);
 }
-.StudentSettingPage .container .img-name-settingpage h1 {
+.StudentSettingPage .img-name-settingpage h1 {
   color: var(--main-color);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.StudentSettingPage .img-name-settingpage h1 button {
+  padding: 8px 12px;
+  position: relative;
+  background-color: var(--main-color);
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  border-radius: var(--main-border-radius);
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.StudentSettingPage .img-name-settingpage h1 button:hover {
+  background-color: var(--main-color-hover);
 }
 @media (max-width: 767px) {
-  .StudentSettingPage .container .img-name-settingpage {
+  .StudentSettingPage .img-name-settingpage {
     text-align: center;
   }
+  .StudentSettingPage .img-name-settingpage h1 {
+    text-align: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .StudentSettingPage .img-name-settingpage .container {
+    align-items: center;
+  }
 }
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
   # Student Setting Page student details
   ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
