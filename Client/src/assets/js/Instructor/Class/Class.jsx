@@ -1,57 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Class.css";
-import axios from "axios";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Link } from "react-router-dom";
 import Mountain from "./../../components/Mountain Template/Mountain";
 import LodingFeachData from "./../../components/Loding Feach Data/LodingFeachData";
 
 function Class() {
-  const [Doctor_id, setDoctor_id] = useState([]);
-
-  const GetID = async function () {
-    try {
-      const response = await JSON.parse(localStorage.getItem("User"));
-      setDoctor_id(response.doctor_id);
-    } catch (error) {
-      throw error;
-    }
-  };
-
   const [Classes, SetClasses] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const url = `${process.env.REACT_APP_API}/doctor/select_doctor_sub.php`;
-
-  useEffect(() => {
-    const fetchData = async function () {
-      GetID();
-      try {
-        setLoading(true);
-        await axios
-          .post(
-            url,
-            { doctor_id: Doctor_id },
-            {
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "text/plain",
-              },
-            }
-          )
-          .then((response) => {
-            if (response.data.status === "success") {
-              SetClasses(response.data.message);
-            }
-          });
-      } catch (error) {
-        throw error;
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [url, Doctor_id]);
 
   const [CreateField, SetCreateField] = useState(false);
 

@@ -73,6 +73,9 @@ const Instructor = (props) => {
               <Suspense fallback={<Loading />}>
                 <Routes>
                   {/********** Class Page ***********/}
+                  <Route path="/" element={<Outlet />}>
+                    <Route path="" element={<Class />} />
+                  </Route>
                   <Route path="/Class Room" element={<Outlet />}>
                     <Route path="" element={<Class />} />
                   </Route>

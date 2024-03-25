@@ -8,19 +8,6 @@ import Passwordpage from "./Passwordpage";
 import OtherSetting from "./OtherSetting";
 
 function SettingPage(props) {
-  const [user, SetUser] = useState({});
-
-  const GetID = async function () {
-    try {
-      const response = await JSON.parse(localStorage.getItem("User"));
-      SetUser(response);
-    } catch (error) {
-      throw error;
-    }
-  };
-  useEffect(() => {
-    GetID();
-  }, []);
 
   return (
     <React.Fragment>
@@ -28,7 +15,7 @@ function SettingPage(props) {
         <div className="container">
           <div className="img-name-settingpage">
             {/* <img src={require("../../../img/user.png")} alt="slide 1 " /> */}
-            <h1>{user.doctor_name} </h1>
+            {/* <h1>{user.doctor_name} </h1> */}
           </div>
           <ul className="setting-name">
             <li>

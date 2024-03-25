@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 import "./header.css";
@@ -6,8 +6,8 @@ import "./header.css";
 function Head() {
   const [Theme, SetTheme] = useState(localStorage.getItem("theme") || "light");
   const [Chek, SetChek] = useState(false);
-  const [MenuActive, SetMenuActive] = useState(false);
 
+  // Theme action handlers
   const toggleTheme = () => {
     Theme === "light" ? SetTheme("dark") : SetTheme("light");
   };
@@ -41,6 +41,26 @@ function Head() {
       Root.setProperty("--main-overlay", "rgba(47, 47, 47, 0.7)");
     }
   };
+
+  // close header when click outside
+  const Header = useRef(null);
+  document.addEventListener("click", (e) => {
+    if (e.target !== Header.current) {
+      if (Header.current.classList.contains("active")) {
+        Header.current.classList.toggle("active");
+      }
+    }
+    return () => {};
+  });
+  const open = useCallback(
+    (e) => {
+      e.stopPropagation();
+      Header.current.classList.toggle("active");
+      return () => {};
+    },
+    [Header]
+  );
+
   return (
     <div className="header-main">
       <div className="container">
@@ -66,11 +86,8 @@ function Head() {
             />
           </span>
         </h3>
-        <i
-          className="fa-solid fa-bars nav-mobile"
-          onClick={() => SetMenuActive((prev) => !prev)}
-        />
-        <ul className={MenuActive ? "navlinks active" : "navlinks"}>
+        <i className="fa-solid fa-bars nav-mobile" onClick={open} />
+        <ul className="navlinks" ref={Header}>
           <li>
             <h1 className="mobile-header">Academic mangement system</h1>
           </li>
