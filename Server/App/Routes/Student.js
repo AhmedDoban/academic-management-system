@@ -23,8 +23,8 @@ Router.route("/Login").post(
 // Routes Handelar /API/Student/Register
 Router.route("/Register").post(
   [
-    body("name").notEmpty().withMessage("First Name is Required"),
-    body("Mobile").notEmpty().withMessage("Last Name is Required"),
+    body("name").notEmpty().withMessage("Name is Required"),
+    body("Mobile").notEmpty().withMessage("Mobile is Required"),
     body("email")
       .matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/gi)
       .withMessage("Email is not Valid"),

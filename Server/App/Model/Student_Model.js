@@ -16,6 +16,12 @@ const Student_Model = mongoose.Schema(
     Avatar: { type: String, default: "Uploads/avatar.jpg" },
     Mobile: { type: String, default: "" },
     Dept: { type: String, default: "" },
+    IsInsemester: { type: Boolean, default: false },
+    Gpa: {
+      Semester_Hours: { type: Number, default: 0 },
+      Remain_Hours_To_Next_Semester: { type: Number, default: 0 },
+      Total_Gpa: { type: Number, default: 0 },
+    },
   },
   {
     collection: "Students",
