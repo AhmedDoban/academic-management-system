@@ -12,7 +12,10 @@ const Instractor_Model = mongoose.Schema(
       enum: ["ADMIN", "STUDENT", "INSTRACTOR", "PARENT"],
       required: true,
     },
-    Avatar: { type: String, default: "Uploads/avatar.jpg" },
+    Avatar: {
+      type: String,
+      default: `${process.env.SERVER_URI}/Uploads/instractor.jpg`,
+    },
     Mobile: { type: String, default: "" },
   },
   {
