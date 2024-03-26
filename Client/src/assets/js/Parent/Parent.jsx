@@ -18,7 +18,7 @@ const NotFounded = lazy(() => import("../components/Not Founded/NotFounded"));
 function Parent(props) {
   const [Theme, SetTheme] = useState(localStorage.getItem("theme") || "light");
   const [Chek, SetChek] = useState(false);
-  const [LocalTitel, SetLocalTitel] = useState("Students");
+  const [Localtitle, SetLocaltitle] = useState("Students");
   const toggleTheme = () => {
     Theme === "light" ? SetTheme("dark") : SetTheme("light");
   };
@@ -58,7 +58,7 @@ function Parent(props) {
       <div className="parent">
         <Mountain>
           <div className="data">
-            <h1> {LocalTitel} </h1>
+            <h1> {Localtitle} </h1>
             <div className="contentData">
               <label htmlFor="Theme" className="ThemeMountain">
                 <input
@@ -74,7 +74,7 @@ function Parent(props) {
                 <li>
                   <NavLink
                     to="/Students"
-                    onClick={() => SetLocalTitel("Students")}
+                    onClick={() => SetLocaltitle("Students")}
                     end
                   >
                     <i className="fa-solid fa-users"></i>

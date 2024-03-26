@@ -31,7 +31,7 @@ function Weather() {
 
   const [Theme, SetTheme] = useState(localStorage.getItem("theme") || "light");
   const [Chek, SetChek] = useState(false);
-  const [LocalTitel, SetLocalTitel] = useState("Students");
+  const [Localtitle, SetLocaltitle] = useState("Students");
   const toggleTheme = () => {
     Theme === "light" ? SetTheme("dark") : SetTheme("light");
   };
@@ -101,7 +101,7 @@ function Weather() {
               </label>
               <ul>
                 <li>
-                  <NavLink to="/" onClick={() => SetLocalTitel("/home")} end>
+                  <NavLink to="/" onClick={() => SetLocaltitle("/home")} end>
                     <i className="fa-solid fa-house"></i>
                     <span>Home</span>
                   </NavLink>
@@ -109,7 +109,7 @@ function Weather() {
                 <li>
                   <NavLink
                     to="/Student"
-                    onClick={() => SetLocalTitel("Students")}
+                    onClick={() => SetLocaltitle("Students")}
                     end
                   >
                     <i className="fa-solid fa-users"></i>
@@ -119,7 +119,7 @@ function Weather() {
                 <li>
                   <NavLink
                     to="/teacher"
-                    onClick={() => SetLocalTitel("Instractor")}
+                    onClick={() => SetLocaltitle("Instractor")}
                     end
                   >
                     <i className="fa-solid fa-chalkboard-user"></i>
@@ -129,7 +129,7 @@ function Weather() {
                 <li>
                   <NavLink
                     to="/Classes"
-                    onClick={() => SetLocalTitel("Class")}
+                    onClick={() => SetLocaltitle("Class")}
                     end
                   >
                     <i className="fa-solid fa-database"></i>

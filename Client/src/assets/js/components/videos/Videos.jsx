@@ -10,13 +10,13 @@ function Viedos(props) {
   const params = useParams();
   const [Video, SetVideo] = useState([]);
   const [VideoSRC, SetVideoSRC] = useState("");
-  const [VideoTitel, SetVideoTitel] = useState("");
+  const [Videotitle, SetVideotitle] = useState("");
 
   const url = props.url;
 
   const HandleViewVideo = (data) => {
     SetVideoSRC(data.video_link);
-    SetVideoTitel(data.video_title);
+    SetVideotitle(data.video_title);
   };
   useEffect(() => {
     const fetchData = async function () {
@@ -91,7 +91,7 @@ function Viedos(props) {
                   {VideoSRC ? (
                     <React.Fragment>
                       <iframe className="Frame" src={VideoSRC}></iframe>
-                      <div className="info">{VideoTitel}</div>
+                      <div className="info">{Videotitle}</div>
                     </React.Fragment>
                   ) : (
                     <React.Fragment>

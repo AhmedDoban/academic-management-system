@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {  toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "./Courses.css";
 import axios from "axios";
@@ -38,7 +38,7 @@ export default function AddNewCourse() {
   };
   return (
     <React.Fragment>
-      <h5 className="main-titel">Add New Class</h5>
+      <h5 className="main-title">Add New Class</h5>
       <div className="add-new-Class">
         <div className="card">
           <input

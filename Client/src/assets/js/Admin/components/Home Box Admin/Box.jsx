@@ -18,7 +18,7 @@ function Box(props) {
         <p>
           <CountUp start={0} end={props.data} duration={2} separator=" " />
         </p>
-        <h5>{props.Titel}</h5>
+        <h5>{props.title}</h5>
       </Link>
     </React.Fragment>
   );

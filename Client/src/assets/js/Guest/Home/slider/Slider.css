@@ -93,25 +93,25 @@
     transform: rotateX(360deg) rotate(-8deg);
   }
 }
-.slider_Setting div .left-content .left-content-titel {
+.slider_Setting div .left-content .left-content-title {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
   text-transform: capitalize;
 }
-.slider_Setting div .left-content .left-content-titel > p {
+.slider_Setting div .left-content .left-content-title > p {
   text-transform: capitalize;
   font-size: 18px;
   font-weight: bold;
 }
-.slider_Setting div .left-content .left-content-titel h1 {
+.slider_Setting div .left-content .left-content-title h1 {
   font-size: 50px;
   color: var(--main-color);
   margin: 0;
   text-transform: capitalize;
 }
-.slider_Setting div .left-content .left-content-titel h1 p {
+.slider_Setting div .left-content .left-content-title h1 p {
   color: var(--red-color);
   font-size: 50px;
   display: inline;
@@ -152,8 +152,8 @@
     transform: scale(1);
   }
 
-  .slider_Setting div .left-content .left-content-titel h1 p,
-  .slider_Setting div .left-content .left-content-titel h1 {
+  .slider_Setting div .left-content .left-content-title h1 p,
+  .slider_Setting div .left-content .left-content-title h1 {
     font-size: 30px;
   }
   .awssld__content::after {

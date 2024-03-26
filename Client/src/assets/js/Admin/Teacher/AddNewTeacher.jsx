@@ -39,7 +39,7 @@ function AddNewTeacher() {
 
   return (
     <React.Fragment>
-      <h5 className="main-titel">Add New Instractor</h5>
+      <h5 className="main-title">Add New Instractor</h5>
       <div className="add-new-teacher">
         <div className="card">
           <input

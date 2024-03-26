@@ -11,6 +11,7 @@ import { Route, Routes, Navigate, Outlet, NavLink } from "react-router-dom";
 
 import SideBar from "../components/SideBar/SideBar";
 import Loading from "../components/Loading/Loading";
+import { useSelector } from "react-redux";
 
 // Class Room page
 const StudenClasses = lazy(() => import("./Classes/StudenClasses"));
@@ -29,6 +30,7 @@ const Chat = lazy(() => import("./Classes/Chat/Chat"));
 const ChatBot = lazy(() => import("./Classes/Chat Bot/ChatBot"));
 // table page
 const StudentTablePage = lazy(() => import("./Table/StudentTablePage"));
+const JoinSemester = lazy(() => import("./Join Semester/JoinSemester"));
 
 // library page
 const Library = lazy(() => import("../components/Library/Library"));
@@ -53,6 +55,8 @@ const SettingPage = lazy(() => import("./Setting/SettingPage"));
 const NotFounded = lazy(() => import("../components/Not Founded/NotFounded"));
 
 const Student = (props) => {
+  const { IsInsemester } = useSelector((state) => state.User.user);
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
@@ -72,11 +76,20 @@ const Student = (props) => {
   return (
     <React.Fragment>
       <div className="page p-relative">
-        <SideBar SetLogedOn={props.SetLogedOn}>
+        <SideBar>
           <li>
-            <NavLink to="table" onClick={open}>
-              <i className="fa-solid fa-calendar-days"></i>
-              <span>Table</span>
+            <NavLink
+              to={IsInsemester ? "table" : "Join semester"}
+              onClick={open}
+            >
+              <i
+                className={
+                  IsInsemester
+                    ? "fa-solid fa-calendar-days"
+                    : "fa-solid fa-file-signature"
+                }
+              ></i>
+              <span>{IsInsemester ? "Table" : "Join semester"}</span>
             </NavLink>
           </li>
           <li>
@@ -141,8 +154,13 @@ const Student = (props) => {
                     <Route path="Chat/:id" element={<Chat />} />
                     <Route path="ChatBot" element={<ChatBot />} />
                   </Route>
-                  {/********** Table Page ***********/}
-                  <Route path="/table" element={<StudentTablePage />} />
+                  {/********** Table Page or join semester***********/}
+                  <Route
+                    path={IsInsemester ? "/table" : "/Join semester"}
+                    element={
+                      IsInsemester ? <StudentTablePage /> : <JoinSemester />
+                    }
+                  />
                   {/********** Library Page ***********/}
                   <Route path="/library" element={<Library />}>
                     <Route path=":id" element={<BookDetails />} />

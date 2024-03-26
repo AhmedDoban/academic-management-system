@@ -207,9 +207,9 @@ function Select_Sub_generationSubjects() {
   return (
     <React.Fragment>
       <div className="Select_Sub_generationSubjects p-relative" id="Subjects">
-        {/**************************** Titel  **********************************************/}
+        {/**************************** title  **********************************************/}
         <h1
-          className="main-titel"
+          className="main-title"
           data-aos="fade-down"
           data-aos-easing="ease-in-out"
           data-aos-duration="1000"
@@ -218,7 +218,7 @@ function Select_Sub_generationSubjects() {
           <div className="div-circle"></div>
           <span>{Classes.generation_name} </span>
         </h1>
-        {/**************************** End Titel **********************************************/}
+        {/**************************** End title **********************************************/}
 
         {/**************************** Dots**********************************************/}
         <Dots OtherStyle="top" />

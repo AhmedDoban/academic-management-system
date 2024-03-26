@@ -25,21 +25,21 @@ function AdminHome() {
         <Box
           link="/student"
           data={Student.length}
-          Titel="Students"
+          title="Students"
           linkPlayer="https://assets8.lottiefiles.com/packages/lf20_4vlxeulb.json"
         />
         {/****************** Teachers Box **********************/}
         <Box
           link="/teacher"
           data={Teacher.length}
-          Titel="Instractors"
+          title="Instractors"
           linkPlayer="https://assets1.lottiefiles.com/packages/lf20_ikvz7qhc.json"
         />
         {/****************** Classes Box **********************/}
         <Box
           link="/Classes"
           data={Courses.length}
-          Titel="Classes"
+          title="Classes"
           linkPlayer="https://assets1.lottiefiles.com/packages/lf20_k0D4i8.json"
         />
       </div>

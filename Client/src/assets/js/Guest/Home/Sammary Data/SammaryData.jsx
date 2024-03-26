@@ -8,7 +8,7 @@ function SammaryData(props) {
         <div className="container" data-aos="fade-up">
           {/******************** Header info ********************************/}
           <div className="header-data">
-            <h1 className="main-titel">Learn With Us , Improve With Us</h1>
+            <h1 className="main-title">Learn With Us , Improve With Us</h1>
           </div>
           {/******************** Footer Data ********************************/}
           <div className="footer-data grid-30-350px">

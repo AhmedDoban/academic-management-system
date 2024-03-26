@@ -125,9 +125,9 @@ html {
 }
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# .main-titel
+# .main-title
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.main-titel {
+.main-title {
   position: relative;
   width: fit-content;
   padding: 20px 0;
@@ -136,8 +136,8 @@ html {
   transition: var(--main-transition);
 }
 
-.main-titel::before,
-.main-titel::after {
+.main-title::before,
+.main-title::after {
   position: absolute;
   content: "";
   bottom: 0;
@@ -146,17 +146,17 @@ html {
   border-radius: var(--main-border-radius);
   transition: var(--main-transition);
 }
-.main-titel::before {
+.main-title::before {
   width: 50%;
   background-color: var(--main-color);
   z-index: 2;
 }
-.main-titel::after {
+.main-title::after {
   width: 100%;
   background-color: var(--main-white-alt);
   z-index: 1;
 }
-.main-titel + p {
+.main-title + p {
   position: relative;
 
   position: relative;

@@ -125,7 +125,7 @@ function Inquiries() {
                 data-aos-duration="1000"
               >
                 <div className="data">
-                  <p className="TitelInqu">
+                  <p className="titleInqu">
                     {Inquirie.answer ? (
                       <span>
                         <span>{Inquirie.title}</span>

@@ -69,7 +69,7 @@ function MemoryGame() {
       <Blobs />
       <div className="MemoryGame">
         <div className="container">
-          <h1 className="main-titel">Memory Game</h1>
+          <h1 className="main-title">Memory Game</h1>
           <div className="MemoryGame-container">
             {items.map((item, index) => (
               <CardBlur key={index} active={item.state}>

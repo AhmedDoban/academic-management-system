@@ -6,7 +6,7 @@ function WhatOffer() {
     <React.Fragment>
       <div className="WhatOffer">
         <div className="container" data-aos="fade-down">
-          <h1 className="main-titel">What We Offer ?</h1>
+          <h1 className="main-title">What We Offer ?</h1>
           <p>
             One of the most oft-used terms after the pandemic is the term “new
             normal.” The new normal in education is the increased use of online
@@ -18,7 +18,7 @@ function WhatOffer() {
           {/******************** Box1 ********************************/}
           <div className="box between-flex">
             <div className="left">
-              <h1 className="box-titel">General Courses</h1>
+              <h1 className="box-title">General Courses</h1>
               <p className="color-black mt-25 mb-25 ">
                 Most colleges and universities require their students to take
                 general education courses, such as psychology, social sciences,
@@ -55,7 +55,7 @@ function WhatOffer() {
               />
             </div>
             <div className="left">
-              <h1 className="box-titel">Language for Business</h1>
+              <h1 className="box-title">Language for Business</h1>
               <p className="color-black mt-25 mb-25 ">
                 You may have the most advanced widget or the sexiest new
                 service, but if you can’t talk about it, you lose out on
@@ -69,7 +69,7 @@ function WhatOffer() {
           {/******************** Box3 ********************************/}
           <div className="box between-flex">
             <div className="left">
-              <h1 className="box-titel">Online Learning</h1>
+              <h1 className="box-title">Online Learning</h1>
               <p className="color-black mt-25 mb-25 ">
                 The new normal now is a transformed concept of education with
                 online learning at the core of this transformation. Today,

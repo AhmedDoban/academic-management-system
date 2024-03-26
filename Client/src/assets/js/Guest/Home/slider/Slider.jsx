@@ -1,7 +1,7 @@
 import React from "react";
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
-import "./Slider.css"
+import "./Slider.css";
 function Slider() {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
   return (
@@ -20,7 +20,7 @@ function Slider() {
             data-aos-easing="ease-in-out"
             data-aos-duration="1000"
           >
-            <div className="left-content-titel">
+            <div className="left-content-title">
               <p>The Best</p>
               <h1>
                 Education <p className="">Experience</p>
@@ -56,7 +56,7 @@ function Slider() {
             data-aos-duration="1000"
             data-aos="fade-right"
           >
-            <div className="left-content-titel">
+            <div className="left-content-title">
               <p>The Leader in online Learning</p>
               <h1>
                 Build in <p className="">Learning</p>
@@ -93,7 +93,7 @@ function Slider() {
             data-aos-duration="1000"
             data-aos="fade-right"
           >
-            <div className="left-content-titel">
+            <div className="left-content-title">
               <p>Welcome to New</p>
               <h1>
                 Way to <p className="">Education</p>
@@ -129,7 +129,7 @@ function Slider() {
             data-aos-duration="1000"
             data-aos="fade-right"
           >
-            <div className="left-content-titel">
+            <div className="left-content-title">
               <p>here you can review some </p>
               <h1>
                 college 2023 <p className="">center</p>
@@ -165,7 +165,7 @@ function Slider() {
             data-aos-duration="1000"
             data-aos="fade-right"
           >
-            <div className="left-content-titel">
+            <div className="left-content-title">
               <p>take the first step</p>
               <h1>
                 to knowledge <p className="">with us</p>

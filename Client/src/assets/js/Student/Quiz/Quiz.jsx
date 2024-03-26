@@ -45,13 +45,13 @@ const Quiz = (props) => {
         {finished ? (
           <div className="container">
             <div className="Quiz-data">
-              <h1 className="main-titel">Simple Quiz in Html Final result</h1>
+              <h1 className="main-title">Simple Quiz in Html Final result</h1>
             </div>
           </div>
         ) : (
           <div className="container">
             <div className="Quiz-data">
-              <h1 className="main-titel">Simple Quiz in Html</h1>
+              <h1 className="main-title">Simple Quiz in Html</h1>
               <p>
                 {currentQuestion + 1}/{Question.length}
               </p>
