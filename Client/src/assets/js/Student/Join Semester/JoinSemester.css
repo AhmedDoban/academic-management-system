@@ -18,6 +18,9 @@
   flex-direction: column;
   gap: 20px;
 }
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Student Semster Table Page ==> container action
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .JoinSemester .container .actions {
   position: relative;
   color: var(--main-text-color);
@@ -93,11 +96,18 @@
   color: #fff;
   font-weight: bold;
 }
+.StudentSemsterTablePage table tbody tr {
+  position: relative;
+  transition: var(--main-transition);
+}
 .StudentSemsterTablePage table tbody tr:hover {
   background-color: rgba(193, 193, 193, 0.3);
 }
 .StudentSemsterTablePage table tbody tr.active {
   background-color: rgba(111, 135, 255, 0.3);
+}
+.StudentSemsterTablePage table tbody tr.disactive {
+  background-color: rgba(255, 179, 0, 0.3);
 }
 .StudentSemsterTablePage table td img {
   position: relative;
@@ -177,4 +187,31 @@
   .StudentSemsterTablePage table td:last-child {
     border-bottom: 0;
   }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Student Semster Table Page ==> container register-semester
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.JoinSemester .container .register-semester {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.JoinSemester .container .register-semester button {
+  position: relative;
+  padding: 8px 12px;
+  min-width: 80px;
+  display: flex;
+  align-self: flex-end;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: var(--main-color);
+  transition: var(--main-transition);
+  cursor: pointer;
+  border-radius: var(--main-border-radius);
+}
+.JoinSemester .container .register-semester button:hover {
+  background-color: var(--main-color-hover);
 }

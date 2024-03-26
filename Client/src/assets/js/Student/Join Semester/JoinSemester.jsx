@@ -105,7 +105,11 @@ function JoinSemester() {
                 {Subjects.map((subject, index) => (
                   <tr
                     className={
-                      SelectedSubjects.includes(subject._id) ? "active" : ""
+                      SelectedSubjects.includes(subject._id)
+                        ? "active"
+                        : CreaditHours >= 18
+                        ? "disactive"
+                        : ""
                     }
                   >
                     <td>
@@ -146,6 +150,9 @@ function JoinSemester() {
                 ))}
               </tbody>
             </table>
+          </div>
+          <div className="register-semester">
+            <button>Register Semester</button>
           </div>
         </div>
       </div>
