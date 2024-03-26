@@ -2,17 +2,23 @@ import React, { useEffect, useState } from "react";
 import Mountain from "../../components/Mountain Template/Mountain";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  AddStudentSemester,
   GetSubjects,
   SeeNext,
   SeePrev,
 } from "../../../Toolkit/Slices/NewSemesterSlice";
 import "./JoinSemester.css";
+import Swal from "sweetalert2";
+import Toast_Handelar from "../../components/Toast_Handelar";
+import { useNavigate } from "react-router-dom";
+import { UserInSemester } from "../../../Toolkit/Slices/UserSlice";
 
 function JoinSemester() {
   const Dispatch = useDispatch();
   const { Subjects, currentPage, number_of_pages } = useSelector(
     (State) => State.NewSemester
   );
+  const Navigate = useNavigate();
 
   const [SelectedSubjects, SetSelectedSubjects] = useState([]);
   const [CreaditHours, SetCreaditHours] = useState(0);
@@ -51,6 +57,41 @@ function JoinSemester() {
   const HandlePrev = () => {
     Dispatch(SeePrev());
     Dispatch(GetSubjects());
+  };
+
+  const AddStudentNewSemester = () => {
+    Swal.fire({
+      title: "Are you sure ?",
+      text: `You can't back to this page again until finish the selected Subjects`,
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: `<i class="fa-solid fa-check"></i>`,
+      cancelButtonText: `<i class="fa-solid fa-xmark"></i>`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if (SelectedSubjects.length <= 1) {
+          Toast_Handelar("error", "you haven't selected any subject yet !");
+          return;
+        } else {
+          Dispatch(
+            AddStudentSemester({
+              Subjects: SelectedSubjects,
+              Semester_Hours: CreaditHours,
+            })
+          ).then((res) => {
+            if (res.payload.Status === "Faild") {
+              Swal.fire(res.payload.Status, res.payload.message, "error");
+            } else {
+              Swal.fire(res.payload.Status, res.payload.message, "success");
+              Dispatch(UserInSemester(true));
+              Navigate("/table");
+            }
+          });
+        }
+      }
+    });
   };
 
   return (
@@ -152,7 +193,9 @@ function JoinSemester() {
             </table>
           </div>
           <div className="register-semester">
-            <button>Register Semester</button>
+            <button onClick={() => AddStudentNewSemester()}>
+              Register Semester
+            </button>
           </div>
         </div>
       </div>

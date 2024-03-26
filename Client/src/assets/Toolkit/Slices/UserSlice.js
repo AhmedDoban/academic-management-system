@@ -96,6 +96,9 @@ const UserSlice = createSlice({
         State.user.Avatar = action.payload;
       }
     },
+    UserInSemester: (State, action) => {
+      State.user.IsInsemester = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(UserLogin.pending, (State, action) => {
@@ -144,7 +147,7 @@ const UserSlice = createSlice({
   },
 });
 
-export const { Login_Local, ChangeStatus, HandleChandeAvatar } =
+export const { Login_Local, ChangeStatus, HandleChandeAvatar, UserInSemester } =
   UserSlice.actions;
 
 export default UserSlice.reducer;

@@ -175,11 +175,14 @@ html {
   font-size: 18px !important;
 }
 .swal2-actions button {
-  border-radius: 50% !important;
+  border-radius: var(--main-border-radius) !important;
   width: 50px !important;
   height: 50px !important;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 !important;
+}
+.swal2-html-container {
+  color: var(--main-p-color) !important;
 }

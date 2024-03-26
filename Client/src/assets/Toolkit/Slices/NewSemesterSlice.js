@@ -26,6 +26,35 @@ export const GetSubjects = createAsyncThunk(
   }
 );
 
+// Add new Semester to Student
+export const AddStudentSemester = createAsyncThunk(
+  "AddStudentSemester",
+  async (payload, { getState }) => {
+    const State = getState();
+    const { Token, _id } = JSON.parse(localStorage.getItem("Token"));
+
+    try {
+      const Data = await axios.post(
+        `${process.env.REACT_APP_API}/Semester/Register`,
+        {
+          Student_ID: _id,
+          Student_national_id: State.User.user.national_ID,
+          Subjects: payload.Subjects,
+          Semester_Hours: payload.Semester_Hours,
+        },
+        {
+          headers: {
+            Authorization: Token,
+          },
+        }
+      );
+      return Data.data;
+    } catch (err) {
+      Toast_Handelar("error", "Sorry we can't get your data !");
+    }
+  }
+);
+
 const NewSemesterSlice = createSlice({
   name: "NewSemesterSlice",
   initialState: {
