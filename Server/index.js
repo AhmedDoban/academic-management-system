@@ -7,6 +7,7 @@ import cors from "cors";
 import Student from "./App/Routes/Student.js";
 import Parent from "./App/Routes/Parent.js";
 import Instractor from "./App/Routes/Instractor.js";
+import Subjects from "./App/Routes/Subjects.js";
 
 // File System
 import path from "path";
@@ -28,6 +29,7 @@ App.use("/Uploads", express.static(path.join(__dirname, "/Uploads")));
 App.use("/API/Student", Student);
 App.use("/API/Parent", Parent);
 App.use("/API/Instractor", Instractor);
+App.use("/API/Subjects", Subjects);
 App.use("*", (Req, Res) => {
   Res.status(200).json({
     Status: "Faild",
