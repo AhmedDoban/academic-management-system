@@ -1,15 +1,10 @@
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# General
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@import url("../../../css/root.css");
-
 .dots {
   position: absolute;
   width: 204px;
   height: 186px;
   background-image: url("../../../img/dots.png");
   background-repeat: no-repeat;
-  opacity: .5;
+  opacity: 0.5;
 }
 .dots.top {
   top: 50px;

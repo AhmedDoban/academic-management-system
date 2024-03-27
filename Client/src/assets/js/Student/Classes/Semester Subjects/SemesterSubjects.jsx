@@ -30,7 +30,7 @@ function SemesterSubjects() {
         <div className="SemesterSubjects" id="Subjects">
           <Dots OtherStyle="top" />
           <Dots OtherStyle="bottom" />
-          <div className="container" data-aos="fade-down">
+          <div className="container">
             {/************************** Start input and some options ****************************/}
             <div className="header">
               <div className="input-absulote">
@@ -73,6 +73,7 @@ function SemesterSubjects() {
                   }).map((Semester) => (
                     <Link
                       className="card"
+                      data-aos="zoom-in"
                       key={Semester._id}
                       to={`/Subject Data/${Semester._id}/${Semester.name}`}
                     >

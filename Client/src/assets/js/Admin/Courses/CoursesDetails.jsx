@@ -25,12 +25,7 @@ export default function CoursesDetails() {
   return (
     <React.Fragment>
       <div className="ClassDeatils">
-        <div
-          className="data"
-          data-aos="zoom-in"
-          data-aos-easing="linear"
-          data-aos-duration="1000"
-        >
+        <div className="data" data-aos="zoom-in" data-aos-easing="linear">
           <div className="editButton">Edit</div>
           <h1 className="title">Information</h1>
           <div className="item">

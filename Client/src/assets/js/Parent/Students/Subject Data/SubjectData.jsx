@@ -56,8 +56,6 @@ function SubjectData(props) {
               <Link
                 className="card"
                 data-aos="zoom-in"
-                data-aos-easing="ease-in-out"
-                data-aos-duration="1000"
                 key={Subjects.subject_id}
                 to={`${Subjects.subject_id}`}
               >

@@ -17,12 +17,7 @@ function BookDetails(props) {
   return (
     <React.Fragment>
       <div className="book-details">
-        <div
-          className="container"
-          data-aos="fade-right"
-          data-aos-easing="ease-in-out"
-          data-aos-duration="1000"
-        >
+        <div className="container" data-aos="fade-right">
           <div className="icon ">
             <i
               className="fa-solid fa-arrow-left"

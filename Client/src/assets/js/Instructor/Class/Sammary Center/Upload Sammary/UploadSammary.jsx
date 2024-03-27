@@ -69,12 +69,7 @@ function UploadSammary() {
     <React.Fragment>
       <div className="uploadsammary">
         <div className="container">
-          <div
-            className="card"
-            data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-          >
+          <div className="card" data-aos="zoom-in">
             <input
               type="text"
               id="video_title"

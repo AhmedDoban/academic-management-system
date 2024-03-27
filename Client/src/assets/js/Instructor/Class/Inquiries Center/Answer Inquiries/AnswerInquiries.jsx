@@ -56,13 +56,7 @@ function AnswerInquiries() {
         <div className="AnswerInquiries">
           <div className="container">
             {Inquiries.map((Inquirie) => (
-              <div
-                className="card"
-                key={Inquirie.ask_id}
-                data-aos="zoom-in"
-                data-aos-easing="ease-in-out"
-                data-aos-duration="1000"
-              >
+              <div className="card" key={Inquirie.ask_id} data-aos="zoom-in">
                 <div className="data">
                   <p>{Inquirie.title} </p>
                   <span>{Inquirie.answer} </span>

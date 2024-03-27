@@ -98,8 +98,6 @@ function EditExam() {
             className="editExam-card"
             to={`EditExam/${params.exam_id}`}
             data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
           >
             <Player
               autoplay={true}
@@ -110,13 +108,7 @@ function EditExam() {
             ></Player>
             <p>Edit exam</p>
           </Link>
-          <Link
-            className="editExam-card"
-            to={`addQu`}
-            data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-          >
+          <Link className="editExam-card" to={`addQu`} data-aos="zoom-in">
             <Player
               autoplay={true}
               loop={true}

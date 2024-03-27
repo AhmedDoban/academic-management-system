@@ -14,12 +14,7 @@ function Slider() {
       >
         {/******************** Card1 ********************************/}
         <div>
-          <div
-            className="left-content"
-            data-aos="fade-right"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-          >
+          <div className="left-content" data-aos="fade-right">
             <div className="left-content-title">
               <p>The Best</p>
               <h1>
@@ -36,12 +31,7 @@ function Slider() {
               </p>
             </div>
           </div>
-          <div
-            className="right-content"
-            data-aos="fade-left"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-          >
+          <div className="right-content" data-aos="fade-left">
             <img
               src={require("../../../../img/slider/slide1.png")}
               alt="slide 1 "
@@ -50,12 +40,7 @@ function Slider() {
         </div>
         {/******************** Card2 ********************************/}
         <div>
-          <div
-            className="left-content"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-            data-aos="fade-right"
-          >
+          <div className="left-content" data-aos="fade-right">
             <div className="left-content-title">
               <p>The Leader in online Learning</p>
               <h1>
@@ -73,12 +58,7 @@ function Slider() {
               </p>
             </div>
           </div>
-          <div
-            className="right-content"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-            data-aos="fade-left"
-          >
+          <div className="right-content" data-aos="fade-left">
             <img
               src={require("../../../../img/slider/slide2.png")}
               alt="slide 1 "
@@ -87,12 +67,7 @@ function Slider() {
         </div>
         {/******************** Card3 ********************************/}
         <div>
-          <div
-            className="left-content"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-            data-aos="fade-right"
-          >
+          <div className="left-content" data-aos="fade-right">
             <div className="left-content-title">
               <p>Welcome to New</p>
               <h1>
@@ -109,12 +84,7 @@ function Slider() {
               </p>
             </div>
           </div>
-          <div
-            className="right-content"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-            data-aos="fade-left"
-          >
+          <div className="right-content" data-aos="fade-left">
             <img
               src={require("../../../../img/slider/slide3.png")}
               alt="slide 1 "
@@ -123,12 +93,7 @@ function Slider() {
         </div>
         {/******************** Card4 ********************************/}
         <div>
-          <div
-            className="left-content"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-            data-aos="fade-right"
-          >
+          <div className="left-content" data-aos="fade-right">
             <div className="left-content-title">
               <p>here you can review some </p>
               <h1>
@@ -145,12 +110,7 @@ function Slider() {
               </p>
             </div>
           </div>
-          <div
-            className="right-content"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-            data-aos="fade-left"
-          >
+          <div className="right-content" data-aos="fade-left">
             <img
               src={require("../../../../img/slider/slide4.png")}
               alt="slide 1 "
@@ -159,12 +119,7 @@ function Slider() {
         </div>
         {/******************** Card5 ********************************/}
         <div>
-          <div
-            className="left-content"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-            data-aos="fade-right"
-          >
+          <div className="left-content" data-aos="fade-right">
             <div className="left-content-title">
               <p>take the first step</p>
               <h1>
@@ -180,12 +135,7 @@ function Slider() {
               </p>
             </div>
           </div>
-          <div
-            className="right-content"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-            data-aos="fade-left"
-          >
+          <div className="right-content" data-aos="fade-left">
             <img
               src={require("../../../../img/slider/slide5.png")}
               alt="slide 1 "

@@ -61,7 +61,6 @@ function DeleteSammary() {
               }
             )
             .then((response) => {
-  
               if (response.data.status === "success") {
                 Swal.fire("Deleted!", response.data.message, "success");
                 fetchData();
@@ -82,13 +81,7 @@ function DeleteSammary() {
         <div className="DeleteSammary">
           <div className="container">
             {Summary.map((pdf) => (
-              <div
-                className="card"
-                key={pdf.summary_id}
-                data-aos="zoom-in"
-                data-aos-easing="ease-in-out"
-                data-aos-duration="1000"
-              >
+              <div className="card" key={pdf.summary_id} data-aos="zoom-in">
                 <div className="data">
                   <h1>{pdf.summary_name}</h1>
                   <i

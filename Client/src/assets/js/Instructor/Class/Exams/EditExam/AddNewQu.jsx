@@ -93,12 +93,7 @@ function AddNewQu() {
         <div className="container">
           {/* ******************** > question_text ********************/}
           <div className="card">
-            <div
-              className="input-field"
-              data-aos="zoom-in"
-              data-aos-easing="ease-in-out"
-              data-aos-duration="1000"
-            >
+            <div className="input-field" data-aos="zoom-in">
               <input
                 type="text"
                 id="Question_Text"
@@ -116,12 +111,7 @@ function AddNewQu() {
             <React.Fragment>
               {/* ******************** > question_answers ********************/}
               <div className="card">
-                <div
-                  className="input-field"
-                  data-aos="zoom-in"
-                  data-aos-easing="ease-in-out"
-                  data-aos-duration="1000"
-                >
+                <div className="input-field" data-aos="zoom-in">
                   <input
                     type="text"
                     id="Question_Answers"
@@ -142,12 +132,7 @@ function AddNewQu() {
               {question_answers.length > 0 ? (
                 <React.Fragment>
                   <div className="card dropDownCard">
-                    <div
-                      className="input-field"
-                      data-aos="zoom-in"
-                      data-aos-easing="ease-in-out"
-                      data-aos-duration="1000"
-                    >
+                    <div className="input-field" data-aos="zoom-in">
                       <label htmlFor="Question_Valid_Answer">
                         <i className="fa-solid fa-signature"></i>Question Valid
                         Answer

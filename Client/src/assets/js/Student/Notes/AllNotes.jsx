@@ -39,7 +39,6 @@ function AllNotes(props) {
               <div
                 className="card"
                 data-aos="fade-right"
-                data-aos-easing="ease-in-out"
                 data-aos-duration="500"
               >
                 <CardBlur key={index}>

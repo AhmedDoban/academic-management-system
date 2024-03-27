@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { Player } from "@lottiefiles/react-lottie-player";
 import "./Subjects.css";
-import LodingFeachData from './../../../components/Loding Feach Data/LodingFeachData';
+import LodingFeachData from "./../../../components/Loding Feach Data/LodingFeachData";
 function StudentData(props) {
   const params = useParams();
   const [select_solved, Set_select_solved] = useState([]);
@@ -52,8 +52,6 @@ function StudentData(props) {
               <Link
                 className="card"
                 data-aos="zoom-in"
-                data-aos-easing="ease-in-out"
-                data-aos-duration="1000"
                 key={Subjects.generation_id}
                 to={`${Subjects.generation_id}`}
               >

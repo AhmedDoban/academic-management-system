@@ -20,8 +20,6 @@ function SubjectData() {
           <Link
             className="card"
             data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
             to={`Exam/${params.subject_id}`}
           >
             <h1>Exam</h1>
@@ -29,17 +27,15 @@ function SubjectData() {
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets4.lottiefiles.com/packages/lf20_h4th9ofg.json"
+              src={require("../../../../img/Players/Exam.json")}
               style={{ width: "150px", height: "150px" }}
-            ></Player>
+            />
           </Link>
 
           {/***************** Videos  **********************/}
           <Link
             className="card"
             data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
             to={`Videos/${params.subject_id}`}
           >
             <h1>Videos</h1>
@@ -47,16 +43,14 @@ function SubjectData() {
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets3.lottiefiles.com/packages/lf20_ehfMXK.json"
+              src={require("../../../../img/Players/Vedios.json")}
               style={{ width: "150px", height: "150px" }}
-            ></Player>
+            />
           </Link>
           {/***************** Summary / s  **********************/}
           <Link
             className="card"
             data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
             to={`Summary/${params.subject_id}`}
           >
             <h1>Summary </h1>
@@ -64,16 +58,14 @@ function SubjectData() {
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets6.lottiefiles.com/packages/lf20_mWCcDd.json"
+              src={require("../../../../img/Players/Summary.json")}
               style={{ width: "150px", height: "150px" }}
-            ></Player>
+            />
           </Link>
           {/***************** call Room  **********************/}
           <Link
             className="card"
             data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
             to={`video call/${params.SubjectName}`}
           >
             <h1>Call Room </h1>
@@ -81,33 +73,15 @@ function SubjectData() {
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets3.lottiefiles.com/packages/lf20_ihspk1vg.json"
+              src={require("../../../../img/Players/CallRoom.json")}
               style={{ width: "150px", height: "150px" }}
-            ></Player>
+            />
           </Link>
-          {/***************** Notification  **********************/}
-          <Link
-            className="card"
-            data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-            to={`Notifications/${params.subject_id}`}
-          >
-            <h1>Notification</h1>
-            <Player
-              autoplay={true}
-              loop={true}
-              controls={false}
-              src="https://assets9.lottiefiles.com/packages/lf20_22votfwd.json"
-              style={{ width: "150px", height: "150px" }}
-            ></Player>
-          </Link>
+
           {/***************** inquiries  **********************/}
           <Link
             className="card"
             data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
             to={`Inquiries/${params.subject_id}`}
           >
             <h1>Inquiries</h1>
@@ -115,16 +89,14 @@ function SubjectData() {
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets8.lottiefiles.com/packages/lf20_FyZ3MPhoNm.json"
+              src={require("../../../../img/Players/Inquiries.json")}
               style={{ width: "150px", height: "150px" }}
-            ></Player>
+            />
           </Link>
           {/***************** Chat Room  **********************/}
           <Link
             className="card"
             data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
             to={`Chat/${params.SubjectName}`}
           >
             <h1>Chat Room</h1>
@@ -132,26 +104,20 @@ function SubjectData() {
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets9.lottiefiles.com/private_files/lf30_z588h1j0.json"
+              src={require("../../../../img/Players/ChatRoom.json")}
               style={{ width: "150px", height: "150px" }}
-            ></Player>
+            />
           </Link>
           {/***************** Chat Bot  **********************/}
-          <Link
-            className="card"
-            data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-            to={`ChatBot`}
-          >
+          <Link className="card" data-aos="zoom-in" to={`ChatBot`}>
             <h1>Chat Bot</h1>
             <Player
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets5.lottiefiles.com/packages/lf20_4soa34Y516.json"
+              src={require("../../../../img/Players/ChatBot.json")}
               style={{ width: "150px", height: "150px" }}
-            ></Player>
+            />
           </Link>
         </div>
       </div>

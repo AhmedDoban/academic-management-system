@@ -19,8 +19,6 @@ function SubjectData() {
           <Link
             className="card"
             data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
             to={`Exams/${params.subject_id}/${params.SubjectName}?`}
           >
             <h1>Exam</h1>
@@ -36,8 +34,6 @@ function SubjectData() {
           <Link
             className="card"
             data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
             to={`VideoCenter/${params.subject_id}/${params.SubjectName}?`}
           >
             <h1>Video Center</h1>
@@ -53,8 +49,6 @@ function SubjectData() {
           <Link
             className="card"
             data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
             to={`Videos/${params.subject_id}`}
           >
             <h1>Videos</h1>
@@ -70,8 +64,6 @@ function SubjectData() {
           <Link
             className="card"
             data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
             to={`SammaryCenter/${params.subject_id}/${params.SubjectName}?`}
           >
             <h1>Summary Center</h1>
@@ -88,8 +80,6 @@ function SubjectData() {
             className="card"
             to={`video call/${params.SubjectName}`}
             data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
           >
             <h1>Call Room </h1>
             <Player
@@ -101,12 +91,7 @@ function SubjectData() {
             ></Player>
           </Link>
           {/***************** call Room  **********************/}
-          <Link
-            className="card"
-            data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-          >
+          <Link className="card" data-aos="zoom-in">
             <h1>Chat </h1>
             <Player
               autoplay={true}
@@ -120,8 +105,6 @@ function SubjectData() {
           <Link
             className="card"
             data-aos="zoom-in"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
             to={`InquiriesCenter/${params.subject_id}/${params.SubjectName}?`}
           >
             <h1>Inquiries Center</h1>

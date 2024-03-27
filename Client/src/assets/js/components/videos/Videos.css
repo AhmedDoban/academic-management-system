@@ -1,9 +1,4 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# General
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@import url("../../../css/root.css");
-
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Videos
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 
@@ -39,8 +34,9 @@
 }
 .specific-course .holder .right .NoSelectedPlayer {
   position: relative;
-  width: 100%;
-  height: 400px;
+  width: 250px;
+  height: 250px;
+  max-width: 100%;
 }
 .specific-course .holder .right p {
   position: relative;
@@ -142,8 +138,9 @@
   padding-bottom: var(--main-padding-bottom);
 }
 .No_Videos .NoVidosPlayer {
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
+  max-width: 100%;
 }
 .No_Videos p {
   font-size: 18px;

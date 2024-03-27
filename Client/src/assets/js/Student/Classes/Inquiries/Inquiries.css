@@ -86,8 +86,9 @@
   padding-bottom: var(--main-padding-bottom);
 }
 .No_Inquiries .NoInquirieslayer {
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
+  max-width: 100%;
 }
 .No_Inquiries p {
   font-size: 18px;

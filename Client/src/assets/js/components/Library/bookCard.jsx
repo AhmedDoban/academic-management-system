@@ -7,12 +7,7 @@ function BookCard(props) {
     <React.Fragment>
       <div className="books">
         {props.bookData.length > 0 ? (
-          <div
-            className="container"
-            data-aos="fade-down"
-            data-aos-easing="ease-in-out"
-            data-aos-duration="1000"
-          >
+          <div className="container" data-aos="fade-down">
             {props.bookData.map((p) => {
               if (
                 p.volumeInfo.imageLinks &&

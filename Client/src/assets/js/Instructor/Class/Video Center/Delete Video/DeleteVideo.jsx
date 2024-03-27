@@ -75,12 +75,7 @@ function DeleteVideo() {
       <div className="DeleteVideo">
         <div className="container">
           {Videos.map((Vi) => (
-            <div
-              className="card"
-              data-aos="zoom-in"
-              data-aos-easing="ease-in-out"
-              data-aos-duration="1000"
-            >
+            <div className="card" data-aos="zoom-in">
               <div className="data">
                 <span>{Vi.video_title}</span>
                 <i

@@ -153,13 +153,7 @@ function SubjectExams(props) {
         ) : Data.length > 0 ? (
           <div className="container">
             {Data.map((Exam) => (
-              <Link
-                className="card"
-                data-aos="zoom-in"
-                data-aos-easing="ease-in-out"
-                data-aos-duration="1000"
-                key={Exam.exam_quiz_id}
-              >
+              <Link className="card" data-aos="zoom-in" key={Exam.exam_quiz_id}>
                 <div className="data">
                   <Player
                     autoplay={true}

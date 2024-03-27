@@ -189,8 +189,9 @@
   padding-bottom: var(--main-padding-bottom);
 }
 .NoQu .NoQuPlayer {
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
+  max-width: 100%;
 }
 .NoQu p {
   font-size: 18px;

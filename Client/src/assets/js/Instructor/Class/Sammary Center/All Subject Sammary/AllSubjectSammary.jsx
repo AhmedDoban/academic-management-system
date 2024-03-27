@@ -47,8 +47,6 @@ function AllSubjectSammary() {
                 key={pdf.summary_id}
                 to={pdf.summary_link}
                 data-aos="zoom-in"
-                data-aos-easing="ease-in-out"
-                data-aos-duration="1000"
               >
                 <div className="data">
                   <h1>{pdf.summary_name}</h1>

@@ -96,8 +96,6 @@ function Exams() {
                 key={Exam.exam_id}
                 to={`EditExam/${Exam.exam_id}/${Exam.exam_name}?`}
                 data-aos="zoom-in"
-                data-aos-easing="ease-in-out"
-                data-aos-duration="1000"
               >
                 <Player
                   autoplay={true}

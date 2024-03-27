@@ -99,8 +99,6 @@ function Class() {
                 <Link
                   className="card"
                   data-aos="zoom-in"
-                  data-aos-easing="ease-in-out"
-                  data-aos-duration="1000"
                   to={`/subjects/${p.subject_id}/${p.subject_name}?`}
                   key={p.subject_id}
                 >
