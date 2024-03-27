@@ -1,0 +1,159 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# SemesterTablePage
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.SemesterTablePage {
+  position: relative;
+  min-width: 100%;
+  padding-bottom: var(--main-padding-bottom);
+  padding-top: var(--main-padding-top);
+}
+.SemesterTablePage .container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  SemesterTablePage 
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+
+.SemesterTablePage .container h1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-color);
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.SemesterTablePage .container .button-control {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  color: var(--main-color);
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.SemesterTablePage .container .button-control button {
+  position: relative;
+  padding: 10px;
+  background-color: var(--main-color);
+  border: 0;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # SemesterTablePage SemesterTablePageContainer
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.SemesterTablePage .SemesterTablePageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.SemesterTablePage table {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  table-layout: fixed;
+}
+.SemesterTablePage table th,
+.SemesterTablePage table td {
+  margin: 0;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--main-text-color);
+  font-weight: 500;
+  height: 50px;
+  border-bottom: 0.5px solid rgb(193, 193, 193);
+  border-left: 0.5px solid rgb(193, 193, 193);
+  transition: var(--main-transition);
+}
+.SemesterTablePage table th {
+  text-align: center;
+}
+.SemesterTablePage table td:not(:first-child) {
+  cursor: pointer;
+}
+.SemesterTablePage table thead th {
+  position: relative;
+  background-color: var(--main-color);
+  color: #fff;
+  font-weight: 500;
+}
+.SemesterTablePage table td:first-child {
+  background-color: var(--main-color);
+  color: #fff;
+  font-weight: bold;
+}
+.SemesterTablePage table tbody tr:hover {
+  background-color: rgba(193, 193, 193, 0.3);
+}
+
+@media screen and (max-width: 776px) {
+  .SemesterTablePage {
+    padding: 0;
+  }
+  .SemesterTablePage table {
+    border: 0;
+    box-shadow: none;
+    margin: 0;
+  }
+
+  .SemesterTablePage table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  .SemesterTablePage table tr {
+    position: relative;
+    border-bottom: 3px solid #ddd;
+    margin-bottom: 0.625em;
+    width: 100%;
+  }
+  .SemesterTablePage table tr {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .SemesterTablePage table tr > :first-child {
+    grid-column: 1 / 3;
+  }
+  .SemesterTablePage table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 14px;
+    text-align: right;
+  }
+  .SemesterTablePage table td:first-child {
+    text-align: center;
+    background-color: var(--main-color);
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+    width: 100%;
+  }
+  .SemesterTablePage table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--main-color);
+  }
+
+  .SemesterTablePage table td:last-child {
+    border-bottom: 0;
+  }
+}

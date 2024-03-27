@@ -13,8 +13,8 @@ import SideBar from "../components/SideBar/SideBar";
 import Loading from "../components/Loading/Loading";
 import { useSelector } from "react-redux";
 
-// Class Room page
-const StudenClasses = lazy(() => import("./Classes/StudenClasses"));
+// Semester Subjects page
+const ClassRoom = lazy(() => import("./Classes/ClassRoom"));
 const Quiz = lazy(() => import("./Quiz/Quiz"));
 const SubjectData = lazy(() => import("./Classes/SubjectData/SubjectData"));
 const Exam = lazy(() => import("./Classes/Exams/Exam"));
@@ -31,6 +31,9 @@ const ChatBot = lazy(() => import("./Classes/Chat Bot/ChatBot"));
 // table page
 const StudentTablePage = lazy(() => import("./Table/StudentTablePage"));
 const JoinSemester = lazy(() => import("./Join Semester/JoinSemester"));
+const SemesterTable = lazy(() =>
+  import("./Table/Semester Table/SemesterTable")
+);
 
 // library page
 const Library = lazy(() => import("../components/Library/Library"));
@@ -117,19 +120,19 @@ const Student = (props) => {
               <Suspense fallback={<Loading />}>
                 <Routes>
                   {/********** Courses Page ***********/}
-                  <Route path="/Class Room" element={<StudenClasses />}>
+                  <Route path="/Semester Subjects" element={<ClassRoom />}>
                     <Route path="" exact />
-                    <Route path=":generation_id" element={<StudenClasses />} />
+                    <Route path=":Semester_id" element={<ClassRoom />} />
                   </Route>
-                  <Route path="" element={<StudenClasses />}>
+                  <Route path="" element={<ClassRoom />}>
                     <Route path="" exact />
                     <Route
-                      path="/Class Room/:generation_id"
-                      element={<StudenClasses />}
+                      path="/Semester Subjects/:Semester_id"
+                      element={<ClassRoom />}
                     />
                   </Route>
                   <Route
-                    path="/Subject Data/:subject_id/:SubjectName?"
+                    path="/Subject Data/:Semester_id/:SubjectName?"
                     element={<Outlet />}
                   >
                     <Route path="" element={<SubjectData />} />
@@ -161,6 +164,12 @@ const Student = (props) => {
                       IsInsemester ? <StudentTablePage /> : <JoinSemester />
                     }
                   />
+                  <Route
+                    path={IsInsemester ? "/table" : "/Join semester"}
+                    element={<StudentTablePage />}
+                  >
+                    <Route path=":Semester_id" />
+                  </Route>
                   {/********** Library Page ***********/}
                   <Route path="/library" element={<Library />}>
                     <Route path=":id" element={<BookDetails />} />

@@ -1,0 +1,53 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+ # Semester Table
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.SemesterTable {
+  position: relative;
+  padding-top: var(--main-padding-top);
+  padding-bottom: calc(var(--main-padding-bottom) * 2);
+  background-color: var(--white-color);
+  min-height: 70vh;
+}
+.SemesterTable .container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  z-index: 2;
+}
+
+.SemesterTable .container .card {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--white-color);
+  box-shadow: var(--main-box-shadow);
+  border-radius: 18px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.SemesterTable .container .card .info {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.SemesterTable .container .card .info .PLayer {
+  width: 100%;
+  height: 100%;
+}
+.SemesterTable .container .card .info p {
+  position: relative;
+  color: var(--main-text-color);
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: capitalize;
+}

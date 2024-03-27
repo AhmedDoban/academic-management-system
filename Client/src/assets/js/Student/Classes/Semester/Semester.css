@@ -1,0 +1,170 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Semester
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Semester {
+  position: relative;
+  padding-top: var(--main-padding-top);
+  padding-bottom: calc(var(--main-padding-bottom) * 2);
+  background-color: var(--white-color);
+  min-height: 70vh;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Semester header
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Semester .header {
+  position: relative;
+  width: 100%;
+  gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: var(--main-border-radius);
+  margin-bottom: 20px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Semester input
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Semester .header .input-absulote {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--main-border-radius);
+}
+.Semester .header .input-absulote input {
+  padding: 10px 12px;
+  border: none;
+  border-radius: var(--main-border-radius);
+  color: var(--main-text-color);
+  background-color: var(--main-background-color);
+}
+
+.Semester .header i {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #09729c;
+  color: var(--white-color);
+  border-radius: calc(var(--main-border-radius) / 2);
+  cursor: pointer;
+  font-size: large;
+  box-shadow: var(--main-box-shadow);
+  transition: var(--main-transition);
+}
+.Semester .header i.active {
+  background-color: var(--orange-color);
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+ # .Semester .NoClassesInserted 
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Semester .NoSemesterInserted {
+  position: relative;
+  min-height: 50vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--main-text-color);
+}
+.Semester .NoSemesterInserted h5 {
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.7;
+}
+.Semester .NoSemesterInserted .Player {
+  position: relative;
+  width: 250px;
+  max-width: 100%;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+ # Semester Semester Container.grid card
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Semester .SemesterContainer.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  z-index: 2;
+}
+
+.Semester .SemesterContainer.grid .card {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--white-color);
+  box-shadow: var(--main-box-shadow);
+  border-radius: 18px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.Semester .SemesterContainer.grid .card .info {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Semester .SemesterContainer.grid .card .info .PLayer {
+  width: 100%;
+  height: 100%;
+}
+.Semester .SemesterContainer.grid .card .info p {
+  position: relative;
+  color: var(--main-text-color);
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+ # Semester SemesterContainer.list
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Semester .SemesterContainer.list {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.Semester .SemesterContainer.list .card {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0px 10px 8px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white-color);
+}
+.Semester .SemesterContainer.list .card .info {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 5px 20px;
+}
+.Semester .SemesterContainer.list .card .info .PLayer {
+  position: relative;
+  width: 100px;
+}
+.Semester .SemesterContainer.list .card .info p {
+  position: relative;
+  color: var(--main-text-color);
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: capitalize;
+}

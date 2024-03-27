@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 function Profile(props) {
   const { loading, user } = useSelector((state) => state.User);
-
+  
   return (
     <React.Fragment>
       <div className="StudentProfile" data-aos="fade-right">
