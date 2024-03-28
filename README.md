@@ -39,7 +39,7 @@ Our Graduation Project aims to redefine academic management, offering a comprehe
 
 <h2>Project Screenshots</h2>
 
-<img src="https://github.com/AhmedDoban/academic-management-system/assets/73547094/4f78f550-bf3f-4d8b-b32e-895218627f1e" alt="project-screenshot" >
+<img src="https://github.com/AhmedDoban/academic-management-system/assets/73547094/86a21ac8-ff2c-4cf2-8fb1-7e383ffcbb69" alt="project-screenshot" >
 
 <img src="https://github.com/AhmedDoban/academic-management-system/assets/73547094/ae53a8f1-fe41-4dd4-920a-312fab109f7c" alt="project-screenshot" >
 
