@@ -2,22 +2,31 @@
 
 <p align="center"><img src="https://github.com/AhmedDoban/academic-management-system/assets/73547094/587e1b5f-654d-4da3-9e6f-9ecc2d46d41a" alt="project-image"></p>
 
+# Overview
+
 <p id="description" align="center">
-Overview:
 Our Graduation Project, an Academic Management System, revolutionizes academic interactions by integrating course materials, assessments, communication tools, and administrative functions into a centralized platform. This system caters to students, instructors, parents, and administrators, fostering collaboration and enhancing the educational experience through innovative features.
 Academic Management System is an online software system designed to support teaching and learning in an educational setting. Online teaching is not that different from teaching in a face-to-face environment. You as the instructor are still teaching students with different learning styles and developing a learning community. Online teaching simply uses different tools and approaches to reach learning objectives. Online learning sometimes called eLearning generally refers to computer-enhanced learning that makes use of Internet-mediated communications. It is used to refer to the professional field in which educators plan and design course materials learning activities approaches to assessment and teaching strategies that are appropriate for a virtual learning environment. Academic Management System is an online software system designed to also support student activity tools and not finally other tools to help him in study like TODO NOTES and library
+</p>
 
-Key Features:
+# Student Page
 
-Student Page: Students access courses, submit assignments, and engage with peers through discussion forums. They can view course materials, including videos, and participate in live video calls and chat sessions with instructors and classmates. Exams are seamlessly integrated into the platform, allowing students to complete assessments online.
+Students access courses, submit assignments, and engage with peers through discussion forums. They can view course materials, including videos, and participate in live video calls and chat sessions with instructors and classmates. Exams are seamlessly integrated into the platform, allowing students to complete assessments online.
 
-Instructor Page: Instructors create and manage courses, upload course materials, and schedule video lectures. They can conduct live video calls for virtual office hours, provide feedback on assignments, and administer exams. Instructors also facilitate communication with students through chat, ensuring timely assistance and support.
+# Instructor Page
 
-Parent Page: Parents monitor their child's academic progress, including exam scores and attendance records. They can access course materials, view video lectures, and communicate with instructors regarding their child's performance. Parents have the option to participate in video calls with instructors to discuss their child's education.
+Instructors create and manage courses, upload course materials, and schedule video lectures. They can conduct live video calls for virtual office hours, provide feedback on assignments, and administer exams. Instructors also facilitate communication with students through chat, ensuring timely assistance and support.
 
-Admin Page: Administrators oversee system functionality, manage user accounts, and monitor course activity. They can configure permissions, generate reports on student performance and system usage, and provide technical support to users. Administrators ensure the smooth operation of the Academic Management System and facilitate continuous improvement.
+# Parent Page
 
-Future Enhancements:
+Parents monitor their child's academic progress, including exam scores and attendance records. They can access course materials, view video lectures, and communicate with instructors regarding their child's performance. Parents have the option to participate in video calls with instructors to discuss their child's education.
+
+# Admin Page
+
+Administrators oversee system functionality, manage user accounts, and monitor course activity. They can configure permissions, generate reports on student performance and system usage, and provide technical support to users. Administrators ensure the smooth operation of the Academic Management System and facilitate continuous improvement.
+
+# Future Enhancements
+
 As part of our commitment to continuous improvement, future enhancements to the Academic Management System may include:
 
 Integration with learning analytics tools to provide insights into student engagement and learning outcomes.
@@ -25,7 +34,6 @@ Enhanced security features to protect user data and ensure compliance with priva
 Integration with external video conferencing platforms for seamless communication and collaboration.
 Accessibility improvements to ensure the platform is usable by all users, including those with disabilities.
 Our Graduation Project aims to redefine academic management, offering a comprehensive solution that empowers users to achieve their educational goals effectively and efficiently.
-</p>
 
 # 🚀 <a href="https://academic-management-system-git-main-ahmeddoban.vercel.app" > Demo </a>
 
@@ -55,7 +63,7 @@ Here're some of the project's best features
 
 </details >
 <details open>
-<summary>Instractor Page</summary>
+<summary>Instructor Page</summary>
 
     - (Create / update / delete) Exam
     - (Show / Hide) Videos of course
