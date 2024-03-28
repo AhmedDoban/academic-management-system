@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const Instractor_Model = mongoose.Schema(
+const Instructor_Model = mongoose.Schema(
   {
     name: { type: String, required: true },
     national_ID: { type: Number, required: true },
@@ -9,18 +9,19 @@ const Instractor_Model = mongoose.Schema(
     Token: { type: String, required: true },
     Role: {
       type: String,
-      enum: ["ADMIN", "STUDENT", "INSTRACTOR", "PARENT"],
+      enum: ["ADMIN", "STUDENT", "INSTRUCTOR", "PARENT"],
       required: true,
     },
     Avatar: {
       type: String,
-      default: `${process.env.SERVER_URI}/Uploads/instractor.jpg`,
+      default: `${process.env.SERVER_URI}/Uploads/Instructor.jpg`,
     },
     Mobile: { type: String, default: "" },
+    Location: { type: String, default: "" },
   },
   {
-    collection: "Instractor",
+    collection: "Instructor",
   }
 );
 
-export default mongoose.model("Instractor_Model", Instractor_Model);
+export default mongoose.model("Instructor_Model", Instructor_Model);

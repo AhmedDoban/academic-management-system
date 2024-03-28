@@ -1,13 +1,13 @@
-// import schema from Instractor modle
-import Instractor_Model from "../Model/Instractor_Model.js";
+// import schema from Instructor modle
+import Instructor_Model from "../Model/Instructor_Model.js";
 import { validationResult } from "express-validator";
 import bcrypt from "bcrypt";
 import Codes from "../utils/Codes.js";
 import JWT from "../Utils/JWT.js";
 import fs from "fs";
 
-// login Instractor authentication
-const Instractor_Login = async (Req, Res) => {
+// login Instructor authentication
+const Instructor_Login = async (Req, Res) => {
   const { national_ID, password } = Req.body;
   // Body Validation Before Searching in the database to increase performance
   const Errors = validationResult(Req);
@@ -21,25 +21,25 @@ const Instractor_Login = async (Req, Res) => {
   }
   try {
     // Searching in the database with email may be email is wrong
-    const Instractor = await Instractor_Model.findOne({ national_ID });
-    if (Instractor === null) {
+    const Instructor = await Instructor_Model.findOne({ national_ID });
+    if (Instructor === null) {
       // invalid data in the body and not match the data in the database
       return Res.json({
         Status: Codes.FAILD,
         Status_Code: Codes.FAILD_CODE,
-        message: "Instractor account is not exist !",
+        message: "Instructor account is not exist !",
       });
     } else {
-      const Instractor_Password = await bcrypt.compare(
+      const Instructor_Password = await bcrypt.compare(
         password,
-        Instractor.password
+        Instructor.password
       );
-      if (Instractor && Instractor_Password) {
-        // return ther Instractor data
+      if (Instructor && Instructor_Password) {
+        // return ther Instructor data
         return Res.json({
           Status: Codes.SUCCESS,
           Status_Code: Codes.SUCCESS_CODE,
-          Data: await Instractor_Model.findOne(
+          Data: await Instructor_Model.findOne(
             { national_ID },
             { password: 0, __v: 0, Role: 0 }
           ),
@@ -63,8 +63,8 @@ const Instractor_Login = async (Req, Res) => {
   }
 };
 
-// Register Instractor authentication
-const Instractor_Register = async (Req, Res) => {
+// Register Instructor authentication
+const Instructor_Register = async (Req, Res) => {
   const { Mobile, email, name, national_ID, password } = Req.body;
 
   // Body Validation Before Searching in the database to increase performance
@@ -80,34 +80,34 @@ const Instractor_Register = async (Req, Res) => {
   }
   try {
     // Searching in the database with email may be email is wrong
-    const Check_Instractor = await Instractor_Model.findOne({ national_ID });
-    if (Check_Instractor) {
+    const Check_Instructor = await Instructor_Model.findOne({ national_ID });
+    if (Check_Instructor) {
       return Res.json({
         Status: Codes.FAILD,
         Status_Code: Codes.FAILD_CODE,
-        message: "Instractor Is already exist",
+        message: "Instructor Is already exist",
       });
     } else {
       const Hashed_Password = await bcrypt.hash(
         password,
         +process.env.HASH_PASSWORD
       );
-      const Instractor = new Instractor_Model({
+      const Instructor = new Instructor_Model({
         name: name,
         email: email,
-        Role: "INSTRACTOR",
+        Role: "INSTRUCTOR",
         password: Hashed_Password,
         Mobile: Mobile,
         national_ID: national_ID,
       });
-      Instractor.Token = await JWT.Genetate_Token(Instractor);
-      await Instractor.save();
+      Instructor.Token = await JWT.Genetate_Token(Instructor);
+      await Instructor.save();
 
-      // return Instractor data after saving it in the database
+      // return Instructor data after saving it in the database
       return Res.json({
         Status: Codes.SUCCESS,
         Status_Code: Codes.SUCCESS_CODE,
-        message: "Instractor account Created Successfully !",
+        message: "Instructor account Created Successfully !",
       });
     }
   } catch (err) {
@@ -120,11 +120,11 @@ const Instractor_Register = async (Req, Res) => {
   }
 };
 
-// Get Specific Instractor from database
-const Get_Specific_Instractor = async (Req, Res) => {
-  const Instractor_id = Req.params.Instractor_id;
+// Get Specific Instructor from database
+const Get_Specific_Instructor = async (Req, Res) => {
+  const Instructor_id = Req.params.Instructor_id;
   const { _id, Token } = Req.body;
-  
+
   const Errors = validationResult(Req);
   // Body Validation Before Searching in the database to increase performance
   if (!Errors.isEmpty()) {
@@ -137,30 +137,30 @@ const Get_Specific_Instractor = async (Req, Res) => {
   }
 
   try {
-    // GEt Instractor Data From the Data Base
-    const Instractor = await Instractor_Model.findOne(
+    // GEt Instructor Data From the Data Base
+    const Instructor = await Instructor_Model.findOne(
       { _id, Token },
       { password: 0, __v: 0, Role: 0 }
     );
-    if (Instractor_id === _id && Instractor !== null) {
-      // return Instractor data
+    if (Instructor_id === _id && Instructor !== null) {
+      // return Instructor data
       return Res.json({
         Status: Codes.SUCCESS,
         Status_Code: Codes.SUCCESS_CODE,
-        Data: Instractor,
+        Data: Instructor,
       });
     }
   } catch (err) {
     Res.json({
       Status: Codes.FAILD,
       Status_Code: Codes.FAILD_CODE,
-      message: "Instractor not founded",
+      message: "Instructor not founded",
     });
   }
 };
 
 export default {
-  Instractor_Login,
-  Instractor_Register,
-  Get_Specific_Instractor,
+  Instructor_Login,
+  Instructor_Register,
+  Get_Specific_Instructor,
 };

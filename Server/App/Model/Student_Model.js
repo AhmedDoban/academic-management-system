@@ -10,7 +10,7 @@ const Student_Model = mongoose.Schema(
     Token: { type: String, required: true },
     Role: {
       type: String,
-      enum: ["ADMIN", "STUDENT", "INSTRACTOR", "PARENT"],
+      enum: ["ADMIN", "STUDENT", "INSTRUCTOR", "PARENT"],
       required: true,
     },
     Avatar: {

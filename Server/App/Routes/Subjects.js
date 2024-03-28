@@ -16,4 +16,12 @@ Router.route("/").post(
   Subject_controllers.Get_All_Subjects
 );
 
+// Routes Handelar /API/Subjects/Instructor/InstructorSubjects
+Router.route("/Instructor/InstructorSubjects").post(
+  JWT.Verify_Token,
+  Verify_User("INSTRUCTOR"),
+  [body("instructor_id").notEmpty().withMessage("instructor id is not Valid")],
+  Subject_controllers.Get_Instructor_Subjects
+);
+
 export default Router;

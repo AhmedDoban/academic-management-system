@@ -6,7 +6,7 @@ import cors from "cors";
 
 import Student from "./App/Routes/Student.js";
 import Parent from "./App/Routes/Parent.js";
-import Instractor from "./App/Routes/Instractor.js";
+import Instructor from "./App/Routes/Instructor.js";
 import Subjects from "./App/Routes/Subjects.js";
 import Semester from "./App/Routes/Semester.js";
 
@@ -29,7 +29,7 @@ App.use(cors());
 App.use("/Uploads", express.static(path.join(__dirname, "/Uploads")));
 App.use("/API/Student", Student);
 App.use("/API/Parent", Parent);
-App.use("/API/Instractor", Instractor);
+App.use("/API/Instructor", Instructor);
 App.use("/API/Subjects", Subjects);
 App.use("/API/Semester", Semester);
 App.use("*", (Req, Res) => {

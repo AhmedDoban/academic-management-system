@@ -1,9 +1,10 @@
 // import schema from Subjects modle
 import Subject_Model from "../Model/Subject_Model.js";
-import Instractor_Model from "../Model/Instractor_Model.js";
+import Instructor_Model from "../Model/Instructor_Model.js";
 import Student_Model from "../Model/Student_Model.js";
 import { validationResult } from "express-validator";
 import Codes from "../utils/Codes.js";
+import mongoose from "mongoose";
 
 // get All subjects from back end
 const Get_All_Subjects = async (Req, Res) => {
@@ -28,17 +29,17 @@ const Get_All_Subjects = async (Req, Res) => {
       { $limit: Limit },
       {
         $lookup: {
-          from: "Instractor",
+          from: "Instructor",
           localField: "instructor_id",
           foreignField: "_id",
-          as: "Instractor",
+          as: "Instructor",
         },
       },
-      { $unwind: "$Instractor" },
+      { $unwind: "$Instructor" },
       {
         $project: {
-          "Instractor.name": 1,
-          "Instractor.Avatar": 1,
+          "Instructor.name": 1,
+          "Instructor.Avatar": 1,
           time: 1,
           credit_hours: 1,
           name: 1,
@@ -64,6 +65,45 @@ const Get_All_Subjects = async (Req, Res) => {
   }
 };
 
+// get All Instructor Subjects from back end
+const Get_Instructor_Subjects = async (Req, Res) => {
+  const { instructor_id } = Req.body;
+
+  // Body Validation Before Searching in the database to increase performance
+  const Errors = validationResult(Req);
+  if (!Errors.isEmpty()) {
+    return Res.json({
+      Status: Codes.FAILD,
+      Status_Code: Codes.FAILD_CODE,
+      message: "Can't Get data please Try again later",
+      Data: Errors.array().map((arr) => arr.msg),
+    });
+  }
+  try {
+    const InstructorSubjects = await Subject_Model.aggregate([
+      {
+        $match: {
+          instructor_id: new mongoose.Types.ObjectId(instructor_id),
+        },
+      },
+    ]);
+
+    return Res.json({
+      Status: Codes.SUCCESS,
+      Status_Code: Codes.SUCCESS_CODE,
+      Data: InstructorSubjects,
+    });
+  } catch (err) {
+    // Error in serching handelar
+    return Res.json({
+      Status: Codes.FAILD,
+      Status_Code: Codes.FAILD_CODE,
+      message: "Sorry Something went wrong please try again later !",
+    });
+  }
+};
+
 export default {
   Get_All_Subjects,
+  Get_Instructor_Subjects,
 };
