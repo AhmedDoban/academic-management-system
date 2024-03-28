@@ -65,7 +65,7 @@ function Register() {
           <p className="color-black">Doctor </p>
         </div>
       ),
-      url: `${process.env.REACT_APP_API}/Instractor/Register`,
+      url: `${process.env.REACT_APP_API}/Instructor/Register`,
     },
     {
       value: "Parent",

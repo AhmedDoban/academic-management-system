@@ -40,7 +40,7 @@ function SettingPage(props) {
 
   return (
     <React.Fragment>
-      <div className="InstractorSettingPage">
+      <div className="InstructorSettingPage">
         <div className="img-name-settingpage">
           <div className="container">
             <div className="img-container">

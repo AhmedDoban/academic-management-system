@@ -7,7 +7,7 @@ import Parent from "../Parent/Parent";
 function Auth(props) {
   if (JSON.parse(localStorage.getItem("TYPE")) === "Student") {
     return <Student />;
-  } else if (JSON.parse(localStorage.getItem("TYPE")) === "Instractor") {
+  } else if (JSON.parse(localStorage.getItem("TYPE")) === "Instructor") {
     return <Instructor />;
   } else if (JSON.parse(localStorage.getItem("TYPE")) === "Parent") {
     return <Parent />;

@@ -43,7 +43,7 @@ function SubjectData() {
               autoplay={true}
               loop={true}
               controls={false}
-              src={require("../../../../img/Players/Vedios.json")}
+              src={require("../../../../img/Players/Videos.json")}
               style={{ width: "150px", height: "150px" }}
             />
           </Link>

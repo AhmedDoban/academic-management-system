@@ -3,55 +3,17 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { Link } from "react-router-dom";
 import Mountain from "./../../components/Mountain Template/Mountain";
 import "./Class.css";
-import axios from "axios";
 import LodingFeachData from "../../components/Loding Feach Data/LodingFeachData";
+import { useDispatch, useSelector } from "react-redux";
+import { GetAllInstructorSubjects } from "../../../Toolkit/Slices/SemestersSlice";
 function Subjects() {
+  const { loading, Subjects } = useSelector((State) => State.Semester);
   const [TextFeild, SetTextField] = useState("");
-  const [Doctor_id, setDoctor_id] = useState([]);
-
-  const GetID = async function () {
-    try {
-      const response = await JSON.parse(localStorage.getItem("User"));
-      setDoctor_id(response.doctor_id);
-    } catch (error) {
-      throw error;
-    }
-  };
-
-  const [Classes, SetClasses] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const url = `${process.env.REACT_APP_API}/doctor/select_doctor_sub.php`;
+  const Dispatcth = useDispatch();
 
   useEffect(() => {
-    const fetchData = async function () {
-      GetID();
-      try {
-        setLoading(true);
-        await axios
-          .post(
-            url,
-            { doctor_id: Doctor_id },
-            {
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "text/plain",
-              },
-            }
-          )
-          .then((response) => {
-            if (response.data.status === "success") {
-              SetClasses(response.data.message);
-            }
-          });
-      } catch (error) {
-        throw error;
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [url, Doctor_id]);
+    Dispatcth(GetAllInstructorSubjects());
+  }, []);
 
   return (
     <React.Fragment>
@@ -63,9 +25,9 @@ function Subjects() {
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets10.lottiefiles.com/private_files/lf30_jo7huq2d.json"
+              src={require("../../../img/Players/Search.json")}
               style={{ width: "50px", height: "50px" }}
-            ></Player>
+            />
             <input
               type="text"
               placeholder="Search . . . "
@@ -79,19 +41,18 @@ function Subjects() {
         {loading ? (
           <LodingFeachData />
         ) : (
-          <div className="container">
-            {Classes.filter((p) =>
+          <div className="container" data-aos="fade-">
+            {Subjects.filter((p) =>
               TextFeild.toLowerCase() !== ""
-                ? p.subject_name.toLowerCase().includes(TextFeild)
-                : p.subject_name
-            ).map((p) => (
+                ? p.name.toLowerCase().includes(TextFeild)
+                : p.name
+            ).map((Subject) => (
               <Link
                 className="card"
-                data-aos="zoom-in"
-                to={`/subjects/${p.subject_id}/${p.subject_name}?`}
-                key={p.subject_id}
+                to={`/subjects/${Subject._id}/${Subject.name}?`}
+                key={Subject._id}
               >
-                <h1>{p.subject_name}</h1>
+                <h1>{Subject.name}</h1>
                 <Player
                   autoplay={true}
                   loop={true}

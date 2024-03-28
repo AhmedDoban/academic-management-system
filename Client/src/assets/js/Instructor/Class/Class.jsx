@@ -1,28 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Class.css";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Link } from "react-router-dom";
 import Mountain from "./../../components/Mountain Template/Mountain";
 import LodingFeachData from "./../../components/Loding Feach Data/LodingFeachData";
+import { useDispatch, useSelector } from "react-redux";
+import { GetAllInstructorSubjects } from "../../../Toolkit/Slices/SemestersSlice";
+import Select from "react-select";
 
 function Class() {
-  const [Classes, SetClasses] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const Dispatcth = useDispatch();
 
+  const { loading, Subjects } = useSelector((State) => State.Semester);
   const [CreateField, SetCreateField] = useState(false);
 
   const [Data, SetData] = useState({
-    subject_name: "",
-    subject_description: "",
-    generation_id: "",
+    name: "",
+    credit_hours: "",
+    day: "",
+    time: "",
   });
 
-  const HandeADD = async () => {
-    const CloneData = [...Classes];
-    CloneData.push(Data);
-    SetClasses(CloneData);
-    SetCreateField(false);
-  };
+  const Days = [
+    { label: "Sunday", value: "Sunday" },
+    { label: "Monday", value: "Monday" },
+    { label: "Tuesday", value: "Tuesday" },
+    { label: "Wednesday", value: "Wednesday" },
+    { label: "Thursday", value: "Thursday" },
+    { label: "Friday", value: "Friday" },
+    { label: "Saturday", value: "Saturday" },
+  ];
+  const time = [
+    { label: "9-11", value: "9-11" },
+    { label: "11-1", value: "11-1" },
+    { label: "1-3", value: "1-3" },
+    { label: "3-5", value: "3-5" },
+  ];
+  useEffect(() => {
+    Dispatcth(GetAllInstructorSubjects());
+  }, []);
 
   return (
     <React.Fragment>
@@ -48,13 +64,14 @@ function Class() {
             <div className="add-new-Class">
               <div className="container">
                 <div className="card-input">
+                  <Select options={time} menuPlacement="auto" />
+                </div>
+                <div className="card-input">
                   <input
                     type="search"
-                    id="subject_name"
-                    value={Data.subject_name}
-                    onChange={(e) =>
-                      SetData({ ...Data, subject_name: e.target.value })
-                    }
+                    id="name"
+                    value={Data.name}
+                    onChange={(e) => SetData({ ...Data, name: e.target.value })}
                     placeholder=" "
                   />
                   <label htmlFor="subject_name">Subject Name</label>
@@ -62,54 +79,43 @@ function Class() {
                 <div className="card-input">
                   <input
                     type="search"
-                    id="subject_description"
-                    value={Data.subject_description}
+                    id="credit_hours"
+                    value={Data.credit_hours}
                     onChange={(e) =>
                       SetData({
                         ...Data,
-                        subject_description: e.target.value,
+                        credit_hours: e.target.value,
                       })
                     }
                     placeholder=" "
                   />
-                  <label htmlFor="subject_description">
-                    Subject Description
-                  </label>
+                  <label htmlFor="credit_hours">credit hours</label>
                 </div>
                 <div className="card-input">
-                  <input
-                    type="search"
-                    id="generation_id"
-                    value={Data.generation_id}
-                    onChange={(e) =>
-                      SetData({ ...Data, generation_id: e.target.value })
-                    }
-                    placeholder=" "
-                  />
-                  <label htmlFor="generation_id">Generation Id</label>
+                  <Select options={Days} menuPlacement="auto" />
                 </div>
+
                 <div className="card-input">
-                  <button onClick={() => HandeADD()}> Add</button>
+                  <button> Add</button>
                 </div>
               </div>
             </div>
           ) : (
-            <div className="container">
-              {Classes.map((p) => (
+            <div className="container" data-aos="fade-in">
+              {Subjects.map((Subject) => (
                 <Link
                   className="card"
-                  data-aos="zoom-in"
-                  to={`/subjects/${p.subject_id}/${p.subject_name}?`}
-                  key={p.subject_id}
+                  to={`/subjects/${Subject._id}/${Subject.name}?`}
+                  key={Subject._id}
                 >
-                  <h1>{p.subject_name}</h1>
+                  <h1>{Subject.name}</h1>
                   <Player
                     autoplay={true}
                     loop={true}
                     controls={false}
-                    src="https://assets7.lottiefiles.com/packages/lf20_yg29hewu.json"
-                    style={{ width: "100px", height: "150px" }}
-                  ></Player>
+                    src={require("../../../img/Players/Books.json")}
+                    style={{ width: "150px", height: "150px" }}
+                  />
                 </Link>
               ))}
             </div>

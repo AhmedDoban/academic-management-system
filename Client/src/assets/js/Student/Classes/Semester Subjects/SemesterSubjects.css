@@ -60,7 +60,7 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
  # .SemesterSubjects .NoClassesInserted 
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.SemesterSubjects .NoSemesterSubjectsInserted {
+.SemesterSubjects .NoSemesterInserted {
   position: relative;
   min-height: 50vh;
   width: 100%;
@@ -71,14 +71,15 @@
   gap: 10px;
   color: var(--main-text-color);
 }
-.SemesterSubjects .NoSemesterSubjectsInserted h5 {
+.SemesterSubjects .NoSemesterInserted h5 {
   font-size: 18px;
   text-align: center;
   line-height: 1.7;
 }
-.SemesterSubjects .NoSemesterSubjectsInserted .Player {
+.SemesterSubjects .NoSemesterInserted .Player {
   position: relative;
   width: 250px;
+  height: 250px;
   max-width: 100%;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ

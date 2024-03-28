@@ -26,9 +26,9 @@ function SubjectData() {
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets4.lottiefiles.com/packages/lf20_h4th9ofg.json"
+              src={require("../../../../img/Players/Exam.json")}
               style={{ width: "150px", height: "150px" }}
-            ></Player>
+            />
           </Link>
           {/***************** Video Center  **********************/}
           <Link
@@ -41,9 +41,9 @@ function SubjectData() {
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets4.lottiefiles.com/packages/lf20_tFYxgv.json"
+              src={require("../../../../img/Players/VideoCenter.json")}
               style={{ width: "150px", height: "150px" }}
-            ></Player>
+            />
           </Link>
           {/***************** Videos  **********************/}
           <Link
@@ -56,9 +56,9 @@ function SubjectData() {
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets3.lottiefiles.com/packages/lf20_ehfMXK.json"
+              src={require("../../../../img/Players/Videos.json")}
               style={{ width: "150px", height: "150px" }}
-            ></Player>
+            />
           </Link>
           {/***************** Summary / s  **********************/}
           <Link
@@ -71,9 +71,9 @@ function SubjectData() {
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets6.lottiefiles.com/packages/lf20_mWCcDd.json"
+              src={require("../../../../img/Players/Summary.json")}
               style={{ width: "150px", height: "150px" }}
-            ></Player>
+            />
           </Link>
           {/***************** call Room  **********************/}
           <Link
@@ -86,9 +86,9 @@ function SubjectData() {
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets3.lottiefiles.com/packages/lf20_ihspk1vg.json"
+              src={require("../../../../img/Players/CallRoom.json")}
               style={{ width: "150px", height: "150px" }}
-            ></Player>
+            />
           </Link>
           {/***************** call Room  **********************/}
           <Link className="card" data-aos="zoom-in">
@@ -97,9 +97,9 @@ function SubjectData() {
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets9.lottiefiles.com/private_files/lf30_z588h1j0.json"
+              src={require("../../../../img/Players/ChatRoom.json")}
               style={{ width: "150px", height: "150px" }}
-            ></Player>
+            />
           </Link>
           {/***************** inquiries  **********************/}
           <Link
@@ -112,9 +112,9 @@ function SubjectData() {
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets8.lottiefiles.com/packages/lf20_FyZ3MPhoNm.json"
+              src={require("../../../../img/Players/Inquiries.json")}
               style={{ width: "150px", height: "150px" }}
-            ></Player>
+            />
           </Link>
         </div>
       </div>

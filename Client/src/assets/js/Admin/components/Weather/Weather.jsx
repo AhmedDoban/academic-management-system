@@ -119,11 +119,11 @@ function Weather() {
                 <li>
                   <NavLink
                     to="/teacher"
-                    onClick={() => SetLocaltitle("Instractor")}
+                    onClick={() => SetLocaltitle("Instructor")}
                     end
                   >
                     <i className="fa-solid fa-chalkboard-user"></i>
-                    <span>Instractors</span>
+                    <span>Instructors</span>
                   </NavLink>
                 </li>
                 <li>

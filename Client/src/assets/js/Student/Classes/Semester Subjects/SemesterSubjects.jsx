@@ -14,7 +14,6 @@ function SemesterSubjects() {
   const [show, setShow] = useState("grid");
   const [Search, setSearch] = useState("");
 
-  console.log(Subjects);
   const Dispatch = useDispatch();
 
   useEffect(() => {

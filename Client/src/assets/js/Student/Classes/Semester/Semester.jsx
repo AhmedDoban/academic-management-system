@@ -61,53 +61,46 @@ function Semester() {
             {/**************** End *******************************/}
 
             {Semesters.length > 0 ? (
-              <React.Fragment>
-                {/**************** Show data from state *******************************/}
-                <div className={`SemesterContainer ${show}`}>
-                  {Semesters.filter((items) => {
-                    return Search.toLowerCase() === ""
-                      ? items
-                      : items.name.toLowerCase().includes(Search);
-                  }).map((Semester) => (
-                    <Link
-                      className="card"
-                      data-aos="zoom-in"
-                      key={Semester._id}
-                      to={`/Semester Subjects/${Semester._id}`}
-                    >
-                      <div className="info">
-                        <Player
-                          autoplay={true}
-                          loop={true}
-                          controls={false}
-                          src={require("../../../../img/Players/Books.json")}
-                          className="PLayer"
-                        />
+              <div className={`SemesterContainer ${show}`}>
+                {Semesters.filter((items) => {
+                  return Search.toLowerCase() === ""
+                    ? items
+                    : items.name.toLowerCase().includes(Search);
+                }).map((Semester) => (
+                  <Link
+                    className="card"
+                    data-aos="zoom-in"
+                    key={Semester._id}
+                    to={`/Semester Subjects/${Semester._id}`}
+                  >
+                    <div className="info">
+                      <Player
+                        autoplay={true}
+                        loop={true}
+                        controls={false}
+                        src={require("../../../../img/Players/Books.json")}
+                        className="PLayer"
+                      />
 
-                        <p>{Semester.name}</p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-
-                {/**************** End *******************************/}
-              </React.Fragment>
+                      <p>{Semester.name}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             ) : (
-              <>
-                <div className="NoSemesterInserted">
-                  <Player
-                    autoplay={true}
-                    loop={true}
-                    controls={false}
-                    src={require("../../../../img/Players/NoSemester.json")}
-                    className="Player"
-                  />
-                  <h5>
-                    There is no Semestrds go to join semester page and add new
-                    subject to semester
-                  </h5>
-                </div>
-              </>
+              <div className="NoSemesterInserted">
+                <Player
+                  autoplay={true}
+                  loop={true}
+                  controls={false}
+                  src={require("../../../../img/Players/NoSemester.json")}
+                  className="Player"
+                />
+                <h5>
+                  There is no Semestrds go to join semester page and add new
+                  subject to semester
+                </h5>
+              </div>
             )}
           </div>
         </div>

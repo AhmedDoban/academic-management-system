@@ -32,7 +32,7 @@ function AdminHome() {
         <Box
           link="/teacher"
           data={Teacher.length}
-          title="Instractors"
+          title="Instructors"
           linkPlayer="https://assets1.lottiefiles.com/packages/lf20_ikvz7qhc.json"
         />
         {/****************** Classes Box **********************/}

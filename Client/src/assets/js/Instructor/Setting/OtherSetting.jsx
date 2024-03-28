@@ -7,7 +7,7 @@ function OtherSetting() {
 
   return (
     <React.Fragment>
-      <div className="InstractorProfile" data-aos="fade-right">
+      <div className="InstructorProfile" data-aos="fade-right">
         {loading ? (
           <LodingFeachData />
         ) : (

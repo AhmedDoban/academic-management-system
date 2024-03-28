@@ -3,7 +3,7 @@ import React from "react";
 function Passwordpage(props) {
   return (
     <React.Fragment>
-      <div className="InstractorProfile" data-aos="fade-right">
+      <div className="InstructorProfile" data-aos="fade-right">
         <div className="container">
           <div className="box">
             <h5>Passwoed</h5>

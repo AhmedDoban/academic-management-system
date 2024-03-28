@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
 import Mountain from "../../../components/Mountain Template/Mountain";
 import "./Summary.css";
 

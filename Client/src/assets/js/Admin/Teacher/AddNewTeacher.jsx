@@ -39,7 +39,7 @@ function AddNewTeacher() {
 
   return (
     <React.Fragment>
-      <h5 className="main-title">Add New Instractor</h5>
+      <h5 className="main-title">Add New Instructor</h5>
       <div className="add-new-teacher">
         <div className="card">
           <input
@@ -49,7 +49,7 @@ function AddNewTeacher() {
             onChange={(e) => SetData({ ...Data, doctor_name: e.target.value })}
             placeholder=" "
           />
-          <label htmlFor="doctor_name">Instractor Name</label>
+          <label htmlFor="doctor_name">Instructor Name</label>
         </div>
         <div className="card">
           <input
@@ -59,7 +59,7 @@ function AddNewTeacher() {
             onChange={(e) => SetData({ ...Data, doctor_code: e.target.value })}
             placeholder=" "
           />
-          <label htmlFor="doctor_code">Instractor Code</label>
+          <label htmlFor="doctor_code">Instructor Code</label>
         </div>
         <div className="card">
           <input
@@ -69,7 +69,7 @@ function AddNewTeacher() {
             onChange={(e) => SetData({ ...Data, doctor_pass: e.target.value })}
             placeholder=" "
           />
-          <label htmlFor="doctor_pass">Instractor Pass</label>
+          <label htmlFor="doctor_pass">Instructor Pass</label>
         </div>
         <div className="card">
           <button onClick={() => HandeADD()}> Add</button>

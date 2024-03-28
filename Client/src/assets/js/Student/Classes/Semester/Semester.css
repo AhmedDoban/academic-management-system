@@ -60,9 +60,8 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
  # .Semester .NoClassesInserted 
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.Semester .NoSemesterInserted {
+.Semester .container .NoSemesterInserted {
   position: relative;
-  min-height: 50vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -79,6 +78,7 @@
 .Semester .NoSemesterInserted .Player {
   position: relative;
   width: 250px;
+  height: 250px;
   max-width: 100%;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ

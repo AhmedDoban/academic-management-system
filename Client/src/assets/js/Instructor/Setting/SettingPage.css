@@ -1,10 +1,10 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Student Setting Page
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.InstractorSettingPage {
+.InstructorSettingPage {
   position: relative;
 }
-.InstractorSettingPage .img-name-settingpage {
+.InstructorSettingPage .img-name-settingpage {
   position: relative;
   width: 100%;
   display: flex;
@@ -15,7 +15,7 @@
   transition: var(--main-transition);
 }
 
-.InstractorSettingPage .img-name-settingpage::before {
+.InstructorSettingPage .img-name-settingpage::before {
   position: absolute;
   content: "";
   top: 0;
@@ -26,20 +26,20 @@
   opacity: 0.7;
   transition: var(--main-transition);
 }
-.InstractorSettingPage .img-name-settingpage .container {
+.InstructorSettingPage .img-name-settingpage .container {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.InstractorSettingPage .img-name-settingpage .img-container {
+.InstructorSettingPage .img-name-settingpage .img-container {
   position: relative;
   min-width: 150px;
   min-height: 150px;
   width: 150px;
   height: 150px;
 }
-.InstractorSettingPage .img-name-settingpage .img-container label {
+.InstructorSettingPage .img-name-settingpage .img-container label {
   position: absolute;
   top: 0;
   left: 0;
@@ -49,7 +49,7 @@
   cursor: pointer;
   transition: var(--main-transition);
 }
-.InstractorSettingPage .img-name-settingpage .img-container label::before {
+.InstructorSettingPage .img-name-settingpage .img-container label::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -65,14 +65,14 @@
   border-radius: 50%;
   transition: var(--main-transition);
 }
-.InstractorSettingPage
+.InstructorSettingPage
   .img-name-settingpage
   .img-container
   label:hover::before {
   opacity: 0.6;
   z-index: 2;
 }
-.InstractorSettingPage .img-name-settingpage img {
+.InstructorSettingPage .img-name-settingpage img {
   position: relative;
   width: 100%;
   height: 100%;
@@ -82,7 +82,7 @@
   background-color: aliceblue;
   transition: var(--main-transition);
 }
-.InstractorSettingPage .img-name-settingpage h1 {
+.InstructorSettingPage .img-name-settingpage h1 {
   color: var(--main-color);
   display: flex;
   width: 100%;
@@ -91,7 +91,7 @@
   flex-wrap: wrap;
   gap: 20px;
 }
-.InstractorSettingPage .img-name-settingpage h1 button {
+.InstructorSettingPage .img-name-settingpage h1 button {
   padding: 8px 12px;
   position: relative;
   background-color: var(--main-color);
@@ -103,19 +103,19 @@
   cursor: pointer;
   transition: var(--main-transition);
 }
-.InstractorSettingPage .img-name-settingpage h1 button:hover {
+.InstructorSettingPage .img-name-settingpage h1 button:hover {
   background-color: var(--main-color-hover);
 }
 @media (max-width: 767px) {
-  .InstractorSettingPage .img-name-settingpage {
+  .InstructorSettingPage .img-name-settingpage {
     text-align: center;
   }
-  .InstractorSettingPage .img-name-settingpage h1 {
+  .InstructorSettingPage .img-name-settingpage h1 {
     text-align: center;
     flex-direction: column;
     gap: 20px;
   }
-  .InstractorSettingPage .img-name-settingpage .container {
+  .InstructorSettingPage .img-name-settingpage .container {
     align-items: center;
   }
 }
@@ -123,7 +123,7 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
   # Student Setting Page student details
   ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.InstractorSettingPage .setting-name {
+.InstructorSettingPage .setting-name {
   position: relative;
   display: flex;
   justify-content: center;
@@ -132,7 +132,7 @@
   border-bottom: 1px solid #c0c0c0;
   margin-bottom: 20px;
 }
-.InstractorSettingPage .setting-name li a {
+.InstructorSettingPage .setting-name li a {
   position: relative;
   display: flex;
   justify-content: center;
@@ -145,7 +145,7 @@
   padding: 0 20px;
   overflow: hidden;
 }
-.InstractorSettingPage .setting-name li a::before {
+.InstructorSettingPage .setting-name li a::before {
   position: absolute;
   content: "";
   width: calc(100% - 30px);
@@ -155,27 +155,27 @@
   transition: var(--main-transition);
   left: -100%;
 }
-.InstractorSettingPage .setting-name li a.active::before {
+.InstructorSettingPage .setting-name li a.active::before {
   left: 15%;
 }
-.InstractorProfile {
+.InstructorProfile {
   position: relative;
   padding-top: calc(var(--main-padding-top) / 4);
   padding-bottom: var(--main-padding-bottom);
 }
-.InstractorProfile .box:not(:first-child) {
+.InstructorProfile .box:not(:first-child) {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 50px;
 }
-.InstractorProfile .box {
+.InstructorProfile .box {
   padding: 20px;
 }
-.InstractorProfile .box:not(:last-child) {
+.InstructorProfile .box:not(:last-child) {
   border-bottom: 1px solid #c0c0c0;
 }
-.InstractorProfile .box h5 {
+.InstructorProfile .box h5 {
   font-size: 18px;
   width: 30%;
   color: var(--main-color);
@@ -183,11 +183,11 @@
   letter-spacing: 1.1px;
   opacity: 0.7;
 }
-.InstractorProfile .box:first-child h5 {
+.InstructorProfile .box:first-child h5 {
   margin-bottom: 20px;
   font-weight: 800;
 }
-.InstractorProfile .box input {
+.InstructorProfile .box input {
   width: 100%;
   padding: 10px 20px;
   border-radius: var(--main-border-radius);
@@ -197,7 +197,7 @@
   color: var(--main-text-color);
 }
 
-.InstractorProfile .box input[type="button"] {
+.InstructorProfile .box input[type="button"] {
   background-color: var(--main-color);
   width: fit-content;
   color: #fff;
@@ -206,17 +206,17 @@
   cursor: pointer;
 }
 @media (max-width: 767px) {
-  .InstractorProfile .box {
+  .InstructorProfile .box {
     text-align: center;
     flex-direction: column;
     gap: 10px !important;
   }
 
-  .InstractorProfile .box h5 {
+  .InstructorProfile .box h5 {
     width: 100%;
     margin-bottom: 5px;
   }
-  .InstractorProfile .box input {
+  .InstructorProfile .box input {
     text-align: center;
   }
 }

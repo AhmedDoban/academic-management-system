@@ -139,7 +139,7 @@ function JoinSemester() {
                   <th>Time</th>
                   <th>Day</th>
                   <th>Credit Hours</th>
-                  <th colSpan={3}>Instractor</th>
+                  <th colSpan={3}>Instructor</th>
                 </tr>
               </thead>
               <tbody>
@@ -178,13 +178,13 @@ function JoinSemester() {
                     <td data-label="Time">{subject.time}</td>
                     <td data-label="Day">{subject.day}</td>
                     <td data-label="Credit Hours">{subject.credit_hours}</td>
-                    <td data-label="Instractor" colSpan={2}>
-                      {subject.Instractor.name}
+                    <td data-label="Instructor" colSpan={2}>
+                      {subject.Instructor.name}
                     </td>
                     <td data-label="Instractpr Image">
                       <img
-                        src={subject.Instractor.Avatar}
-                        alt={subject.Instractor.name}
+                        src={subject.Instructor.Avatar}
+                        alt={subject.Instructor.name}
                       />
                     </td>
                   </tr>

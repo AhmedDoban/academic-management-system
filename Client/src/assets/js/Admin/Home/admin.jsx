@@ -9,7 +9,7 @@ import Loading from "../../components/Loading/Loading";
 const StudentControl = lazy(() => import("./../Student/StudentControl"));
 const AddNewStudent = lazy(() => import("../Student/AddNewStudent"));
 const StudentDeatils = lazy(() => import("./../Student/StudentDeatils"));
-// Instractors
+// Instructors
 const TeacherControl = lazy(() => import("./../Teacher/TeacherControl"));
 const TeacherDetails = lazy(() => import("../Teacher/TeacherDetails"));
 const AddNewTeacher = lazy(() => import("../Teacher/AddNewTeacher"));

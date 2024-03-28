@@ -34,7 +34,7 @@ function Login() {
       url: `${process.env.REACT_APP_API}/Student/Login`,
     },
     {
-      value: "Instractor",
+      value: "Instructor",
       label: (
         <div className="display-flex align-center gap-10">
           <Player
@@ -47,7 +47,7 @@ function Login() {
           <p className="color-black">Doctor </p>
         </div>
       ),
-      url: `${process.env.REACT_APP_API}/Instractor/Login`,
+      url: `${process.env.REACT_APP_API}/Instructor/Login`,
     },
     {
       value: "Parent",

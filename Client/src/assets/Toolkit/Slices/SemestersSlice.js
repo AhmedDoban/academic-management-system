@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import Toast_Handelar from "../../js/components/Toast_Handelar";
 import axios from "axios";
 
-// get all semester subjects
+// get all  Student semester
 export const GetStudentSemesters = createAsyncThunk(
   "GetStudentSemesters",
   async (payload, { getState }) => {
@@ -26,7 +26,7 @@ export const GetStudentSemesters = createAsyncThunk(
   }
 );
 
-// get all semester subjects
+// get all Student semester subjects
 export const GetStudentSemestersSubjects = createAsyncThunk(
   "GetStudentSemestersSubjects",
   async (payload, { getState }) => {
@@ -36,6 +36,28 @@ export const GetStudentSemestersSubjects = createAsyncThunk(
       const Data = await axios.post(
         `${process.env.REACT_APP_API}/Semester/StudentSemesterSubjects`,
         { Student_ID: _id, Semester_id: payload.Semester_id },
+        {
+          headers: {
+            Authorization: Token,
+          },
+        }
+      );
+      return Data.data;
+    } catch (err) {
+      Toast_Handelar("error", "Sorry we can't get your data !");
+    }
+  }
+);
+
+export const GetAllInstructorSubjects = createAsyncThunk(
+  "GetAllInstructorSubjects",
+  async (payload, { getState }) => {
+    const { Token, _id } = JSON.parse(localStorage.getItem("Token"));
+
+    try {
+      const Data = await axios.post(
+        `${process.env.REACT_APP_API}/Subjects/Instructor/InstructorSubjects`,
+        { instructor_id: _id },
         {
           headers: {
             Authorization: Token,
@@ -84,6 +106,20 @@ const NewSemesterSlice = createSlice({
       State.loading = true;
     });
     builder.addCase(GetStudentSemestersSubjects.rejected, (State, action) => {
+      State.loading = true;
+    });
+    builder.addCase(GetAllInstructorSubjects.fulfilled, (State, action) => {
+      State.loading = false;
+      if (action.payload.Status !== "Faild") {
+        State.Subjects = action.payload.Data;
+      } else {
+        Toast_Handelar("error", action.payload.message);
+      }
+    });
+    builder.addCase(GetAllInstructorSubjects.pending, (State, action) => {
+      State.loading = true;
+    });
+    builder.addCase(GetAllInstructorSubjects.rejected, (State, action) => {
       State.loading = true;
     });
   },
