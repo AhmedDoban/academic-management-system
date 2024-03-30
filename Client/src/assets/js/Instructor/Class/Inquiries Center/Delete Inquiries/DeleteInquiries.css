@@ -47,10 +47,11 @@
   width: 100%;
   color: var(--main-text-color);
   transition: var(--main-transition);
-  font-size: 16px;
+  font-size: 18px;
   text-align: left;
   border-bottom: 1px solid var(--main-text-color);
   padding: 10px 0;
+  font-weight: bold;
 }
 .DeleteInquiries .card .data span {
   position: relative;
@@ -61,12 +62,16 @@
   padding: 5px 0;
   color: var(--main-text-color);
   transition: var(--main-transition);
-  font-size: 14px;
+  font-size: 18px;
   text-align: left;
+  line-height: 1.5;
 }
 .DeleteInquiries .card .data > span i {
   color: var(--orange-color);
   transition: var(--main-transition);
+}
+.DeleteInquiries .card .data > span i:hover {
+  color: var(--main-color);
 }
 .DeleteInquiries .card .data .titleInqu span i {
   color: var(--green-color);

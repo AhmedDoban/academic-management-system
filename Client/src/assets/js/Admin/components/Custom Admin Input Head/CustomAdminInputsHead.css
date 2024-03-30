@@ -60,7 +60,7 @@
   input[type="text"]:not(:placeholder-shown)
   ~ label {
   top: 0;
-  color: var(--blue-color);
+  color: var(--main-color);
   font-weight: bold;
 }
 .CustomAdminInputsHead .card a {

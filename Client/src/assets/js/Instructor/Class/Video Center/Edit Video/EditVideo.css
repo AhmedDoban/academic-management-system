@@ -41,7 +41,7 @@
   align-items: center;
 }
 .EditVideo .card .data i:hover {
-  color: var(--blue-color);
+  color: var(--main-color);
   transition: var(--main-transition);
 }
 
@@ -94,7 +94,7 @@
   input[type="text"]:not(:placeholder-shown)
   ~ label {
   top: 0;
-  color: var(--blue-color);
+  color: var(--main-color);
   font-weight: bold;
 }
 .EditVideo .container .input-card:last-child {
@@ -106,7 +106,7 @@
   border: 0;
   cursor: pointer;
   width: 100%;
-  color: var(--blue-color);
+  color: var(--main-color);
   padding: 5px;
   font-weight: bold;
   font-size: 18px;

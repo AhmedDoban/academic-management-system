@@ -113,7 +113,7 @@
 .add-new-Class .card input:focus ~ label,
 .add-new-Class .card input:not(:placeholder-shown) ~ label {
   top: 0;
-  color: var(--blue-color);
+  color: var(--main-color);
   font-weight: bold;
 }
 .add-new-Class .card button {

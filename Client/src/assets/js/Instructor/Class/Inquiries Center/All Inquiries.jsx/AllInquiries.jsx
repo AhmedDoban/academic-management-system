@@ -37,9 +37,9 @@ function AllInquiries() {
       ) : Inquiries.length > 0 ? (
         <React.Fragment>
           <div className="AllInquiries">
-            <div className="container">
+            <div className="container" data-aos="fade-down">
               {Inquiries.map((Inquiry) => (
-                <div className="card" data-aos="fade-down" key={Inquiry._id}>
+                <div className="card" key={Inquiry._id}>
                   <div className="data">
                     <h4>{Inquiry.StudentName}</h4>
                     <p className="titleInqu">
@@ -67,27 +67,24 @@ function AllInquiries() {
               ))}
             </div>
           </div>
-
-          {Inquiries.length / 10 > number_of_pages && (
-            <div className="Inquiries_Actions">
-              <div className="container">
-                <button
-                  onClick={HandlePrev}
-                  disabled={currentPage === 1}
-                  className={currentPage === 1 ? "active" : ""}
-                >
-                  Previous
-                </button>
-                <button
-                  onClick={HandleNext}
-                  disabled={currentPage === number_of_pages}
-                  className={currentPage === number_of_pages ? "active" : ""}
-                >
-                  Next
-                </button>
-              </div>
+          <div className="Inquiries_Actions">
+            <div className="container">
+              <button
+                onClick={HandlePrev}
+                disabled={currentPage === 1}
+                className={currentPage === 1 ? "active" : ""}
+              >
+                Previous
+              </button>
+              <button
+                onClick={HandleNext}
+                disabled={currentPage === number_of_pages}
+                className={currentPage === number_of_pages ? "active" : ""}
+              >
+                Next
+              </button>
             </div>
-          )}
+          </div>
         </React.Fragment>
       ) : (
         <div className="No_Inquiries">

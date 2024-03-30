@@ -1,20 +1,55 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { UpdateInquiry } from "../../../../../Toolkit/Slices/InquiriesSlice";
+import Toast_Handelar from "../../../../components/Toast_Handelar";
 
-function AnswerInQuiriesInput(props) {
-  const [InquirieAnswer, SetInquirieAnswer] = useState("");
+function AnswerInQuiriesInput({ Subject_Id, _id }) {
+  const Dispatch = useDispatch();
+  const [InquiryAnswer, SetInquiryAnswer] = useState("");
 
-  const HandleAnswerInqu = async () => {
-    if (InquirieAnswer !== "") {
+  const HandleAnswerInqu = () => {
+    if (InquiryAnswer !== "") {
+      Dispatch(
+        UpdateInquiry({
+          Subject_Id: Subject_Id,
+          _id: _id,
+          Answer: InquiryAnswer,
+        })
+      ).then((res) => {
+        if (res.payload.Satus !== "Faild") {
+          SetInquiryAnswer("");
+        }
+      });
+    } else {
+      Toast_Handelar("error", "input in empty !");
     }
   };
+  
+  const HandleAnswerWithEnter = (e) => {
+    if (InquiryAnswer !== "" && e.key === "Enter") {
+      Dispatch(
+        UpdateInquiry({
+          Subject_Id: Subject_Id,
+          _id: _id,
+          Answer: InquiryAnswer,
+        })
+      ).then((res) => {
+        if (res.payload.Satus !== "Faild") {
+          SetInquiryAnswer("");
+        }
+      });
+    }
+  };
+
   return (
     <React.Fragment>
       <div className="input-card">
-        <input
+        <textarea
           type="text"
-          value={InquirieAnswer}
-          onChange={(e) => SetInquirieAnswer(e.target.value)}
+          value={InquiryAnswer}
+          onChange={(e) => SetInquiryAnswer(e.target.value)}
           placeholder="Type an Answer "
+          onKeyPress={(e) => HandleAnswerWithEnter(e)}
         />
         <button onClick={() => HandleAnswerInqu()}>
           <i class="fa-solid fa-paper-plane"></i>

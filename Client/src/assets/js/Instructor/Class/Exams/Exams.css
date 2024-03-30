@@ -37,7 +37,7 @@
   height: 150px;
 }
 .exams .container .exam-card .examName {
-  color: var(--blue-color);
+  color: var(--main-color);
   font-size: 18px;
   font-weight: bold;
   text-align: center;
@@ -136,7 +136,7 @@
 }
 
 .newExam .input-field input:focus {
-  border-bottom: 1px solid var(--blue-color);
+  border-bottom: 1px solid var(--main-color);
 }
 .newExam .input-field input:focus ~ label,
 .newExam .input-field input:not(:placeholder-shown) ~ label {
@@ -172,7 +172,7 @@
   transition: var(--main-transition);
 }
 .editExam .container .editExam-card:hover p {
-  color: var(--blue-color);
+  color: var(--main-color);
 }
 .editExam .container .editExam-card.button {
   display: flex;
@@ -225,7 +225,7 @@
   cursor: pointer;
   width: 100%;
   border-radius: var(--main-border-radius);
-  color: var(--blue-color);
+  color: var(--main-color);
   border: 0;
 }
 .editExam
@@ -249,7 +249,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: var(--blue-color);
+  background-color: var(--main-color);
   height: 100%;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
@@ -316,10 +316,10 @@
 .addQu .card .input-field input:not(:placeholder-shown) ~ label,
 .addQu .card .input-field input:focus ~ label {
   top: -20px;
-  color: var(--blue-color);
+  color: var(--main-color);
 }
 .addQu .card .input-field input:focus {
-  border-color: var(--blue-color);
+  border-color: var(--main-color);
 }
 .addQu .card .input-field .addQuBtn {
   position: relative;
@@ -333,7 +333,7 @@
   color: var(--main-text-color);
 }
 .addQu .card .input-field .addQuBtn:hover {
-  color: var(--blue-color);
+  color: var(--main-color);
 }
 .addQu .card .input-field label {
   color: var(--main-text-color);
@@ -354,7 +354,7 @@
   border-radius: var(--main-border-radius);
 }
 .addQu .card .input-field .SubmitBun:hover {
-  background-color: var(--blue-color);
+  background-color: var(--main-color);
   color: var(--white-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
@@ -387,10 +387,10 @@
   .Dropdown-root
   .Dropdown-menu
   .Dropdown-option.is-selected {
-  background-color: var(--blue-color);
+  background-color: var(--main-color);
 }
 .addQu .card .input-field .Dropdown-root .Dropdown-menu .Dropdown-option:hover {
   background-color: var(--main-overlay);
-  color: var(--blue-color);
+  color: var(--main-color);
   transition: var(--main-transition);
 }

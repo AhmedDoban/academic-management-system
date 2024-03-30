@@ -43,6 +43,7 @@ Router.route("/Update").post(
   Verify_User("INSTRUCTOR", "ADMIN"),
   [
     body("Subject_Id").notEmpty().withMessage("Subject Id is not Valid"),
+    body("_id").notEmpty().withMessage("Id is not Valid"),
     body("Answer").notEmpty().withMessage("Answer is not Valid"),
   ],
   Inquiries_controllers.Update_Inquiries

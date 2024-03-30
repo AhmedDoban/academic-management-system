@@ -155,7 +155,7 @@ const Remove_Inquiries = async (Req, Res) => {
 
 // update inquiry in back end
 const Update_Inquiries = async (Req, Res) => {
-  const { Subject_Id, Answer } = Req.body;
+  const { Subject_Id, Answer, _id } = Req.body;
   // Body Validation Before Searching in the database to increase performance
   const Errors = validationResult(Req);
   if (!Errors.isEmpty()) {
@@ -169,11 +169,13 @@ const Update_Inquiries = async (Req, Res) => {
   try {
     const Inquiry = await Inquiries_Model.findOne({
       Subject_Id: new mongoose.Types.ObjectId(Subject_Id),
+      _id: _id,
     });
     if (Inquiry !== null) {
       await Inquiries_Model.updateOne(
         {
           Subject_Id: new mongoose.Types.ObjectId(Subject_Id),
+          _id: _id,
         },
         { $set: { Answer } }
       );

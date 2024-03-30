@@ -196,7 +196,7 @@
   color: var(--green-color);
 }
 .color-blue {
-  color: var(--blue-color);
+  color: var(--main-color);
 }
 .color-orange {
   color: var(--orange-color);
@@ -223,7 +223,7 @@
   background-color: var(--green-color);
 }
 .bg-blue {
-  background-color: var(--blue-color);
+  background-color: var(--main-color);
 }
 .bg-orange {
   background-color: var(--orange-color);

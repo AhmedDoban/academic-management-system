@@ -19,7 +19,7 @@
     width: 100%;
   }
   .sort-table i {
-    color: var(--blue-color);
+    color: var(--main-color);
 
     cursor: pointer;
   }

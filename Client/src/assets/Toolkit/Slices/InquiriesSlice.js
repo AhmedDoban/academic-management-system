@@ -11,7 +11,7 @@ export const GetAllInquiries = createAsyncThunk(
 
     try {
       const Data = await axios.post(
-        `${process.env.REACT_APP_API}/Inquiries?Page=${State.NewSemester.currentPage}&Limit=10`,
+        `${process.env.REACT_APP_API}/Inquiries?Page=${State.Inquiries.currentPage}&Limit=10`,
         { Subject_Id: payload },
         {
           headers: {
@@ -48,7 +48,7 @@ export const AddNewInquiry = createAsyncThunk(
       );
       return Data.data;
     } catch (err) {
-      Toast_Handelar("error", "Sorry we can't get your data !");
+      Toast_Handelar("error", "Sorry we can't Add Inquiries !");
     }
   }
 );
@@ -74,7 +74,34 @@ export const DeleteInquiry = createAsyncThunk(
       );
       return Data.data;
     } catch (err) {
-      Toast_Handelar("error", "Sorry we can't get your data !");
+      Toast_Handelar("error", "Sorry we can't delete Inquiries!");
+    }
+  }
+);
+
+// Update \ answer Student Inquiry
+export const UpdateInquiry = createAsyncThunk(
+  "UpdateInquiry",
+  async (payload) => {
+    const { Token } = JSON.parse(localStorage.getItem("Token"));
+
+    try {
+      const Data = await axios.post(
+        `${process.env.REACT_APP_API}/Inquiries/Update`,
+        {
+          Subject_Id: payload.Subject_Id,
+          _id: payload._id,
+          Answer: payload.Answer,
+        },
+        {
+          headers: {
+            Authorization: Token,
+          },
+        }
+      );
+      return Data.data;
+    } catch (err) {
+      Toast_Handelar("error", "Sorry we can't update Inquiries!");
     }
   }
 );
@@ -139,6 +166,13 @@ const InquiriesSlice = createSlice({
       }
     });
     builder.addCase(DeleteInquiry.fulfilled, (State, action) => {
+      if (action.payload.Status !== "Faild") {
+        Toast_Handelar("success", action.payload.message);
+      } else {
+        Toast_Handelar("error", action.payload.message);
+      }
+    });
+    builder.addCase(UpdateInquiry.fulfilled, (State, action) => {
       if (action.payload.Status !== "Faild") {
         Toast_Handelar("success", action.payload.message);
       } else {

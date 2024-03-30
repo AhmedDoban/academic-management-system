@@ -47,10 +47,11 @@
   width: 100%;
   color: var(--main-text-color);
   transition: var(--main-transition);
-  font-size: 16px;
+  font-size: 18px;
   text-align: left;
   border-bottom: 1px solid var(--main-text-color);
   padding: 10px 0;
+  font-weight: bold;
 }
 .Inquiries .card .data span {
   position: relative;
@@ -61,8 +62,9 @@
   padding: 5px 0;
   color: var(--main-text-color);
   transition: var(--main-transition);
-  font-size: 14px;
+  font-size: 18px;
   text-align: left;
+  line-height: 1.5;
 }
 .Inquiries .card .data > span i {
   color: var(--orange-color);

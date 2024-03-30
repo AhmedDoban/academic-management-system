@@ -88,7 +88,7 @@
   .Dropdown-root
   .Dropdown-menu
   .Dropdown-option.is-selected {
-  background-color: var(--blue-color);
+  background-color: var(--main-color);
 }
 .EditSelectedExam
   .container
@@ -97,7 +97,7 @@
   .Dropdown-menu
   .Dropdown-option:hover {
   background-color: var(--main-overlay);
-  color: var(--blue-color);
+  color: var(--main-color);
   transition: var(--main-transition);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
@@ -138,7 +138,7 @@
   input[type="text"]:not(:placeholder-shown)
   ~ label {
   top: 0;
-  color: var(--blue-color);
+  color: var(--main-color);
   font-weight: bold;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
@@ -160,7 +160,7 @@
   border: 0;
   cursor: pointer;
   min-width: 100%;
-  color: var(--blue-color);
+  color: var(--main-color);
   padding: 5px;
   font-weight: bold;
   font-size: 18px;

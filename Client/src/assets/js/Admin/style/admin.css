@@ -86,7 +86,7 @@
   transition: var(--main-transition);
 }
 .CustomTable table th i:hover {
-  color: var(--blue-color);
+  color: var(--main-color);
 }
 .CustomTable table th,
 .CustomTable table td {

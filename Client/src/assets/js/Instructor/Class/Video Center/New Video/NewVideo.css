@@ -64,7 +64,7 @@
   input[type="text"]:not(:placeholder-shown)
   ~ label {
   top: 0;
-  color: var(--blue-color);
+  color: var(--main-color);
   font-weight: bold;
 }
 .NewVideo .container .input-card button {
@@ -72,7 +72,7 @@
   border: 0;
   cursor: pointer;
   width: 100%;
-  color: var(--blue-color);
+  color: var(--main-color);
   padding: 5px;
   font-weight: bold;
   font-size: 18px;

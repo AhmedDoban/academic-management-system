@@ -72,7 +72,7 @@
   input[type="text"]:not(:placeholder-shown)
   ~ label {
   top: 0;
-  color: var(--blue-color);
+  color: var(--main-color);
   font-weight: bold;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
@@ -100,7 +100,7 @@
 .uploadsammary .card-flip .face p {
   font-size: 18px;
   font-weight: bold;
-  color: var(--blue-color);
+  color: var(--main-color);
 }
 .uploadsammary .card-flip .Player {
   width: 100%;
@@ -120,7 +120,7 @@
   height: 100%;
   border-radius: var(--main-border-radius);
   background-color: transparent;
-  color: var(--blue-color);
+  color: var(--main-color);
   cursor: pointer;
 }
 .uploadsammary .card-flip .uploadFileBTN .uploadFileBTNplayer {
@@ -142,6 +142,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: var(--blue-color);
+  background-color: var(--main-color);
   height: 100%;
 }

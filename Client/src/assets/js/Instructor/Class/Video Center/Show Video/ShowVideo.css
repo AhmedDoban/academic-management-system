@@ -47,6 +47,6 @@
   gap: 10px;
 }
 .ShowVideo .card .data i:hover {
-  color: var(--blue-color);
+  color: var(--main-color);
   transition: var(--main-transition);
 }

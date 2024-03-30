@@ -1,8 +1,4 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# General
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@import url("../../../../../css/root.css");
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # AnswerInquiries
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .AnswerInquiries {
@@ -46,30 +42,64 @@
   width: 100%;
   color: var(--main-text-color);
   transition: var(--main-transition);
-  font-size: 16px;
-  text-align: right;
-  border-bottom: 1px solid var(--main-text-color);
+  font-size: 18px;
+  text-align: left;
   padding: 10px 0;
+  border-bottom: 1px solid var(--main-text-color);
+  font-weight: bold;
 }
 
 .AnswerInquiries .card .data span {
   position: relative;
   width: 100%;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   color: var(--main-text-color);
   transition: var(--main-transition);
-  font-size: 14px;
-  text-align: right;
+  font-size: 18px;
+  text-align: left;
   padding: 5px 0;
-}
-.AnswerInquiries .card .data span i {
-  color: var(--orange-color);
-  transition: var(--main-transition);
+  line-height: 1.5;
 }
 
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# AllInquiries Action
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Inquiries_Actions {
+  position: relative;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.Inquiries_Actions .container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# AnswerInquiries input-card
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Inquiries_Actions .container button {
+  position: relative;
+  padding: 8px 12px;
+  min-width: 80px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: var(--main-color);
+  transition: var(--main-transition);
+  cursor: pointer;
+  border-radius: var(--main-border-radius);
+}
+.Inquiries_Actions .container button:hover {
+  background-color: var(--main-color-hover);
+}
+.Inquiries_Actions .container button.active {
+  background-color: #888;
+}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # AnswerInquiries input-card
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -82,12 +112,25 @@
   align-items: center;
   padding: 10px 0;
 }
-.AnswerInquiries .card .input-card input {
+.AnswerInquiries .card .input-card textarea {
   position: relative;
   background-color: transparent;
   border: 0;
   width: 100%;
   padding: 0 10px;
+  height: auto;
+  resize: none;
+  transition: var(--main-transition);
+  color: var(--main-text-color);
+  font-size: 18px;
+  line-height: 1.5;
+}
+.AnswerInquiries .card .input-card textarea::placeholder {
+  transition: var(--main-transition);
+}
+.AnswerInquiries .card .input-card textarea:focus::placeholder {
+  opacity: 0;
+  transition: var(--main-transition);
 }
 .AnswerInquiries .card .input-card button {
   background-color: transparent;
@@ -95,9 +138,10 @@
   padding: 0 10px;
   cursor: pointer;
   transition: var(--main-transition);
+  color: var(--main-text-color);
 }
 .AnswerInquiries .card .input-card button:hover {
-  color: var(--blue-color);
+  color: var(--main-color);
 }
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
