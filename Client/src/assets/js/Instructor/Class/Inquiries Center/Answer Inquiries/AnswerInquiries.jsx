@@ -9,46 +9,6 @@ import AnswerInQuiriesInput from "./AnswerInQuiriesInput";
 function AnswerInquiries() {
   const params = useParams();
   const [Inquiries, SetInquiries] = useState([]);
-  const [doctor_id, setdoctor_id] = useState([]);
-
-  const GetID = async function () {
-    try {
-      const response = await JSON.parse(localStorage.getItem("User"));
-      setdoctor_id(response.doctor_id);
-    } catch (error) {
-      throw error;
-    }
-  };
-
-  const url = `${process.env.REACT_APP_API}/select_inquiry.php`;
-
-  const fetchData = async function () {
-    GetID();
-    try {
-      await axios
-        .post(
-          url,
-          { subject_id: params.subject_id },
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "text/plain",
-            },
-          }
-        )
-        .then((response) => {
-          if (response.data.status === "success") {
-            SetInquiries(response.data.message);
-          }
-        });
-    } catch (error) {
-      throw error;
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [url, params.subject_id]);
 
   return (
     <React.Fragment>
@@ -62,11 +22,7 @@ function AnswerInquiries() {
                   <span>{Inquirie.answer} </span>
                 </div>
 
-                <AnswerInQuiriesInput
-                  Inquirie={Inquirie}
-                  doctor_id={doctor_id}
-                  fetchData={fetchData}
-                />
+                <AnswerInQuiriesInput Inquirie={Inquirie} />
               </div>
             ))}
           </div>
@@ -77,9 +33,9 @@ function AnswerInquiries() {
             autoplay={true}
             loop={true}
             controls={false}
-            src="https://assets10.lottiefiles.com/packages/lf20_zi2xpiyh.json"
+            src={require("../../../../../img/Players/Question.json")}
             className="NoInquirieslayer"
-          ></Player>
+          />
           <p>There is No Inquiries </p>
         </div>
       )}

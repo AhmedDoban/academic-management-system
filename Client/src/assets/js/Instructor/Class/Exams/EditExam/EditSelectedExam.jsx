@@ -223,7 +223,7 @@ function EditSelectedExam() {
                         controls={false}
                         src="https://assets1.lottiefiles.com/packages/lf20_2xjlo1wq.json"
                         className="Player"
-                      ></Player>
+                      />
                       Update Changes
                     </button>
                   </div>
@@ -235,7 +235,7 @@ function EditSelectedExam() {
                         controls={false}
                         src="https://assets2.lottiefiles.com/packages/lf20_iKiWos0ru0.json"
                         className="Player"
-                      ></Player>
+                      />
                       Make Exam{" "}
                       {ShowenEditExam.show === "0" ? "Hidden" : "Visable"}
                     </button>
@@ -250,7 +250,7 @@ function EditSelectedExam() {
                   controls={false}
                   src="https://assets2.lottiefiles.com/packages/lf20_ZmsQVB.json"
                   className="NoQuPlayer"
-                ></Player>
+                />
                 <p>There are no Questions you must create Question first </p>
               </div>
             )}

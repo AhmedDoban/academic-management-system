@@ -78,7 +78,7 @@ function Exams() {
               controls={false}
               src="https://assets4.lottiefiles.com/packages/lf20_ycbVE1.json"
               style={{ width: "50px", height: "50px" }}
-            ></Player>
+            />
             <Link className="btn-box" to="CreateExam">
               Creacte New Exam
             </Link>
@@ -103,7 +103,7 @@ function Exams() {
                   controls={false}
                   src="https://assets2.lottiefiles.com/packages/lf20_inti4oxf.json"
                   className="ExamPlayer"
-                ></Player>
+                />
                 <p className="examName">{Exam.exam_name}</p>
                 <p className="status">
                   {compareDates(Exam.exam_date, Exam.exam_end_time) >= 0 ? (
@@ -130,7 +130,7 @@ function Exams() {
               controls={false}
               src="https://assets2.lottiefiles.com/packages/lf20_ZmsQVB.json"
               className="NoExamPlayer"
-            ></Player>
+            />
             <p>There are no Exams you have created recently </p>
           </div>
         )}

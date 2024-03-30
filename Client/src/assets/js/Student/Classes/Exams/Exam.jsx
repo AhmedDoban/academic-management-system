@@ -30,7 +30,7 @@ function Exam() {
                   controls={false}
                   src={require("../../../../img/Players/ExamPlayer.json")}
                   className="ExamPlayer"
-                ></Player>
+                />
                 <p className="examName">{Exam.exam_name}</p>
                 <p>
                   Start Time : <span>{Exam.exam_start_time}</span>
@@ -52,7 +52,7 @@ function Exam() {
               controls={false}
               src={require("../../../../img/Players/NoExams.json")}
               className="NoExamPlayer"
-            ></Player>
+            />
             <p>There is No Exams </p>
           </div>
         )}

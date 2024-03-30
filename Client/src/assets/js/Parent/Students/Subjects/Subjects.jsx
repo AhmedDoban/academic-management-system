@@ -62,7 +62,7 @@ function StudentData(props) {
                     controls={false}
                     src="https://assets7.lottiefiles.com/packages/lf20_yg29hewu.json"
                     className="PLayer"
-                  ></Player>
+                  />
                   <p>{Subjects.generation_name}</p>
                 </div>
               </Link>
@@ -76,7 +76,7 @@ function StudentData(props) {
               controls={false}
               src="https://assets7.lottiefiles.com/packages/lf20_jG18nt.json"
               className="nostudent-player"
-            ></Player>
+            />
             <p>Your Son haven't any Subjects</p>
           </div>
         )}

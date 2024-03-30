@@ -17,11 +17,7 @@ function SubjectData() {
       <div className="SubjectData">
         <div className="container">
           {/***************** Quiz  **********************/}
-          <Link
-            className="card"
-            data-aos="zoom-in"
-            to={`Exam/${params.subject_id}`}
-          >
+          <Link className="card" data-aos="zoom-in" to={`Exam`}>
             <h1>Exam</h1>
             <Player
               autoplay={true}
@@ -33,11 +29,7 @@ function SubjectData() {
           </Link>
 
           {/***************** Videos  **********************/}
-          <Link
-            className="card"
-            data-aos="zoom-in"
-            to={`Videos/${params.subject_id}`}
-          >
+          <Link className="card" data-aos="zoom-in" to={`Videos`}>
             <h1>Videos</h1>
             <Player
               autoplay={true}
@@ -48,11 +40,7 @@ function SubjectData() {
             />
           </Link>
           {/***************** Summary / s  **********************/}
-          <Link
-            className="card"
-            data-aos="zoom-in"
-            to={`Summary/${params.subject_id}`}
-          >
+          <Link className="card" data-aos="zoom-in" to={`Summary`}>
             <h1>Summary </h1>
             <Player
               autoplay={true}
@@ -63,11 +51,7 @@ function SubjectData() {
             />
           </Link>
           {/***************** call Room  **********************/}
-          <Link
-            className="card"
-            data-aos="zoom-in"
-            to={`video call/${params.SubjectName}`}
-          >
+          <Link className="card" data-aos="zoom-in" to={`video call`}>
             <h1>Call Room </h1>
             <Player
               autoplay={true}
@@ -79,11 +63,7 @@ function SubjectData() {
           </Link>
 
           {/***************** inquiries  **********************/}
-          <Link
-            className="card"
-            data-aos="zoom-in"
-            to={`Inquiries/${params.subject_id}`}
-          >
+          <Link className="card" data-aos="zoom-in" to={`Inquiries`}>
             <h1>Inquiries</h1>
             <Player
               autoplay={true}
@@ -94,11 +74,7 @@ function SubjectData() {
             />
           </Link>
           {/***************** Chat Room  **********************/}
-          <Link
-            className="card"
-            data-aos="zoom-in"
-            to={`Chat/${params.SubjectName}`}
-          >
+          <Link className="card" data-aos="zoom-in" to={`Chat`}>
             <h1>Chat Room</h1>
             <Player
               autoplay={true}

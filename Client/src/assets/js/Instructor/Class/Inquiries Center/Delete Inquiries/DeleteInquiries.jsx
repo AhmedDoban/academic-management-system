@@ -8,34 +8,6 @@ import Swal from "sweetalert2";
 function DeleteInquiries() {
   const params = useParams();
   const [Inquiries, SetInquiries] = useState([]);
-  const url = `${process.env.REACT_APP_API}/select_inquiry.php`;
-
-  const fetchData = async function () {
-    try {
-      await axios
-        .post(
-          url,
-          { subject_id: params.subject_id },
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "text/plain",
-            },
-          }
-        )
-        .then((response) => {
-          if (response.data.status === "success") {
-            SetInquiries(response.data.message);
-          }
-        });
-    } catch (error) {
-      throw error;
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [url, params.subject_id]);
 
   const DeleteInquiriesHandelar = (data) => {
     Swal.fire({
@@ -64,7 +36,6 @@ function DeleteInquiries() {
             .then((response) => {
               if (response.data.status === "success") {
                 Swal.fire("Deleted!", response.data.message, "success");
-                fetchData();
               }
             });
         } catch (error) {
@@ -100,9 +71,9 @@ function DeleteInquiries() {
             autoplay={true}
             loop={true}
             controls={false}
-            src="https://assets10.lottiefiles.com/packages/lf20_zi2xpiyh.json"
+            src={require("../../../../../img/Players/Question.json")}
             className="NoInquirieslayer"
-          ></Player>
+          />
           <p>There is No Inquiries </p>
         </div>
       )}

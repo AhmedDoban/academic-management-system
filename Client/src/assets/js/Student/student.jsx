@@ -126,25 +126,18 @@ const Student = (props) => {
                     />
                   </Route>
                   <Route
-                    path="/Subject Data/:Semester_id/:SubjectName?"
+                    path="/Subject Data/:Subject_id/:SubjectName?"
                     element={<Outlet />}
                   >
                     <Route path="" element={<SubjectData />} />
-                    <Route path="Exam/:id" element={<Outlet />}>
+                    <Route path="Exam" element={<Outlet />}>
                       <Route path="" element={<Exam />} />
                       <Route path=":Exam_id" element={<ExamPage />} />
                     </Route>
-                    <Route
-                      path="Videos/:id"
-                      element={
-                        <Viedos
-                          url={`${process.env.REACT_APP_API}/select_videos.php`}
-                        />
-                      }
-                    />
-                    <Route path="Summary/:id" element={<Summary />} />
-                    <Route path="Inquiries/:id" element={<Inquiries />} />
-                    <Route path="Chat/:id" element={<Chat />} />
+                    <Route path="Videos" element={<Viedos />} />
+                    <Route path="Summary" element={<Summary />} />
+                    <Route path="Inquiries" element={<Inquiries />} />
+                    <Route path="Chat" element={<Chat />} />
                     <Route path="ChatBot" element={<ChatBot />} />
                   </Route>
                   {/********** Table Page or join semester***********/}

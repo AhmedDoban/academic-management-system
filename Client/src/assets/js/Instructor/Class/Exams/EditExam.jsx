@@ -105,7 +105,7 @@ function EditExam() {
               controls={false}
               src="https://assets2.lottiefiles.com/packages/lf20_acxjjfqm.json"
               className="ExamPlayer"
-            ></Player>
+            />
             <p>Edit exam</p>
           </Link>
           <Link className="editExam-card" to={`addQu`} data-aos="zoom-in">
@@ -115,7 +115,7 @@ function EditExam() {
               controls={false}
               src="https://assets1.lottiefiles.com/packages/lf20_alyseq4q.json"
               className="ExamPlayer"
-            ></Player>
+            />
             <p>Add New Question</p>
           </Link>
           <div
@@ -132,7 +132,7 @@ function EditExam() {
                 controls={false}
                 src="https://assets7.lottiefiles.com/packages/lf20_onjuzgsi.json"
                 className="ExamPlayer"
-              ></Player>
+              />
               <p>Edit PDF</p>
             </label>
             <div className="face back">
@@ -148,7 +148,7 @@ function EditExam() {
                   controls={false}
                   src="https://assets8.lottiefiles.com/packages/lf20_z7DhMX.json"
                   className="uploadFileBTNplayer"
-                ></Player>
+                />
                 Click here to upload
               </button>
               <div className="progressbar">
@@ -167,7 +167,7 @@ function EditExam() {
               controls={false}
               src="https://assets1.lottiefiles.com/private_files/lf30_rj4ooq2j.json"
               className="ExamPlayer"
-            ></Player>
+            />
             <p>Delete Exam</p>
           </button>
         </div>

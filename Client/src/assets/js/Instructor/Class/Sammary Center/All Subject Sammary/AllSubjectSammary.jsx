@@ -56,7 +56,7 @@ function AllSubjectSammary() {
                     controls={false}
                     src="https://assets1.lottiefiles.com/packages/lf20_mWCcDd.json"
                     className="PDFPLAyer"
-                  ></Player>
+                  />
                 </div>
               </Link>
             ))}
@@ -71,7 +71,7 @@ function AllSubjectSammary() {
               controls={false}
               src="https://assets1.lottiefiles.com/packages/lf20_onjuzgsi.json"
               className="No_SummaryPlayer"
-            ></Player>
+            />
             <p>There is No Summary </p>
           </div>
         </div>

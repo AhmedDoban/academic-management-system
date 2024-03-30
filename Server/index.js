@@ -9,6 +9,7 @@ import Parent from "./App/Routes/Parent.js";
 import Instructor from "./App/Routes/Instructor.js";
 import Subjects from "./App/Routes/Subjects.js";
 import Semester from "./App/Routes/Semester.js";
+import Inquiries from "./App/Routes/Inquiries.js";
 
 // File System
 import path from "path";
@@ -32,6 +33,7 @@ App.use("/API/Parent", Parent);
 App.use("/API/Instructor", Instructor);
 App.use("/API/Subjects", Subjects);
 App.use("/API/Semester", Semester);
+App.use("/API/Inquiries", Inquiries);
 App.use("*", (Req, Res) => {
   Res.status(200).json({
     Status: "Faild",

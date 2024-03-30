@@ -59,7 +59,7 @@ function Subjects() {
                   controls={false}
                   src="https://assets7.lottiefiles.com/packages/lf20_yg29hewu.json"
                   style={{ width: "100px", height: "150px" }}
-                ></Player>
+                />
               </Link>
             ))}
           </div>

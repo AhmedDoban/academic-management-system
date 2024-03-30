@@ -66,7 +66,7 @@ function SubjectData(props) {
                     controls={false}
                     src="https://assets7.lottiefiles.com/packages/lf20_yg29hewu.json"
                     className="PLayer"
-                  ></Player>
+                  />
                   <p>{Subjects.subject_name}</p>
                 </div>
               </Link>
@@ -80,7 +80,7 @@ function SubjectData(props) {
               controls={false}
               src="https://assets7.lottiefiles.com/packages/lf20_jG18nt.json"
               className="nostudent-player"
-            ></Player>
+            />
             <p>Your Son haven't Taken any Exam Yet</p>
           </div>
         )}

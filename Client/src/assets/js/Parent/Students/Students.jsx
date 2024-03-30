@@ -39,7 +39,7 @@ function Students() {
                   controls={false}
                   src={require("../../../img/Players/ParentNoStudents.json")}
                   className="nostudent-player"
-                ></Player>
+                />
                 <p>There is No Students </p>
               </div>
             </div>

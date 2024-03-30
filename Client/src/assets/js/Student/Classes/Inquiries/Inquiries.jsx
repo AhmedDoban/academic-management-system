@@ -4,16 +4,75 @@ import { useParams } from "react-router-dom";
 import Mountain from "../../../components/Mountain Template/Mountain";
 import "./Inquiries.css";
 import Toast_Handelar from "./../../../components/Toast_Handelar";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  AddNewInquiry,
+  GetAllInquiries,
+  InsertInquiry,
+  SeeNext,
+  SeePrev,
+} from "../../../../Toolkit/Slices/InquiriesSlice";
+import LodingFeachData from "../../../components/Loding Feach Data/LodingFeachData";
 
 function Inquiries() {
   const params = useParams();
-  const [Inquiries, SetInquiries] = useState([]);
+  const Dispatch = useDispatch();
   const [TextFeild, SetTextField] = useState("");
+  const { loading, Inquiries, currentPage, number_of_pages } = useSelector(
+    (State) => State.Inquiries
+  );
+  const { name } = useSelector((State) => State.User.user);
 
-  const HandleTextFeild = async () => {
+  useEffect(() => {
+    Dispatch(GetAllInquiries(params.Subject_id));
+  }, []);
+
+  const HandleTextFeild = () => {
     if (TextFeild === "") {
       Toast_Handelar("error", "input field is empty");
+    } else {
+      Dispatch(
+        AddNewInquiry({ Subject_Id: params.Subject_id, Question: TextFeild })
+      ).then((res) => {
+        if (res.payload.Status !== "Faild") {
+          SetTextField("");
+        }
+      });
+      Dispatch(
+        InsertInquiry({
+          _id: Inquiries.length + 1,
+          StudentName: name,
+          Question: TextFeild,
+        })
+      );
     }
+  };
+  const HandleTextFeildEnterKey = (e) => {
+    if (e.key === "Enter") {
+      Dispatch(
+        AddNewInquiry({ Subject_Id: params.Subject_id, Question: TextFeild })
+      ).then((res) => {
+        if (res.payload.Status !== "Faild") {
+          SetTextField("");
+        }
+      });
+      Dispatch(
+        InsertInquiry({
+          _id: Inquiries.length + 1,
+          StudentName: name,
+          Question: TextFeild,
+        })
+      );
+    }
+  };
+
+  const HandleNext = () => {
+    Dispatch(SeeNext());
+    Dispatch(GetAllInquiries(params.Subject_id));
+  };
+  const HandlePrev = () => {
+    Dispatch(SeePrev());
+    Dispatch(GetAllInquiries(params.Subject_id));
   };
 
   return (
@@ -25,44 +84,71 @@ function Inquiries() {
             <i className="fa-solid fa-plus" onClick={HandleTextFeild}></i>
             <input
               type="text"
-              placeholder="Insert new Inquirie"
+              placeholder="Insert new Inquiry ?"
               value={TextFeild}
               onChange={(e) => SetTextField(e.target.value)}
+              onKeyPress={(e) => HandleTextFeildEnterKey(e)}
             />
           </div>
         </div>
       </Mountain>
-      {Inquiries.length > 0 ? (
-        <div className="Inquiries">
-          <div className="container">
-            {Inquiries.map((Inquirie) => (
-              <div className="card" data-aos="fade-down">
-                <div className="data">
-                  <p className="titleInqu">
-                    {Inquirie.answer ? (
-                      <span>
-                        <span>{Inquirie.title}</span>
-                        <i className="fa-solid fa-check"></i>
-                      </span>
-                    ) : (
-                      Inquirie.title
-                    )}
-                  </p>
-                  <span>
-                    {Inquirie.answer ? (
-                      Inquirie.answer
-                    ) : (
-                      <span>
-                        <span>لا يوجد رد</span>
-                        <i className="fa-solid fa-triangle-exclamation"></i>
-                      </span>
-                    )}
-                  </span>
+      {loading ? (
+        <LodingFeachData />
+      ) : Inquiries.length > 0 ? (
+        <React.Fragment>
+          <div className="Inquiries">
+            <div className="container">
+              {Inquiries.map((Inquiry) => (
+                <div className="card" data-aos="fade-down" key={Inquiry._id}>
+                  <div className="data">
+                    <h4>{Inquiry.StudentName}</h4>
+                    <p className="titleInqu">
+                      {Inquiry.Answer ? (
+                        <span>
+                          <span>{Inquiry.Question}</span>
+                          <i className="fa-solid fa-check" />
+                        </span>
+                      ) : (
+                        Inquiry.Question
+                      )}
+                    </p>
+                    <span>
+                      {Inquiry.Answer ? (
+                        Inquiry.Answer
+                      ) : (
+                        <span>
+                          <span>There is no Answer</span>
+                          <i className="fa-solid fa-triangle-exclamation" />
+                        </span>
+                      )}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+
+          {Inquiries.length / 10 > number_of_pages && (
+            <div className="Inquiries_Actions">
+              <div className="container">
+                <button
+                  onClick={HandlePrev}
+                  disabled={currentPage === 1}
+                  className={currentPage === 1 ? "active" : ""}
+                >
+                  Previous
+                </button>
+                <button
+                  onClick={HandleNext}
+                  disabled={currentPage === number_of_pages}
+                  className={currentPage === number_of_pages ? "active" : ""}
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          )}
+        </React.Fragment>
       ) : (
         <div className="No_Inquiries">
           <Player
@@ -71,7 +157,7 @@ function Inquiries() {
             controls={false}
             src={require("../../../../img/Players/Question.json")}
             className="NoInquirieslayer"
-          ></Player>
+          />
           <p>There is No Inquiries </p>
         </div>
       )}

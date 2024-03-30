@@ -26,7 +26,7 @@ function Summary() {
                   controls={false}
                   src={require("../../../../img/Players/Summary.json")}
                   className="PDFPLAyer"
-                ></Player>
+                />
                 <h1>{pdf.summary_name}</h1>
               </Link>
             ))}
@@ -40,7 +40,7 @@ function Summary() {
             controls={false}
             src={require("../../../../img/Players/NoSummary.json")}
             className="No_SummaryPlayer"
-          ></Player>
+          />
           <p>There is No Summary </p>
         </div>
       )}

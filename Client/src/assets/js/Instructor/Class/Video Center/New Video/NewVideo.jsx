@@ -106,7 +106,7 @@ function NewVideo() {
                 controls={false}
                 src="https://assets4.lottiefiles.com/packages/lf20_z7DhMX.json"
                 style={{ width: "50px", height: "30px" }}
-              ></Player>
+              />
             </button>
           </div>
         </div>

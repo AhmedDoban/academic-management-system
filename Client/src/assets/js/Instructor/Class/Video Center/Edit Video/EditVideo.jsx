@@ -148,7 +148,7 @@ function EditVideo() {
                   controls={false}
                   src="https://assets9.lottiefiles.com/packages/lf20_ys24ctpy.json"
                   style={{ width: "50px", height: "30px" }}
-                ></Player>
+                />
                 Back
               </button>
 
@@ -160,7 +160,7 @@ function EditVideo() {
                   controls={false}
                   src="https://assets4.lottiefiles.com/packages/lf20_z7DhMX.json"
                   style={{ width: "50px", height: "30px" }}
-                ></Player>
+                />
               </button>
             </div>
           </div>

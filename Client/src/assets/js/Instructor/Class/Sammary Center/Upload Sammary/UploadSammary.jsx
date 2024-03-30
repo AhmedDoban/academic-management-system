@@ -92,7 +92,7 @@ function UploadSammary() {
                 controls={false}
                 src="https://assets7.lottiefiles.com/packages/lf20_onjuzgsi.json"
                 className="Player"
-              ></Player>
+              />
               <p>Chose PDF</p>
             </label>
             <div className="face back">
@@ -108,7 +108,7 @@ function UploadSammary() {
                   controls={false}
                   src="https://assets8.lottiefiles.com/packages/lf20_z7DhMX.json"
                   className="uploadFileBTNplayer"
-                ></Player>
+                />
                 Click here to upload
               </button>
               <div className="progressbar">

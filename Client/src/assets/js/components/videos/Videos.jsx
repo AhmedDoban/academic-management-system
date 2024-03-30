@@ -87,7 +87,7 @@ function Viedos(props) {
             controls={false}
             src={require("../../../img/Players/NoViedo.json")}
             className="NoVidosPlayer"
-          ></Player>
+          />
           <p>There is No Videos </p>
         </div>
       )}

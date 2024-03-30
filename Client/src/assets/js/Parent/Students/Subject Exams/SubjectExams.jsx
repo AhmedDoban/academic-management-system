@@ -161,7 +161,7 @@ function SubjectExams(props) {
                     controls={false}
                     src="https://assets9.lottiefiles.com/packages/lf20_JyhocJ9San.json"
                     className="PLayer"
-                  ></Player>
+                  />
                   <p>{Exam.exam_name}</p>
                   <p>{Exam.solved_exam_score}</p>
                 </div>
@@ -176,7 +176,7 @@ function SubjectExams(props) {
               controls={false}
               src="https://assets9.lottiefiles.com/packages/lf20_inti4oxf.json"
               className="nostudent-player"
-            ></Player>
+            />
             <p>Your Son haven't Taken any Exam Yet</p>
           </div>
         )}
