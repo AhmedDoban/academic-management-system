@@ -1,5 +1,5 @@
 import React, { lazy } from "react";
-import { NavLink, Navigate, Route, Routes, useParams } from "react-router-dom";
+import { NavLink, Navigate, Route, Routes } from "react-router-dom";
 import Mountain from "../../../components/Mountain Template/Mountain";
 import "./InquiriesCenter.css";
 
@@ -12,8 +12,6 @@ const AnswerInquiries = lazy(() =>
 );
 
 function InquiriesCenter() {
-  const params = useParams();
-
   return (
     <React.Fragment>
       <Mountain>

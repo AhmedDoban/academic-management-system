@@ -1,18 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import "./DeleteInquiries.css";
 import Swal from "sweetalert2";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  DeleteInquiry,
+  DeleteInquiryLocal,
+  GetAllInquiries,
+  SeeNext,
+  SeePrev,
+} from "../../../../../Toolkit/Slices/InquiriesSlice";
+import LodingFeachData from "../../../../components/Loding Feach Data/LodingFeachData";
 
 function DeleteInquiries() {
   const params = useParams();
-  const [Inquiries, SetInquiries] = useState([]);
+  const Dispatch = useDispatch();
+  const { loading, Inquiries, currentPage, number_of_pages } = useSelector(
+    (State) => State.Inquiries
+  );
+
+  useEffect(() => {
+    Dispatch(GetAllInquiries(params.subject_id));
+  }, []);
 
   const DeleteInquiriesHandelar = (data) => {
     Swal.fire({
-      title: "Are you sure?",
-      text: `You want to Delete ${data.video_title} ? `,
+      title: "Are you sure You want to Delete this inquiry ?",
+      text: data.Question,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -21,50 +36,84 @@ function DeleteInquiries() {
       cancelButtonText: '<i class="fas fa-times"></i>',
     }).then((result) => {
       if (result.isConfirmed) {
-        try {
-          axios
-            .post(
-              `${process.env.REACT_APP_API}/doctor/delete_inquiry.php`,
-              { question_id: data.ask_id },
-              {
-                headers: {
-                  Accept: "application/json",
-                  "Content-Type": "text/plain",
-                },
-              }
-            )
-            .then((response) => {
-              if (response.data.status === "success") {
-                Swal.fire("Deleted!", response.data.message, "success");
-              }
-            });
-        } catch (error) {
-          throw error;
-        }
+        Dispatch(
+          DeleteInquiry({ Subject_Id: params.subject_id, _id: data._id })
+        ).then((res) => {
+          if (res.payload.Status !== "Faild") {
+            Dispatch(DeleteInquiryLocal(data));
+          }
+        });
       }
     });
   };
+
+  const HandleNext = () => {
+    Dispatch(SeeNext());
+    Dispatch(GetAllInquiries(params.subject_id));
+  };
+  const HandlePrev = () => {
+    Dispatch(SeePrev());
+    Dispatch(GetAllInquiries(params.subject_id));
+  };
+
   return (
     <React.Fragment>
-      {Inquiries.length > 0 ? (
-        <div className="DeleteInquiries">
-          <div className="container">
-            {Inquiries.map((Inquirie) => (
-              <div className="card" key={Inquirie.ask_id} data-aos="zoom-in">
-                <div className="data">
-                  <p>{Inquirie.title} </p>
-                  <span>
-                    {Inquirie.answer ? Inquirie.answer : "لا يوجد رد"}
-                    <i
-                      className="fa-solid fa-trash"
-                      onClick={() => DeleteInquiriesHandelar(Inquirie)}
-                    ></i>
-                  </span>
+      {loading ? (
+        <LodingFeachData />
+      ) : Inquiries.length > 0 ? (
+        <React.Fragment>
+          <div className="DeleteInquiries">
+            <div className="container">
+              {Inquiries.map((Inquiry) => (
+                <div className="card" data-aos="fade-down" key={Inquiry._id}>
+                  <div className="data">
+                    <h4>{Inquiry.StudentName}</h4>
+                    <p className="titleInqu">
+                      {Inquiry.Answer ? (
+                        <span>
+                          <span>{Inquiry.Question}</span>
+                          <i className="fa-solid fa-check" />
+                        </span>
+                      ) : (
+                        Inquiry.Question
+                      )}
+                    </p>
+                    <span>
+                      <span>
+                        {Inquiry.Answer ? Inquiry.Answer : "There is no Answer"}
+                      </span>
+                      <i
+                        className="fa-solid fa-trash"
+                        onClick={() => DeleteInquiriesHandelar(Inquiry)}
+                      />
+                    </span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+
+          {Inquiries.length / 10 > number_of_pages && (
+            <div className="Inquiries_Actions">
+              <div className="container">
+                <button
+                  onClick={HandlePrev}
+                  disabled={currentPage === 1}
+                  className={currentPage === 1 ? "active" : ""}
+                >
+                  Previous
+                </button>
+                <button
+                  onClick={HandleNext}
+                  disabled={currentPage === number_of_pages}
+                  className={currentPage === number_of_pages ? "active" : ""}
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          )}
+        </React.Fragment>
       ) : (
         <div className="No_Inquiries">
           <Player

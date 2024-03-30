@@ -53,6 +53,32 @@ export const AddNewInquiry = createAsyncThunk(
   }
 );
 
+// Delete Student Inquiry
+export const DeleteInquiry = createAsyncThunk(
+  "DeleteInquiry",
+  async (payload) => {
+    const { Token } = JSON.parse(localStorage.getItem("Token"));
+
+    try {
+      const Data = await axios.post(
+        `${process.env.REACT_APP_API}/Inquiries/Remove`,
+        {
+          Subject_Id: payload.Subject_Id,
+          _id: payload._id,
+        },
+        {
+          headers: {
+            Authorization: Token,
+          },
+        }
+      );
+      return Data.data;
+    } catch (err) {
+      Toast_Handelar("error", "Sorry we can't get your data !");
+    }
+  }
+);
+
 const InquiriesSlice = createSlice({
   name: "InquiriesSlice",
   initialState: {
@@ -81,6 +107,13 @@ const InquiriesSlice = createSlice({
       all_Inquiries.push(action.payload);
       Sate.Inquiries = all_Inquiries;
     },
+    DeleteInquiryLocal: (Sate, action) => {
+      const all_Inquiries = [...Sate.Inquiries];
+      const NewData = all_Inquiries.filter(
+        (data) => data._id !== action.payload._id
+      );
+      Sate.Inquiries = NewData;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(GetAllInquiries.pending, (State, action) => {
@@ -105,9 +138,17 @@ const InquiriesSlice = createSlice({
         Toast_Handelar("error", action.payload.message);
       }
     });
+    builder.addCase(DeleteInquiry.fulfilled, (State, action) => {
+      if (action.payload.Status !== "Faild") {
+        Toast_Handelar("success", action.payload.message);
+      } else {
+        Toast_Handelar("error", action.payload.message);
+      }
+    });
   },
 });
 
-export const { SeeNext, SeePrev, InsertInquiry } = InquiriesSlice.actions;
+export const { SeeNext, SeePrev, InsertInquiry, DeleteInquiryLocal } =
+  InquiriesSlice.actions;
 
 export default InquiriesSlice.reducer;

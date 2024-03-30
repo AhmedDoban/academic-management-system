@@ -16,11 +16,7 @@ function SubjectData() {
       <div className="SubjectData">
         <div className="container">
           {/***************** Quiz  **********************/}
-          <Link
-            className="card"
-            data-aos="zoom-in"
-            to={`Exams/${params.subject_id}/${params.SubjectName}?`}
-          >
+          <Link className="card" data-aos="zoom-in" to={`Exams`}>
             <h1>Exam</h1>
             <Player
               autoplay={true}
@@ -31,11 +27,7 @@ function SubjectData() {
             />
           </Link>
           {/***************** Video Center  **********************/}
-          <Link
-            className="card"
-            data-aos="zoom-in"
-            to={`VideoCenter/${params.subject_id}/${params.SubjectName}?`}
-          >
+          <Link className="card" data-aos="zoom-in" to={`VideoCenter`}>
             <h1>Video Center</h1>
             <Player
               autoplay={true}
@@ -61,11 +53,7 @@ function SubjectData() {
             />
           </Link>
           {/***************** Summary / s  **********************/}
-          <Link
-            className="card"
-            data-aos="zoom-in"
-            to={`SammaryCenter/${params.subject_id}/${params.SubjectName}?`}
-          >
+          <Link className="card" data-aos="zoom-in" to={`SammaryCenter`}>
             <h1>Summary Center</h1>
             <Player
               autoplay={true}
@@ -102,11 +90,7 @@ function SubjectData() {
             />
           </Link>
           {/***************** inquiries  **********************/}
-          <Link
-            className="card"
-            data-aos="zoom-in"
-            to={`InquiriesCenter/${params.subject_id}/${params.SubjectName}?`}
-          >
+          <Link className="card" data-aos="zoom-in" to={`InquiriesCenter`}>
             <h1>Inquiries Center</h1>
             <Player
               autoplay={true}

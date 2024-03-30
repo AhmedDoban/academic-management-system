@@ -87,10 +87,7 @@ const Instructor = (props) => {
                       element={<Outlet />}
                     >
                       <Route path="" element={<SubjectData />} />
-                      <Route
-                        path="Exams/:subject_id/:SubjectName?"
-                        element={<Outlet />}
-                      >
+                      <Route path="Exams" element={<Outlet />}>
                         <Route path="" element={<Exams />} />
                         <Route path="CreateExam" element={<NewExam />} />
                         <Route
@@ -106,10 +103,7 @@ const Instructor = (props) => {
                         </Route>
                       </Route>
                       {/********** Video Center Page ***********/}
-                      <Route
-                        path="VideoCenter/:subject_id/:SubjectName?"
-                        element={<VideoCenter />}
-                      >
+                      <Route path="VideoCenter" element={<VideoCenter />}>
                         <Route path="" exact />
                         <Route path="DeleteVideo" />
                         <Route path="EditVideo" />
@@ -117,10 +111,7 @@ const Instructor = (props) => {
                         <Route path="*" render={() => <Navigate to="/" />} />
                       </Route>
                       {/********** Sammary Center Page ***********/}
-                      <Route
-                        path="SammaryCenter/:subject_id/:SubjectName?"
-                        element={<SammaryCenter />}
-                      >
+                      <Route path="SammaryCenter" element={<SammaryCenter />}>
                         <Route path="" exact />
                         <Route path="DeleteSammary" />
                         <Route path="UploadSammary" />
@@ -138,7 +129,7 @@ const Instructor = (props) => {
 
                       {/********** Inquiries Center Page ***********/}
                       <Route
-                        path="InquiriesCenter/:subject_id/:SubjectName?"
+                        path="InquiriesCenter"
                         element={<InquiriesCenter />}
                       >
                         <Route path="" exact />

@@ -1,38 +1,94 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import "./AllInquiries.css";
-import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  GetAllInquiries,
+  SeeNext,
+  SeePrev,
+} from "../../../../../Toolkit/Slices/InquiriesSlice";
+import LodingFeachData from "../../../../components/Loding Feach Data/LodingFeachData";
 
 function AllInquiries() {
   const params = useParams();
-  const [Inquiries, SetInquiries] = useState([]);
+  const Dispatch = useDispatch();
+  const { loading, Inquiries, currentPage, number_of_pages } = useSelector(
+    (State) => State.Inquiries
+  );
+
+  useEffect(() => {
+    Dispatch(GetAllInquiries(params.subject_id));
+  }, []);
+
+  const HandleNext = () => {
+    Dispatch(SeeNext());
+    Dispatch(GetAllInquiries(params.subject_id));
+  };
+  const HandlePrev = () => {
+    Dispatch(SeePrev());
+    Dispatch(GetAllInquiries(params.subject_id));
+  };
 
   return (
     <React.Fragment>
-      {Inquiries.length > 0 ? (
-        <div className="AllInquiries">
-          <div className="container">
-            {Inquiries.map((Inquirie) => (
-              <div className="card" key={Inquirie.ask_id} data-aos="zoom-in">
-                <div className="data">
-                  <p>{Inquirie.title} </p>
-                  <span>
-                    {Inquirie.answer ? (
-                      Inquirie.answer
-                    ) : (
-                      <span>
-                        <span>لا يوجد رد</span>
-                        <i className="fa-solid fa-triangle-exclamation"></i>
-                      </span>
-                    )}
-                  </span>
+      {loading ? (
+        <LodingFeachData />
+      ) : Inquiries.length > 0 ? (
+        <React.Fragment>
+          <div className="AllInquiries">
+            <div className="container">
+              {Inquiries.map((Inquiry) => (
+                <div className="card" data-aos="fade-down" key={Inquiry._id}>
+                  <div className="data">
+                    <h4>{Inquiry.StudentName}</h4>
+                    <p className="titleInqu">
+                      {Inquiry.Answer ? (
+                        <span>
+                          <span>{Inquiry.Question}</span>
+                          <i className="fa-solid fa-check" />
+                        </span>
+                      ) : (
+                        Inquiry.Question
+                      )}
+                    </p>
+                    <span>
+                      {Inquiry.Answer ? (
+                        Inquiry.Answer
+                      ) : (
+                        <span>
+                          <span>There is no Answer</span>
+                          <i className="fa-solid fa-triangle-exclamation" />
+                        </span>
+                      )}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+
+          {Inquiries.length / 10 > number_of_pages && (
+            <div className="Inquiries_Actions">
+              <div className="container">
+                <button
+                  onClick={HandlePrev}
+                  disabled={currentPage === 1}
+                  className={currentPage === 1 ? "active" : ""}
+                >
+                  Previous
+                </button>
+                <button
+                  onClick={HandleNext}
+                  disabled={currentPage === number_of_pages}
+                  className={currentPage === number_of_pages ? "active" : ""}
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          )}
+        </React.Fragment>
       ) : (
         <div className="No_Inquiries">
           <Player

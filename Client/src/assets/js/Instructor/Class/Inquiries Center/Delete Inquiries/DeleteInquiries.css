@@ -1,15 +1,12 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# General
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@import url("../../../../../css/root.css");
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# DeleteInquiries
+# Delete DeleteInquiries
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .DeleteInquiries {
   position: relative;
   width: 100%;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
+  min-height: 60vh;
 }
 .DeleteInquiries .container {
   display: flex;
@@ -41,13 +38,17 @@
   flex-direction: column;
   gap: 2px;
 }
+.DeleteInquiries .card .data h4 {
+  position: relative;
+  padding: 5px 0;
+}
 .DeleteInquiries .card .data p {
   position: relative;
   width: 100%;
   color: var(--main-text-color);
   transition: var(--main-transition);
   font-size: 16px;
-  text-align: right;
+  text-align: left;
   border-bottom: 1px solid var(--main-text-color);
   padding: 10px 0;
 }
@@ -55,24 +56,58 @@
   position: relative;
   width: 100%;
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
   align-items: center;
+  justify-content: flex-start;
+  padding: 5px 0;
   color: var(--main-text-color);
   transition: var(--main-transition);
   font-size: 14px;
-  text-align: right;
-  padding: 10px 0;
+  text-align: left;
 }
-.DeleteInquiries .card .data span i {
-  color: var(--blue-color);
+.DeleteInquiries .card .data > span i {
+  color: var(--orange-color);
   transition: var(--main-transition);
 }
-.DeleteInquiries .card .data span i:hover {
-  color: var(--red-color);
+.DeleteInquiries .card .data .titleInqu span i {
+  color: var(--green-color);
+  font-size: 14px;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# No Inquiries
+# Delete Inquiries Action
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Inquiries_Actions {
+  position: relative;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+}
+.Inquiries_Actions .container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.Inquiries_Actions .container button {
+  position: relative;
+  padding: 8px 12px;
+  min-width: 80px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: var(--main-color);
+  transition: var(--main-transition);
+  cursor: pointer;
+  border-radius: var(--main-border-radius);
+}
+.Inquiries_Actions .container button:hover {
+  background-color: var(--main-color-hover);
+}
+.Inquiries_Actions .container button.active {
+  background-color: #888;
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# No Ianquiries
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .No_Inquiries {
   display: flex;
