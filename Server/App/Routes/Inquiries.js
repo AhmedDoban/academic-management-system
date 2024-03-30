@@ -30,7 +30,10 @@ Router.route("/Add").post(
 Router.route("/Remove").post(
   JWT.Verify_Token,
   Verify_User("INSTRUCTOR", "ADMIN"),
-  [body("Subject_Id").notEmpty().withMessage("Subject Id is not Valid")],
+  [
+    body("Subject_Id").notEmpty().withMessage("Subject Id is not Valid"),
+    body("_id").notEmpty().withMessage("Id is not Valid"),
+  ],
   Inquiries_controllers.Remove_Inquiries
 );
 

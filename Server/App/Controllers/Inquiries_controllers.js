@@ -80,7 +80,7 @@ const Add_Inquiries = async (Req, Res) => {
     return Res.json({
       Status: Codes.FAILD,
       Status_Code: Codes.FAILD_CODE,
-      message: "Can't get Data please Try again later",
+      message: "Can't Add , please Try again later",
       Data: Errors.array().map((arr) => arr.msg),
     });
   }
@@ -109,24 +109,26 @@ const Add_Inquiries = async (Req, Res) => {
 
 // remove inquiry from back end
 const Remove_Inquiries = async (Req, Res) => {
-  const { Subject_Id } = Req.body;
+  const { Subject_Id, _id } = Req.body;
   // Body Validation Before Searching in the database to increase performance
   const Errors = validationResult(Req);
   if (!Errors.isEmpty()) {
     return Res.json({
       Status: Codes.FAILD,
       Status_Code: Codes.FAILD_CODE,
-      message: "Can't get Data please Try again later",
+      message: "Can't delete ,please Try again later",
       Data: Errors.array().map((arr) => arr.msg),
     });
   }
   try {
     const Inquiry = await Inquiries_Model.findOne({
       Subject_Id: new mongoose.Types.ObjectId(Subject_Id),
+      _id: _id,
     });
     if (Inquiry !== null) {
       await Inquiries_Model.deleteOne({
         Subject_Id: new mongoose.Types.ObjectId(Subject_Id),
+        _id: _id,
       });
 
       return Res.json({
@@ -160,7 +162,7 @@ const Update_Inquiries = async (Req, Res) => {
     return Res.json({
       Status: Codes.FAILD,
       Status_Code: Codes.FAILD_CODE,
-      message: "Can't get Data please Try again later",
+      message: "Can't update , please Try again later",
       Data: Errors.array().map((arr) => arr.msg),
     });
   }
