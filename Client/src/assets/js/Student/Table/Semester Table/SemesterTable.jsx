@@ -20,6 +20,7 @@ function SemesterTable() {
 
   const handlePrint = useReactToPrint({
     content: () => tableRef.current,
+    documentTitle: `${Subjects[0]?.Semester} table`,
   });
 
   const { onDownload } = useDownloadExcel({
@@ -45,7 +46,7 @@ function SemesterTable() {
               download
             </button>
           </div>
-          <table className="printTable" ref={tableRef}>
+          <table className="printStudentTable" ref={tableRef}>
             <thead>
               <tr>
                 <th>#</th>
