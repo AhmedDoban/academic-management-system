@@ -57,7 +57,7 @@ function Subjects() {
                   autoplay={true}
                   loop={true}
                   controls={false}
-                  src="https://assets7.lottiefiles.com/packages/lf20_yg29hewu.json"
+                  src={require("../../../img/Players/Subjects.json")}
                   style={{ width: "100px", height: "150px" }}
                 />
               </Link>
