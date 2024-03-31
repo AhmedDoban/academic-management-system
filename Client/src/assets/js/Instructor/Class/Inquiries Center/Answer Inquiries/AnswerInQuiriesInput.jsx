@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { UpdateInquiry } from "../../../../../Toolkit/Slices/InquiriesSlice";
+import {
+  UpdateInquiry,
+  UpdateInquiryLocal,
+} from "../../../../../Toolkit/Slices/InquiriesSlice";
 import Toast_Handelar from "../../../../components/Toast_Handelar";
 
 function AnswerInQuiriesInput({ Subject_Id, _id }) {
@@ -17,6 +20,7 @@ function AnswerInQuiriesInput({ Subject_Id, _id }) {
         })
       ).then((res) => {
         if (res.payload.Satus !== "Faild") {
+          Dispatch(UpdateInquiryLocal({ _id, Answer: InquiryAnswer }));
           SetInquiryAnswer("");
         }
       });
@@ -24,7 +28,7 @@ function AnswerInQuiriesInput({ Subject_Id, _id }) {
       Toast_Handelar("error", "input in empty !");
     }
   };
-  
+
   const HandleAnswerWithEnter = (e) => {
     if (InquiryAnswer !== "" && e.key === "Enter") {
       Dispatch(
@@ -35,6 +39,7 @@ function AnswerInQuiriesInput({ Subject_Id, _id }) {
         })
       ).then((res) => {
         if (res.payload.Satus !== "Faild") {
+          Dispatch(UpdateInquiryLocal({ _id, Answer: InquiryAnswer }));
           SetInquiryAnswer("");
         }
       });

@@ -141,6 +141,15 @@ const InquiriesSlice = createSlice({
       );
       Sate.Inquiries = NewData;
     },
+    UpdateInquiryLocal: (Sate, action) => {
+      const all_Inquiries = [...Sate.Inquiries];
+      const NewData = all_Inquiries.filter(
+        (data) => data._id == action.payload._id
+      )[0];
+      const index = all_Inquiries.indexOf(NewData);
+      all_Inquiries[index] = { ...NewData, Answer: action.payload.Answer };
+      Sate.Inquiries = all_Inquiries;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(GetAllInquiries.pending, (State, action) => {
@@ -182,7 +191,12 @@ const InquiriesSlice = createSlice({
   },
 });
 
-export const { SeeNext, SeePrev, InsertInquiry, DeleteInquiryLocal } =
-  InquiriesSlice.actions;
+export const {
+  SeeNext,
+  SeePrev,
+  InsertInquiry,
+  DeleteInquiryLocal,
+  UpdateInquiryLocal,
+} = InquiriesSlice.actions;
 
 export default InquiriesSlice.reducer;
