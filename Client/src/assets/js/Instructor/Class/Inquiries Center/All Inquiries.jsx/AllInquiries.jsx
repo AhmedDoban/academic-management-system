@@ -18,16 +18,16 @@ function AllInquiries() {
   );
 
   useEffect(() => {
-    Dispatch(GetAllInquiries(params.subject_id));
+    Dispatch(GetAllInquiries(params.Subject_id));
   }, []);
 
   const HandleNext = () => {
     Dispatch(SeeNext());
-    Dispatch(GetAllInquiries(params.subject_id));
+    Dispatch(GetAllInquiries(params.Subject_id));
   };
   const HandlePrev = () => {
     Dispatch(SeePrev());
-    Dispatch(GetAllInquiries(params.subject_id));
+    Dispatch(GetAllInquiries(params.Subject_id));
   };
 
   return (

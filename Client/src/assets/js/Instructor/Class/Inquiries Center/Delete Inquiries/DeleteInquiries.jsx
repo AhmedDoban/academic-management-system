@@ -21,7 +21,7 @@ function DeleteInquiries() {
   );
 
   useEffect(() => {
-    Dispatch(GetAllInquiries(params.subject_id));
+    Dispatch(GetAllInquiries(params.Subject_id));
   }, []);
 
   const DeleteInquiriesHandelar = (data) => {
@@ -37,7 +37,7 @@ function DeleteInquiries() {
     }).then((result) => {
       if (result.isConfirmed) {
         Dispatch(
-          DeleteInquiry({ Subject_Id: params.subject_id, _id: data._id })
+          DeleteInquiry({ Subject_Id: params.Subject_id, _id: data._id })
         ).then((res) => {
           if (res.payload.Status !== "Faild") {
             Dispatch(DeleteInquiryLocal(data));
@@ -49,11 +49,11 @@ function DeleteInquiries() {
 
   const HandleNext = () => {
     Dispatch(SeeNext());
-    Dispatch(GetAllInquiries(params.subject_id));
+    Dispatch(GetAllInquiries(params.Subject_id));
   };
   const HandlePrev = () => {
     Dispatch(SeePrev());
-    Dispatch(GetAllInquiries(params.subject_id));
+    Dispatch(GetAllInquiries(params.Subject_id));
   };
 
   return (

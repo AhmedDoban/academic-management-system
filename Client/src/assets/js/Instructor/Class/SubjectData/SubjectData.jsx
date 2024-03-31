@@ -38,11 +38,7 @@ function SubjectData() {
             />
           </Link>
           {/***************** Videos  **********************/}
-          <Link
-            className="card"
-            data-aos="zoom-in"
-            to={`Videos/${params.subject_id}`}
-          >
+          <Link className="card" data-aos="zoom-in" to={`Videos`}>
             <h1>Videos</h1>
             <Player
               autoplay={true}

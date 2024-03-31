@@ -4,19 +4,33 @@ import { useParams } from "react-router-dom";
 import Mountain from "../Mountain Template/Mountain";
 import "./Videos.css";
 import Dots from "../Dots/Dots";
+import { useDispatch, useSelector } from "react-redux";
+import { GetAllVideos } from "../../../Toolkit/Slices/VideosSlice";
+import { VideoPlayer } from "@graphland/react-video-player";
 
-function Viedos(props) {
+function Viedos() {
   const params = useParams();
-  const [Video, SetVideo] = useState([]);
-  const [VideoSRC, SetVideoSRC] = useState("");
-  const [Videotitle, SetVideotitle] = useState("");
+  const Dispatch = useDispatch();
+  const { Videos } = useSelector((state) => state.Videos);
+  const [SingleVideo, SetSingleVideo] = useState({});
 
-  const url = props.url;
-
-  const HandleViewVideo = (data) => {
-    SetVideoSRC(data.video_link);
-    SetVideotitle(data.video_title);
+  const videoProps = {
+    theme: "city",
+    autoPlay: false,
+    loop: false,
+    controlBar: {
+      skipButtons: {
+        forward: 5,
+        backward: 5,
+      },
+    },
+    playbackRates: [0.5, 1, 1.5, 2],
+    disablePictureInPicture: false,
   };
+
+  useEffect(() => {
+    Dispatch(GetAllVideos(params.Subject_id));
+  }, []);
 
   return (
     <React.Fragment>
@@ -25,7 +39,7 @@ function Viedos(props) {
           <h1>Videos</h1>
         </div>
       </Mountain>
-      {Video.length > 0 ? (
+      {Videos.length > 0 ? (
         <div className="specific-course">
           <div className="video" id="video">
             <Dots OtherStyle="top" />
@@ -37,30 +51,37 @@ function Viedos(props) {
                     <p>Videos</p>
                   </div>
                   <ul>
-                    {Video.map((video) => (
-                      <li
-                        onClick={() => HandleViewVideo(video)}
-                        key={video.video_id}
-                      >
+                    {Videos.map((video) => (
+                      <li onClick={() => SetSingleVideo(video)} key={video._id}>
                         <div className="img">
-                          <img
-                            src={video.video_image_link}
-                            alt={video.video_title}
-                          />
+                          <img src={video.Thumbnail} alt={video.Title} />
                         </div>
                         <div className="data">
-                          {video.video_title}
-                          <span>{video.video_date}</span>
+                          {video.Title}
+                          <span>{video?.createdAt.split("T")[0]}</span>
                         </div>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div className="right">
-                  {VideoSRC ? (
+                  {SingleVideo.Video ? (
                     <React.Fragment>
-                      <iframe className="Frame" src={VideoSRC}></iframe>
-                      <div className="info">{Videotitle}</div>
+                      <div className="VideoPlayerStyle">
+                        <VideoPlayer
+                          {...videoProps}
+                          sources={[
+                            {
+                              src: SingleVideo.Video,
+                              type: "video/mp4",
+                            },
+                          ]}
+                        />
+                      </div>
+                      <div className="info">
+                        <span>{SingleVideo.Title}</span>
+                        <p>{SingleVideo.Description}</p>
+                      </div>
                     </React.Fragment>
                   ) : (
                     <React.Fragment>

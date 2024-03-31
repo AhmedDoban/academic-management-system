@@ -21,15 +21,15 @@ function AnswerInquiries() {
 
   const HandleNext = () => {
     Dispatch(SeeNext());
-    Dispatch(GetAllInquiries(params.subject_id));
+    Dispatch(GetAllInquiries(params.Subject_id));
   };
   const HandlePrev = () => {
     Dispatch(SeePrev());
-    Dispatch(GetAllInquiries(params.subject_id));
+    Dispatch(GetAllInquiries(params.Subject_id));
   };
 
   useEffect(() => {
-    Dispatch(GetAllInquiries(params.subject_id));
+    Dispatch(GetAllInquiries(params.Subject_id));
   }, []);
 
   return (
@@ -48,7 +48,7 @@ function AnswerInquiries() {
                   </div>
 
                   <AnswerInQuiriesInput
-                    Subject_Id={Inquiry.Subject_Id}
+                    Subject_id={Inquiry.Subject_Id}
                     _id={Inquiry._id}
                   />
                 </div>

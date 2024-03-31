@@ -1,101 +1,51 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import "./EditVideo.css";
-import axios from "axios";
-import { toast } from "react-toastify";
 import { Player } from "@lottiefiles/react-lottie-player";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  GetAllVideos,
+  UpdateVideoLocal,
+  UpdateVideos,
+} from "../../../../../Toolkit/Slices/VideosSlice";
 
 function EditVideo() {
   const params = useParams("");
-  const [Videos, SetVideos] = useState([]);
-  const url = `${process.env.REACT_APP_API}/doctor/`;
-
-  const [video_title, Setvideo_title] = useState("");
-  const [video_description, Setvideo_description] = useState("");
-  const [video_link, Setvideo_link] = useState("");
-  const [video_id, Setvideo_id] = useState("");
+  const Dispatch = useDispatch();
+  const { Videos } = useSelector((state) => state.Videos);
   const [ValidData, SetValidData] = useState(false);
+  const [data, setData] = useState({
+    Title: "",
+    Description: "",
+    Subject_Id: params.Subject_id,
+    _id: "",
+  });
 
-  const fetchData = async function () {
-    try {
-      await axios
-        .post(
-          `${url}/select_videos.php`,
-          { subject_id: params.subject_id },
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "text/plain",
-            },
-          }
-        )
-        .then((response) => {
-          if (response.data.status === "success") {
-            SetVideos(response.data.message);
-          }
-        });
-    } catch (error) {
-      throw error;
-    }
-  };
   useEffect(() => {
-    fetchData();
-  }, [url, params.subject_id]);
+    Dispatch(GetAllVideos(params.Subject_id));
+  }, []);
 
-  const HandleUpLoadVideo = () => {
-    try {
-      axios
-        .post(
-          `${url}/edit_video_data.php`,
-          { video_title, video_description, video_link, video_id },
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "text/plain",
-            },
-          }
-        )
-        .then((response) => {
-          if (response.data.status === "success") {
-            toast.success(response.data.message, {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-            HandleBack();
-            fetchData();
-          } else if (response.data.status === "error") {
-            toast.warn(response.data.message, {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-          }
-        });
-    } catch (error) {
-      throw error;
-    }
-  };
+  const HandeChange = useCallback(
+    (e) => {
+      const { name, value } = e.target;
+      setData({ ...data, [name]: value });
+    },
+    [data]
+  );
 
-  const HandleEditVideo = (VidData) => {
-    Setvideo_title(VidData.video_title);
-    Setvideo_description(VidData.video_description);
-    Setvideo_link(VidData.video_link);
-    Setvideo_id(VidData.video_id);
+  const HandleEditVideo = (e) => {
+    setData({
+      Title: e.Title,
+      Description: e.Description,
+      _id: e._id,
+      Subject_Id: params.Subject_id,
+    });
     SetValidData(true);
   };
-  const HandleBack = () => {
-    SetValidData(false);
+
+  const HandleUpdateVideo = () => {
+    Dispatch(UpdateVideos(data));
+    Dispatch(UpdateVideoLocal(data));
   };
 
   return (
@@ -107,58 +57,47 @@ function EditVideo() {
             <div className="input-card" data-aos="zoom-in">
               <input
                 type="text"
-                name="video_title"
-                id="video_title"
-                value={video_title}
-                onChange={(e) => Setvideo_title(e.target.value)}
+                name="Title"
+                id="Title"
+                value={data.Title}
+                onChange={(e) => HandeChange(e)}
                 placeholder=" "
               />
-              <label htmlFor="video_title">Video Title</label>
+              <label htmlFor="Title">Video Title</label>
             </div>
             {/********************************** video_description *******************************/}
             <div className="input-card" data-aos="zoom-in">
               <textarea
-                name="video_description"
-                id="video_description"
-                onChange={(e) => Setvideo_description(e.target.value)}
-                value={video_description}
+                name="Description"
+                id="Description"
+                onChange={(e) => HandeChange(e)}
+                value={data.Description}
                 cols="30"
                 rows="10"
                 placeholder="video description ... "
               ></textarea>
             </div>
-            {/********************************** Video link *******************************/}
-            <div className="input-card">
-              <input
-                type="text"
-                name="video_link"
-                id="video_link"
-                onChange={(e) => Setvideo_link(e.target.value)}
-                value={video_link}
-                placeholder=" "
-              />
-              <label htmlFor="video_link">Video link</label>
-            </div>
+
             {/********************************** Submit  *******************************/}
             <div className="input-card">
-              <button onClick={HandleBack}>
+              <button onClick={() => SetValidData(false)}>
                 <Player
                   autoplay={true}
                   loop={true}
                   controls={false}
-                  src="https://assets9.lottiefiles.com/packages/lf20_ys24ctpy.json"
+                  src={require("../../../../../img/Players/Back.json")}
                   style={{ width: "50px", height: "30px" }}
                 />
                 Back
               </button>
 
-              <button onClick={HandleUpLoadVideo}>
+              <button onClick={() => HandleUpdateVideo()}>
                 update Video
                 <Player
                   autoplay={true}
                   loop={true}
                   controls={false}
-                  src="https://assets4.lottiefiles.com/packages/lf20_z7DhMX.json"
+                  src={require("../../../../../img/Players/Upload.json")}
                   style={{ width: "50px", height: "30px" }}
                 />
               </button>
@@ -171,11 +110,11 @@ function EditVideo() {
             {Videos.map((Vi) => (
               <div className="card">
                 <div className="data" data-aos="zoom-in">
-                  <span>{Vi.video_title}</span>
+                  <span>{Vi.Title}</span>
                   <i
                     className="fa-solid fa-pen-to-square"
                     onClick={() => HandleEditVideo(Vi)}
-                  ></i>
+                  />
                 </div>
               </div>
             ))}

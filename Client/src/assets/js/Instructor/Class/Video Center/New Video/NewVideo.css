@@ -1,8 +1,4 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# General
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@import url("../../../../../css/root.css");
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # New Video
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .NewVideo {
@@ -57,6 +53,20 @@
   border-radius: var(--main-border-radius);
   font-size: 18px;
 }
+.NewVideo .container .input-card input[type="file"] ~ label {
+  position: relative;
+  display: flex;
+  padding: 8px 14px;
+  color: var(--main-text-color);
+  border-radius: var(--main-border-radius);
+  font-size: 18px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white-color);
+  border: 0;
+  transition: var(--main-transition);
+  cursor: pointer;
+}
 .NewVideo .container .input-card input[type="text"]:focus ~ label,
 .NewVideo
   .container
@@ -79,4 +89,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.NewVideo .container .input-card .progress {
+  position: relative;
+  width: 100%;
+  padding: 5px;
+  background-color: var(--white-color);
+  background-color: transparent;
+}
+.NewVideo .container .input-card .progress span {
+  position: absolute;
+  height: 100%;
+  background-color: var(--main-color);
+  top: 0;
+  left: 0;
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-text-color);
 }

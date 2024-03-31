@@ -6,7 +6,7 @@ import {
 } from "../../../../../Toolkit/Slices/InquiriesSlice";
 import Toast_Handelar from "../../../../components/Toast_Handelar";
 
-function AnswerInQuiriesInput({ Subject_Id, _id }) {
+function AnswerInQuiriesInput({ Subject_id, _id }) {
   const Dispatch = useDispatch();
   const [InquiryAnswer, SetInquiryAnswer] = useState("");
 
@@ -14,7 +14,7 @@ function AnswerInQuiriesInput({ Subject_Id, _id }) {
     if (InquiryAnswer !== "") {
       Dispatch(
         UpdateInquiry({
-          Subject_Id: Subject_Id,
+          Subject_Id: Subject_id,
           _id: _id,
           Answer: InquiryAnswer,
         })
@@ -33,7 +33,7 @@ function AnswerInQuiriesInput({ Subject_Id, _id }) {
     if (InquiryAnswer !== "" && e.key === "Enter") {
       Dispatch(
         UpdateInquiry({
-          Subject_Id: Subject_Id,
+          Subject_Id: Subject_id,
           _id: _id,
           Answer: InquiryAnswer,
         })

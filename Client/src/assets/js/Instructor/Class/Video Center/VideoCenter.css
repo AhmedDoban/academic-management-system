@@ -1,8 +1,4 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# General
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@import url("../../../../css/root.css");
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Video Center
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .videoCenter {
@@ -43,7 +39,7 @@
   content: "";
   height: 2px;
   width: 100%;
-  background-color: var(--main-text-color);
+  background-color: var(--main-color);
   bottom: 0px;
   left: -100%;
   transition: var(--main-transition);

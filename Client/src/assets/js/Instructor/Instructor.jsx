@@ -83,7 +83,7 @@ const Instructor = (props) => {
                   <Route path="/subjects" element={<Outlet />}>
                     <Route path="" element={<Subjects />} />
                     <Route
-                      path=":subject_id/:SubjectName?"
+                      path=":Subject_id/:SubjectName?"
                       element={<Outlet />}
                     >
                       <Route path="" element={<SubjectData />} />
@@ -118,14 +118,7 @@ const Instructor = (props) => {
                         <Route path="*" render={() => <Navigate to="/" />} />
                       </Route>
                       {/********** Videos Page ***********/}
-                      <Route
-                        path="Videos/:id"
-                        element={
-                          <Viedos
-                            url={`${process.env.REACT_APP_API}/doctor/select_videos.php`}
-                          />
-                        }
-                      />
+                      <Route path="Videos" element={<Viedos />} />
 
                       {/********** Inquiries Center Page ***********/}
                       <Route

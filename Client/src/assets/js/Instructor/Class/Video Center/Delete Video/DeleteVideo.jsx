@@ -1,43 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./DeleteVideo.css";
-import axios from "axios";
 import Swal from "sweetalert2";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  DeleteVideoLocal,
+  DeleteVideos,
+  GetAllVideos,
+} from "../../../../../Toolkit/Slices/VideosSlice";
 
 function DeleteVideo() {
   const params = useParams("");
-  const [Videos, SetVideos] = useState([]);
-  const url = `${process.env.REACT_APP_API}/doctor/`;
-  const fetchData = async function () {
-    try {
-      await axios
-        .post(
-          `${url}/select_videos.php`,
-          { subject_id: params.subject_id },
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "text/plain",
-            },
-          }
-        )
-        .then((response) => {
-          if (response.data.status === "success") {
-            SetVideos(response.data.message);
-          }
-        });
-    } catch (error) {
-      throw error;
-    }
-  };
+  const Dispatch = useDispatch();
+
+  const { Videos } = useSelector((state) => state.Videos);
+
   useEffect(() => {
-    fetchData();
-  }, [url, params.subject_id]);
+    Dispatch(GetAllVideos(params.Subject_id));
+  }, []);
 
   const handleDeletevideo = (data) => {
     Swal.fire({
       title: "Are you sure?",
-      text: `You want to Delete ${data.video_title} ? `,
+      text: `You want to Delete ${data.Title} ? `,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -46,27 +31,13 @@ function DeleteVideo() {
       cancelButtonText: '<i class="fas fa-times"></i>',
     }).then((result) => {
       if (result.isConfirmed) {
-        try {
-          axios
-            .post(
-              `${url}/delete_video.php`,
-              { video_id: data.video_id },
-              {
-                headers: {
-                  Accept: "application/json",
-                  "Content-Type": "text/plain",
-                },
-              }
-            )
-            .then((response) => {
-              if (response.data.status === "success") {
-                Swal.fire("Deleted!", response.data.message, "success");
-                fetchData();
-              }
-            });
-        } catch (error) {
-          throw error;
-        }
+        Dispatch(
+          DeleteVideos({
+            _id: data._id,
+            Subject_Id: data.Subject_Id,
+          })
+        );
+        Dispatch(DeleteVideoLocal(data._id));
       }
     });
   };
@@ -77,11 +48,11 @@ function DeleteVideo() {
           {Videos.map((Vi) => (
             <div className="card" data-aos="zoom-in">
               <div className="data">
-                <span>{Vi.video_title}</span>
+                <span>{Vi.Title}</span>
                 <i
                   className="fa-solid fa-trash"
                   onClick={() => handleDeletevideo(Vi)}
-                ></i>
+                />
               </div>
             </div>
           ))}

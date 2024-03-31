@@ -3,6 +3,7 @@ import UserSlice from "./Slices/UserSlice";
 import NewSemesterSlice from "./Slices/NewSemesterSlice";
 import SemestersSlice from "./Slices/SemestersSlice";
 import InquiriesSlice from "./Slices/InquiriesSlice";
+import VideosSlice from "./Slices/VideosSlice";
 
 const Store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const Store = configureStore({
     NewSemester: NewSemesterSlice,
     Semester: SemestersSlice,
     Inquiries: InquiriesSlice,
+    Videos: VideosSlice,
   },
 });
 
