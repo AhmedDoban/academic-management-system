@@ -26,7 +26,7 @@ Router.route("/Add").post(
   Inquiries_controllers.Add_Inquiries
 );
 
-// Routes Handelar /API/Inquiries/Inquiries_id
+// Routes Handelar /API/Inquiries/Remove
 Router.route("/Remove").post(
   JWT.Verify_Token,
   Verify_User("INSTRUCTOR", "ADMIN"),
