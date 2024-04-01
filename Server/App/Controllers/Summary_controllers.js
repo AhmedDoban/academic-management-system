@@ -1,12 +1,12 @@
 // import schema from Instructor modle
-import Video_Model from "../Model/Video_Model.js";
+import Summary_Model from "../Model/Summary_Model.js";
 import { validationResult } from "express-validator";
 import Codes from "../utils/Codes.js";
 import mongoose from "mongoose";
 import fs from "fs";
 
-// get all Videos from back end
-const Get_All_Videos = async (Req, Res) => {
+// get all Summary from back end
+const Get_All_Summary = async (Req, Res) => {
   const { Subject_Id } = Req.body;
   const Condetion = Req.Verifyed_User.Role === "STUDENT";
   const Errors = validationResult(Req);
@@ -21,7 +21,7 @@ const Get_All_Videos = async (Req, Res) => {
   }
 
   try {
-    const Videos = await Video_Model.aggregate([
+    const Summary = await Summary_Model.aggregate([
       { $sort: { createdAt: -1 } },
       {
         $match: Condetion
@@ -36,7 +36,7 @@ const Get_All_Videos = async (Req, Res) => {
     return Res.json({
       Status: Codes.SUCCESS,
       Status_Code: Codes.SUCCESS_CODE,
-      Data: Videos,
+      Data: Summary,
     });
   } catch (err) {
     // Error in serching handelar
@@ -48,10 +48,9 @@ const Get_All_Videos = async (Req, Res) => {
   }
 };
 
-// add Video to back end
-const Add_Videos = async (Req, Res) => {
-  const { Subject_Id, Title, Description } = Req.body;
-  const File = Req.file.filename;
+// add Summary to back end
+const Add_Summary = async (Req, Res) => {
+  const { Subject_Id, Title } = Req.body;
 
   // Body Validation Before Searching in the database to increase performance
   const Errors = validationResult(Req);
@@ -64,21 +63,17 @@ const Add_Videos = async (Req, Res) => {
     });
   }
   try {
-    const Video = new Video_Model({
+    const Summary = new Summary_Model({
       Subject_Id,
       Title,
-      Video: `${process.env.SERVER_URI}/Uploads/Videos/Video/${File}`,
-      Thumbnail: `${process.env.SERVER_URI}/Uploads/Videos/Thumbnail/${
-        File.split(".")[0]
-      }.jpg`,
-      Description,
+      PDF: `${process.env.SERVER_URI}/Uploads/Summary/${Req.file.filename}`,
     });
-    await Video.save();
+    await Summary.save();
 
     return Res.json({
       Status: Codes.SUCCESS,
       Status_Code: Codes.SUCCESS_CODE,
-      message: "New Video inserted Successfully",
+      message: "New Summary inserted Successfully",
     });
   } catch (err) {
     // Error in serching handelar
@@ -90,8 +85,8 @@ const Add_Videos = async (Req, Res) => {
   }
 };
 
-// remove video from back end
-const Remove_Videos = async (Req, Res) => {
+// remove Summary from back end
+const Remove_Summary = async (Req, Res) => {
   const { Subject_Id, _id } = Req.body;
   // Body Validation Before Searching in the database to increase performance
   const Errors = validationResult(Req);
@@ -104,20 +99,18 @@ const Remove_Videos = async (Req, Res) => {
     });
   }
   try {
-    const Video = await Video_Model.findOne({
+    const Summary = await Summary_Model.findOne({
       Subject_Id: new mongoose.Types.ObjectId(Subject_Id),
       _id: _id,
     });
-    const Video_FILES = Video.Video;
-    const Thumbnail_FILES = Video.Thumbnail;
+    const Summary_FILES = Summary.PDF;
 
-    if (Video !== null) {
+    if (Summary !== null) {
       try {
-        fs.unlinkSync(Video_FILES.split(`http://localhost:3001/`)[1]);
-        fs.unlinkSync(Thumbnail_FILES.split(`http://localhost:3001/`)[1]);
+        fs.unlinkSync(Summary_FILES.split(`http://localhost:3001/`)[1]);
       } catch (err) {}
 
-      await Video_Model.deleteOne({
+      await Summary_Model.deleteOne({
         Subject_Id: new mongoose.Types.ObjectId(Subject_Id),
         _id: _id,
       });
@@ -125,13 +118,13 @@ const Remove_Videos = async (Req, Res) => {
       return Res.json({
         Status: Codes.SUCCESS,
         Status_Code: Codes.SUCCESS_CODE,
-        message: "Video Deleted !",
+        message: "Summary Deleted !",
       });
     } else {
       return Res.json({
         Status: Codes.FAILD,
         Status_Code: Codes.FAILD_CODE,
-        message: "Video Not Found !",
+        message: "Summary Not Found !",
       });
     }
   } catch (err) {
@@ -144,9 +137,9 @@ const Remove_Videos = async (Req, Res) => {
   }
 };
 
-// update Video in back end
-const Update_Videos = async (Req, Res) => {
-  const { Subject_Id, _id, Description, Title } = Req.body;
+// update Summary in back end
+const Update_Summary = async (Req, Res) => {
+  const { Subject_Id, _id, Title } = Req.body;
   // Body Validation Before Searching in the database to increase performance
   const Errors = validationResult(Req);
   if (!Errors.isEmpty()) {
@@ -158,29 +151,29 @@ const Update_Videos = async (Req, Res) => {
     });
   }
   try {
-    const Video = await Video_Model.findOne({
+    const Summary = await Summary_Model.findOne({
       Subject_Id: new mongoose.Types.ObjectId(Subject_Id),
       _id: _id,
     });
-    if (Video !== null) {
-      await Video_Model.updateOne(
+    if (Summary !== null) {
+      await Summary_Model.updateOne(
         {
           Subject_Id: new mongoose.Types.ObjectId(Subject_Id),
           _id: _id,
         },
-        { $set: { Description, Title } }
+        { $set: { Title } }
       );
 
       return Res.json({
         Status: Codes.SUCCESS,
         Status_Code: Codes.SUCCESS_CODE,
-        message: "Video Updated !",
+        message: "Summary Updated !",
       });
     } else {
       return Res.json({
         Status: Codes.FAILD,
         Status_Code: Codes.FAILD_CODE,
-        message: "Video Not Found !",
+        message: "Summary Not Found !",
       });
     }
   } catch (err) {
@@ -193,8 +186,8 @@ const Update_Videos = async (Req, Res) => {
   }
 };
 
-// update Video in back end
-const Update_Videos_Shown = async (Req, Res) => {
+// update Summary in back end
+const Update_Summary_Shown = async (Req, Res) => {
   const { Subject_Id, _id } = Req.body;
   // Body Validation Before Searching in the database to increase performance
   const Errors = validationResult(Req);
@@ -207,12 +200,12 @@ const Update_Videos_Shown = async (Req, Res) => {
     });
   }
   try {
-    const Video = await Video_Model.findOne({
+    const Summary = await Summary_Model.findOne({
       Subject_Id: new mongoose.Types.ObjectId(Subject_Id),
       _id: _id,
     });
-    if (Video !== null) {
-      await Video_Model.updateOne(
+    if (Summary !== null) {
+      await Summary_Model.updateOne(
         {
           Subject_Id: new mongoose.Types.ObjectId(Subject_Id),
           _id: _id,
@@ -223,13 +216,13 @@ const Update_Videos_Shown = async (Req, Res) => {
       return Res.json({
         Status: Codes.SUCCESS,
         Status_Code: Codes.SUCCESS_CODE,
-        message: "Video Updated !",
+        message: "Summary Updated !",
       });
     } else {
       return Res.json({
         Status: Codes.FAILD,
         Status_Code: Codes.FAILD_CODE,
-        message: "Video Not Found !",
+        message: "Summary Not Found !",
       });
     }
   } catch (err) {
@@ -243,9 +236,9 @@ const Update_Videos_Shown = async (Req, Res) => {
 };
 
 export default {
-  Get_All_Videos,
-  Add_Videos,
-  Remove_Videos,
-  Update_Videos,
-  Update_Videos_Shown,
+  Get_All_Summary,
+  Add_Summary,
+  Remove_Summary,
+  Update_Summary,
+  Update_Summary_Shown,
 };

@@ -11,6 +11,7 @@ import Subjects from "./App/Routes/Subjects.js";
 import Semester from "./App/Routes/Semester.js";
 import Inquiries from "./App/Routes/Inquiries.js";
 import Videos from "./App/Routes/Videos.js";
+import Summary from "./App/Routes/Summary.js";
 
 // File System
 import path from "path";
@@ -36,6 +37,7 @@ App.use("/API/Subjects", Subjects);
 App.use("/API/Semester", Semester);
 App.use("/API/Inquiries", Inquiries);
 App.use("/API/Videos", Videos);
+App.use("/API/Summary", Summary);
 App.use("*", (Req, Res) => {
   Res.status(200).json({
     Status: "Faild",
