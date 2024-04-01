@@ -1,12 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Link, useParams } from "react-router-dom";
 import Mountain from "../../../components/Mountain Template/Mountain";
 import "./Summary.css";
+import { GetAllSummary } from "./../../../../Toolkit/Slices/SummarySlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function Summary() {
   const params = useParams();
-  const [Summary, SetSummary] = useState([]);
+
+  const Dispatch = useDispatch();
+  const { Summary } = useSelector((state) => state.Summary);
+
+  useEffect(() => {
+    Dispatch(GetAllSummary(params.Subject_id));
+  }, []);
 
   return (
     <React.Fragment>
@@ -19,7 +27,7 @@ function Summary() {
         <div className="Summary">
           <div className="container">
             {Summary.map((pdf) => (
-              <Link className="card" to={pdf.summary_link} key={pdf.summary_id}>
+              <Link className="card" to={pdf.PDF} key={pdf._id}>
                 <Player
                   autoplay={true}
                   loop={true}
@@ -27,7 +35,7 @@ function Summary() {
                   src={require("../../../../img/Players/Summary.json")}
                   className="PDFPLAyer"
                 />
-                <h1>{pdf.summary_name}</h1>
+                <h1>{pdf.Title}</h1>
               </Link>
             ))}
           </div>
