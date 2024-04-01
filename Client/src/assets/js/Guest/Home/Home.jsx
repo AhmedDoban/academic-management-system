@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "./slider/Slider";
 import RanDomQuote from "./../../components/Random Quote/RanDomQuote";
-import SammaryData from "./Sammary Data/SammaryData";
+import SummaryData from "./Summary Data/SummaryData";
 import WhatOffer from "./What Offer/WhatOffer";
 import Footer from "./../../components/Footer/Footer";
 import "react-awesome-slider/dist/styles.css";
@@ -12,8 +12,8 @@ function Home(props) {
       <Slider />
       {/******************** RanDom Quote ********************************/}
       <RanDomQuote />
-      {/******************** SammaryData ********************************/}
-      <SammaryData />
+      {/******************** SummaryData ********************************/}
+      <SummaryData />
       {/******************** WhatOffer ********************************/}
       <WhatOffer />
       {/******************** Footer ********************************/}

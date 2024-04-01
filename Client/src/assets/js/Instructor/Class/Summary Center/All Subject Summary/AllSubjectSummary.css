@@ -1,22 +1,18 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# General
+# allSubjectSummary
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@import url("../../../../../css/root.css");
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# DeleteSammary
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.DeleteSammary {
+.allSubjectSummary {
   position: relative;
   width: 100%;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
 }
-.DeleteSammary .container {
+.allSubjectSummary .container {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.DeleteSammary .card {
+.allSubjectSummary .card {
   position: relative;
   width: 100%;
   background-color: transparent;
@@ -25,7 +21,7 @@
   transition: var(--main-transition);
   box-shadow: 1px 2px 5px 5px var(--white-color);
 }
-.DeleteSammary .card .data {
+.allSubjectSummary .card .data {
   position: relative;
   width: 100%;
   background-color: var(--white-color);
@@ -40,17 +36,17 @@
   justify-content: space-between;
   align-items: center;
 }
-.DeleteSammary .card .data h1 {
+.allSubjectSummary .card .data h1 {
   color: var(--main-text-color);
   transition: var(--main-transition);
   font-size: 14px;
 }
-.DeleteSammary .card .data i:hover {
-  color: var(--red-color);
-  transition: var(--main-transition);
+.allSubjectSummary .card .data .PDFPLAyer {
+  width: 30px;
+  height: 30px;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# DeleteSammary
+# allSubjectSummary
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .No_Summary {
   display: flex;

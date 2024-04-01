@@ -1,19 +1,15 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# General
+# Summary Center
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@import url("../../../../css/root.css");
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Sammary Center
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.SammaryCenter {
+.SummaryCenter {
   position: relative;
   width: 100%;
 }
-.SammaryCenter .menu {
+.SummaryCenter .menu {
   position: relative;
   width: 100%;
 }
-.SammaryCenter .menu ul {
+.SummaryCenter .menu ul {
   position: relative;
   width: 100%;
   display: flex;
@@ -22,7 +18,7 @@
   gap: 10px;
   border-bottom: 1px solid var(--main-text-color);
 }
-.SammaryCenter .menu ul li a {
+.SummaryCenter .menu ul li a {
   position: relative;
   display: flex;
   justify-content: center;
@@ -35,20 +31,20 @@
   transition: var(--main-transition);
   overflow: hidden;
 }
-.SammaryCenter .menu ul li a.active {
+.SummaryCenter .menu ul li a.active {
   color: var(--main-color);
 }
-.SammaryCenter .menu ul li a::before {
+.SummaryCenter .menu ul li a::before {
   position: absolute;
   content: "";
   height: 2px;
   width: 100%;
-  background-color: var(--main-text-color);
+  background-color: var(--main-color);
   bottom: 0px;
   left: -100%;
   transition: var(--main-transition);
   z-index: 3;
 }
-.SammaryCenter .menu ul li a.active::before {
+.SummaryCenter .menu ul li a.active::before {
   left: 0;
 }

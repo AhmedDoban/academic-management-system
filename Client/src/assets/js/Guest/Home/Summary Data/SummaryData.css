@@ -4,23 +4,23 @@
 @import url("../../../../css/root.css");
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Student  home page Student sammaryData
+# Student  home page Student SummaryData
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.sammaryData {
+.SummaryData {
   position: relative;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
   margin: 0;
   background-color: var(--white-color);
 }
-.sammaryData .container {
+.SummaryData .container {
   position: relative;
 }
-.sammaryData .header-data h1 {
+.SummaryData .header-data h1 {
   /* font-size: 80px; */
   /* color: var(--main-text-color); */
 }
-.sammaryData .header-data a {
+.SummaryData .header-data a {
   font-family: "Montserrat", Sans-serif;
   font-size: 15px;
   font-weight: 600;
@@ -33,7 +33,7 @@
   display: inline-block;
   margin-bottom: 50px;
 }
-.sammaryData .header-data a:hover {
+.SummaryData .header-data a:hover {
   background-color: var(--main-color-hover);
   animation: up 1.5s alternate infinite;
 }
@@ -43,18 +43,18 @@
   }
 }
 @media (max-width: 767px) {
-  .sammaryData .header-data {
+  .SummaryData .header-data {
     text-align: center;
   }
-  .sammaryData .header-data h1 {
+  .SummaryData .header-data h1 {
     font-size: 35px;
   }
 }
-.sammaryData .footer-data .box {
+.SummaryData .footer-data .box {
   background-color: var(--main-white-alt);
   color: #fff;
 }
-.sammaryData .footer-data .box a i {
+.SummaryData .footer-data .box a i {
   font-size: 20px;
   margin-left: 10px;
   animation: left 0.8s alternate-reverse infinite;
@@ -64,22 +64,22 @@
     transform: translateX(-25%);
   }
 }
-.sammaryData .footer-data .box i {
+.SummaryData .footer-data .box i {
   font-size: 50px;
   color: var(--main-color);
   margin-right: 40px;
 }
-.sammaryData .footer-data .box .data-box p {
+.SummaryData .footer-data .box .data-box p {
   font-size: 25px;
   font-weight: bold;
   text-transform: capitalize;
 }
 @media (max-width: 767px) {
-  .sammaryData .footer-data .box {
+  .SummaryData .footer-data .box {
     flex-direction: column;
     text-align: center;
   }
-  .sammaryData .footer-data .box i {
+  .SummaryData .footer-data .box i {
     margin: 0;
   }
 }

@@ -1,10 +1,10 @@
 import React from "react";
-import "./SammaryData.css";
+import "./SummaryData.css";
 
-function SammaryData(props) {
+function SummaryData(props) {
   return (
     <React.Fragment>
-      <div className="sammaryData">
+      <div className="SummaryData">
         <div className="container" data-aos="fade-up">
           {/******************** Header info ********************************/}
           <div className="header-data">
@@ -42,4 +42,4 @@ function SammaryData(props) {
     </React.Fragment>
   );
 }
-export default SammaryData;
+export default SummaryData;

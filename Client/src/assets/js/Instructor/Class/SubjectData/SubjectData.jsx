@@ -49,7 +49,7 @@ function SubjectData() {
             />
           </Link>
           {/***************** Summary / s  **********************/}
-          <Link className="card" data-aos="zoom-in" to={`SammaryCenter`}>
+          <Link className="card" data-aos="zoom-in" to={`SummaryCenter`}>
             <h1>Summary Center</h1>
             <Player
               autoplay={true}

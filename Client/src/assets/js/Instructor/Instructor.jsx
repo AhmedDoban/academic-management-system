@@ -26,8 +26,8 @@ const EditSelectedExam = lazy(() =>
 const AddNewQu = lazy(() => import("./Class/Exams/EditExam/AddNewQu"));
 const Viedos = lazy(() => import("../components/videos/Videos"));
 const VideoCenter = lazy(() => import("./Class/Video Center/VideoCenter"));
-const SammaryCenter = lazy(() =>
-  import("./Class/Sammary Center/SammaryCenter")
+const SummaryCenter = lazy(() =>
+  import("./Class/Summary Center/SummaryCenter")
 );
 
 // library page
@@ -110,11 +110,11 @@ const Instructor = (props) => {
                         <Route path="showVideo" />
                         <Route path="*" render={() => <Navigate to="/" />} />
                       </Route>
-                      {/********** Sammary Center Page ***********/}
-                      <Route path="SammaryCenter" element={<SammaryCenter />}>
+                      {/********** Summary Center Page ***********/}
+                      <Route path="SummaryCenter" element={<SummaryCenter />}>
                         <Route path="" exact />
-                        <Route path="DeleteSammary" />
-                        <Route path="UploadSammary" />
+                        <Route path="DeleteSummary" />
+                        <Route path="UploadSummary" />
                         <Route path="*" render={() => <Navigate to="/" />} />
                       </Route>
                       {/********** Videos Page ***********/}

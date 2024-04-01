@@ -1,15 +1,15 @@
 import React, { lazy } from "react";
 import { useParams, NavLink, Routes, Route, Navigate } from "react-router-dom";
 import Mountain from "../../../components/Mountain Template/Mountain";
-import "./SammaryCenter.css";
+import "./SummaryCenter.css";
 
-const AllSubjectSammary = lazy(() =>
-  import("./All Subject Sammary/AllSubjectSammary")
+const AllSubjectSummary = lazy(() =>
+  import("./All Subject Summary/AllSubjectSummary")
 );
-const DeleteSammary = lazy(() => import("./Delete Sammary/DeleteSammary"));
-const UploadSammary = lazy(() => import("./Upload Sammary/UploadSammary"));
+const DeleteSummary = lazy(() => import("./Delete Summary/DeleteSummary"));
+const UploadSummary = lazy(() => import("./Upload Summary/UploadSummary"));
 
-function SammaryCenter() {
+function SummaryCenter() {
   const params = useParams("");
 
   return (
@@ -19,7 +19,7 @@ function SammaryCenter() {
           <h1>{params.SubjectName}</h1>
         </div>
       </Mountain>
-      <div className="SammaryCenter">
+      <div className="SummaryCenter">
         <div className="container">
           <div className="menu">
             <ul>
@@ -29,22 +29,22 @@ function SammaryCenter() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="DeleteSammary">Delete </NavLink>
+                <NavLink to="DeleteSummary">Delete </NavLink>
               </li>
               <li>
-                <NavLink to="UploadSammary">Upload</NavLink>
+                <NavLink to="UploadSummary">Upload</NavLink>
               </li>
             </ul>
           </div>
         </div>
       </div>
       <Routes>
-        <Route path="" exact element={<AllSubjectSammary />} />
-        <Route path="DeleteSammary" element={<DeleteSammary />} />
-        <Route path="UploadSammary" element={<UploadSammary />} />
+        <Route path="" exact element={<AllSubjectSummary />} />
+        <Route path="DeleteSummary" element={<DeleteSummary />} />
+        <Route path="UploadSummary" element={<UploadSummary />} />
         <Route path="*" render={() => <Navigate to="/" />} />
       </Routes>
     </React.Fragment>
   );
 }
-export default SammaryCenter;
+export default SummaryCenter;

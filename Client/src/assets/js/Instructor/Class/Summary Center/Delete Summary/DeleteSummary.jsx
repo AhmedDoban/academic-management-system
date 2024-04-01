@@ -3,9 +3,9 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
-import "./DeleteSammary.css";
+import "./DeleteSummary.css";
 
-function DeleteSammary() {
+function DeleteSummary() {
   const params = useParams();
   const [Summary, SetSummary] = useState([]);
   const url = `${process.env.REACT_APP_API}/select_summary.php`;
@@ -36,7 +36,7 @@ function DeleteSammary() {
     fetchData();
   }, [url]);
 
-  const HandleDeleteSammary = (data) => {
+  const HandleDeleteSummary = (data) => {
     Swal.fire({
       title: "Are you sure?",
       text: `You want to Delete ${data.summary_name} ? `,
@@ -78,7 +78,7 @@ function DeleteSammary() {
   return (
     <React.Fragment>
       {Summary.length > 0 ? (
-        <div className="DeleteSammary">
+        <div className="DeleteSummary">
           <div className="container">
             {Summary.map((pdf) => (
               <div className="card" key={pdf.summary_id} data-aos="zoom-in">
@@ -86,7 +86,7 @@ function DeleteSammary() {
                   <h1>{pdf.summary_name}</h1>
                   <i
                     className="fa-solid fa-trash"
-                    onClick={() => HandleDeleteSammary(pdf)}
+                    onClick={() => HandleDeleteSummary(pdf)}
                   ></i>
                 </div>
               </div>
@@ -110,4 +110,4 @@ function DeleteSammary() {
     </React.Fragment>
   );
 }
-export default DeleteSammary;
+export default DeleteSummary;
