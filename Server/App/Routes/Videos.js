@@ -22,8 +22,8 @@ Router.route("/Add").post(
   Verify_User("INSTRUCTOR", "ADMIN"),
   [
     upload_Video.single("Video"),
-    body("Title").notEmpty().withMessage("Student ID is Required"),
-    body("Description").notEmpty().withMessage("Student ID is Required"),
+    body("Title").notEmpty().withMessage("Title is Required"),
+    body("Description").notEmpty().withMessage("Description is Required"),
     body("Subject_Id").notEmpty().withMessage("Subject Id is not Valid"),
   ],
   Videos_controllers.Add_Videos
@@ -47,8 +47,8 @@ Router.route("/Update").post(
   [
     body("_id").notEmpty().withMessage("Id is not Valid"),
     body("Subject_Id").notEmpty().withMessage("Subject Id is not Valid"),
-    body("Description").notEmpty().withMessage("Student ID is Required"),
-    body("Title").notEmpty().withMessage("Student ID is Required"),
+    body("Description").notEmpty().withMessage("Description is Required"),
+    body("Title").notEmpty().withMessage("Title is Required"),
   ],
   Videos_controllers.Update_Videos
 );

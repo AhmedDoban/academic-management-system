@@ -22,7 +22,7 @@ Router.route("/Add").post(
   Verify_User("INSTRUCTOR", "ADMIN"),
   [
     upload_Summary.single("PDF"),
-    body("Title").notEmpty().withMessage("Student ID is Required"),
+    body("Title").notEmpty().withMessage("Title is Required"),
     body("Subject_Id").notEmpty().withMessage("Subject Id is not Valid"),
   ],
   Summary_controllers.Add_Summary
@@ -45,8 +45,8 @@ Router.route("/Update").post(
   Verify_User("INSTRUCTOR", "ADMIN"),
   [
     body("_id").notEmpty().withMessage("Id is not Valid"),
-    body("Description").notEmpty().withMessage("Student ID is Required"),
-    body("Title").notEmpty().withMessage("Student ID is Required"),
+    body("Subject_Id").notEmpty().withMessage("Subject_Id is Required"),
+    body("Title").notEmpty().withMessage("Title is Required"),
   ],
   Summary_controllers.Update_Summary
 );
