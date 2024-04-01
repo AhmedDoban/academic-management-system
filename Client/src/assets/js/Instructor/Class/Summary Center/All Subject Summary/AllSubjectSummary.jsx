@@ -1,11 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Link, useParams } from "react-router-dom";
 import "./AllSubjectSummary.css";
+import { useDispatch, useSelector } from "react-redux";
+import { GetAllSummary } from "../../../../../Toolkit/Slices/SummarySlice";
 
 function AllSubjectSummary() {
   const params = useParams();
-  const [Summary, SetSummary] = useState([]);
+
+  const Dispatch = useDispatch();
+  const { Summary } = useSelector((state) => state.Summary);
+
+  useEffect(() => {
+    Dispatch(GetAllSummary(params.Subject_id));
+  }, []);
 
   return (
     <React.Fragment>

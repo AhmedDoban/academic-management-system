@@ -26,8 +26,8 @@ export const GetAllSummary = createAsyncThunk(
 );
 
 // Delete Summary
-export const DeleteSummary = createAsyncThunk(
-  "DeleteSummary",
+export const DeleteSummaryApi = createAsyncThunk(
+  "DeleteSummaryApi",
   async (payload) => {
     const { Token } = JSON.parse(localStorage.getItem("Token"));
 
@@ -63,7 +63,6 @@ export const UpdateSummary = createAsyncThunk(
           Subject_Id: payload.Subject_Id,
           _id: payload._id,
           Title: payload.Title,
-          Description: payload.Description,
         },
         {
           headers: {
@@ -73,7 +72,7 @@ export const UpdateSummary = createAsyncThunk(
       );
       return Data.data;
     } catch (err) {
-      Toast_Handelar("error", "Sorry we can't update Video !");
+      Toast_Handelar("error", "Sorry we can't update Summary !");
     }
   }
 );
@@ -97,7 +96,7 @@ export const UpdateSummaryShown = createAsyncThunk(
       );
       return Data.data;
     } catch (err) {
-      Toast_Handelar("error", "Sorry we can't update Video !");
+      Toast_Handelar("error", "Sorry we can't update Summary !");
     }
   }
 );
@@ -107,7 +106,6 @@ const SummarySlice = createSlice({
   initialState: {
     Summary: [],
     loading: false,
-    progress: 0,
   },
   reducers: {
     InsertSummary: (Sate, action) => {
@@ -129,7 +127,6 @@ const SummarySlice = createSlice({
       all_Summary[index] = {
         ...NewData,
         Title: action.payload.Title,
-        Description: action.payload.Description,
       };
       Sate.Summary = all_Summary;
     },
@@ -162,7 +159,7 @@ const SummarySlice = createSlice({
       }
     });
 
-    builder.addCase(DeleteSummary.fulfilled, (State, action) => {
+    builder.addCase(DeleteSummaryApi.fulfilled, (State, action) => {
       if (action.payload.Status !== "Faild") {
         Toast_Handelar("success", action.payload.message);
       } else {

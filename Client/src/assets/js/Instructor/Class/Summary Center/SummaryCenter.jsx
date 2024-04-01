@@ -8,6 +8,8 @@ const AllSubjectSummary = lazy(() =>
 );
 const DeleteSummary = lazy(() => import("./Delete Summary/DeleteSummary"));
 const UploadSummary = lazy(() => import("./Upload Summary/UploadSummary"));
+const EditSummary = lazy(() => import("./Edit Summary/EditSummary"));
+const ShowSummary = lazy(() => import("./Show Summary/ShowSummary"));
 
 function SummaryCenter() {
   const params = useParams("");
@@ -34,6 +36,12 @@ function SummaryCenter() {
               <li>
                 <NavLink to="UploadSummary">Upload</NavLink>
               </li>
+              <li>
+                <NavLink to="EditSummary">Edit</NavLink>
+              </li>
+              <li>
+                <NavLink to="showSummary">show</NavLink>
+              </li>
             </ul>
           </div>
         </div>
@@ -42,6 +50,8 @@ function SummaryCenter() {
         <Route path="" exact element={<AllSubjectSummary />} />
         <Route path="DeleteSummary" element={<DeleteSummary />} />
         <Route path="UploadSummary" element={<UploadSummary />} />
+        <Route path="EditSummary" element={<EditSummary />} />
+        <Route path="showSummary" element={<ShowSummary />} />
         <Route path="*" render={() => <Navigate to="/" />} />
       </Routes>
     </React.Fragment>

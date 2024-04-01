@@ -1,45 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+
 import Swal from "sweetalert2";
 import "./DeleteSummary.css";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  DeleteSummaryLocal,
+  GetAllSummary,
+  DeleteSummaryApi,
+} from "../../../../../Toolkit/Slices/SummarySlice";
 
 function DeleteSummary() {
   const params = useParams();
-  const [Summary, SetSummary] = useState([]);
-  const url = `${process.env.REACT_APP_API}/select_summary.php`;
 
-  const fetchData = async function () {
-    try {
-      await axios
-        .post(
-          url,
-          { subject_id: params.subject_id },
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "text/plain",
-            },
-          }
-        )
-        .then((response) => {
-          if (response.data.status === "success") {
-            SetSummary(response.data.message);
-          }
-        });
-    } catch (error) {
-      throw error;
-    }
-  };
+  const Dispatch = useDispatch();
+  const { Summary } = useSelector((state) => state.Summary);
+
   useEffect(() => {
-    fetchData();
-  }, [url]);
+    Dispatch(GetAllSummary(params.Subject_id));
+  }, []);
 
   const HandleDeleteSummary = (data) => {
     Swal.fire({
       title: "Are you sure?",
-      text: `You want to Delete ${data.summary_name} ? `,
+      text: `You want to Delete ${data.Title} ? `,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -48,29 +33,13 @@ function DeleteSummary() {
       cancelButtonText: '<i class="fas fa-times"></i>',
     }).then((result) => {
       if (result.isConfirmed) {
-        try {
-          axios
-            .post(
-              `${process.env.REACT_APP_API}/doctor/delete_summary.php`,
-              { summary_id: data.summary_id, subject_id: params.subject_id },
-              {
-                headers: {
-                  Accept: "application/json",
-                  "Content-Type": "text/plain",
-                },
-              }
-            )
-            .then((response) => {
-              if (response.data.status === "success") {
-                Swal.fire("Deleted!", response.data.message, "success");
-                fetchData();
-              } else if (response.data.status === "error") {
-                Swal.fire(response.data.message);
-              }
-            });
-        } catch (error) {
-          throw error;
-        }
+        Dispatch(
+          DeleteSummaryApi({
+            Subject_Id: data.Subject_Id,
+            _id: data._id,
+          })
+        );
+        Dispatch(DeleteSummaryLocal(data._id));
       }
     });
   };
@@ -81,13 +50,13 @@ function DeleteSummary() {
         <div className="DeleteSummary">
           <div className="container">
             {Summary.map((pdf) => (
-              <div className="card" key={pdf.summary_id} data-aos="zoom-in">
+              <div className="card" key={pdf._id} data-aos="zoom-in">
                 <div className="data">
-                  <h1>{pdf.summary_name}</h1>
+                  <h1>{pdf.Title}</h1>
                   <i
                     className="fa-solid fa-trash"
                     onClick={() => HandleDeleteSummary(pdf)}
-                  ></i>
+                  />
                 </div>
               </div>
             ))}
@@ -100,7 +69,7 @@ function DeleteSummary() {
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets1.lottiefiles.com/packages/lf20_onjuzgsi.json"
+              src={require("../../../../../img/Players/NoSummary.json")}
               className="No_SummaryPlayer"
             />
             <p>There is No Summary </p>
