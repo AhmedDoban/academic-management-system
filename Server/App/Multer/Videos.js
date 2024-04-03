@@ -7,12 +7,12 @@ const Storage = multer.diskStorage({
   destination: (Req, File, Callback) => {
     Callback(null, "Uploads/Videos/Video");
   },
-  filename: (Req, File, Callback) => {
+  filename: async (Req, File, Callback) => {
     const ext = File.mimetype.split("/")[1];
     const FileName = `Videos-${Date.now()}-${Math.round(Math.random() * 1e9)}`;
     const FileWithExt = `${FileName}.mp4`;
 
-    ffmpeg(`Uploads/Videos/Video/${FileWithExt}`)
+    await ffmpeg(`Uploads/Videos/Video/${FileWithExt}`)
       .seekInput(6)
       .frames(1)
       .size("1280x720")
