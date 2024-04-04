@@ -1,8 +1,4 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# General
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@import url("../../../../css/root.css");
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # exams
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .addQu,
@@ -25,11 +21,12 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: hsl(235, 24%, 19%);
+  background-color: var(--white-color);
   width: 100%;
   border-radius: var(--main-border-radius);
   padding: 15px;
   overflow: hidden;
+  transition: var(--main-transition);
 }
 .editExam .container .editExam-card .ExamPlayer,
 .exams .container .exam-card .ExamPlayer {
@@ -37,7 +34,7 @@
   height: 150px;
 }
 .exams .container .exam-card .examName {
-  color: var(--main-color);
+  color: var(--main-text-color);
   font-size: 18px;
   font-weight: bold;
   text-align: center;
@@ -112,6 +109,13 @@
   color: var(--main-text-color);
   transition: var(--main-transition);
 }
+.newExam .input-field input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 2px;
+  opacity: 0.6;
+  filter: invert(0.8);
+}
 .newExam .input-field label {
   position: relative;
   display: flex;
@@ -150,6 +154,7 @@
   width: fit-content;
   margin-left: auto;
   padding: 5px 14px;
+  min-width: 150px;
   border: 1px solid var(--green-color);
   color: var(--main-text-color);
   background-color: transparent;
@@ -159,13 +164,12 @@
 }
 .newExam .input-field .CreateExam:hover {
   background-color: var(--green-color);
-  color: var(--white-color);
+  color: #fff;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # edit Exam
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .editExam .container .editExam-card p {
-  color: var(--white-color);
   font-weight: bold;
   font-size: 18px;
   text-align: center;
@@ -183,76 +187,6 @@
 }
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# edit Exam card filp
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.editExam .container .editExam-card input[type="file"] {
-  display: none;
-}
-.editExam .container .editExam-card.flip {
-  position: relative;
-  display: flex;
-  transform-style: preserve-3d;
-  transition: var(--main-transition);
-  transform-origin: center center;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  height: 250px;
-}
-.editExam .container .editExam-card.flip .face {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 10px;
-  backface-visibility: hidden;
-  border-radius: var(--main-border-radius);
-}
-.editExam .container .editExam-card.flip .back {
-  transform: rotateY(-180deg);
-  background-color: black;
-}
-.editExam .container .editExam-card.flip.active {
-  transform: rotateY(180deg);
-}
-.editExam .container .editExam-card.flip .back .uploadFileBTN {
-  background-color: transparent;
-  cursor: pointer;
-  width: 100%;
-  border-radius: var(--main-border-radius);
-  color: var(--main-color);
-  border: 0;
-}
-.editExam
-  .container
-  .editExam-card.flip
-  .back
-  .uploadFileBTN
-  .uploadFileBTNplayer {
-  max-width: 100%;
-  height: 50px;
-}
-.editExam .container .editExam-card.flip .back .progressbar {
-  position: relative;
-  width: 250px;
-  background-color: #eee;
-  height: 25px;
-  border-radius: 25px;
-  overflow: hidden;
-}
-.editExam .container .editExam-card.flip .back .progressbar .progress {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: var(--main-color);
-  height: 100%;
-}
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # addQu
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .addQu {
@@ -264,7 +198,7 @@
 .addQu .container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 .addQu .card {
   position: relative;
@@ -275,16 +209,15 @@
   transition: var(--main-transition);
   box-shadow: 1px 2px 5px 5px var(--white-color);
   z-index: 1;
-}
-.addQu .card.dropDownCard {
-  position: relative;
-  z-index: 2;
+  display: flex;
+  transition: var(--main-transition);
 }
 .addQu .card .input-field {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
   gap: 10px;
   width: 100%;
   background-color: transparent;
@@ -293,6 +226,7 @@
   border-radius: var(--main-border-radius);
   transition: var(--main-transition);
 }
+
 .addQu .card .input-field input {
   position: relative;
   width: 100%;
@@ -303,36 +237,50 @@
   color: var(--main-text-color);
 }
 .addQu .card .input-field input ~ label {
-  position: absolute;
-  top: 10%;
-  left: 10px;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
+  position: relative;
   color: var(--main-text-color);
-  cursor: pointer;
   transition: var(--main-transition);
+  width: fit-content;
+  min-width: fit-content;
+  padding: 10px;
+  height: 100%;
+  font-weight: bold;
+}
+@media (max-width: 992px) {
+  .addQu .card .input-field {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 0px;
+  }
+  .addQu .card .input-field input ~ label {
+    padding: 5px 8px;
+  }
+  .addQu .card .input-field input {
+    padding: 5px 8px;
+  }
+  .addQu .card {
+    align-items: center;
+  }
 }
 .addQu .card .input-field input:not(:placeholder-shown) ~ label,
 .addQu .card .input-field input:focus ~ label {
-  top: -20px;
   color: var(--main-color);
 }
 .addQu .card .input-field input:focus {
   border-color: var(--main-color);
 }
-.addQu .card .input-field .addQuBtn {
+.addQu .card .addQuBtn {
   position: relative;
-  z-index: 2;
   cursor: pointer;
-  min-width: 40px;
+  min-width: 50px;
+  width: 50px;
   height: 40px;
   border: 0;
-  background-color: transparent;
   transition: var(--main-transition);
   color: var(--main-text-color);
+  background-color: transparent;
 }
-.addQu .card .input-field .addQuBtn:hover {
+.addQu .card .addQuBtn:hover {
   color: var(--main-color);
 }
 .addQu .card .input-field label {
@@ -355,42 +303,83 @@
 }
 .addQu .card .input-field .SubmitBun:hover {
   background-color: var(--main-color);
-  color: var(--white-color);
+  color: #fff;
 }
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# addQu Options
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.addQu .card .input-field .Dropdown-root {
+.addQu .card.Question_Answers {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+.addQu .card.Question_Answers h1 {
+  position: relative;
+  font-size: 18px;
+  text-align: center;
+  color: var(--main-color);
+}
+.addQu .card.Question_Answers .card-question {
+  position: relative;
+  background-color: var(--white-color);
+  border-radius: var(--main-border-radius);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  animation: fadeDown 0.5s alternate;
+  transition: var(--main-transition);
+}
+@keyframes fadeDown {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.addQu .card.Question_Answers .card-question i {
+  position: relative;
+  width: 35px;
+
+  cursor: pointer;
+  background-color: var(--main-color);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 var(--main-border-radius) var(--main-border-radius) 0;
+  transition: var(--main-transition);
+}
+.addQu .card.Question_Answers .card-question i:hover {
+  background-color: var(--red-color);
+}
+.addQu .card.Question_Answers .card-question .input-select {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.addQu .card.Question_Answers .card-question .input-select label {
   position: relative;
   width: 100%;
-}
-.addQu .card .input-field .Dropdown-root .Dropdown-control {
-  background-color: var(--white-color);
+  border: 2px solid var(--main-background-color);
   color: var(--main-text-color);
-  border: 0;
+  border-right: 0;
+  border-radius: var(--main-border-radius) 0 0 var(--main-border-radius);
+  height: 100%;
+  padding: 8px;
   cursor: pointer;
-}
-.addQu .card .input-field .Dropdown-root .Dropdown-menu {
-  background-color: var(--grey-color);
-  color: var(--white-color);
-  border: 0;
-  cursor: pointer;
-  margin-top: 10px;
   transition: var(--main-transition);
-}
-.addQu .card .input-field .Dropdown-root .Dropdown-menu .Dropdown-option {
-  color: var(--white-color);
 }
 .addQu
-  .card
-  .input-field
-  .Dropdown-root
-  .Dropdown-menu
-  .Dropdown-option.is-selected {
-  background-color: var(--main-color);
-}
-.addQu .card .input-field .Dropdown-root .Dropdown-menu .Dropdown-option:hover {
-  background-color: var(--main-overlay);
-  color: var(--main-color);
-  transition: var(--main-transition);
+  .card.Question_Answers
+  .card-question
+  .input-select
+  input:checked
+  + label,
+.addQu .card.Question_Answers .card-question .input-select label:hover {
+  border: 2px solid var(--main-color);
+  border-right: 0;
 }

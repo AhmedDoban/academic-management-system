@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Mountain from "../../../components/Mountain Template/Mountain";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Link, useParams } from "react-router-dom";
@@ -7,50 +6,15 @@ import LodingFeachData from "../../../components/Loding Feach Data/LodingFeachDa
 import "./Exams.css";
 function Exams() {
   const params = useParams("");
-  const [Doctor_id, setDoctor_id] = useState([]);
-  const GetID = async function () {
-    try {
-      const response = await JSON.parse(localStorage.getItem("User"));
-      setDoctor_id(response.doctor_id);
-    } catch (error) {
-      throw error;
-    }
-  };
 
-  const [Exams, SetExams] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [Exams, SetExams] = useState([
+    {
+      _id: "asklj",
+    },
+  ]);
+  const [loading, setLoading] = useState(false);
 
-  const url = `${process.env.REACT_APP_API}/doctor/select_exam.php`;
-
-  useEffect(() => {
-    const fetchData = async function () {
-      GetID();
-      try {
-        setLoading(true);
-        await axios
-          .post(
-            url,
-            { doctor_id: Doctor_id, subject_id: params.subject_id },
-            {
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "text/plain",
-              },
-            }
-          )
-          .then((response) => {
-            if (response.data.status === "success") {
-              SetExams(response.data.message);
-            }
-          });
-      } catch (error) {
-        throw error;
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [url, Doctor_id]);
+  useEffect(() => {}, []);
 
   const compareDates = (date, time) => {
     const fullTime = date.toString() + " " + time.toString();
@@ -70,13 +34,13 @@ function Exams() {
     <React.Fragment>
       <Mountain>
         <div className="data">
-          <h1> {params.SubjectName}</h1>
+          <h1>Exams</h1>
           <div className="card">
             <Player
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets4.lottiefiles.com/packages/lf20_ycbVE1.json"
+              src={require("../../../../img/Players/CreateExam.json")}
               style={{ width: "50px", height: "50px" }}
             />
             <Link className="btn-box" to="CreateExam">
@@ -89,23 +53,22 @@ function Exams() {
         {loading ? (
           <LodingFeachData />
         ) : Exams.length > 0 ? (
-          <div className="container">
+          <div className="container" data-aos="fade-down">
             {Exams.map((Exam) => (
               <Link
                 className="exam-card"
-                key={Exam.exam_id}
-                to={`EditExam/${Exam.exam_id}/${Exam.exam_name}?`}
-                data-aos="zoom-in"
+                key={Exam._id}
+                to={`EditExam/${Exam._id}`}
               >
                 <Player
                   autoplay={true}
                   loop={true}
                   controls={false}
-                  src="https://assets2.lottiefiles.com/packages/lf20_inti4oxf.json"
+                  src={require("../../../../img/Players/RunningExam.json")}
                   className="ExamPlayer"
                 />
                 <p className="examName">{Exam.exam_name}</p>
-                <p className="status">
+                {/* <p className="status">
                   {compareDates(Exam.exam_date, Exam.exam_end_time) >= 0 ? (
                     <span>
                       <i className="fa-solid fa-circle RunningExam"></i>
@@ -118,7 +81,7 @@ function Exams() {
                       {Exam.exam_date}
                     </span>
                   )}
-                </p>
+                </p> */}
               </Link>
             ))}
           </div>
@@ -128,7 +91,7 @@ function Exams() {
               autoplay={true}
               loop={true}
               controls={false}
-              src="https://assets2.lottiefiles.com/packages/lf20_ZmsQVB.json"
+              src={require("../../../../img/Players/NoExams.json")}
               className="NoExamPlayer"
             />
             <p>There are no Exams you have created recently </p>

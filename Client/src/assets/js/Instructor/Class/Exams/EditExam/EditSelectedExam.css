@@ -1,8 +1,4 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# General
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-@import url("../../../../../css/root.css");
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # edit Exam
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .EditSelectedExam {
@@ -59,19 +55,18 @@
   width: 100%;
 }
 .EditSelectedExam .container .input-card .Dropdown-root .Dropdown-control {
-  border-radius: var(--main-border-radius);
   background-color: var(--white-color);
   color: var(--main-text-color);
   border: 0;
   cursor: pointer;
 }
 .EditSelectedExam .container .input-card .Dropdown-root .Dropdown-menu {
-  border-radius: var(--main-border-radius);
-  background-color: var(--grey-color);
+  background-color: var(--footer-background-color);
   color: var(--white-color);
-  border: 0;
+  border: 1px solid var(--main-color);
   cursor: pointer;
   margin-top: 10px;
+  padding: 10px 0;
   transition: var(--main-transition);
 }
 .EditSelectedExam
@@ -80,7 +75,7 @@
   .Dropdown-root
   .Dropdown-menu
   .Dropdown-option {
-  color: var(--white-color);
+  color: var(--main-text-color);
 }
 .EditSelectedExam
   .container
@@ -89,6 +84,7 @@
   .Dropdown-menu
   .Dropdown-option.is-selected {
   background-color: var(--main-color);
+  color: #fff;
 }
 .EditSelectedExam
   .container
@@ -96,10 +92,11 @@
   .Dropdown-root
   .Dropdown-menu
   .Dropdown-option:hover {
-  background-color: var(--main-overlay);
-  color: var(--main-color);
+  background-color: var(--main-color-hover);
+  color: #fff;
   transition: var(--main-transition);
 }
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # edit Exam input-card Qu TExt 
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/

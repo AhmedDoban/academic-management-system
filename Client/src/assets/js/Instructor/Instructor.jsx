@@ -90,16 +90,10 @@ const Instructor = (props) => {
                       <Route path="Exams" element={<Outlet />}>
                         <Route path="" element={<Exams />} />
                         <Route path="CreateExam" element={<NewExam />} />
-                        <Route
-                          path="EditExam/:exam_id/:examName?/:handleotherdata?"
-                          element={<Outlet />}
-                        >
+                        <Route path="EditExam/:Exam_id" element={<Outlet />}>
                           <Route path="" element={<EditExam />} />
-                          <Route path="addQu" element={<AddNewQu />} />
-                          <Route
-                            path="EditExam/:exam_id"
-                            element={<EditSelectedExam />}
-                          />
+                          <Route path="AddQuestion" element={<AddNewQu />} />
+                          <Route path="Edit" element={<EditSelectedExam />} />
                         </Route>
                       </Route>
                       {/********** Video Center Page ***********/}

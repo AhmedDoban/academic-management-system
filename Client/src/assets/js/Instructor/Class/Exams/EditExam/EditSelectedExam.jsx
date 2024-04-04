@@ -12,7 +12,7 @@ import { useEffect } from "react";
 
 function EditSelectedExam() {
   const params = useParams();
-  const [Exams, SetExams] = useState([]);
+  const [Exams, SetExams] = useState([{}]);
   const [Doctor_id, setDoctor_id] = useState([]);
   const [loading, setLoading] = useState(true);
   const [ShowenEditExam, SetShowenEditExam] = useState({});
@@ -221,7 +221,9 @@ function EditSelectedExam() {
                         autoplay={true}
                         loop={true}
                         controls={false}
-                        src="https://assets1.lottiefiles.com/packages/lf20_2xjlo1wq.json"
+                        src={requestAnimationFrame(
+                          "../../../../../img/Players/UpdateChanges.json"
+                        )}
                         className="Player"
                       />
                       Update Changes
@@ -233,7 +235,7 @@ function EditSelectedExam() {
                         autoplay={true}
                         loop={true}
                         controls={false}
-                        src="https://assets2.lottiefiles.com/packages/lf20_iKiWos0ru0.json"
+                        src={require("../../../../../img/Players/MakeVisable.json")}
                         className="Player"
                       />
                       Make Exam{" "}

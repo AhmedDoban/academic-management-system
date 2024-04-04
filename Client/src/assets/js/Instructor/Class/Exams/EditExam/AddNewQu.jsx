@@ -1,86 +1,40 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Mountain from "../../../../components/Mountain Template/Mountain";
 import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
-import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import "../Exams.css";
 
 function AddNewQu() {
   const params = useParams("");
-  const [question_text, Setquestion_text] = useState("");
-  const [question_answers, SetQuestionAnswers] = useState([]);
-  const [question_answersField, Setquestion_answersField] = useState("");
-  const [question_valid_answer, Setquestion_valid_answer] = useState("");
-  const [Answers, SetAnswers] = useState("");
+  const [Question, SetQuestion] = useState("");
+  const [NewChoice, SetNewChoice] = useState("");
+  const [QuestionAnswer, SetquestionAnswer] = useState(null);
+  const [Answers, SetAnswers] = useState([]);
 
-  useEffect(() => {}, [question_answers, Answers]);
+  useEffect(() => {
+    if (Answers.length === 0) {
+      SetquestionAnswer(null);
+    }
+  }, [Answers]);
 
   const AddAnswer = () => {
-    if (question_answersField !== "") {
-      if (!Answers.includes(question_answersField)) {
-        SetQuestionAnswers([
-          ...question_answers,
-          question_answersField,
-          "//CAMP//",
-        ]);
-
-        SetAnswers(
-          [...question_answers, ...question_answersField]
-            .join("")
-            .split("//CAMP//")
-        );
+    if (NewChoice !== "") {
+      if (!Answers.includes(NewChoice)) {
+        const NewAnswers = [...Answers];
+        NewAnswers.push(NewChoice);
+        SetAnswers(NewAnswers);
       }
-      Setquestion_answersField("");
+      SetNewChoice("");
     }
   };
 
-  const HandleQuestionValidAnswer = (event) => {
-    Setquestion_valid_answer(event.value);
+  const DeleteAnswer = (index) => {
+    const NewAnswers = [...Answers];
+    NewAnswers.splice(index, 1);
+    SetAnswers(NewAnswers);
   };
-  const add_ques = async () => {
-    try {
-      await axios
-        .post(
-          `${process.env.REACT_APP_API}/doctor/add_ques.php`,
-          {
-            question_text: question_text,
-            question_answers: question_answers.join(""),
-            question_valid_answer: question_valid_answer,
-            question_exam_quiz_id: params.exam_id,
-            image: null,
-          },
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "multipart/form-data",
-            },
-          }
-        )
-        .then((response) => {
-          if (response.data.status === "success") {
-            toast.success(response.data.message, {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-            Setquestion_text("");
-            SetQuestionAnswers([]);
-            Setquestion_answersField("");
-            Setquestion_valid_answer("");
-            SetAnswers("");
-          }
-        });
-    } catch (error) {
-      throw error;
-    }
-  };
+
+  const AddQuestion = async () => {};
 
   return (
     <React.Fragment>
@@ -90,77 +44,77 @@ function AddNewQu() {
         </div>
       </Mountain>
       <div className="addQu">
-        <div className="container">
+        <div className="container" data-aos="fade-down">
           {/* ******************** > question_text ********************/}
           <div className="card">
-            <div className="input-field" data-aos="zoom-in">
+            <div className="input-field">
               <input
                 type="text"
                 id="Question_Text"
-                value={question_text}
-                onChange={(e) => Setquestion_text(e.target.value)}
+                value={Question}
+                onChange={(e) => SetQuestion(e.target.value)}
                 placeholder=" "
               />
-              <label htmlFor="Question_Text">
-                <i className="fa-solid fa-signature"></i>Question Text
-              </label>
+              <label htmlFor="Question_Text">Question Text</label>
             </div>
           </div>
 
-          {question_text !== "" ? (
-            <React.Fragment>
-              {/* ******************** > question_answers ********************/}
-              <div className="card">
-                <div className="input-field" data-aos="zoom-in">
+          {/* ******************** > question_answers ********************/}
+          <div className="card">
+            <div className="input-field">
+              <input
+                type="text"
+                id="Question_Answers"
+                value={NewChoice}
+                onChange={(e) => SetNewChoice(e.target.value)}
+                placeholder=" "
+              />
+              <label htmlFor="Question_Answers">New Choice</label>
+            </div>
+            <button onClick={AddAnswer} className="addQuBtn">
+              <i className="fa-solid fa-plus"></i>
+            </button>
+          </div>
+
+          {/********************* > question Choices ********************/}
+
+          <div className="card Question_Answers">
+            <h1>Question Choices</h1>
+            {Answers.map((answer, index) => (
+              <div className="card-question" key={index}>
+                <div className="input-select">
                   <input
-                    type="text"
-                    id="Question_Answers"
-                    value={question_answersField}
-                    onChange={(e) => Setquestion_answersField(e.target.value)}
-                    placeholder=" "
+                    type="radio"
+                    value={answer}
+                    id={answer}
+                    name="Answer"
+                    hidden
                   />
-                  <label htmlFor="Question_Answers">
-                    <i className="fa-solid fa-signature"></i>Question Answers
+                  <label
+                    htmlFor={answer}
+                    onClick={() => SetquestionAnswer(index)}
+                  >
+                    {answer}
                   </label>
-                  <button onClick={AddAnswer} className="addQuBtn">
-                    <i className="fa-solid fa-plus"></i>
-                  </button>
                 </div>
+                <i
+                  className="fas fa-trash"
+                  onClick={() => DeleteAnswer(index)}
+                />
               </div>
+            ))}
+          </div>
 
-              {/********************* > question_answers ********************/}
-              {question_answers.length > 0 ? (
-                <React.Fragment>
-                  <div className="card dropDownCard">
-                    <div className="input-field" data-aos="zoom-in">
-                      <label htmlFor="Question_Valid_Answer">
-                        <i className="fa-solid fa-signature"></i>Question Valid
-                        Answer
-                      </label>
-
-                      <Dropdown
-                        options={Answers}
-                        onChange={HandleQuestionValidAnswer}
-                        placeholder=" Chose an Answer"
-                        value={Answers[0]}
-                      />
-                    </div>
-                  </div>
-                </React.Fragment>
-              ) : null}
-
-              {/********************* > Submit question ********************/}
-              {question_valid_answer !== "" ? (
-                <div className="card">
-                  <div className="input-field">
-                    <button className="SubmitBun" onClick={add_ques}>
-                      Submit
-                    </button>
-                  </div>
-                </div>
-              ) : null}
-            </React.Fragment>
-          ) : null}
+          {/********************* > Submit question ********************/}
+          {QuestionAnswer !== null && (
+            <div className="card">
+              <div className="input-field">
+                <button className="SubmitBun" onClick={() => AddQuestion()}>
+                  Submit
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </React.Fragment>
