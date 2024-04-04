@@ -1,13 +1,42 @@
 import React from "react";
 import Mountain from "../../../components/Mountain Template/Mountain";
 import { Player } from "@lottiefiles/react-lottie-player";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Exams.css";
+import { useDispatch } from "react-redux";
+import { DeleteSingleExam } from "../../../../Toolkit/Slices/ExamsSlice";
+import Swal from "sweetalert2";
 
 function EditExam() {
   const params = useParams("");
+  const Navigate = useNavigate();
+  const Dispatch = useDispatch();
 
-  const HandelDeleteExam = async () => {};
+  const HandelDeleteExam = async () => {
+    Swal.fire({
+      title: "Are you sure ?",
+      text: "You want to Delete this Exam",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: '<i class="fa-solid fa-check"></i>',
+      cancelButtonText: '<i class="fas fa-times"></i>',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Dispatch(
+          DeleteSingleExam({
+            Subject_id: params.Subject_id,
+            _id: params.Exam_id,
+          })
+        ).then((res) => {
+          if (res.payload.Status !== "Faild") {
+            Navigate(-1);
+          }
+        });
+      }
+    });
+  };
 
   return (
     <React.Fragment>

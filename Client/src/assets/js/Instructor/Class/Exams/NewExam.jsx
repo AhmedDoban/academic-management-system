@@ -2,22 +2,24 @@ import React, { useState } from "react";
 import "./Exams.css";
 import Mountain from "../../../components/Mountain Template/Mountain";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { AddNewExam } from "../../../../Toolkit/Slices/ExamsSlice";
 
 function NewExam() {
   const params = useParams();
+  const Dispatch = useDispatch();
 
   const [DataForm, setDataForm] = useState({
-    exam_name: "",
-    exam_start: "",
-    exam_end: "",
-    subject_id: params.Subject_id,
+    Title: "",
+    ExamStart: "",
+    ExamEnd: "",
+    Subject_Id: params.Subject_id,
   });
 
   const ChangeHandler = (e) => {
     const { name, value } = e.target;
     setDataForm({ ...DataForm, [name]: value });
   };
-  const HandleCreateExam = async () => {};
 
   return (
     <React.Fragment>
@@ -32,12 +34,12 @@ function NewExam() {
           <div className="input-field">
             <input
               type="text"
-              id="ExamName"
-              name="exam_name"
+              id="Title"
+              name="Title"
               onChange={ChangeHandler}
               placeholder=" "
             />
-            <label htmlFor="ExamName">
+            <label htmlFor="Title">
               <i className="fa-solid fa-signature"></i>Exam Name
             </label>
           </div>
@@ -49,7 +51,7 @@ function NewExam() {
             <input
               type="datetime-local"
               id="ExamStart"
-              name="exam_start"
+              name="ExamStart"
               onChange={ChangeHandler}
             />
           </div>
@@ -62,13 +64,16 @@ function NewExam() {
               type="datetime-local"
               onChange={ChangeHandler}
               id="ExamEnd"
-              name="exam_end"
-              min={DataForm.exam_start}
+              name="ExamEnd"
+              min={DataForm.ExamStart}
             />
           </div>
           {/* ******************** > Exam End ********************/}
           <div className="input-field">
-            <button className="CreateExam" onClick={HandleCreateExam}>
+            <button
+              className="CreateExam"
+              onClick={() => Dispatch(AddNewExam(DataForm))}
+            >
               Create
             </button>
           </div>

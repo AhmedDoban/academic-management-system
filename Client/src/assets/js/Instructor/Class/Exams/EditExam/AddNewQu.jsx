@@ -3,9 +3,12 @@ import Mountain from "../../../../components/Mountain Template/Mountain";
 import { useParams } from "react-router-dom";
 import "react-dropdown/style.css";
 import "../Exams.css";
+import { AddNewExamQuestion } from "../../../../../Toolkit/Slices/ExamsSlice";
+import { useDispatch } from "react-redux";
 
 function AddNewQu() {
   const params = useParams("");
+  const Dispatch = useDispatch();
   const [Question, SetQuestion] = useState("");
   const [NewChoice, SetNewChoice] = useState("");
   const [QuestionAnswer, SetquestionAnswer] = useState(null);
@@ -34,13 +37,11 @@ function AddNewQu() {
     SetAnswers(NewAnswers);
   };
 
-  const AddQuestion = async () => {};
-
   return (
     <React.Fragment>
       <Mountain>
         <div className="data">
-          <h1> {params.examName}</h1>
+          <h1> New Question </h1>
         </div>
       </Mountain>
       <div className="addQu">
@@ -109,7 +110,26 @@ function AddNewQu() {
           {QuestionAnswer !== null && (
             <div className="card">
               <div className="input-field">
-                <button className="SubmitBun" onClick={() => AddQuestion()}>
+                <button
+                  className="SubmitBun"
+                  onClick={() =>
+                    Dispatch(
+                      AddNewExamQuestion({
+                        _id: params.Exam_id,
+                        Subject_Id: params.Subject_id,
+                        correctAnswerIndex: QuestionAnswer,
+                        Options: Answers,
+                        QuestionText: Question,
+                      })
+                    ).then((res) => {
+                      if (res.payload.Status !== "Faild") {
+                        SetquestionAnswer(null);
+                        SetAnswers([]);
+                        SetQuestion("");
+                      }
+                    })
+                  }
+                >
                   Submit
                 </button>
               </div>

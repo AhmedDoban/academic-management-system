@@ -1,33 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Mountain from "../../../components/Mountain Template/Mountain";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Link, useParams } from "react-router-dom";
 import LodingFeachData from "../../../components/Loding Feach Data/LodingFeachData";
 import "./Exams.css";
+import { useDispatch, useSelector } from "react-redux";
+import { GetAllExams } from "../../../../Toolkit/Slices/ExamsSlice";
 function Exams() {
   const params = useParams("");
+  const Dispatch = useDispatch();
+  const { Exams, loading } = useSelector((state) => state.Exams);
 
-  const [Exams, SetExams] = useState([
-    {
-      _id: "asklj",
-    },
-  ]);
-  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    Dispatch(GetAllExams(params.Subject_id));
+  }, []);
 
-  useEffect(() => {}, []);
-
-  const compareDates = (date, time) => {
-    const fullTime = date.toString() + " " + time.toString();
-    const givenDate = new Date(fullTime);
+  const compareDates = (End) => {
+    const ExamDate = new Date(End);
     const currentDate = new Date();
-
-    if (givenDate.getTime() >= currentDate.getTime()) {
+    if (ExamDate.getTime() >= currentDate.getTime()) {
       return 1;
-    } else if (givenDate.getTime() < currentDate.getTime()) {
+    } else if (ExamDate.getTime() < currentDate.getTime()) {
       return -1;
     } else {
       return 0;
     }
+  };
+  const GetEndDate = (UserDate) => {
+    const dateObj = new Date(UserDate);
+    const month = dateObj.getUTCMonth() + 1;
+    const day = dateObj.getUTCDate();
+    const year = dateObj.getUTCFullYear();
+
+    const pMonth = month.toString().padStart(2, "0");
+    const pDay = day.toString().padStart(2, "0");
+    const newPaddedDate = `${year}/${pMonth}/${pDay}`;
+
+    return `Exam is ended on ${newPaddedDate}`;
   };
 
   return (
@@ -67,9 +76,9 @@ function Exams() {
                   src={require("../../../../img/Players/RunningExam.json")}
                   className="ExamPlayer"
                 />
-                <p className="examName">{Exam.exam_name}</p>
-                {/* <p className="status">
-                  {compareDates(Exam.exam_date, Exam.exam_end_time) >= 0 ? (
+                <p className="examName">{Exam.Title}</p>
+                <p className="status">
+                  {compareDates(Exam.ExamEnd) >= 0 ? (
                     <span>
                       <i className="fa-solid fa-circle RunningExam"></i>
                       Exam is Running now
@@ -77,11 +86,10 @@ function Exams() {
                   ) : (
                     <span>
                       <i className="fa-solid fa-circle endedExam"></i>
-                      Exam is ended
-                      {Exam.exam_date}
+                      {GetEndDate(Exam.ExamEnd)}
                     </span>
                   )}
-                </p> */}
+                </p>
               </Link>
             ))}
           </div>
