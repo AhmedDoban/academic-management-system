@@ -51,7 +51,6 @@ function Parent(props) {
   const logOut = () => {
     localStorage.clear();
     Navigate("/");
-    window.location.reload(true);
   };
   return (
     <React.Fragment>

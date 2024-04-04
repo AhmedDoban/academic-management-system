@@ -10,7 +10,7 @@ function Students() {
     <React.Fragment>
       <div className="students">
         <div className="container">
-          {Students.length > 0 ? (
+          {Students?.length > 0 ? (
             Students.map((Stu) => (
               <Link
                 className="card"

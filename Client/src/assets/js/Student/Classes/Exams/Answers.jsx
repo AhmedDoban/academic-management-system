@@ -7,7 +7,6 @@ function Answers(props) {
     const CheckElement = props.StudentAnswers.findIndex(
       (Aswer) => Aswer.QuestionId === props.Question._id
     );
-    console.log(props.Question._id);
 
     if (CheckElement === -1) {
       props.SetStudentAnswers([

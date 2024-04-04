@@ -9,38 +9,6 @@ function StudentData(props) {
   const [select_solved, Set_select_solved] = useState([]);
   const [loading, Setloading] = useState(false);
 
-  const url = `${process.env.REACT_APP_API}/select_sub_generation.php`;
-
-  const FeatchData = async () => {
-    try {
-      Setloading(true);
-      await axios
-        .post(
-          url,
-          {
-            student_id: params.student_id,
-          },
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "text/plain",
-            },
-          }
-        )
-        .then((res) => {
-          if (res.data.status === "success") {
-            Set_select_solved(res.data.message);
-            Setloading(false);
-          }
-        });
-    } catch (err) {
-      throw err;
-    }
-  };
-
-  useEffect(() => {
-    FeatchData();
-  }, []);
   return (
     <React.Fragment>
       <div className="studentData">
@@ -60,7 +28,7 @@ function StudentData(props) {
                     autoplay={true}
                     loop={true}
                     controls={false}
-                    src="https://assets7.lottiefiles.com/packages/lf20_yg29hewu.json"
+                    src={require("../../../../img/Players/NoStudentSubjects.json")}
                     className="PLayer"
                   />
                   <p>{Subjects.generation_name}</p>

@@ -10,7 +10,7 @@ function Exam() {
   const params = useParams();
   const Dispatch = useDispatch();
   const { Exams, loading } = useSelector((state) => state.Exams);
-  console.log(Exams);
+
   useEffect(() => {
     Dispatch(GetAllExams(params.Subject_id));
   }, []);

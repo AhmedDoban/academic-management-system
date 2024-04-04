@@ -49,7 +49,7 @@ const Parent_Login = async (Req, Res) => {
         return Res.json({
           Status: Codes.SUCCESS,
           Status_Code: Codes.SUCCESS_CODE,
-          Data: { Childrens, Parent },
+          Data: { Childrens, Parent, Token: Parent.Token, _id: Parent._id },
         });
       } else {
         // here found email but the password does not match
@@ -144,23 +144,25 @@ const Get_Specific_Parent = async (Req, Res) => {
   }
 
   try {
+    const Parent = await Parent_Model.findOne(
+      { _id, Token },
+      { password: 0, __v: 0, Role: 0 }
+    );
+
     // GEt Parent Data From the Data Base
     const Childrens = await Student_Model.find(
       {
-        parent_national_ID: national_ID,
+        parent_national_ID: Parent.national_ID,
       },
       { password: 0, __v: 0, Role: 0 }
     );
-    const Parent = await Parent_Model.findOne(
-      { national_ID },
-      { password: 0, __v: 0, Role: 0 }
-    );
+
     if (Parent_id === _id && Parent !== null) {
       // return Parent data
       return Res.json({
         Status: Codes.SUCCESS,
         Status_Code: Codes.SUCCESS_CODE,
-        Data: { Childrens, Parent },
+        Data: { Childrens, Parent, Token: Parent.Token, _id: Parent._id },
       });
     }
   } catch (err) {
