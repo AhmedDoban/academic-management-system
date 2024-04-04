@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./Exams.css";
 import Mountain from "../../../components/Mountain Template/Mountain";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { AddNewExam } from "../../../../Toolkit/Slices/ExamsSlice";
 
 function NewExam() {
+  const Navigate = useNavigate();
   const params = useParams();
   const Dispatch = useDispatch();
 
@@ -72,7 +73,13 @@ function NewExam() {
           <div className="input-field">
             <button
               className="CreateExam"
-              onClick={() => Dispatch(AddNewExam(DataForm))}
+              onClick={() =>
+                Dispatch(AddNewExam(DataForm)).then((res) => {
+                  if (res.payload.Status !== "Faild") {
+                    Navigate(-1);
+                  }
+                })
+              }
             >
               Create
             </button>

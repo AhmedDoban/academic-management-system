@@ -156,6 +156,34 @@ export const UpdateSingleExam = createAsyncThunk(
   }
 );
 
+// Update Single Exam
+export const StudentAnswerExam = createAsyncThunk(
+  "StudentAnswerExam",
+  async (payload, { getState }) => {
+    const { Token, _id } = JSON.parse(localStorage.getItem("Token"));
+
+    try {
+      const Data = await axios.post(
+        `${process.env.REACT_APP_API}/Exams/Answer`,
+        {
+          Student_ID: _id,
+          Exam_ID: payload.Exam_ID,
+          Subject_Id: payload.Subject_id,
+          Answers: payload.Answers,
+        },
+        {
+          headers: {
+            Authorization: Token,
+          },
+        }
+      );
+      return Data.data;
+    } catch (err) {
+      Toast_Handelar("error", "Sorry we can't update Exams!");
+    }
+  }
+);
+
 const ExamsSlice = createSlice({
   name: "ExamsSlice",
   initialState: {
@@ -273,6 +301,13 @@ const ExamsSlice = createSlice({
       }
     });
     builder.addCase(AddNewExamQuestion.fulfilled, (State, action) => {
+      if (action.payload.Status !== "Faild") {
+        Toast_Handelar("success", action.payload.message);
+      } else {
+        Toast_Handelar("error", action.payload.message);
+      }
+    });
+    builder.addCase(StudentAnswerExam.fulfilled, (State, action) => {
       if (action.payload.Status !== "Faild") {
         Toast_Handelar("success", action.payload.message);
       } else {

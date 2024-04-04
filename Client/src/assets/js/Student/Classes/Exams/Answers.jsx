@@ -1,29 +1,53 @@
 import React from "react";
 
 function Answers(props) {
-  const updateState = (data, question_id) => {
-    const newState = props.Question.map((obj) => {
-      if (obj.question_id === question_id) {
-        return { ...obj, chosen_answer: data };
-      }
-      return obj;
-    });
-    props.SetQuestions(newState);
-};
+  const updateState = (choices) => {
+    const Index = props.Question.Options.indexOf(choices);
 
+    const CheckElement = props.StudentAnswers.findIndex(
+      (Aswer) => Aswer.QuestionId === props.Question._id
+    );
+    console.log(props.Question._id);
+
+    if (CheckElement === -1) {
+      props.SetStudentAnswers([
+        ...props.StudentAnswers,
+        {
+          QuestionId: props.Question._id,
+          QuestionText: props.Question.QuestionText,
+          StudentAnswer: Index,
+          correctAnswer: props.Question.correctAnswerIndex,
+        },
+      ]);
+    } else {
+      const CloneData = [...props.StudentAnswers];
+      CloneData[CheckElement] = {
+        QuestionId: props.Question._id,
+        QuestionText: props.Question.QuestionText,
+        StudentAnswer: Index,
+        correctAnswer: props.Question.correctAnswerIndex,
+      };
+
+      props.SetStudentAnswers(CloneData);
+    }
+  };
 
   return (
     <React.Fragment>
-      {props.Answers.real_answers.map((p) => (
-        <li>
+      {props.Question.Options.map((choices) => (
+        <li key={choices}>
           <input
             type="radio"
-            name={props.question_id}
-            id={p}
-            value={p}
-            onClick={() => updateState(p, props.question_id)}
+            name={props.Question._id}
+            id={choices + props.Question.QuestionText + props.Question._id}
+            hidden
+            onClick={() => updateState(choices)}
           />
-          <label>{p}</label>
+          <label
+            htmlFor={choices + props.Question.QuestionText + props.Question._id}
+          >
+            {choices}
+          </label>
         </li>
       ))}
     </React.Fragment>
