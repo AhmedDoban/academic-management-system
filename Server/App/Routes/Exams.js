@@ -84,4 +84,17 @@ Router.route("/Update").post(
   Exams_controllers.Update_Exam
 );
 
+// Routes Handelar /API/Exams/Answer
+Router.route("/Answer").post(
+  JWT.Verify_Token,
+  Verify_User("STUDENT"),
+  [
+    body("Subject_Id").notEmpty().withMessage("Subject Id is not Valid"),
+    body("Student_ID").notEmpty().withMessage("Student ID is not Valid"),
+    body("Exam_ID").notEmpty().withMessage("Exam Id is not Valid"),
+    body("Answers").notEmpty().withMessage("Answers is not Valid"),
+  ],
+  Exams_controllers.Answer_Exam
+);
+
 export default Router;

@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
 
-const Exam_Model = mongoose.Schema(
+const Exam_Answer_Model = mongoose.Schema(
   {
     Subject_Id: { type: mongoose.Types.ObjectId, required: true },
     Student_ID: { type: mongoose.Types.ObjectId, required: true },
+    Exam_ID: { type: mongoose.Types.ObjectId, required: true },
     Answers: [
       {
         QuestionId: { type: String, required: true },
@@ -14,9 +15,8 @@ const Exam_Model = mongoose.Schema(
     ],
   },
   {
-    collection: "Exam",
-    timestamps: true,
+    collection: "Exam Answer",
   }
 );
 
-export default mongoose.model("Exam_Model", Exam_Model);
+export default mongoose.model("Exam_Answer_Model", Exam_Answer_Model);

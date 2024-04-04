@@ -1,5 +1,6 @@
 // import schema from Instructor modle
 import Exam_Model from "../Model/Exam_Model.js";
+import Exam_Answer from "../Model/Exam_Answer.js";
 import { validationResult } from "express-validator";
 import Codes from "../utils/Codes.js";
 import mongoose from "mongoose";
@@ -41,6 +42,7 @@ const Get_Subject_Exams = async (Req, Res) => {
   const Page = +Req.query.Page || 1;
   const Limit = +Req.query.Limit || 10;
   const Skip = (Page - 1) * Limit;
+  const NewDate = new Date();
 
   try {
     const Exams = await Exam_Model.aggregate([
@@ -50,6 +52,8 @@ const Get_Subject_Exams = async (Req, Res) => {
           ? {
               Subject_Id: new mongoose.Types.ObjectId(Subject_Id),
               Shown: true,
+              ExamEnd: { $gt: NewDate },
+              ExamStart: { $lt: NewDate },
             }
           : { Subject_Id: new mongoose.Types.ObjectId(Subject_Id) },
       },
@@ -125,8 +129,8 @@ const Add_Exam = async (Req, Res) => {
   }
   try {
     const Exam = new Exam_Model({
-      ExamEnd: new Date(ExamEnd),
-      ExamStart: new Date(ExamStart),
+      ExamEnd: ExamEnd,
+      ExamStart: ExamStart,
       instructor_id: instructor_id,
       Title: Title,
       Subject_Id: Subject_Id,
@@ -293,6 +297,57 @@ const Update_Exam = async (Req, Res) => {
   }
 };
 
+// Answer Student Exam in back end
+const Answer_Exam = async (Req, Res) => {
+  const { Subject_Id, Student_ID, Exam_ID, Answers } = Req.body;
+  // Body Validation Before Searching in the database to increase performance
+  const Errors = validationResult(Req);
+  if (!Errors.isEmpty()) {
+    return Res.json({
+      Status: Codes.FAILD,
+      Status_Code: Codes.FAILD_CODE,
+      message: "Can't Add your answers , please Try again later",
+      Data: Errors.array().map((arr) => arr.msg),
+    });
+  }
+  try {
+    const Exam = await Exam_Answer.findOne({
+      Subject_Id: new mongoose.Types.ObjectId(Subject_Id),
+      Student_ID: new mongoose.Types.ObjectId(Student_ID),
+      Exam_ID: new mongoose.Types.ObjectId(Exam_ID),
+    });
+
+    if (Exam == null) {
+      const NewExamAnswer = new Exam_Answer({
+        Subject_Id,
+        Student_ID,
+        Exam_ID,
+        Answers,
+      });
+      await NewExamAnswer.save();
+
+      return Res.json({
+        Status: Codes.SUCCESS,
+        Status_Code: Codes.SUCCESS_CODE,
+        message: "Your answers have been saved successfully !",
+      });
+    } else {
+      return Res.json({
+        Status: Codes.FAILD,
+        Status_Code: Codes.FAILD_CODE,
+        message: "You solved this exam Before !",
+      });
+    }
+  } catch (err) {
+    // Error in serching handelar
+    return Res.json({
+      Status: Codes.FAILD,
+      Status_Code: Codes.FAILD_CODE,
+      message: "Sorry Something went wrong please try again later !",
+    });
+  }
+};
+
 export default {
   Get_All_Exams,
   Add_Exam,
@@ -301,4 +356,5 @@ export default {
   Get_Subject_Exams,
   Get_Specific_Exam,
   Add_Exam_Question,
+  Answer_Exam,
 };
