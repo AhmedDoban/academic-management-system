@@ -12,7 +12,7 @@ function SingleExam() {
   const params = useParams();
   const Dispatch = useDispatch();
   const { SingleExamAnswers } = useSelector((state) => state.Parent);
-  console.log(SingleExamAnswers);
+
   useEffect(() => {
     if (SingleExamAnswers.length === 0) {
       Dispatch(
@@ -26,7 +26,6 @@ function SingleExam() {
         }
       });
     } else {
-      console.log("ELSE");
       Dispatch(GetSingleExam(params.Exam_Id));
     }
   }, []);
