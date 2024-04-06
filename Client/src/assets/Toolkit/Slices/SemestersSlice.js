@@ -29,7 +29,7 @@ export const GetStudentSemesters = createAsyncThunk(
 // get all Student semester subjects
 export const GetStudentSemestersSubjects = createAsyncThunk(
   "GetStudentSemestersSubjects",
-  async (payload, { getState }) => {
+  async (payload) => {
     const { Token, _id } = JSON.parse(localStorage.getItem("Token"));
 
     try {
@@ -51,7 +51,7 @@ export const GetStudentSemestersSubjects = createAsyncThunk(
 
 export const GetAllInstructorSubjects = createAsyncThunk(
   "GetAllInstructorSubjects",
-  async (payload, { getState }) => {
+  async (payload) => {
     const { Token, _id } = JSON.parse(localStorage.getItem("Token"));
 
     try {

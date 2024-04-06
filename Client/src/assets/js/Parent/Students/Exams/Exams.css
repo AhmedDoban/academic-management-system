@@ -1,0 +1,146 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# progress-result
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.progress-result {
+  position: relative;
+  width: 100%;
+  padding-top: var(--main-padding-top);
+}
+.progress-result .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.progress-result .container .card {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# progress-result Gpa
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.progress-result .container .card .CircularProgressbar {
+  background-color: transparent !important;
+}
+.progress-result .container .card path.CircularProgressbar-trail {
+  stroke: var(--white-color) !important;
+  stroke-width: 6;
+}
+.progress-result .container .card .Gpa path.CircularProgressbar-path {
+  stroke: var(--main-color) !important;
+  stroke-width: 5;
+  transition: var(--main-transition);
+  animation: fill-path 3s ease-in alternate;
+}
+
+.progress-result .container .card h1.GpaH,
+.progress-result .container .card .data p.GpaH {
+  color: var(--main-text-color);
+  transition: var(--main-transition);
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# progress-result faild data
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.progress-result .container .card .data {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.progress-result .container .card .data h1 {
+  font-size: 18px;
+  margin: 5px;
+}
+.progress-result .container .card .data p {
+  font-size: 18px;
+}
+@keyframes fill-path {
+  0% {
+    stroke-dashoffset: 280;
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Exam
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Exam {
+  position: relative;
+  width: 100%;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-top);
+}
+.Exam .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+.Exam .container .card {
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
+  box-shadow: 1px 2px 5px 5px var(--white-color);
+  height: 200px;
+}
+.Exam .container .card .data {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white-color);
+  border: 0;
+  padding: 8px 14px;
+  transition: var(--main-transition);
+  cursor: pointer;
+  color: var(--main-text-color);
+  font-size: 15px;
+  border-radius: var(--main-border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2px;
+}
+.Exam .container .card .data p {
+  position: relative;
+  width: 100%;
+  color: var(--main-text-color);
+  font-size: 16px;
+  text-align: right;
+  font-weight: bold;
+  text-align: center;
+  transition: var(--main-transition);
+}
+.Exam .container .card .data .PLayer {
+  width: 100px;
+  position: relative;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Students NO player
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.nostudent-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.nostudent-container .nostudent-player {
+  width: 100%;
+  height: 250px;
+}
+.nostudent-container p {
+  font-size: 18px;
+  color: var(--main-text-color);
+  font-weight: bold;
+}

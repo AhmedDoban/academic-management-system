@@ -128,23 +128,41 @@
   letter-spacing: 5px;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# New Exam input text field only
+# edit Exam input-card Answers
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.newExam .input-field input[type="text"] ~ label {
-  padding: 0 0 0 10px;
-  position: absolute;
-  top: 50%;
-  left: 0px;
-  z-index: 2;
+.newExam .input-field .Dropdown-root {
+  position: relative;
+  width: 100%;
+}
+.newExam .input-field .Dropdown-root .Dropdown-control {
+  background-color: var(--white-color);
+  color: var(--main-text-color);
+  border: 0;
+  cursor: pointer;
+}
+.newExam .input-field .Dropdown-root .Dropdown-menu {
+  background-color: var(--footer-background-color);
+  color: var(--white-color);
+  border: 1px solid var(--main-color);
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 10px 0;
   transition: var(--main-transition);
 }
-
-.newExam .input-field input:focus {
-  border-bottom: 1px solid var(--main-color);
+.newExam .input-field .Dropdown-root .Dropdown-menu .Dropdown-option {
+  color: var(--main-text-color);
 }
-.newExam .input-field input:focus ~ label,
-.newExam .input-field input:not(:placeholder-shown) ~ label {
-  top: 0px;
+.newExam
+  .input-field
+  .Dropdown-root
+  .Dropdown-menu
+  .Dropdown-option.is-selected {
+  background-color: var(--main-color);
+  color: #fff;
+}
+.newExam .input-field .Dropdown-root .Dropdown-menu .Dropdown-option:hover {
+  background-color: var(--main-color-hover);
+  color: #fff;
   transition: var(--main-transition);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ

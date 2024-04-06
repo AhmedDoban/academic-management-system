@@ -29,7 +29,9 @@ function Exam() {
     const TimeStart = Start.getHours();
     const TimeEnd = End.getHours();
     const newPaddedDate = `${TimeEnd - TimeStart}`;
-    return ` ${newPaddedDate} ${newPaddedDate >= 1 ? "hour" : "Hours"}`;
+    return ` ${Math.abs(newPaddedDate)} ${
+      Math.abs(newPaddedDate) >= 1 ? "hour" : "Hours"
+    }`;
   };
 
   return (

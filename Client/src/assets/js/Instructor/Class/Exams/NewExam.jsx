@@ -4,6 +4,8 @@ import Mountain from "../../../components/Mountain Template/Mountain";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { AddNewExam } from "../../../../Toolkit/Slices/ExamsSlice";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 
 function NewExam() {
   const Navigate = useNavigate();
@@ -33,16 +35,14 @@ function NewExam() {
         <div className="container">
           {/* ******************** > Exam Name ********************/}
           <div className="input-field">
-            <input
-              type="text"
-              id="Title"
-              name="Title"
-              onChange={ChangeHandler}
-              placeholder=" "
-            />
             <label htmlFor="Title">
-              <i className="fa-solid fa-signature"></i>Exam Name
+              <i className="fa-solid fa-signature"></i>Exam Type
             </label>
+            <Dropdown
+              options={["Quiz", "Midterm", "Final"]}
+              onChange={(e) => setDataForm({ ...DataForm, Title: e.value })}
+              placeholder="Exam Name"
+            />
           </div>
           {/* ******************** > Exam Start ********************/}
           <div className="input-field">

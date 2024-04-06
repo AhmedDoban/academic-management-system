@@ -159,7 +159,7 @@ export const UpdateSingleExam = createAsyncThunk(
 // Update Single Exam
 export const StudentAnswerExam = createAsyncThunk(
   "StudentAnswerExam",
-  async (payload, { getState }) => {
+  async (payload) => {
     const { Token, _id } = JSON.parse(localStorage.getItem("Token"));
 
     try {
@@ -170,6 +170,7 @@ export const StudentAnswerExam = createAsyncThunk(
           Exam_ID: payload.Exam_ID,
           Subject_Id: payload.Subject_id,
           Answers: payload.Answers,
+          Score: payload.Score,
         },
         {
           headers: {

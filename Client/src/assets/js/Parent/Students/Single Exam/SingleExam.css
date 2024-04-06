@@ -1,0 +1,68 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # Student Exam Result
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.StudentExamResult {
+  position: relative;
+  width: 100%;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  margin: 0;
+}
+.StudentExamResult .container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # exam Answers
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.StudentExamResult .card {
+  position: relative;
+  background-color: var(--main-background-color);
+  box-shadow: var(--main-box-shadow);
+  padding: 10px;
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
+}
+.StudentExamResult .card li {
+  position: relative;
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+.StudentExamResult .card span {
+  display: block;
+  width: 100%;
+  color: var(--main-text-color);
+  text-align: left;
+  padding: 10px;
+}
+.StudentExamResult li label {
+  text-align: left;
+  color: var(--main-text-color);
+  padding: 10px;
+  border: 3px solid var(--white-color);
+  width: 100%;
+  cursor: pointer;
+  transition: var(--main-transition);
+  border-radius: var(--main-border-radius);
+}
+
+.StudentExamResult .answer-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  color: var(--main-text-color);
+}
+
+.StudentExamResult li label.TheCorrectAnswer,
+.StudentExamResult li label.Correct {
+  border: 3px solid var(--green-color);
+}
+.StudentExamResult li label.TheWrongAnswer {
+  border: 3px solid var(--red-color);
+}

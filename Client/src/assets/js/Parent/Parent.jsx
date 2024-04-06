@@ -6,8 +6,8 @@ import Loading from "../components/Loading/Loading";
 
 // Students page
 const Students = lazy(() => import("./Students/Students"));
-const Subjects = lazy(() => import("./Students/Subjects/Subjects"));
-const SubjectData = lazy(() => import("./Students/Subject Data/SubjectData"));
+const SingleExam = lazy(() => import("./Students/Single Exam/SingleExam"));
+const Exams = lazy(() => import("./Students/Exams/Exams"));
 const SubjectExams = lazy(() =>
   import("./Students/Subject Exams/SubjectExams")
 );
@@ -36,16 +36,20 @@ function Parent(props) {
     let Root = document.documentElement.style;
     if (Theme === "light") {
       Root.setProperty("--main-background-color", "#f1f5f9");
-      Root.setProperty("--main-page-color", "#1b575b");
+      Root.setProperty("--footer-background-color", "#f5f9f7");
       Root.setProperty("--white-color", "#fff");
-      Root.setProperty("--black-color", "#000");
+      Root.setProperty("--main-white-alt", "#eee");
+      Root.setProperty("--main-text-color", "#000");
       Root.setProperty("--main-p-color", "#777");
+      Root.setProperty("--main-overlay", "rgba(125, 125, 125, 0.7)");
     } else {
       Root.setProperty("--main-background-color", "#121212");
-      Root.setProperty("--main-page-color", "#121212  ");
+      Root.setProperty("--footer-background-color", "#111111");
       Root.setProperty("--white-color", "#1e1e1e");
-      Root.setProperty("--black-color", "#fff");
-      Root.setProperty("--main-p-color", "#fff");
+      Root.setProperty("--main-text-color", "#fff");
+      Root.setProperty("--main-white-alt", "#303841");
+      Root.setProperty("--main-p-color", "#eee");
+      Root.setProperty("--main-overlay", "rgba(47, 47, 47, 0.7)");
     }
   };
   const logOut = () => {
@@ -71,17 +75,13 @@ function Parent(props) {
               </label>
               <ul>
                 <li>
-                  <NavLink
-                    to="/Students"
-                    onClick={() => SetLocaltitle("Students")}
-                    end
-                  >
+                  <NavLink to="/" onClick={() => SetLocaltitle("Students")}>
                     <i className="fa-solid fa-users"></i>
                     <span>Students</span>
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink onClick={logOut} to="/">
+                  <NavLink onClick={logOut} to="/login">
                     <i className="fa-solid fa-right-from-bracket"></i>
                     <span>log-out </span>
                   </NavLink>
@@ -93,35 +93,13 @@ function Parent(props) {
         <Suspense fallback={<Loading />}>
           <Routes>
             {/********** Students Page ***********/}
-            <Route exact path="/Students" element={<Outlet />}>
-              <Route path="" element={<Students />} />
-              <Route path=":student_id" element={<Outlet />}>
-                <Route path="" element={<Subjects />} />
-                <Route path=":generation_id" element={<Outlet />}>
-                  <Route path="" element={<SubjectData />} />
-                  <Route path=":subject_id" element={<SubjectExams />} />
-                </Route>
-              </Route>
-            </Route>
-            <Route exact path="/home" element={<Outlet />}>
-              <Route path="" element={<Students />} />
-              <Route path=":student_id" element={<Outlet />}>
-                <Route path="" element={<Subjects />} />
-                <Route path=":generation_id" element={<Outlet />}>
-                  <Route path="" element={<SubjectData />} />
-                  <Route path=":subject_id" element={<SubjectExams />} />
-                </Route>
-              </Route>
-            </Route>
-
-            {/********** Students Page ***********/}
             <Route exact path="/" element={<Outlet />}>
               <Route path="" element={<Students />} />
               <Route path=":student_id" element={<Outlet />}>
-                <Route path="" element={<Subjects />} />
-                <Route path=":generation_id" element={<Outlet />}>
-                  <Route path="" element={<SubjectData />} />
-                  <Route path=":subject_id" element={<SubjectExams />} />
+                <Route path="" element={<Exams />} />
+                <Route path=":Subject_Id" element={<Outlet />}>
+                  <Route path="" element={<SubjectExams />} />
+                  <Route path=":Exam_Id" element={<SingleExam />} />
                 </Route>
               </Route>
             </Route>

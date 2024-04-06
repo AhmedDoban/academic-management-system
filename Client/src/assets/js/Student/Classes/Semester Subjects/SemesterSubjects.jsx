@@ -74,16 +74,34 @@ function SemesterSubjects() {
                       className="card"
                       data-aos="zoom-in"
                       key={Semester._id}
-                      to={`/Subject Data/${Semester._id}/${Semester.name}`}
+                      to={
+                        Semester.IsPassed || Semester.IsPassed === false
+                          ? ""
+                          : `/Subject Data/${Semester._id}/${Semester.name}`
+                      }
                     >
                       <div className="info">
-                        <Player
-                          autoplay={true}
-                          loop={true}
-                          controls={false}
-                          src={require("../../../../img/Players/SubjectBook.json")}
-                          className="PLayer"
-                        />
+                        {Semester.IsPassed ? (
+                          <img
+                            src={require("../../../../img/success.png")}
+                            alt="success"
+                            className="PLayer"
+                          />
+                        ) : Semester.IsPassed === false ? (
+                          <img
+                            src={require("../../../../img/Faild.png")}
+                            alt="success"
+                            className="PLayer"
+                          />
+                        ) : (
+                          <Player
+                            autoplay={true}
+                            loop={true}
+                            controls={false}
+                            src={require("../../../../img/Players/SubjectBook.json")}
+                            className="PLayer"
+                          />
+                        )}
 
                         <p>{Semester.name}</p>
                       </div>

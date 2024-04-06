@@ -16,7 +16,19 @@ function ExamPage() {
   const params = useParams();
   const Dispatch = useDispatch();
   const [StudentAnswers, SetStudentAnswers] = useState([]);
+  const [Score, SetScore] = useState(0);
   const { SingleExamQuestions, loading } = useSelector((state) => state.Exams);
+
+  useEffect(() => {
+    let result = 0;
+    StudentAnswers.map((answer) => {
+      if (answer.StudentAnswer === answer.correctAnswer) {
+        result += 1;
+        SetScore(result);
+      }
+      return result;
+    });
+  }, [StudentAnswers]);
 
   useEffect(() => {
     Dispatch(
@@ -37,6 +49,7 @@ function ExamPage() {
           Exam_ID: params.Exam_id,
           Subject_id: params.Subject_id,
           Answers: StudentAnswers,
+          Score: Score,
         })
       ).then((res) => {
         if (res.payload.Status !== "Faild") {

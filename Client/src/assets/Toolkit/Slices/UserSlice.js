@@ -66,6 +66,7 @@ const UserSlice = createSlice({
   name: "User",
   initialState: {
     user: {},
+    Child: {},
     loading: false,
     Token: "",
     IsLogin: false,
@@ -98,6 +99,11 @@ const UserSlice = createSlice({
     },
     UserInSemester: (State, action) => {
       State.user.IsInsemester = action.payload;
+    },
+    GetChild: (State, action) => {
+      const AllChildrens = [...State.user.Childrens];
+      const Child = AllChildrens.filter((Ch) => Ch._id === action.payload)[0];
+      State.Child = Child;
     },
   },
   extraReducers: (builder) => {
@@ -147,7 +153,12 @@ const UserSlice = createSlice({
   },
 });
 
-export const { Login_Local, ChangeStatus, HandleChandeAvatar, UserInSemester } =
-  UserSlice.actions;
+export const {
+  Login_Local,
+  ChangeStatus,
+  HandleChandeAvatar,
+  UserInSemester,
+  GetChild,
+} = UserSlice.actions;
 
 export default UserSlice.reducer;

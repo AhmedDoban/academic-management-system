@@ -14,6 +14,7 @@ function Answers(props) {
         {
           QuestionId: props.Question._id,
           QuestionText: props.Question.QuestionText,
+          QuestionChoices: props.Question.Options,
           StudentAnswer: Index,
           correctAnswer: props.Question.correctAnswerIndex,
         },
@@ -23,6 +24,7 @@ function Answers(props) {
       CloneData[CheckElement] = {
         QuestionId: props.Question._id,
         QuestionText: props.Question.QuestionText,
+        QuestionChoices: props.Question.Options,
         StudentAnswer: Index,
         correctAnswer: props.Question.correctAnswerIndex,
       };
