@@ -149,7 +149,9 @@ const Get_Semester_Subjects = async (Req, Res) => {
         },
       },
       { $unwind: "$Subjects" },
-      { $set: { Subjects: { $toObjectId: "$Subjects" } } },
+      {
+        $set: { Subjects: { $toObjectId: "$Subjects" } },
+      },
       {
         $lookup: {
           from: "Subject",
@@ -160,11 +162,34 @@ const Get_Semester_Subjects = async (Req, Res) => {
       },
       { $unwind: "$Subject" },
       {
+        $lookup: {
+          from: "Passed Student Subjects",
+          localField: "Subjects",
+          foreignField: "Subject_Id",
+          pipeline: [
+            { $match: { Student_ID: new mongoose.Types.ObjectId(Student_ID) } },
+            { $limit: 1 },
+            {
+              $project: {
+                Passed: 1,
+                _id: 0,
+              },
+            },
+          ],
+          as: "IsPassed",
+        },
+      },
+      {
         $replaceRoot: {
           newRoot: {
             $mergeObjects: [
-              { Semester: "$name", Semester_Hours: "$Semester_Hours" },
+              {
+                Semester: "$name",
+                Semester_Hours: "$Semester_Hours",
+                Student_ID: "$Student_ID",
+              },
               "$Subject",
+              { IsPassed: { $first: "$IsPassed.Passed" } },
             ],
           },
         },

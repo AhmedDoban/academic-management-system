@@ -93,8 +93,25 @@ Router.route("/Answer").post(
     body("Student_ID").notEmpty().withMessage("Student ID is not Valid"),
     body("Exam_ID").notEmpty().withMessage("Exam Id is not Valid"),
     body("Answers").notEmpty().withMessage("Answers is not Valid"),
+    body("Score").notEmpty().withMessage("Score is not Valid"),
   ],
   Exams_controllers.Answer_Exam
+);
+
+// Routes Handelar /API/Exams/Result
+Router.route("/Result").post(
+  JWT.Verify_Token,
+  Verify_User("PARENT"),
+  [body("Student_ID").notEmpty().withMessage("Student ID is not Valid")],
+  Exams_controllers.Studnt_Exams
+);
+
+// Routes Handelar /API/Exams/Answer
+Router.route("/Result/:Subject_id").post(
+  JWT.Verify_Token,
+  Verify_User("PARENT"),
+  [body("Student_ID").notEmpty().withMessage("Student ID is not Valid")],
+  Exams_controllers.Studnt_Subject_Exams
 );
 
 export default Router;

@@ -1,6 +1,8 @@
 // import schema from user modle
 import Parent_Model from "../Model/Parent_Model.js";
 import Student_Model from "../Model/Student_Model.js";
+import ISPassed_Mode from "../Model/ISPassed_Mode.js";
+
 import { validationResult } from "express-validator";
 import bcrypt from "bcrypt";
 import Codes from "../utils/Codes.js";
@@ -39,7 +41,7 @@ const Parent_Login = async (Req, Res) => {
           {
             parent_national_ID: national_ID,
           },
-          { password: 0, __v: 0, Role: 0 }
+          { password: 0, __v: 0, Role: 0, Token: 0 }
         );
         const Parent = await Parent_Model.findOne(
           { national_ID },
@@ -146,7 +148,7 @@ const Get_Specific_Parent = async (Req, Res) => {
   try {
     const Parent = await Parent_Model.findOne(
       { _id, Token },
-      { password: 0, __v: 0, Role: 0 }
+      { password: 0, __v: 0, Role: 0, Token: 0 }
     );
 
     // GEt Parent Data From the Data Base

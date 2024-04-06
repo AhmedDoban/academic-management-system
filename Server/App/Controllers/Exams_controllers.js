@@ -1,6 +1,9 @@
 // import schema from Instructor modle
 import Exam_Model from "../Model/Exam_Model.js";
 import Exam_Answer from "../Model/Exam_Answer.js";
+import Subject_Model from "../Model/Subject_Model.js";
+import Student_Model from "../Model/Student_Model.js";
+import ISPassed_Mode from "../Model/ISPassed_Mode.js";
 import { validationResult } from "express-validator";
 import Codes from "../utils/Codes.js";
 import mongoose from "mongoose";
@@ -83,6 +86,7 @@ const Get_Specific_Exam = async (Req, Res) => {
   const { Subject_Id } = Req.body;
   const _id = Req.params.Exam_id;
   const Condetion = Req.Verifyed_User.Role === "STUDENT";
+  const NewDate = new Date();
 
   try {
     const Exam = await Exam_Model.findOne(
@@ -90,6 +94,8 @@ const Get_Specific_Exam = async (Req, Res) => {
         ? {
             Subject_Id: new mongoose.Types.ObjectId(Subject_Id),
             _id: new mongoose.Types.ObjectId(_id),
+            ExamEnd: { $gt: NewDate },
+            ExamStart: { $lt: NewDate },
             Shown: true,
           }
         : {
@@ -299,7 +305,7 @@ const Update_Exam = async (Req, Res) => {
 
 // Answer Student Exam in back end
 const Answer_Exam = async (Req, Res) => {
-  const { Subject_Id, Student_ID, Exam_ID, Answers } = Req.body;
+  const { Subject_Id, Student_ID, Exam_ID, Answers, Score } = Req.body;
   // Body Validation Before Searching in the database to increase performance
   const Errors = validationResult(Req);
   if (!Errors.isEmpty()) {
@@ -318,13 +324,24 @@ const Answer_Exam = async (Req, Res) => {
     });
 
     if (Exam == null) {
+      const ExamData = await Exam_Model.findOne({
+        _id: new mongoose.Types.ObjectId(Exam_ID),
+      });
       const NewExamAnswer = new Exam_Answer({
         Subject_Id,
         Student_ID,
         Exam_ID,
         Answers,
+        Score,
       });
       await NewExamAnswer.save();
+
+      if (ExamData.Title === "Final") {
+        const { credit_hours } = await Subject_Model.findOne({
+          _id: new mongoose.Types.ObjectId(Subject_Id),
+        });
+        CalculateTotalScore(Subject_Id, Student_ID, credit_hours);
+      }
 
       return Res.json({
         Status: Codes.SUCCESS,
@@ -348,6 +365,225 @@ const Answer_Exam = async (Req, Res) => {
   }
 };
 
+// function to calculate the Total score
+const CalculateTotalScore = async (Subject_Id, Student_ID, credit_hours) => {
+  let newScore = 0;
+  let QuestionsLength = 0;
+  // Get All subject exam
+  const AllSubjectExams = await Exam_Answer.find({
+    Subject_Id: new mongoose.Types.ObjectId(Subject_Id),
+    Student_ID: new mongoose.Types.ObjectId(Student_ID),
+  });
+
+  // calculate points
+  for (let i = 0; i < AllSubjectExams.length; i++) {
+    newScore += AllSubjectExams[i].Score;
+    QuestionsLength += AllSubjectExams[i].Answers.length;
+  }
+
+  const TotalScore = (newScore / QuestionsLength) * 100;
+  const GPA = switchGPA(TotalScore);
+
+  // get the student data
+  const Student = await Student_Model.findOne({
+    _id: Student_ID,
+  });
+
+  const Hours_X_Creadit = credit_hours * GPA.value;
+  // update the student data
+  if (Student.Gpa.Remain_Hours_To_Next_Semester <= 3) {
+    await Student_Model.updateOne(
+      { _id: Student_ID },
+      {
+        $set: { IsInsemester: false },
+        $inc: {
+          "Gpa.Hours_X_Creadit": +Hours_X_Creadit,
+          "Gpa.All_Semester_Hours": +credit_hours,
+          "Gpa.Remain_Hours_To_Next_Semester": -credit_hours,
+        },
+      }
+    );
+  } else {
+    await Student_Model.updateOne(
+      { _id: Student_ID },
+      {
+        $inc: {
+          "Gpa.Hours_X_Creadit": +Hours_X_Creadit,
+          "Gpa.All_Semester_Hours": +credit_hours,
+          "Gpa.Remain_Hours_To_Next_Semester": -credit_hours,
+        },
+      }
+    );
+  }
+
+  const IsStudentPassed = new ISPassed_Mode({
+    Subject_Id,
+    Student_ID,
+    Passed: GPA.value === 0 ? false : true,
+    Score: TotalScore,
+    GPA: GPA.value,
+    Grade: GPA.Grade,
+  });
+  await IsStudentPassed.save();
+};
+
+function switchGPA(gpaScore) {
+  if (gpaScore >= 95) {
+    return { Grade: "A+", value: 4 };
+  } else if (gpaScore >= 90) {
+    return { Grade: "A", value: 4 };
+  } else if (gpaScore >= 85) {
+    return { Grade: "A-", value: 3.67 };
+  } else if (gpaScore >= 80) {
+    return { Grade: "B+", value: 3.33 };
+  } else if (gpaScore >= 75) {
+    return { Grade: "B", value: 3 };
+  } else if (gpaScore >= 70) {
+    return { Grade: "B-", value: 2.67 };
+  } else if (gpaScore >= 65) {
+    return { Grade: "C+", value: 2.33 };
+  } else if (gpaScore >= 60) {
+    return { Grade: "C", value: 2 };
+  } else if (gpaScore >= 55) {
+    return { Grade: "C-", value: 1.67 };
+  } else if (gpaScore >= 50) {
+    return { Grade: "D", value: 1 };
+  } else {
+    return { Grade: "F", value: 0 };
+  }
+}
+
+// Answer Student Exam in back end
+const Studnt_Exams = async (Req, Res) => {
+  const { Student_ID } = Req.body;
+  // Body Validation Before Searching in the database to increase performance
+  const Errors = validationResult(Req);
+  if (!Errors.isEmpty()) {
+    return Res.json({
+      Status: Codes.FAILD,
+      Status_Code: Codes.FAILD_CODE,
+      message: "Can't Get Student Exams , please Try again later",
+      Data: Errors.array().map((arr) => arr.msg),
+    });
+  }
+  try {
+    const Exam = await ISPassed_Mode.aggregate([
+      { $match: { Student_ID: new mongoose.Types.ObjectId(Student_ID) } },
+
+      {
+        $lookup: {
+          from: "Subject",
+          localField: "Subject_Id",
+          foreignField: "_id",
+          as: "Subject",
+        },
+      },
+      { $unwind: "$Subject" },
+      {
+        $replaceRoot: {
+          newRoot: {
+            $mergeObjects: [{ SubjectName: "$Subject.name" }, "$$ROOT"],
+          },
+        },
+      },
+      {
+        $project: {
+          Subject: 0,
+          __v: 0,
+        },
+      },
+    ]);
+
+    return Res.json({
+      Status: Codes.SUCCESS,
+      Status_Code: Codes.SUCCESS_CODE,
+      Data: Exam,
+    });
+  } catch (err) {
+    // Error in serching handelar
+    return Res.json({
+      Status: Codes.FAILD,
+      Status_Code: Codes.FAILD_CODE,
+      message: "Sorry Something went wrong please try again later !",
+    });
+  }
+};
+
+// Answer Student Exam in back end
+const Studnt_Subject_Exams = async (Req, Res) => {
+  const { Student_ID } = Req.body;
+  const Subject_Id = Req.params.Subject_id;
+
+  // Body Validation Before Searching in the database to increase performance
+  const Errors = validationResult(Req);
+  if (!Errors.isEmpty()) {
+    return Res.json({
+      Status: Codes.FAILD,
+      Status_Code: Codes.FAILD_CODE,
+      message: "Can't Get Student Exams , please Try again later",
+      Data: Errors.array().map((arr) => arr.msg),
+    });
+  }
+  try {
+    const Exam = await Exam_Answer.aggregate([
+      {
+        $match: {
+          Student_ID: new mongoose.Types.ObjectId(Student_ID),
+          Subject_Id: new mongoose.Types.ObjectId(Subject_Id),
+        },
+      },
+      {
+        $lookup: {
+          from: "Subject",
+          localField: "Subject_Id",
+          foreignField: "_id",
+          as: "Subject",
+        },
+      },
+      { $unwind: "$Subject" },
+      {
+        $lookup: {
+          from: "Exam",
+          localField: "Exam_ID",
+          foreignField: "_id",
+          as: "Exam",
+        },
+      },
+      { $unwind: "$Exam" },
+
+      {
+        $replaceRoot: {
+          newRoot: {
+            $mergeObjects: [
+              { ExamName: "$Exam.Title", SubjectName: "$Subject.name" },
+              "$$ROOT",
+            ],
+          },
+        },
+      },
+      {
+        $project: {
+          Exam: 0,
+          Subject: 0,
+        },
+      },
+    ]);
+
+    return Res.json({
+      Status: Codes.SUCCESS,
+      Status_Code: Codes.SUCCESS_CODE,
+      Data: Exam,
+    });
+  } catch (err) {
+    // Error in serching handelar
+    return Res.json({
+      Status: Codes.FAILD,
+      Status_Code: Codes.FAILD_CODE,
+      message: "Sorry Something went wrong please try again later !",
+    });
+  }
+};
+
 export default {
   Get_All_Exams,
   Add_Exam,
@@ -357,4 +593,6 @@ export default {
   Get_Specific_Exam,
   Add_Exam_Question,
   Answer_Exam,
+  Studnt_Exams,
+  Studnt_Subject_Exams,
 };

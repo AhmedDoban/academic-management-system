@@ -9,10 +9,12 @@ const Exam_Answer_Model = mongoose.Schema(
       {
         QuestionId: { type: String, required: true },
         QuestionText: { type: String, required: true },
+        QuestionChoices: { type: Array, required: true },
         StudentAnswer: { type: Number, required: true },
         correctAnswer: { type: Number, required: true },
       },
     ],
+    Score: { type: Number, required: true },
   },
   {
     collection: "Exam Answer",

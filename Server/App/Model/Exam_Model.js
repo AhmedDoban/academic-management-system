@@ -4,7 +4,11 @@ const Exam_Model = mongoose.Schema(
   {
     Subject_Id: { type: mongoose.Types.ObjectId, required: true },
     instructor_id: { type: mongoose.Types.ObjectId, required: true },
-    Title: { type: String, required: true },
+    Title: {
+      type: String,
+      required: true,
+      enum: ["Quiz", "Midterm", "Final"],
+    },
     ExamStart: { type: Date, required: true },
     ExamEnd: { type: Date, required: true },
     Shown: { type: Boolean, required: true, default: true },
