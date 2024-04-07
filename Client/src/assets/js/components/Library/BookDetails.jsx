@@ -12,6 +12,7 @@ function BookDetails(props) {
     let ArrData = { ...data };
     // update
     setItem(ArrData);
+    //eslint-disable-next-line
   }, []);
 
   return (

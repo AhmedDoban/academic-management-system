@@ -85,16 +85,6 @@ function SubjectData() {
             />
           </Link>
           {/***************** Chat Bot  **********************/}
-          <Link className="card" data-aos="zoom-in" to={`ChatBot`}>
-            <h1>Chat Bot</h1>
-            <Player
-              autoplay={true}
-              loop={true}
-              controls={false}
-              src={require("../../../../img/Players/ChatBot.json")}
-              style={{ width: "150px", height: "150px" }}
-            />
-          </Link>
         </div>
       </div>
     </React.Fragment>

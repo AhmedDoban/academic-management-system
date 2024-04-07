@@ -16,6 +16,7 @@ function ShowVideo() {
 
   useEffect(() => {
     Dispatch(GetAllVideos(params.Subject_id));
+    //eslint-disable-next-line
   }, []);
 
   const handleShowvideo = (data) => {

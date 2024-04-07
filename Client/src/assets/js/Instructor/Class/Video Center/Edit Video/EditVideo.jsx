@@ -23,6 +23,7 @@ function EditVideo() {
 
   useEffect(() => {
     Dispatch(GetAllVideos(params.Subject_id));
+    //eslint-disable-next-line
   }, []);
 
   const HandeChange = useCallback(

@@ -124,7 +124,7 @@ const NewSemesterSlice = createSlice({
     });
   },
 });
-
+//eslint-disable-next-line
 export const {} = NewSemesterSlice.actions;
 
 export default NewSemesterSlice.reducer;

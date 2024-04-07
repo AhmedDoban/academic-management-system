@@ -17,6 +17,7 @@ function EditSummary() {
 
   useEffect(() => {
     Dispatch(GetAllSummary(params.Subject_id));
+    //eslint-disable-next-line
   }, []);
 
   const [ValidData, SetValidData] = useState(false);

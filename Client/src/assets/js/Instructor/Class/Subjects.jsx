@@ -13,6 +13,7 @@ function Subjects() {
 
   useEffect(() => {
     Dispatcth(GetAllInstructorSubjects());
+    //eslint-disable-next-line
   }, []);
 
   return (

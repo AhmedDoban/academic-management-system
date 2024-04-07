@@ -48,6 +48,7 @@ function JoinSemester() {
 
   useEffect(() => {
     Dispatch(GetSubjects());
+    //eslint-disable-next-line
   }, []);
 
   const HandleNext = () => {

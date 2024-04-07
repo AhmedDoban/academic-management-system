@@ -9,6 +9,7 @@ export default function CoursesDetails() {
   const [Class, setClass] = useState([]);
   useEffect(() => {
     GetData();
+    //eslint-disable-next-line
   }, [params.id]);
 
   const GetData = async () => {

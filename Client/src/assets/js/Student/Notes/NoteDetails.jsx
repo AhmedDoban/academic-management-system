@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Blobs from "./../../components/Blobs/Blobs";
-import { useParams } from "react-router-dom";
 import CardBlur from "./../../components/Card Blur/CardBlur";
 
 function NoteDetails(props) {
-  const params = useParams();
-
+  //eslint-disable-next-line
   const [note, SetNote] = useState([]);
 
   useEffect(() => {}, []);

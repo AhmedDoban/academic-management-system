@@ -15,16 +15,15 @@ import { useSelector } from "react-redux";
 
 // Semester Subjects page
 const ClassRoom = lazy(() => import("./Classes/ClassRoom"));
-const Quiz = lazy(() => import("./Quiz/Quiz"));
+
 const SubjectData = lazy(() => import("./Classes/SubjectData/SubjectData"));
 const Exam = lazy(() => import("./Classes/Exams/Exam"));
 const ExamPage = lazy(() => import("./Classes/Exams/ExamPage"));
 const Viedos = lazy(() => import("../components/videos/Videos"));
 const Summary = lazy(() => import("./Classes/Summary/Summary"));
-
 const Inquiries = lazy(() => import("./Classes/Inquiries/Inquiries"));
 const Chat = lazy(() => import("./Classes/Chat/Chat"));
-const ChatBot = lazy(() => import("./Classes/Chat Bot/ChatBot"));
+
 // table page
 const StudentTablePage = lazy(() => import("./Table/StudentTablePage"));
 const JoinSemester = lazy(() => import("./Join Semester/JoinSemester"));
@@ -59,6 +58,7 @@ const Student = (props) => {
   }, []);
 
   const sidebar = useRef(null);
+  //eslint-disable-next-line
   const [active, setActive] = useState("fa-solid fa-bars");
   const open = useCallback(
     (e) => {
@@ -138,7 +138,6 @@ const Student = (props) => {
                     <Route path="Summary" element={<Summary />} />
                     <Route path="Inquiries" element={<Inquiries />} />
                     <Route path="Chat" element={<Chat />} />
-                    <Route path="ChatBot" element={<ChatBot />} />
                   </Route>
                   {/********** Table Page or join semester***********/}
                   <Route

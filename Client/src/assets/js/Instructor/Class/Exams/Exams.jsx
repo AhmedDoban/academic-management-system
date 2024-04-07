@@ -13,6 +13,7 @@ function Exams() {
 
   useEffect(() => {
     Dispatch(GetAllExams(params.Subject_id));
+    //eslint-disable-next-line
   }, []);
 
   const compareDates = (End) => {

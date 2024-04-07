@@ -11,6 +11,8 @@ function Auth(props) {
     return <Instructor />;
   } else if (JSON.parse(localStorage.getItem("TYPE")) === "Parent") {
     return <Parent />;
+  } else if (JSON.parse(localStorage.getItem("TYPE")) === "Admin") {
+    return <Admin />;
   }
 }
 export default Auth;

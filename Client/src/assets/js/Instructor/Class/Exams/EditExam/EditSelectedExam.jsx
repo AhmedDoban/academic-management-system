@@ -30,6 +30,7 @@ function EditSelectedExam() {
         _id: params.Exam_id,
       })
     );
+    //eslint-disable-next-line
   }, []);
 
   const HandleValidAnswer = (index, value, options) => {

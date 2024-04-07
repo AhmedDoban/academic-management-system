@@ -30,6 +30,7 @@ function Parent(props) {
     localStorage.setItem("theme", Theme);
     Theme === "light" ? SetChek(false) : SetChek(true);
     CheckCurrentTheme();
+    //eslint-disable-next-line
   }, [Theme]);
 
   const CheckCurrentTheme = () => {

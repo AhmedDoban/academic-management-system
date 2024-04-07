@@ -144,6 +144,7 @@ const InquiriesSlice = createSlice({
     UpdateInquiryLocal: (Sate, action) => {
       const all_Inquiries = [...Sate.Inquiries];
       const NewData = all_Inquiries.filter(
+        //eslint-disable-next-line
         (data) => data._id == action.payload._id
       )[0];
       const index = all_Inquiries.indexOf(NewData);

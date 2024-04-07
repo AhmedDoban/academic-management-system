@@ -25,6 +25,7 @@ function Inquiries() {
 
   useEffect(() => {
     Dispatch(GetAllInquiries(params.Subject_id));
+    //eslint-disable-next-line
   }, []);
 
   const HandleTextFeild = () => {
@@ -49,20 +50,24 @@ function Inquiries() {
   };
   const HandleTextFeildEnterKey = (e) => {
     if (e.key === "Enter") {
-      Dispatch(
-        AddNewInquiry({ Subject_Id: params.Subject_id, Question: TextFeild })
-      ).then((res) => {
-        if (res.payload.Status !== "Faild") {
-          SetTextField("");
-        }
-      });
-      Dispatch(
-        InsertInquiry({
-          _id: Inquiries.length + 1,
-          StudentName: name,
-          Question: TextFeild,
-        })
-      );
+      if (TextFeild === "") {
+        Toast_Handelar("error", "input field is empty");
+      } else {
+        Dispatch(
+          AddNewInquiry({ Subject_Id: params.Subject_id, Question: TextFeild })
+        ).then((res) => {
+          if (res.payload.Status !== "Faild") {
+            SetTextField("");
+          }
+        });
+        Dispatch(
+          InsertInquiry({
+            _id: Inquiries.length + 1,
+            StudentName: name,
+            Question: TextFeild,
+          })
+        );
+      }
     }
   };
 

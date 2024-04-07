@@ -22,7 +22,7 @@ function Exams() {
         _id: params.student_id,
       })
     );
-    Dispatch(GetChild(params.student_id));
+    Dispatch(GetChild(params.student_id)); //eslint-disable-next-line
   }, []);
 
   return (

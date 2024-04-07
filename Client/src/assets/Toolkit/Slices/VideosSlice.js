@@ -123,6 +123,7 @@ const VideosSlice = createSlice({
     UpdateVideoLocal: (Sate, action) => {
       const all_Videos = [...Sate.Videos];
       const NewData = all_Videos.filter(
+        //eslint-disable-next-line
         (data) => data._id == action.payload._id
       )[0];
       const index = all_Videos.indexOf(NewData);
@@ -136,6 +137,7 @@ const VideosSlice = createSlice({
     UpdateVideoShownLocal: (Sate, action) => {
       const all_Videos = [...Sate.Videos];
       const NewData = all_Videos.filter(
+        //eslint-disable-next-line
         (data) => data._id == action.payload
       )[0];
       const index = all_Videos.indexOf(NewData);

@@ -20,6 +20,7 @@ function SubjectExams(props) {
         Subject_id: params.Subject_Id,
       })
     );
+    //eslint-disable-next-line
   }, []);
 
   return (

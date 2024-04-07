@@ -16,6 +16,7 @@ function Semester() {
 
   useEffect(() => {
     Dispatch(GetStudentSemesters());
+    //eslint-disable-next-line
   }, []);
 
   /**************** End *******************************************************/

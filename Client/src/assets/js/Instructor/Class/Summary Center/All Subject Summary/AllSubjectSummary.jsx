@@ -13,6 +13,7 @@ function AllSubjectSummary() {
 
   useEffect(() => {
     Dispatch(GetAllSummary(params.Subject_id));
+    //eslint-disable-next-line
   }, []);
 
   return (

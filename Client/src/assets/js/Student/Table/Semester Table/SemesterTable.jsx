@@ -16,6 +16,7 @@ function SemesterTable() {
 
   useEffect(() => {
     Dispatch(GetStudentSemestersSubjects({ Semester_id: params.Semester_id }));
+    //eslint-disable-next-line
   }, []);
 
   const handlePrint = useReactToPrint({

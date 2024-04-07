@@ -45,6 +45,7 @@ const Instructor = (props) => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
   const sidebar = useRef(null);
+  //eslint-disable-next-line
   const [active, setActive] = useState("fa-solid fa-bars");
   const open = useCallback(
     (e) => {

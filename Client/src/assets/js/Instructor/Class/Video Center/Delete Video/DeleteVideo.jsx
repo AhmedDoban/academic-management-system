@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./DeleteVideo.css";
 import Swal from "sweetalert2";
@@ -17,6 +17,7 @@ function DeleteVideo() {
 
   useEffect(() => {
     Dispatch(GetAllVideos(params.Subject_id));
+    //eslint-disable-next-line
   }, []);
 
   const handleDeletevideo = (data) => {

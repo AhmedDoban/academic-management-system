@@ -41,7 +41,7 @@ function BookCard(props) {
                     </Link>
                   </>
                 );
-              }
+              } else return null;
             })}
           </div>
         ) : (

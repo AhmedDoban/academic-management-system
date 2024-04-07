@@ -2,8 +2,8 @@ import React, { lazy, Suspense } from "react";
 import { Outlet, Route, Routes } from "react-router-dom";
 import "../style/admin.css";
 import AdminHome from "./AdminHome";
-import Weather from "../components/Weather/Weather";
 import Loading from "../../components/Loading/Loading";
+import Mountain from "../../components/Mountain Template/Mountain";
 
 // Students
 const StudentControl = lazy(() => import("./../Student/StudentControl"));
@@ -25,7 +25,11 @@ function Admin(props) {
   return (
     <React.Fragment>
       <div className="Admin">
-        <Weather />
+        <Mountain>
+          <div className="data">
+            <h1>Admin</h1>
+          </div>
+        </Mountain>
         <div className="container">
           <div className="Admin-pages-container">
             <Suspense fallback={<Loading />}>

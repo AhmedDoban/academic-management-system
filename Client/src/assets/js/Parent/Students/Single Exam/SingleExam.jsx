@@ -28,6 +28,7 @@ function SingleExam() {
     } else {
       Dispatch(GetSingleExam(params.Exam_Id));
     }
+    //eslint-disable-next-line
   }, []);
 
   return (

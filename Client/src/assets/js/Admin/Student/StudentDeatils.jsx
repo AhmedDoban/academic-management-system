@@ -8,6 +8,7 @@ function StudentDeatils() {
   const [Student, setStudent] = useState([]);
   useEffect(() => {
     GetData();
+    //eslint-disable-next-line
   }, [params.id]);
 
   const GetData = async () => {

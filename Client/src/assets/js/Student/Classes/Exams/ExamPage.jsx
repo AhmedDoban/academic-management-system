@@ -37,6 +37,7 @@ function ExamPage() {
         _id: params.Exam_id,
       })
     );
+    //eslint-disable-next-line
   }, []);
 
   const HandleSubmitExam = () => {

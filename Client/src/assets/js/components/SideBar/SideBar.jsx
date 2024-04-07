@@ -50,6 +50,7 @@ const SideBar = ({ children }) => {
     localStorage.setItem("theme", Theme);
     Theme === "light" ? SetChek(false) : SetChek(true);
     CheckCurrentTheme();
+    //eslint-disable-next-line
   }, [Theme, children]);
   const CheckCurrentTheme = () => {
     let Root = document.documentElement.style;

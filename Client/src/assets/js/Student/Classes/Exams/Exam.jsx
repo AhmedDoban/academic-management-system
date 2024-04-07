@@ -13,6 +13,7 @@ function Exam() {
 
   useEffect(() => {
     Dispatch(GetAllExams(params.Subject_id));
+    //eslint-disable-next-line
   }, []);
 
   const ExamStartEnd = (ExamDate) => {

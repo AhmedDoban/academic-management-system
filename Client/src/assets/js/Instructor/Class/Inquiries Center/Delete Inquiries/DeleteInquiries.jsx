@@ -22,6 +22,7 @@ function DeleteInquiries() {
 
   useEffect(() => {
     Dispatch(GetAllInquiries(params.Subject_id));
+    //eslint-disable-next-line
   }, []);
 
   const DeleteInquiriesHandelar = (data) => {

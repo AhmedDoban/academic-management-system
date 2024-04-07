@@ -18,8 +18,8 @@ function SemesterSubjects() {
 
   useEffect(() => {
     Dispatch(GetStudentSemestersSubjects({ Semester_id: params.Semester_id }));
+    //eslint-disable-next-line
   }, []);
-  /**************** End *******************************************************/
 
   return (
     <React.Fragment>

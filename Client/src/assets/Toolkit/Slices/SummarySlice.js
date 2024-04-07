@@ -121,6 +121,7 @@ const SummarySlice = createSlice({
     UpdateSummaryLocal: (Sate, action) => {
       const all_Summary = [...Sate.Summary];
       const NewData = all_Summary.filter(
+        //eslint-disable-next-line
         (data) => data._id == action.payload._id
       )[0];
       const index = all_Summary.indexOf(NewData);
@@ -133,6 +134,7 @@ const SummarySlice = createSlice({
     UpdateSummaryhownLocal: (Sate, action) => {
       const all_Summary = [...Sate.Summary];
       const NewData = all_Summary.filter(
+        //eslint-disable-next-line
         (data) => data._id == action.payload
       )[0];
       const index = all_Summary.indexOf(NewData);
