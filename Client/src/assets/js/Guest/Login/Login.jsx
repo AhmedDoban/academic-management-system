@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./Login.css";
 import Blobs from "../../components/Blobs/Blobs";
 import Select from "react-select";
@@ -15,6 +15,7 @@ function Login() {
   const [Type, SetType] = useState("");
 
   const Dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.User);
 
   const options = [
     {
@@ -81,7 +82,7 @@ function Login() {
         Type: Type,
       })
     ).then((res) => {
-      if (res.payload.Status === "Success") {
+      if (res.payload !== undefined && res.payload.Status !== "Faild") {
         Navigate("/");
       }
     });
@@ -123,7 +124,8 @@ function Login() {
                 className="center-flex gap-20 main-btn width-full"
                 onClick={() => handleLogin()}
               >
-                <i className="fas fa-arrow-right-to-bracket "></i> Continue
+                <i className="fas fa-arrow-right-to-bracket " />
+                {loading ? "Geting you data ... " : "Login"}
               </button>
             </div>
           </div>

@@ -107,15 +107,24 @@ const UserSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(UserRegister.pending, (State, action) => {
+      State.loading = true;
+    });
+    builder.addCase(UserRegister.rejected, (State, action) => {
+      State.loading = false;
+    });
+    builder.addCase(UserRegister.fulfilled, (State, action) => {
+      State.loading = false;
+    });
     builder.addCase(UserLogin.pending, (State, action) => {
       State.loading = true;
     });
     builder.addCase(UserLogin.rejected, (State, action) => {
-      State.loading = true;
+      State.loading = false;
     });
     builder.addCase(UserLogin.fulfilled, (State, action) => {
       State.loading = false;
-      if (action.payload.Status !== "Faild") {
+      if (action.payload !== undefined && action.payload.Status !== "Faild") {
         State.IsLogin = true;
         State.user = action.payload.Data;
         State.Token = action.payload.Data.Token;
@@ -129,7 +138,9 @@ const UserSlice = createSlice({
         );
         localStorage.setItem("TYPE", JSON.stringify(action.meta.arg.Type));
       } else {
-        Toast_Handelar("error", action.payload.message);
+        if (action.payload !== undefined) {
+          Toast_Handelar("error", action.payload.message);
+        }
       }
     });
     builder.addCase(Login_USER_Local.pending, (State, action) => {

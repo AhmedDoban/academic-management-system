@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./Register.css";
 import Blobs from "../../components/Blobs/Blobs";
 import Select from "react-select";
@@ -10,6 +10,7 @@ import "react-phone-input-2/lib/bootstrap.css";
 
 function Register() {
   const Dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.User);
   const [PageHandle, SetPgaeHandle] = useState(1);
   const [MaxNumber, SetMaxNumber] = useState(0);
 
@@ -221,7 +222,8 @@ function Register() {
                   Dispatch(UserRegister({ USER: User, URL: Role, Type: Type }))
                 }
               >
-                <i className="fas fa-arrow-right-to-bracket "></i> Register Now
+                <i className="fas fa-arrow-right-to-bracket " />
+                {loading ? "Loading ... " : "Register"}
               </button>
             </div>
           </div>
