@@ -49,10 +49,19 @@
   font-weight: bold;
   transition: var(--main-transition);
 }
-.header-main .container .navlinks li a.active,
-.header-main .container .navlinks li a:hover {
-  background-color: var(--main-white-alt);
-  border-bottom: 2px solid var(--main-color);
+.header-main .container .navlinks li a::before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--main-color);
+  transition: var(--main-transition);
+}
+.header-main .container .navlinks li a.active::before,
+.header-main .container .navlinks li a:hover::before {
+  width: 100%;
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Content header-main nav mobile
@@ -99,12 +108,15 @@
     height: fit-content;
     padding: 15px;
   }
+  /* .header-main .container .navlinks li a.active::before,
+  .header-main .container .navlinks li a:hover::before {
+    width: 4px;
+    height: 100%;
+  } */
   .header-main .container .navlinks li a.active,
   .header-main .container .navlinks li a:hover {
-    background-color: var(--main-white-alt);
-    border-bottom: none;
-    border-left: 4px solid var(--main-color);
-    padding-left: 20px;
+    background-color: var(--main-color);
+    color: #fff;
   }
   .header-main .container .navlinks li > .mobile-header {
     position: relative;
