@@ -45,11 +45,14 @@ function Head() {
   // close header when click outside
   const Header = useRef(null);
   document.addEventListener("click", (e) => {
-    if (e.target !== Header.current) {
-      if (Header.current.classList.contains("active")) {
-        Header.current.classList.toggle("active");
+    if (Header.current !== null) {
+      if (e.target !== Header.current) {
+        if (Header.current?.classList.contains("active")) {
+          Header.current?.classList.toggle("active");
+        }
       }
     }
+
     return () => {};
   });
   const open = useCallback(

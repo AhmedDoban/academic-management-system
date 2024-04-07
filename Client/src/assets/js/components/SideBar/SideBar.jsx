@@ -7,12 +7,15 @@ const SideBar = ({ children }) => {
   const [active, setActive] = useState("fa-solid fa-bars");
   const sidebar = useRef(null);
   document.addEventListener("click", (e) => {
-    if (e.target !== sidebar.current) {
-      if (sidebar.current.classList.contains("open")) {
-        sidebar.current.classList.toggle("open");
-        setActive("fa-solid fa-bars");
+    if (sidebar.current !== null) {
+      if (e.target !== sidebar.current) {
+        if (sidebar.current.classList.contains("open")) {
+          sidebar.current.classList.toggle("open");
+          setActive("fa-solid fa-bars");
+        }
       }
     }
+
     return () => {};
   });
 
