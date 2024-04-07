@@ -6,27 +6,13 @@ import "./Videos.css";
 import Dots from "../Dots/Dots";
 import { useDispatch, useSelector } from "react-redux";
 import { GetAllVideos } from "../../../Toolkit/Slices/VideosSlice";
-import { VideoPlayer } from "@graphland/react-video-player";
+import VideoPlayer from "./VideoPlayer";
 
 function Viedos() {
   const params = useParams();
   const Dispatch = useDispatch();
   const { Videos } = useSelector((state) => state.Videos);
   const [SingleVideo, SetSingleVideo] = useState({});
-
-  const videoProps = {
-    theme: "city",
-    autoPlay: false,
-    loop: false,
-    controlBar: {
-      skipButtons: {
-        forward: 5,
-        backward: 5,
-      },
-    },
-    playbackRates: [0.5, 1, 1.5, 2],
-    disablePictureInPicture: false,
-  };
 
   useEffect(() => {
     Dispatch(GetAllVideos(params.Subject_id));
@@ -68,15 +54,7 @@ function Viedos() {
                   {SingleVideo.Video ? (
                     <React.Fragment>
                       <div className="VideoPlayerStyle">
-                        <VideoPlayer
-                          {...videoProps}
-                          sources={[
-                            {
-                              src: SingleVideo.Video,
-                              type: "video/mp4",
-                            },
-                          ]}
-                        />
+                        <VideoPlayer src={SingleVideo.Video} />
                       </div>
                       <div className="info">
                         <span>{SingleVideo.Title}</span>

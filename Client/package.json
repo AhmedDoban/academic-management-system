@@ -7,9 +7,9 @@
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@graphland/react-video-player": "^0.1.14",
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@reduxjs/toolkit": "^2.2.2",
+    "@videojs/themes": "^1.0.1",
     "aos": "^2.3.4",
     "axios": "^1.6.8",
     "react": "^18.2.0",
@@ -30,6 +30,7 @@
     "redux": "^5.0.1",
     "sweetalert2": "^11.10.7",
     "typewriter-effect": "^2.21.0",
+    "video.js": "^8.10.0",
     "web-vitals": "^3.5.2"
   },
   "scripts": {

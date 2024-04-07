@@ -15,7 +15,7 @@ function Exams() {
   const { Exams, loading } = useSelector((state) => state.Parent);
   const { Child } = useSelector((state) => state.User);
   const GPA = Child.Gpa?.Hours_X_Creadit / Child.Gpa?.All_Semester_Hours / 4;
-
+  console.log(Exams);
   useEffect(() => {
     Dispatch(
       GetExamsResult({
@@ -80,7 +80,7 @@ function Exams() {
                     src={require("../../../../img/Players/Exam.json")}
                     className="PLayer"
                   />
-                  <p>{Exam.ExamName}</p>
+                  <p className="GRADE">{Exam.Grade}</p>
                   <p>{Exam.SubjectName}</p>
                 </div>
               </Link>

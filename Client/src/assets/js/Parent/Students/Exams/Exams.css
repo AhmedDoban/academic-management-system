@@ -119,6 +119,26 @@
   text-align: center;
   transition: var(--main-transition);
 }
+.Exam .container .card .data p.GRADE {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  background-color: var(--main-color);
+  height: fit-content;
+  width: 32px;
+  color: #fff;
+  padding: 15px 6px;
+}
+.Exam .container .card .data p.GRADE::before {
+  position: absolute;
+  content: "";
+  border-width: 16px;
+  border-style: solid;
+  border-color: var(--main-color) var(--main-color) transparent
+    var(--main-color);
+  top: 100%;
+  left: 0;
+}
 .Exam .container .card .data .PLayer {
   width: 100px;
   position: relative;
