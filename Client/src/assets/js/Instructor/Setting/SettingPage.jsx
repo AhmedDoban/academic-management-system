@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Toast_Handelar from "../../components/Toast_Handelar";
 import {
   ChangeStatus,
+  Change_USER_Avatar,
   HandleChandeAvatar,
 } from "../../../Toolkit/Slices/UserSlice";
 
@@ -33,7 +34,7 @@ function SettingPage(props) {
   };
 
   const HandeAvatarGlobal = () => {
-    // Dispatch(Change_User_Avatar(File));
+    Dispatch(Change_USER_Avatar(File));
     Dispatch(ChangeStatus(false));
     Dispatch(HandleChandeAvatar(URL.createObjectURL(File)));
   };

@@ -172,6 +172,14 @@
 .InstructorProfile .box {
   padding: 20px;
 }
+.InstructorProfile .box .instructions {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0;
+  color: var(--main-p-color);
+}
 .InstructorProfile .box:not(:last-child) {
   border-bottom: 1px solid #c0c0c0;
 }
