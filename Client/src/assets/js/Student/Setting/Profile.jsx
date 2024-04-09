@@ -2,9 +2,9 @@ import React from "react";
 import LodingFeachData from "../../components/Loding Feach Data/LodingFeachData";
 import { useSelector } from "react-redux";
 
-function Profile(props) {
+function Profile() {
   const { loading, user } = useSelector((state) => state.User);
-  
+
   return (
     <React.Fragment>
       <div className="StudentProfile" data-aos="fade-right">
@@ -26,15 +26,27 @@ function Profile(props) {
             </div>
             <div className="box">
               <h5>Gpa</h5>
-              <input
-                type="text"
-                readOnly
-                value={
-                  user.Gpa.Hours_X_Creadit === 0
+              <div className="progress-bar">
+                <span
+                  className="progress"
+                  style={{
+                    width: `${
+                      user.Gpa.Hours_X_Creadit === 0
+                        ? "0"
+                        : (user.Gpa.Hours_X_Creadit /
+                            user.Gpa.All_Semester_Hours /
+                            4) *
+                          100
+                    }%`,
+                  }}
+                >
+                  {user.Gpa.Hours_X_Creadit === 0
                     ? "0"
-                    : user.Gpa.Hours_X_Creadit / user.Gpa.All_Semester_Hours
-                }
-              />
+                    : user.Gpa.Hours_X_Creadit /
+                      user.Gpa.All_Semester_Hours}{" "}
+                  / 4
+                </span>
+              </div>
             </div>
           </div>
         )}

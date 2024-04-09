@@ -62,6 +62,110 @@ export const Login_USER_Local = createAsyncThunk(
   }
 );
 
+export const Change_USER_Password = createAsyncThunk(
+  "User/Change_USER_Password",
+  async (payload) => {
+    const { Token, _id } = JSON.parse(localStorage.getItem("Token"));
+    const Type = JSON.parse(localStorage.getItem("TYPE"));
+    try {
+      await axios
+        .post(
+          `${process.env.REACT_APP_API}/${Type}/Password`,
+          {
+            _id: _id,
+            Token: Token,
+            NewPassword: payload.NewPassword,
+            OldPassword: payload.OldPassword,
+          },
+          {
+            headers: {
+              Authorization: Token,
+            },
+          }
+        )
+        .then((res) => {
+          if (res.data.Status !== "Faild") {
+            Toast_Handelar("success", res.data.message);
+          } else {
+            Toast_Handelar("error", res.data.message);
+          }
+        });
+    } catch (err) {
+      Toast_Handelar("error", "Sorry we can't get your data !");
+    }
+  }
+);
+
+export const Change_USER_Setting = createAsyncThunk(
+  "User/Change_USER_Setting",
+  async (payload, { getState }) => {
+    const { Token, _id } = JSON.parse(localStorage.getItem("Token"));
+    const Type = JSON.parse(localStorage.getItem("TYPE"));
+    const State = getState();
+    try {
+      await axios
+        .post(
+          `${process.env.REACT_APP_API}/${Type}/Setting`,
+          {
+            _id: _id,
+            Token: Token,
+            Mobile: State.User.user.Mobile,
+            Location: State.User.user.Location,
+          },
+          {
+            headers: {
+              Authorization: Token,
+            },
+          }
+        )
+        .then((res) => {
+          if (res.data.Status !== "Faild") {
+            Toast_Handelar("success", res.data.message);
+          } else {
+            Toast_Handelar("error", res.data.message);
+          }
+        });
+    } catch (err) {
+      Toast_Handelar("error", "Sorry we can't get your data !");
+    }
+  }
+);
+
+export const Change_USER_Avatar = createAsyncThunk(
+  "User/Change_USER_Avatar",
+  async (payload) => {
+    const { Token, _id } = JSON.parse(localStorage.getItem("Token"));
+    const Type = JSON.parse(localStorage.getItem("TYPE"));
+
+    try {
+      await axios
+        .post(
+          `${process.env.REACT_APP_API}/${Type}/UpdataAvatar`,
+          {
+            _id: _id,
+            Token: Token,
+            Avatar: payload,
+          },
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: Token,
+            },
+          }
+        )
+        .then((res) => {
+          if (res.data.Status !== "Faild") {
+            Toast_Handelar("success", res.data.message);
+          } else {
+            Toast_Handelar("error", res.data.message);
+          }
+        });
+    } catch (err) {
+      Toast_Handelar("error", "Sorry we can't get your data !");
+    }
+  }
+);
+
 const UserSlice = createSlice({
   name: "User",
   initialState: {
@@ -104,6 +208,12 @@ const UserSlice = createSlice({
       const AllChildrens = [...State.user.Childrens];
       const Child = AllChildrens.filter((Ch) => Ch._id === action.payload)[0];
       State.Child = Child;
+    },
+    ChangeInputLocal: (State, action) => {
+      const NewUser = { ...State.user };
+      const { name, value } = action.payload.target;
+      const updateUser = { ...NewUser, [name]: value };
+      State.user = updateUser;
     },
   },
   extraReducers: (builder) => {
@@ -170,6 +280,7 @@ export const {
   HandleChandeAvatar,
   UserInSemester,
   GetChild,
+  ChangeInputLocal,
 } = UserSlice.actions;
 
 export default UserSlice.reducer;
