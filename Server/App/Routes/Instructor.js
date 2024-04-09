@@ -4,6 +4,7 @@ import { body } from "express-validator";
 import Instructor_controllers from "../Controllers/Instructor_controllers.js";
 import Verify_User from "../Utils/Verify_User.js";
 import JWT from "../Utils/JWT.js";
+import upload_Avatar from './../Multer/Avatars.js';
 
 const Router = express.Router();
 
@@ -36,6 +37,48 @@ Router.route("/Register").post(
       .withMessage("Password is not Valid"),
   ],
   Instructor_controllers.Instructor_Register
+);
+
+// Routes Handelar /API/Instructor/Password
+Router.route("/Password").post(
+  JWT.Verify_Token,
+  Verify_User("INSTRUCTOR", "ADMIN"),
+  [
+    body("Token").notEmpty().withMessage("Name is Required"),
+    body("_id").notEmpty().withMessage("Mobile is Required"),
+    body("OldPassword")
+      .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g)
+      .withMessage("Password is not Valid"),
+    body("NewPassword")
+      .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g)
+      .withMessage("Password is not Valid"),
+  ],
+  Instructor_controllers.Change_Instructor_Password
+);
+
+// Routes Handelar /API/Instructor/Setting
+Router.route("/Setting").post(
+  JWT.Verify_Token,
+  Verify_User("INSTRUCTOR", "ADMIN"),
+  [
+    body("Token").notEmpty().withMessage("Name is Required"),
+    body("_id").notEmpty().withMessage("Mobile is Required"),
+    body("Mobile").notEmpty().withMessage("Mobile is Required"),
+    body("Location").notEmpty().withMessage("Mobile is Required"),
+  ],
+  Instructor_controllers.Change_Instructor_Setting
+);
+
+// Routes Handelar /API/Instructor/UpdataAvatar
+Router.route("/UpdataAvatar").post(
+  JWT.Verify_Token,
+  Verify_User("INSTRUCTOR", "ADMIN"),
+  [
+    upload_Avatar.single("Avatar"),
+    body("Token").notEmpty().withMessage("Name is Required"),
+    body("_id").notEmpty().withMessage("Mobile is Required"),
+  ],
+  Instructor_controllers.Change_Instructor_Avatar
 );
 
 // Routes Handelar /API/Instructor/Instructor_id

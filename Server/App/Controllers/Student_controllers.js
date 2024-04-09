@@ -220,7 +220,7 @@ const Change_Student_Password = async (Req, Res) => {
   }
 };
 
-// change Student password
+// change Student Setting
 const Change_Student_Setting = async (Req, Res) => {
   const { Mobile, Location, Token, _id } = Req.body;
 
@@ -269,7 +269,7 @@ const Change_Student_Setting = async (Req, Res) => {
   }
 };
 
-// change Student password
+// change Student Avatar
 const Change_Student_Avatar = async (Req, Res) => {
   const { Token, _id } = Req.body;
   const Errors = validationResult(Req);
@@ -292,7 +292,7 @@ const Change_Student_Avatar = async (Req, Res) => {
 
     if (Student !== null) {
       const { Avatar } = Student;
-      if (!Avatar.includes("Uploads/avatar.jpg")) {
+      if (!Avatar.includes("Uploads/student.jpg")) {
         const Link = Avatar.split(`${process.env.SERVER_URI}/`)[1];
         if (fs.existsSync(Link)) {
           await fs.unlinkSync(Link);
@@ -321,7 +321,6 @@ const Change_Student_Avatar = async (Req, Res) => {
       });
     }
   } catch (err) {
-    console.log(err);
     Res.json({
       Status: Codes.FAILD,
       Status_Code: Codes.FAILD_CODE,
