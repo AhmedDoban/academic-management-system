@@ -261,14 +261,21 @@ const UserSlice = createSlice({
     });
     builder.addCase(Login_USER_Local.fulfilled, (State, action) => {
       State.loading = false;
-      if (action.payload.Status !== "Faild") {
-        State.IsLogin = true;
-        State.user = action.payload.Data;
-        State.Token = action.payload.Data.Token;
+      console.log(action.payload);
+      if (action.payload !== undefined) {
+        if (action.payload.Status !== "Faild") {
+          State.IsLogin = true;
+          State.user = action.payload.Data;
+          State.Token = action.payload.Data.Token;
+        } else {
+          State.IsLogin = false;
+          localStorage.clear();
+          Toast_Handelar("error", action.payload.message);
+        }
       } else {
         State.IsLogin = false;
         localStorage.clear();
-        Toast_Handelar("error", action.payload.message);
+        Toast_Handelar("error", "can't connect to the server !");
       }
     });
   },

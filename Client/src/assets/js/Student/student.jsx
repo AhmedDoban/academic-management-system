@@ -42,7 +42,6 @@ const Todo = lazy(() => import("./Todo/StudentTodo"));
 
 // Notes page
 const Notes = lazy(() => import("./Notes/Notes"));
-const NoteDetails = lazy(() => import("./Notes/NoteDetails"));
 
 // setting page
 const SettingPage = lazy(() => import("./Setting/SettingPage"));
@@ -165,9 +164,8 @@ const Student = (props) => {
                   {/********** Todo Page ***********/}
                   <Route path="todo" element={<Todo />} />
                   {/********** Notes Page ***********/}
-                  <Route path="notes" element={<Notes />}>
-                    <Route path=":noteName" element={<NoteDetails />} />
-                  </Route>
+                  <Route path="notes" element={<Notes />} />
+
                   {/********** setting Page ***********/}
                   <Route path="setting" element={<SettingPage />}>
                     <Route path="" exact />

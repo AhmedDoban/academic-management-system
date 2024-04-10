@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import { Route, Routes } from "react-router-dom";
-import AllNotes from "./AllNotes";
-import NoteDetails from "./NoteDetails";
-import NotFounded from "../../components/Not Founded/NotFounded";
 import "./Notes.css";
+import Mountain from "../../components/Mountain Template/Mountain";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import NoteCard from "./NoteCard";
 
 function Notes() {
   const [TextArea, setTextArea] = useState("");
   const [noteName, setnoteName] = useState("");
+  const [Search, setSearch] = useState("");
 
   // Get data from the local storage if it exist
   const [Notes, setNotes] = useState(() => {
@@ -19,6 +19,7 @@ function Notes() {
       return [];
     }
   });
+  
   // Set data To the local storage
   useEffect(() => {
     localStorage.setItem("Notes", JSON.stringify(Notes));
@@ -42,6 +43,7 @@ function Notes() {
     setTextArea("");
     setnoteName("");
   };
+
   //Filter data and delete not match
   const HandleDelete = (e, Out_index) => {
     setNotes(Notes.filter((p, index) => index !== Out_index));
@@ -49,36 +51,68 @@ function Notes() {
 
   return (
     <React.Fragment>
-      <Routes>
-        <Route
-          path=""
-          // element={<BookCard bookData={items} setItem={setItem} />}
-          element={
-            <AllNotes
-              HandleDelete={HandleDelete}
-              HandleFeilds={HandleFeilds}
-              TextArea={TextArea}
-              setTextArea={setTextArea}
-              noteName={noteName}
-              setnoteName={setnoteName}
-              Notes={Notes}
+      <Mountain>
+        <div className="data">
+          <h1>Notes</h1>
+        </div>
+      </Mountain>
+      <div className="search-handelar">
+        <div className="container" data-aos="fade-up">
+          <div className="card">
+            <input
+              type="search"
+              id="Search"
+              value={Search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder=" "
             />
-          }
-        />
-        <Route
-          path=":id"
-          element={
-            <NoteDetails
-              Notes={Notes}
-              TextArea={TextArea}
-              setTextArea={setTextArea}
-              noteName={noteName}
-              setnoteName={setnoteName}
-            />
-          }
-        />
-        <Route path="*" element={<NotFounded to="/NotFounded" />} />
-      </Routes>
+            <label htmlFor="Search">Search . . .</label>
+          </div>
+        </div>
+      </div>
+      <div className="notes">
+        <div className="container">
+          <ResponsiveMasonry
+            columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3, 1000: 4 }}
+          >
+            <Masonry columnsCount={3} gutter="15px">
+              {/************ Add note  **************/}
+              <div class="card-box-shadow">
+                <div className="note-card">
+                  <textarea
+                    placeholder="What is in your mind....."
+                    value={TextArea}
+                    onChange={(e) => setTextArea(e.target.value)}
+                  />
+                  <div className="note-footer">
+                    <input
+                      type="text"
+                      placeholder="Enter Note Name . . . "
+                      value={noteName}
+                      onChange={(e) => setnoteName(e.target.value)}
+                    />
+                    <button onClick={() => HandleFeilds()}>Save</button>
+                  </div>
+                </div>
+              </div>
+              {/************ NOtes  **************/}
+              {Notes.filter((el) =>
+                Search !== ""
+                  ? el.NoteName.toLowerCase().includes(Search.toLowerCase())
+                  : el
+              ).map((data, index) => (
+                <div class="card-box-shadow" key={index}>
+                  <NoteCard
+                    index={index}
+                    Note={data}
+                    HandleDelete={HandleDelete}
+                  />
+                </div>
+              ))}
+            </Masonry>
+          </ResponsiveMasonry>
+        </div>
+      </div>
     </React.Fragment>
   );
 }

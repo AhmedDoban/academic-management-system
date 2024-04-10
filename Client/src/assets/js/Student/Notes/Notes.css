@@ -5,37 +5,94 @@
   position: relative;
   width: 100%;
   min-height: 62vh;
+  overflow: hidden;
 }
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Notes container
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.notes .notes-container {
+.notes .container {
+  position: relative;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Notes search
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.search-handelar {
+  position: relative;
+  height: auto;
+  padding-top: var(--main-padding-top);
+}
+.search-handelar .container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
   gap: 10px;
+}
+@media (max-width: 772px) {
+  .search-handelar {
+    flex-direction: column;
+  }
+}
+.search-handelar .card {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
+  box-shadow: 1px 2px 5px 5px var(--white-color);
+}
+
+.search-handelar .card input {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white-color);
+  border: 0;
+  padding: 8px 14px;
+  transition: var(--main-transition);
+  cursor: pointer;
+  color: var(--main-text-color);
+  font-size: 15px;
+  border-radius: var(--main-border-radius);
+}
+
+.search-handelar .card input[type="Search"] ~ label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 12px;
+  z-index: 1;
+  padding: 5px;
+  color: var(--main-text-color);
+  transition: var(--main-transition);
+  border-radius: var(--main-border-radius);
+  font-size: 18px;
+}
+.search-handelar .card input[type="Search"]:focus ~ label,
+.search-handelar .card input[type="Search"]:not(:placeholder-shown) ~ label {
+  top: 0;
+  color: var(--main-color);
+  font-weight: bold;
 }
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Notes container add note
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.notes .notes-container .CardBlur {
+.notes .note-card {
   position: relative;
   padding: 10px;
-  min-height: 250px;
+  display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 100%;
+  height: 350px;
+  background-color: #b8d8d8;
+  box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
 }
-@media (max-width: 776px) {
-  .notes .notes-container .CardBlur {
-    margin: 0;
-  }
-}
-.notes .notes-container .CardBlur textarea {
+
+.notes .note-card textarea {
   position: relative;
-  top: 0;
-  left: 0;
   resize: none;
   width: 100%;
   height: 100%;
@@ -43,161 +100,176 @@
   outline: none;
   border: 0;
   padding: 10px;
-  caret-color: var(--main-color);
+  caret-color: #506568;
   font-size: 18px;
   background-color: transparent;
-  color: var(--main-color);
+  color: #506568;
   font-weight: 600px;
   line-height: 1.7;
   white-space: pre-wrap;
 }
-.notes .notes-container .CardBlur textarea:focus {
+.notes .note-card textarea::placeholder {
+  color: #fff;
+}
+.notes .note-card textarea:focus {
   outline: none;
 }
 
-.notes .notes-container .CardBlur:first-child {
-  background-color: rgba(255, 255, 255, 0);
-  outline: 0px solid var(--main-color);
-}
-.notes .notes-container .CardBlur {
-  background: rgba(255, 255, 255, 0.1);
-  outline: 0px solid var(--main-color);
-}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Notes container Card Footer
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.notes .notes-container .CardBlur .note-footer {
+.notes .note-card .note-footer {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
   width: 100%;
-  height: 30px;
-  gap: 10px;
+  min-height: 30px;
+  height: auto;
 }
-.notes .notes-container .CardBlur .note-footer input {
+.notes .note-card .note-footer input {
   width: 100%;
   height: 100%;
-  background-color: #ffffff5a;
+  background-color: var(--main-background-color);
   border: 0;
   padding: 8px 5px;
   font-size: 14px;
   color: var(--main-text-color);
-}
-.notes .notes-container .CardBlur .note-footer input::placeholder {
-  color: var(--main-text-color);
-}
-.notes .notes-container .CardBlur .note-footer button {
-  padding: 5px;
-  background-color: transparent;
-  color: var(--main-text-color);
-  border: 1.6px solid var(--main-text-color);
-  border-radius: var(--main-border-radius);
-  cursor: pointer;
   transition: var(--main-transition);
 }
-.notes .notes-container .CardBlur .note-footer button:hover {
-  background-color: var(--main-text-color);
-  color: var(--white-color);
-}
-.notes .notes-container .CardBlur:not(:first-child) .note-footer {
-  height: 20px;
-}
-.notes .notes-container .CardBlur .note-footer i {
-  color: var(--red-color);
-}
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Notes container Card Data
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.notes .notes-container .CardBlur .Note-Data {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  line-height: 1.7;
-}
-.notes .notes-container .CardBlur .Note-Data p {
+.notes .note-card .note-footer input::placeholder {
   color: var(--main-text-color);
 }
+.notes .note-card .note-footer button {
+  padding: 5px;
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
+  border: none;
+  cursor: pointer;
+  height: 100%;
+  transition: var(--main-transition);
+}
+.notes .note-card .note-footer button:hover {
+  background-color: var(--main-color);
+  color: #fff;
+}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Notes note-details-controllar
+# Notes container note style
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.note-details-controllar {
-  padding: 20px 0;
+.notes .card-box-shadow {
+  position: relative;
   width: 100%;
+}
+.notes .card-box-shadow::before {
+  position: absolute;
+  content: "";
+  background-image: url("../../../img/shadow.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  bottom: -12%;
+  display: block;
+  left: -12%;
+  right: 0;
+  top: 0;
+  z-index: 0;
+}
+
+.notes .card-box-shadow .card {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  min-height: 350px;
+  box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
+  background-color: #ffffff;
+  color: #252422;
+  position: relative;
+  z-index: 1;
+}
+
+.notes .card-box-shadow .card[data-color="0"] {
+  background: #b8d8d8;
+}
+.notes .card-box-shadow .card[data-color="0"] .description {
+  color: #506568;
+}
+
+.notes .card-box-shadow .card[data-color="1"] {
+  background: #d5e5a3;
+}
+.notes .card-box-shadow .card[data-color="1"] .description {
+  color: #60773d;
+}
+
+.notes .card-box-shadow .card[data-color="2"] {
+  background: #ffe28c;
+}
+.notes .card-box-shadow .card[data-color="2"] .description {
+  color: #b25825;
+}
+
+.notes .card-box-shadow .card[data-color="3"] {
+  background: #d6c1ab;
+}
+.notes .card-box-shadow .card[data-color="3"] .description {
+  color: #75442e;
+}
+
+.notes .card-box-shadow .card[data-color="4"] {
+  background: #baa9ba;
+}
+.notes .card-box-shadow .card[data-color="4"] .description {
+  color: #3a283d;
+}
+
+.notes .card-box-shadow .card[data-color="5"] {
+  background: #ff8f5e;
+}
+.notes .card-box-shadow .card[data-color="5"] .description {
+  color: #772510;
+}
+
+.notes .card-box-shadow .card .description {
+  position: relative;
+  font-size: 16px;
+  text-align: center;
+}
+
+.notes .card-box-shadow .card .actions {
   position: relative;
   display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
   gap: 10px;
 }
-.note-details-controllar .input {
-  width: 100%;
-  height: 100%;
-  background-color: #ffffff5a;
-  border: 0;
-  padding: 12px 18px;
-  font-size: 18px;
-  color: var(--main-text-color);
-  border-radius: var(--main-border-radius);
-  backdrop-filter: blur(14px);
-}
-.note-details-controllar .input::placeholder {
-  color: var(--main-text-color);
-}
-.note-details-controllar button {
-  padding: 10px 15px;
-  background-color: #ffffff5a;
-  color: var(--main-text-color);
-  border: 1.6px solid #ffffff5a;
-  border-radius: var(--main-border-radius);
-  backdrop-filter: blur(14px);
+.notes .card-box-shadow .card .actions i {
+  position: relative;
+  color: #fff;
+  min-width: 35px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   transition: var(--main-transition);
+  background-color: var(--red-color);
+  opacity: 0.5;
 }
-.note-details-controllar button:hover {
-  color: var(--white-color);
+.notes .card-box-shadow .card .actions i:hover {
+  opacity: 1;
 }
-.text-area-contaienr {
-  padding: 0 0 20px 0;
-}
-.text-area-contaienr textarea {
+
+.notes .card-box-shadow .card .title {
   position: relative;
-  top: 0;
-  left: 0;
-  resize: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 25px;
   width: 100%;
-  height: 100%;
-  border-radius: var(--main-border-radius);
-  outline: none;
-  border: 0;
-  padding: 10px;
-  caret-color: var(--main-color);
-  font-size: 18px;
-  background-color: transparent;
-  color: var(--main-color);
-  font-weight: 600px;
-  line-height: 1.7;
-  white-space: pre-wrap;
-  color: var(--main-text-color);
-}
-.text-area-contaienr .CardBlur {
-  min-height: calc(100vh - 150px);
-  background-color: transparent;
-  outline: transparent;
-  background-color: transparent;
-  outline: transparent;
-  padding: 0;
-  background-size: 22px 30.5px;
-  background-image: repeating-linear-gradient(
-    0deg,
-    #f1d44b,
-    #f1d44b 1.1px,
-    #ffffff 1.1px,
-    #ffffff
-  );
-  background-attachment: fixed;
-  opacity: 0.8;
-}
-.text-area-contaienr .CardBlur:hover {
-  background-color: transparent;
-  outline: transparent;
+  text-align: center;
+  text-transform: lowercase;
+  padding: 50px 0;
 }

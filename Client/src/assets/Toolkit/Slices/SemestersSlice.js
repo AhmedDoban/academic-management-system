@@ -88,18 +88,22 @@ const NewSemesterSlice = createSlice({
     });
     builder.addCase(GetStudentSemesters.fulfilled, (State, action) => {
       State.loading = false;
-      if (action.payload.Status !== "Faild") {
-        State.Semesters = action.payload.Data;
-      } else {
-        Toast_Handelar("error", action.payload.message);
+      if (action.payload !== undefined) {
+        if (action.payload.Status !== "Faild") {
+          State.Semesters = action.payload.Data;
+        } else {
+          Toast_Handelar("error", action.payload.message);
+        }
       }
     });
     builder.addCase(GetStudentSemestersSubjects.fulfilled, (State, action) => {
       State.loading = false;
-      if (action.payload.Status !== "Faild") {
-        State.Subjects = action.payload.Data;
-      } else {
-        Toast_Handelar("error", action.payload.message);
+      if (action.payload !== undefined) {
+        if (action.payload.Status !== "Faild") {
+          State.Subjects = action.payload.Data;
+        } else {
+          Toast_Handelar("error", action.payload.message);
+        }
       }
     });
     builder.addCase(GetStudentSemestersSubjects.pending, (State, action) => {
@@ -110,10 +114,12 @@ const NewSemesterSlice = createSlice({
     });
     builder.addCase(GetAllInstructorSubjects.fulfilled, (State, action) => {
       State.loading = false;
-      if (action.payload.Status !== "Faild") {
-        State.Subjects = action.payload.Data;
-      } else {
-        Toast_Handelar("error", action.payload.message);
+      if (action.payload !== undefined) {
+        if (action.payload.Status !== "Faild") {
+          State.Subjects = action.payload.Data;
+        } else {
+          Toast_Handelar("error", action.payload.message);
+        }
       }
     });
     builder.addCase(GetAllInstructorSubjects.pending, (State, action) => {
