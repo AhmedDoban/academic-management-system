@@ -13,6 +13,8 @@ import Inquiries from "./App/Routes/Inquiries.js";
 import Videos from "./App/Routes/Videos.js";
 import Summary from "./App/Routes/Summary.js";
 import Exams from "./App/Routes/Exams.js";
+import Notes from "./App/Routes/Notes.js";
+import Todos from "./App/Routes/Todos.js";
 
 // File System
 import path from "path";
@@ -40,6 +42,8 @@ App.use("/API/Inquiries", Inquiries);
 App.use("/API/Videos", Videos);
 App.use("/API/Summary", Summary);
 App.use("/API/Exams", Exams);
+App.use("/API/Notes", Notes);
+App.use("/API/Todos", Todos);
 App.use("*", (Req, Res) => {
   Res.status(200).json({
     Status: "Faild",

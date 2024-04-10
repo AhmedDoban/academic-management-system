@@ -4,6 +4,7 @@ import "./Notes.css";
 import Mountain from "../../components/Mountain Template/Mountain";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import NoteCard from "./NoteCard";
+import Toast_Handelar from "./../../components/Toast_Handelar";
 
 function Notes() {
   const [TextArea, setTextArea] = useState("");
@@ -19,7 +20,7 @@ function Notes() {
       return [];
     }
   });
-  
+
   // Set data To the local storage
   useEffect(() => {
     localStorage.setItem("Notes", JSON.stringify(Notes));
@@ -35,10 +36,7 @@ function Notes() {
       // update
       setNotes([...Data]);
     } else {
-      toast.error("You must Enter Some Data", {
-        autoClose: 15000,
-        theme: "colored",
-      });
+      Toast_Handelar("error", "You must Enter Some Data");
     }
     setTextArea("");
     setnoteName("");
