@@ -398,7 +398,7 @@ const CalculateTotalScore = async (Subject_Id, Student_ID, credit_hours) => {
         $set: { IsInsemester: false },
         $inc: {
           "Gpa.Hours_X_Creadit": +Hours_X_Creadit,
-          "Gpa.All_Semester_Hours": +credit_hours,
+          "Gpa.All_Semester_Hours": Hours_X_Creadit === 0 ? +0 : +credit_hours,
           "Gpa.Remain_Hours_To_Next_Semester": -credit_hours,
         },
       }
@@ -409,7 +409,7 @@ const CalculateTotalScore = async (Subject_Id, Student_ID, credit_hours) => {
       {
         $inc: {
           "Gpa.Hours_X_Creadit": +Hours_X_Creadit,
-          "Gpa.All_Semester_Hours": +credit_hours,
+          "Gpa.All_Semester_Hours": Hours_X_Creadit === 0 ? +0 : +credit_hours,
           "Gpa.Remain_Hours_To_Next_Semester": -credit_hours,
         },
       }

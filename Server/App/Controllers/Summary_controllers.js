@@ -210,7 +210,7 @@ const Update_Summary_Shown = async (Req, Res) => {
           Subject_Id: new mongoose.Types.ObjectId(Subject_Id),
           _id: _id,
         },
-        { $set: { Shown: !"$Shown" } }
+        { $set: { Shown: !Summary.Shown } }
       );
 
       return Res.json({

@@ -26,7 +26,7 @@ Router.route("/Update").post(
   [
     body("Student_ID").notEmpty().withMessage("Student _id is Required"),
     body("Token").notEmpty().withMessage("Token is Required"),
-    body("Todos").withMessage("Todos is not Valid"),
+    body("Todos").notEmpty().withMessage("Todos is not Valid"),
   ],
   Todo_controllers.Update_Todos
 );

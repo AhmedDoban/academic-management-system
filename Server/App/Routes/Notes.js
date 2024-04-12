@@ -26,7 +26,7 @@ Router.route("/Update").post(
   [
     body("Student_ID").notEmpty().withMessage("Student _id is Required"),
     body("Token").notEmpty().withMessage("Token is Required"),
-    body("Notes").withMessage("Notes is not Valid"),
+    body("Notes").notEmpty().withMessage("Notes is not Valid"),
   ],
   Notes_controllers.Update_Notes
 );

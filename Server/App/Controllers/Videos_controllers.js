@@ -217,7 +217,7 @@ const Update_Videos_Shown = async (Req, Res) => {
           Subject_Id: new mongoose.Types.ObjectId(Subject_Id),
           _id: _id,
         },
-        { $set: { Shown: !"$Shown" } }
+        { $set: { Shown: !Video.Shown } }
       );
 
       return Res.json({
