@@ -142,9 +142,15 @@
   color: var(--main-text-color);
 }
 .notes .note-card .note-footer button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 35px;
   padding: 5px;
-  background-color: var(--main-background-color);
-  color: var(--main-text-color);
+  background-color: #ff8f5e;
+  color: #fff;
   border: none;
   cursor: pointer;
   height: 100%;

@@ -7,6 +7,7 @@ import VideosSlice from "./Slices/VideosSlice";
 import SummarySlice from "./Slices/SummarySlice";
 import ExamsSlice from "./Slices/ExamsSlice";
 import ParentSlice from "./Slices/ParentSlice";
+import NotesSlice from "./Slices/NotesSlice";
 
 const Store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ const Store = configureStore({
     Summary: SummarySlice,
     Exams: ExamsSlice,
     Parent: ParentSlice,
+    Notes: NotesSlice,
   },
 });
 
