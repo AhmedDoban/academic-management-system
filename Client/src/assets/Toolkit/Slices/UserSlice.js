@@ -261,7 +261,6 @@ const UserSlice = createSlice({
     });
     builder.addCase(Login_USER_Local.fulfilled, (State, action) => {
       State.loading = false;
-      console.log(action.payload);
       if (action.payload !== undefined) {
         if (action.payload.Status !== "Faild") {
           State.IsLogin = true;

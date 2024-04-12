@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "./RanDomQuote.css";
 import LodingFeachData from "../Loding Feach Data/LodingFeachData";
+import Toast_Handelar from "../Toast_Handelar";
 
 function RanDomQuote() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("https://api.quotable.io/random?minLength=100&maxLength=140")
-      .then((res) => res.json())
-      .then((data) => setItems(data));
+    try {
+      fetch("https://api.quotable.io/random?minLength=100&maxLength=140")
+        .then((res) => res.json())
+        .then((data) => setItems(data));
+    } catch (err) {
+      Toast_Handelar('error', "sorry we can't getquote")
+    }
   }, []);
 
   return (

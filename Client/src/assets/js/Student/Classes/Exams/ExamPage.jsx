@@ -26,6 +26,7 @@ function ExamPage() {
         result += 1;
         SetScore(result);
       }
+      SetScore(result);
       return result;
     });
   }, [StudentAnswers]);
