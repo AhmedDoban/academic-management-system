@@ -23,14 +23,10 @@ const Get_All_Notes = async (Req, Res) => {
   try {
     const Student = await Student_Model.findOne({ _id: Student_ID, Token });
     if (Student !== null) {
-      const Notes = await Notes_Model.aggregate([
-        { $match: { Student_ID: new mongoose.Types.ObjectId(Student_ID) } },
-        {
-          $project: {
-            __v: 0,
-          },
-        },
-      ]);
+      const Notes = await Notes_Model.findOne(
+        { Student_ID: new mongoose.Types.ObjectId(Student_ID) },
+        { __v: 0 }
+      );
 
       return Res.json({
         Status: Codes.SUCCESS,
@@ -72,16 +68,30 @@ const Update_Notes = async (Req, Res) => {
   try {
     const Student = await Student_Model.findOne({ _id: Student_ID, Token });
     if (Student !== null) {
-      const Notes = await Notes_Model.updateOne(
-        { Student_ID: new mongoose.Types.ObjectId(Student_ID) },
-        { $set: { Notes } }
-      );
-
-      return Res.json({
-        Status: Codes.SUCCESS,
-        Status_Code: Codes.SUCCESS_CODE,
-        message: "Notes updated !",
+      const FindNotes = await Notes_Model.findOne({
+        Student_ID: new mongoose.Types.ObjectId(Student_ID),
       });
+      if (FindNotes === null) {
+        const NewNotes = new Notes_Model({ Student_ID, Notes });
+        await NewNotes.save();
+
+        return Res.json({
+          Status: Codes.SUCCESS,
+          Status_Code: Codes.SUCCESS_CODE,
+          message: "Notes updated !",
+        });
+      } else {
+        await Notes_Model.updateOne(
+          { Student_ID: new mongoose.Types.ObjectId(Student_ID) },
+          { $set: { Notes: Notes } }
+        );
+
+        return Res.json({
+          Status: Codes.SUCCESS,
+          Status_Code: Codes.SUCCESS_CODE,
+          message: "Notes updated !",
+        });
+      }
     } else {
       return Res.json({
         Status: Codes.FAILD,
