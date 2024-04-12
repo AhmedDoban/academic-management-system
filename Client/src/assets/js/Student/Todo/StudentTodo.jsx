@@ -1,108 +1,105 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./StudentTodo.css";
-import { toast } from "react-toastify";
+import Toast_Handelar from "../../components/Toast_Handelar";
+import { useDispatch, useSelector } from "react-redux";
+import Loading from "../../components/Loading/Loading";
+import {
+  AddNewTodo,
+  CUD_StudentTodo,
+  DeleteTodo,
+  GetTodos,
+  HandleDeleteMany,
+  HandleDrag,
+  HandleFilterTodos,
+  HandleSelectAll,
+  SelectAll,
+  SelectOne,
+  UpdateTodo,
+} from "../../../Toolkit/Slices/TodosSlice";
 
 function StudentTodo() {
-  // Todo input add
+  const Dispatch = useDispatch();
+  const dragItem = useRef();
+  const dragOverItem = useRef();
+
+  const { Todos, loading, CheckAll, Selected, AllTodos } = useSelector(
+    (state) => state.Todos
+  );
   const [TextFeild, SetTextField] = useState("");
-  // Todo State
-  const [Todo, setTodo] = useState(() => {
-    const SavedTodos = localStorage.getItem("StudentTodos");
-    if (SavedTodos) {
-      return JSON.parse(SavedTodos);
-    } else {
-      return [];
-    }
-  });
-  // input Check All
-  const [CheckAll, SetChekALl] = useState(false);
-  // Clone Data
-  const [ViewedTodo, SetViewTodo] = useState([]);
-  // Get Data From local storage
+
   useEffect(() => {
-    localStorage.setItem("StudentTodos", JSON.stringify(Todo));
-    SetViewTodo([...Todo]);
-    if (Todo.length === 0) {
-      SetChekALl(false);
-    }
-  }, [Todo]);
+    Dispatch(GetTodos());
+    //eslint-disable-next-line
+  }, []);
+
   // Filter data depend on select
   const handelFilter = (e, state) => {
     const btn = document.querySelectorAll(".Btn-Filter-todo");
     btn.forEach((btn) => btn.classList.remove("active"));
     e.currentTarget.classList.add("active");
-    let Data = [...Todo];
-    state === "All"
-      ? SetViewTodo(Data)
-      : state === true
-      ? SetViewTodo(Data.filter((p) => p.IsCompleated === true))
-      : SetViewTodo(Data.filter((p) => p.IsCompleated === false));
+    Dispatch(HandleFilterTodos(state));
+    Dispatch(HandleSelectAll());
   };
+
   // Set data to be compleated
-  const handelCompleated = (p) => {
-    p.IsCompleated = !p.IsCompleated;
-    let Data = [...ViewedTodo];
-    setTodo([...Data]);
+  const handelCompleated = (TodoItem) => {
+    Dispatch(UpdateTodo({ ...TodoItem, Status: !TodoItem.Status }));
+    Dispatch(CUD_StudentTodo());
   };
+
   //Filter data and delete not match
-  const HandleDelete = (e, Out_index) => {
-    setTodo(Todo.filter((p, index) => index !== Out_index));
+  const HandleDelete = (_id) => {
+    Dispatch(DeleteTodo({ _id }));
+    Dispatch(CUD_StudentTodo());
   };
+
+  const HandleDeleteManyBtn = () => {
+    Dispatch(HandleDeleteMany());
+    Dispatch(CUD_StudentTodo());
+  };
+
   // button add data depend on input
   const HandleTextFeild = () => {
     if (TextFeild) {
-      // Clone
-      let Data = [...Todo];
-      // Edit
-      Data.push({ TodoText: TextFeild, IsCompleated: false });
-      // update
-      setTodo([...Data]);
+      Dispatch(AddNewTodo({ Title: TextFeild }));
+      Dispatch(CUD_StudentTodo());
+      SetTextField("");
     } else {
-      toast.error("You must Enter Some Todo", {
-        autoClose: 15000,
-        theme: "colored",
-      });
+      Toast_Handelar("error", "You must enter some todo data !");
     }
-    SetTextField("");
-    SetChekALl(false);
   };
+
   // add data depend on input with enter key
   const TextBox = (e) => {
     if (e.key === "Enter") {
       HandleTextFeild();
     }
   };
+
   // check all input function
   const HandleCheckALl = () => {
-    if (!CheckAll) {
-      let Data = [...Todo];
-      Data.map((p) => (p.IsCompleated = true));
-      setTodo(Data);
-      SetChekALl(true);
-    } else {
-      let Data = [...Todo];
-      Data.map((p) => (p.IsCompleated = false));
-      setTodo(Data);
-      SetChekALl(false);
-    }
+    Dispatch(SelectAll());
+    Dispatch(CUD_StudentTodo());
   };
+
   // rearange the data with drag and drop
-  const dragItem = useRef();
-  const dragStart = (e, position) => {
+  const dragStart = (position) => {
     dragItem.current = position;
   };
-  const dragOverItem = useRef();
-  const dragEnter = (e, position) => {
+
+  const dragEnter = (position) => {
     dragOverItem.current = position;
   };
-  const drop = (e) => {
-    const copyListItems = [...Todo];
+
+  const drop = () => {
+    const copyListItems = [...Todos];
     const dragItemContent = copyListItems[dragItem.current];
     copyListItems.splice(dragItem.current, 1);
     copyListItems.splice(dragOverItem.current, 0, dragItemContent);
     dragItem.current = null;
     dragOverItem.current = null;
-    setTodo(copyListItems);
+    Dispatch(HandleDrag(copyListItems));
+    Dispatch(CUD_StudentTodo());
   };
 
   return (
@@ -136,13 +133,13 @@ function StudentTodo() {
             </div>
             <div className="info">
               <p>
-                {Todo.filter((p) => p.IsCompleated === false).length} items left
+                {AllTodos.filter((p) => p.Status === false).length} Todos left
               </p>
             </div>
             <div className="info">
               <button
                 className="Btn-Filter-todo active"
-                onClick={(e) => handelFilter(e, "All")}
+                onClick={(e) => handelFilter(e, "ALL")}
               >
                 All
               </button>
@@ -160,43 +157,55 @@ function StudentTodo() {
               </button>
             </div>
             <div className="info">
-              <button
-                onClick={(e) =>
-                  setTodo(Todo.filter((p) => p.IsCompleated === false))
-                }
-              >
+              <button onClick={() => HandleDeleteManyBtn()}>
                 <i className="fa-solid fa-trash"></i>
               </button>
             </div>
           </div>
           {/***************** Show todo data **********************/}
-          {ViewedTodo.map((p, index) => (
-            <div
-              data-aos="fade-up"
-              data-aos-anchor-placement="top-bottom"
-              data-aos-duration="500"
-              className="card draggable"
-              onDragStart={(e) => dragStart(e, index)}
-              onDragEnter={(e) => dragEnter(e, index)}
-              onDragEnd={drop}
-              key={index}
-              draggable
-            >
-              <div className="box">
-                <input
-                  type="checkbox"
-                  id={index}
-                  checked={p.IsCompleated}
-                  onChange={() => handelCompleated(p)}
-                />
-                <label htmlFor={index}>{p.TodoText}</label>
+          {loading ? (
+            <Loading />
+          ) : (
+            Todos.map((Todoitem, index) => (
+              <div
+                data-aos="fade-down"
+                data-aos-anchor-placement="top-bottom"
+                data-aos-duration="500"
+                className="card draggable"
+                onDragStart={() => dragStart(index)}
+                onDragEnter={() => dragEnter(index)}
+                onDragOver={(e) => e.preventDefault()}
+                onDragEnd={drop}
+                draggable
+                key={Todoitem._id}
+              >
+                <i className="fa-solid fa-grip " />
+                <div className="box">
+                  <input
+                    type="checkbox"
+                    id={index}
+                    checked={Selected.includes(Todoitem._id)}
+                    onChange={() => Dispatch(SelectOne(Todoitem._id))}
+                  />
+                  <label htmlFor={index}>{Todoitem.Title}</label>
+                </div>
+                <div className="actions">
+                  <i
+                    className="fa-solid fa-xmark HandleDelete"
+                    onClick={() => HandleDelete(Todoitem._id)}
+                  />
+                  <i
+                    onClick={() => handelCompleated(Todoitem)}
+                    className={
+                      Todoitem.Status
+                        ? "fa-solid fa-check CompleatedTodo"
+                        : "fa-solid fa-check"
+                    }
+                  />
+                </div>
               </div>
-              <i
-                className="fa-solid fa-xmark HandleDelete"
-                onClick={(e) => HandleDelete(e, index)}
-              ></i>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
     </React.Fragment>

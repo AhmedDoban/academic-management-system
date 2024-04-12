@@ -8,6 +8,7 @@ import SummarySlice from "./Slices/SummarySlice";
 import ExamsSlice from "./Slices/ExamsSlice";
 import ParentSlice from "./Slices/ParentSlice";
 import NotesSlice from "./Slices/NotesSlice";
+import TodosSlice from "./Slices/TodosSlice";
 
 const Store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ const Store = configureStore({
     Exams: ExamsSlice,
     Parent: ParentSlice,
     Notes: NotesSlice,
+    Todos: TodosSlice,
   },
 });
 

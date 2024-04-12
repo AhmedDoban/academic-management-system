@@ -94,7 +94,10 @@ const NotesSlice = createSlice({
       State.loading = false;
       if (action.payload !== undefined) {
         if (action.payload.Status !== "Faild") {
-          State.Notes = action.payload.Data.Notes;
+          State.Notes =
+            action.payload.Data.Notes === undefined
+              ? []
+              : action.payload.Data.Notes;
         } else {
           Toast_Handelar("error", action.payload.message);
         }
