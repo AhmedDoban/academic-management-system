@@ -23,19 +23,15 @@ const Get_All_Todos = async (Req, Res) => {
   try {
     const Student = await Student_Model.findOne({ _id: Student_ID, Token });
     if (Student !== null) {
-      const Todos = await Todo_Model.aggregate([
-        { $match: { Student_ID: new mongoose.Types.ObjectId(Student_ID) } },
-        {
-          $project: {
-            __v: 0,
-          },
-        },
-      ]);
+      const Todos = await Todo_Model.findOne(
+        { Student_ID: new mongoose.Types.ObjectId(Student_ID) },
+        { __v: 0 }
+      );
 
       return Res.json({
         Status: Codes.SUCCESS,
         Status_Code: Codes.SUCCESS_CODE,
-        Data: Todos,
+        Data: Todos === null ? {} : Todos,
       });
     } else {
       return Res.json({
@@ -72,16 +68,31 @@ const Update_Todos = async (Req, Res) => {
   try {
     const Student = await Student_Model.findOne({ _id: Student_ID, Token });
     if (Student !== null) {
-      const Todos = await Todo_Model.updateOne(
-        { Student_ID: new mongoose.Types.ObjectId(Student_ID) },
-        { $set: { Todos: Todos } }
-      );
-
-      return Res.json({
-        Status: Codes.SUCCESS,
-        Status_Code: Codes.SUCCESS_CODE,
-        message: "Todos updated !",
+      const FindTodos = await Todo_Model.findOne({
+        Student_ID: new mongoose.Types.ObjectId(Student_ID),
       });
+      if (FindTodos === null) {
+        const NewTodos = new Todo_Model({ Student_ID, Todos });
+        await NewTodos.save();
+
+        return Res.json({
+          Status: Codes.SUCCESS,
+          Status_Code: Codes.SUCCESS_CODE,
+          Data: { Student_ID, Todos },
+        });
+      } else {
+        const UpdateTodo = await Todo_Model.findOneAndUpdate(
+          { Student_ID: new mongoose.Types.ObjectId(Student_ID) },
+          { $set: { Todos: Todos } },
+          { new: true }
+        );
+
+        return Res.json({
+          Status: Codes.SUCCESS,
+          Status_Code: Codes.SUCCESS_CODE,
+          Data: UpdateTodo,
+        });
+      }
     } else {
       return Res.json({
         Status: Codes.FAILD,

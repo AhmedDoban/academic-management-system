@@ -31,7 +31,7 @@ const Get_All_Notes = async (Req, Res) => {
       return Res.json({
         Status: Codes.SUCCESS,
         Status_Code: Codes.SUCCESS_CODE,
-        Data: Notes,
+        Data: Notes === null ? {} : Notes,
       });
     } else {
       return Res.json({
