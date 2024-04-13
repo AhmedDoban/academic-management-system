@@ -3,6 +3,8 @@ import express from "express";
 import mongoose from "mongoose";
 import "dotenv/config";
 import cors from "cors";
+import { Server } from "socket.io";
+import http from "http";
 
 import Student from "./App/Routes/Student.js";
 import Parent from "./App/Routes/Parent.js";
@@ -15,6 +17,7 @@ import Summary from "./App/Routes/Summary.js";
 import Exams from "./App/Routes/Exams.js";
 import Notes from "./App/Routes/Notes.js";
 import Todos from "./App/Routes/Todos.js";
+import Chats from "./App/Routes/Chats.js";
 
 // File System
 import path from "path";
@@ -44,6 +47,7 @@ App.use("/API/Summary", Summary);
 App.use("/API/Exams", Exams);
 App.use("/API/Notes", Notes);
 App.use("/API/Todos", Todos);
+App.use("/API/Chats", Chats);
 App.use("*", (Req, Res) => {
   Res.status(200).json({
     Status: "Faild",
@@ -51,7 +55,31 @@ App.use("*", (Req, Res) => {
   });
 });
 
+// socket chat implementation
+const AppServer = http.createServer(App);
+
+const io = new Server(AppServer, {
+  cors: {
+    origin: process.env.CLIENT_URI,
+  },
+});
+
+io.on("connection", (socket) => {
+  socket.on("online_Chat", (data) => {
+    socket.join(data.Subject_id);
+  });
+  socket.on("Send_Message", (data) => {
+    socket.to(data.Subject_Id).emit("Recive_Message", data);
+  });
+  socket.on("Typing", (subject) => {
+    socket.to(subject).emit("Show_Typing_Status");
+  });
+  socket.on("StopTyping", (subject) => {
+    socket.to(subject).emit("Hide_Typing_Status");
+  });
+});
+
 // Server
-App.listen(3001, () => {
+AppServer.listen(3001, () => {
   console.log("Listen in port 3001");
 });
