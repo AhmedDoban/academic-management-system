@@ -1,0 +1,34 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Chat 
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Chat {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Chat::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  background-image: url("../../../img/Chat.svg");
+}
+.Chat .container {
+  position: relative;
+  background-color: var(--white-color);
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
+  padding: 10px;
+}
+@media (max-width: 769px) {
+  .Chat .container {
+    width: 100%;
+    height: 100%;
+  }
+}

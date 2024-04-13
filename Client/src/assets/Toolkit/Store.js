@@ -9,6 +9,7 @@ import ExamsSlice from "./Slices/ExamsSlice";
 import ParentSlice from "./Slices/ParentSlice";
 import NotesSlice from "./Slices/NotesSlice";
 import TodosSlice from "./Slices/TodosSlice";
+import ChatSlice from "./Slices/ChatSlice";
 
 const Store = configureStore({
   reducer: {
@@ -22,6 +23,7 @@ const Store = configureStore({
     Parent: ParentSlice,
     Notes: NotesSlice,
     Todos: TodosSlice,
+    Chats: ChatSlice,
   },
 });
 

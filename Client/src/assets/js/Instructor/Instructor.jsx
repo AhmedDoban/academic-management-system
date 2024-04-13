@@ -1,16 +1,8 @@
-import React, {
-  useEffect,
-  lazy,
-  Suspense,
-  useState,
-  useRef,
-  useCallback,
-} from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 
 import { Route, Routes, Navigate, NavLink, Outlet } from "react-router-dom";
 
 import SideBar from "../components/SideBar/SideBar";
-import InquiriesCenter from "./Class/Inquiries Center/InquiriesCenter";
 import Loading from "../components/Loading/Loading";
 
 // Class Room page
@@ -29,6 +21,10 @@ const VideoCenter = lazy(() => import("./Class/Video Center/VideoCenter"));
 const SummaryCenter = lazy(() =>
   import("./Class/Summary Center/SummaryCenter")
 );
+const InquiriesCenter = lazy(() =>
+  import("./Class/Inquiries Center/InquiriesCenter")
+);
+const Chat = lazy(() => import("../components/Chat/Chat"));
 
 // library page
 const Library = lazy(() => import("../components/Library/Library"));
@@ -44,25 +40,13 @@ const Instructor = (props) => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
-  const sidebar = useRef(null);
-  //eslint-disable-next-line
-  const [active, setActive] = useState("fa-solid fa-bars");
-  const open = useCallback(
-    (e) => {
-      e.stopPropagation();
-      sidebar.current.classList.toggle("open");
-      sidebar.current.classList.contains("open")
-        ? setActive("fa-solid fa-xmark")
-        : setActive("fa-solid fa-bars");
-    },
-    [sidebar]
-  );
+
   return (
     <React.Fragment>
       <div className="page p-relative">
-        <SideBar SetLogedOn={props.SetLogedOn}>
+        <SideBar>
           <li>
-            <NavLink to="subjects" onClick={open}>
+            <NavLink to="subjects">
               <i className="fa-solid fa-flask"></i>
               <span>subjects</span>
             </NavLink>
@@ -114,7 +98,6 @@ const Instructor = (props) => {
                       </Route>
                       {/********** Videos Page ***********/}
                       <Route path="Videos" element={<Viedos />} />
-
                       {/********** Inquiries Center Page ***********/}
                       <Route
                         path="InquiriesCenter"
@@ -125,6 +108,8 @@ const Instructor = (props) => {
                         <Route path="AnswerInquiries" />
                         <Route path="*" render={() => <Navigate to="/" />} />
                       </Route>
+                      {/********** Chats Page ***********/}
+                      <Route path="Chat" element={<Chat />} />
                     </Route>
                   </Route>
                   {/********** Library Page ***********/}

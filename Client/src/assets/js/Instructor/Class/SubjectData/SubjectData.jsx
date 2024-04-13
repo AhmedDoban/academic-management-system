@@ -75,7 +75,7 @@ function SubjectData() {
             />
           </Link>
           {/***************** call Room  **********************/}
-          <Link className="card" data-aos="zoom-in">
+          <Link className="card" data-aos="zoom-in" to="Chat">
             <h1>Chat </h1>
             <Player
               autoplay={true}

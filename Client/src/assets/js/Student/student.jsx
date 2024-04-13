@@ -22,7 +22,7 @@ const ExamPage = lazy(() => import("./Classes/Exams/ExamPage"));
 const Viedos = lazy(() => import("../components/videos/Videos"));
 const Summary = lazy(() => import("./Classes/Summary/Summary"));
 const Inquiries = lazy(() => import("./Classes/Inquiries/Inquiries"));
-const Chat = lazy(() => import("./Classes/Chat/Chat"));
+const Chat = lazy(() => import("../components/Chat/Chat"));
 
 // table page
 const StudentTablePage = lazy(() => import("./Table/StudentTablePage"));
