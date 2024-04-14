@@ -36,7 +36,7 @@
   transition: var(--main-transition);
   background-color: var(--main-background-color);
 }
-.chat-action button:hover {
+.chat-action > button:hover {
   background-color: var(--main-color);
   color: #fff;
 }
@@ -56,7 +56,4 @@
   z-index: 100 !important;
   bottom: 55px;
   left: 15px;
-}
-.EmojiPickerReact .epr-preview {
-  display: none !important;
 }

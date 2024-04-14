@@ -10,6 +10,7 @@ import { Route } from "react-router-dom";
 import NotFounded from "../../components/Not Founded/NotFounded";
 
 import Mountain from "../Mountain Template/Mountain";
+import Toast_Handelar from "./../Toast_Handelar";
 
 function Library() {
   let [search, setSearch] = useState("");
@@ -19,17 +20,21 @@ function Library() {
 
   useEffect(() => getData(), []);
 
-  const getData = (e) => {
-    axios
-      .get(
-        "https://www.googleapis.com/books/v1/volumes?q=" +
-          (e ? e : "space") +
-          "&key=AIzaSyB1kPV9WkbAyngXClEvg3BBXN6ahnD-Nag" +
-          "&maxResults=40"
-      )
-      .then((response) => {
-        setItems(response.data.items);
-      });
+  const getData = async (e) => {
+    try {
+      await axios
+        .get(
+          "https://www.googleapis.com/books/v1/volumes?q=" +
+            (e ? e : "space") +
+            "&key=AIzaSyB1kPV9WkbAyngXClEvg3BBXN6ahnD-Nag" +
+            "&maxResults=40"
+        )
+        .then((response) => {
+          setItems(response.data.items);
+        });
+    } catch (err) {
+      Toast_Handelar("error", "we can't get books !");
+    }
   };
 
   let oneCall = (e) => {

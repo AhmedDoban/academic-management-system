@@ -76,6 +76,7 @@ function Actions(props) {
                 width="100%"
                 height="100%"
                 onEmojiClick={(e) => SetMEssageInput((prev) => prev + e.emoji)}
+                theme={localStorage.getItem("theme")}
               />
             </div>
           )}
