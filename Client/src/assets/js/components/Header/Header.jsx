@@ -32,6 +32,7 @@ function Head() {
       Root.setProperty("--main-text-color", "#000");
       Root.setProperty("--main-p-color", "#777");
       Root.setProperty("--main-overlay", "rgba(125, 125, 125, 0.7)");
+      Root.setProperty("--box-shadow-color", "rgba(184, 184, 184, 0.19)");
     } else {
       Root.setProperty("--main-background-color", "#121212");
       Root.setProperty("--footer-background-color", "#111111");
@@ -40,6 +41,7 @@ function Head() {
       Root.setProperty("--main-white-alt", "#303841");
       Root.setProperty("--main-p-color", "#eee");
       Root.setProperty("--main-overlay", "rgba(47, 47, 47, 0.7)");
+      Root.setProperty("--box-shadow-color", "rgba(10, 9, 19, 0.19)");
     }
   };
 

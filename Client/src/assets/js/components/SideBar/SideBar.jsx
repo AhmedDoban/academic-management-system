@@ -4,8 +4,14 @@ import { NavLink, Link, useNavigate } from "react-router-dom";
 
 const SideBar = ({ children }) => {
   const Navigate = useNavigate();
-  const [active, setActive] = useState("fa-solid fa-bars");
   const sidebar = useRef(null);
+  const [active, setActive] = useState("fa-solid fa-bars");
+  const [Theme, SetTheme] = useState(localStorage.getItem("theme") || "light");
+  const [Chek, SetChek] = useState(false);
+  const toggleTheme = () => {
+    Theme === "light" ? SetTheme("dark") : SetTheme("light");
+  };
+
   document.addEventListener("click", (e) => {
     if (sidebar.current !== null) {
       if (e.target !== sidebar.current) {
@@ -35,13 +41,9 @@ const SideBar = ({ children }) => {
     localStorage.clear();
     Navigate("/");
     window.location.reload(true);
+    localStorage.setItem("theme", Theme);
   };
 
-  const [Theme, SetTheme] = useState(localStorage.getItem("theme") || "light");
-  const [Chek, SetChek] = useState(false);
-  const toggleTheme = () => {
-    Theme === "light" ? SetTheme("dark") : SetTheme("light");
-  };
   const HandleThemeChange = () => {
     SetChek(!Chek);
     toggleTheme();
@@ -62,6 +64,7 @@ const SideBar = ({ children }) => {
       Root.setProperty("--main-text-color", "#000");
       Root.setProperty("--main-p-color", "#777");
       Root.setProperty("--main-overlay", "rgba(125, 125, 125, 0.7)");
+      Root.setProperty("--box-shadow-color", "rgba(184, 184, 184, 0.19)");
     } else {
       Root.setProperty("--main-background-color", "#121212");
       Root.setProperty("--footer-background-color", "#111111");
@@ -70,6 +73,7 @@ const SideBar = ({ children }) => {
       Root.setProperty("--main-white-alt", "#303841");
       Root.setProperty("--main-p-color", "#eee");
       Root.setProperty("--main-overlay", "rgba(47, 47, 47, 0.7)");
+      Root.setProperty("--box-shadow-color", "rgba(10, 9, 19, 0.19)");
     }
   };
 

@@ -39,8 +39,10 @@ const LibrarySlice = createSlice({
       State.loading = true;
     });
     builder.addCase(GetBooks.fulfilled, (State, action) => {
-      State.Books = action.payload.items;
-      State.loading = false;
+      if (action.payload !== undefined) {
+        State.Books = action.payload.items;
+        State.loading = false;
+      }
     });
   },
 });

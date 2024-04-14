@@ -9,7 +9,7 @@ const Login = lazy(() => import("./Login/Login"));
 const Register = lazy(() => import("./Register/Register"));
 const NotFounded = lazy(() => import("../components/Not Founded/NotFounded"));
 
-function Gust(props) {
+function Gust() {
   return (
     <React.Fragment>
       <Header />

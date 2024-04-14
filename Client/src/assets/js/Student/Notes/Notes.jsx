@@ -45,7 +45,7 @@ function Notes() {
         </div>
       </Mountain>
       <div className="search-handelar">
-        <div className="container" data-aos="fade-up">
+        <div className="container">
           <div className="card">
             <input
               type="search"
@@ -61,7 +61,7 @@ function Notes() {
       {loading ? (
         <Loading />
       ) : (
-        <div className="notes">
+        <div className="notes" data-aos="fade-up">
           <div className="container">
             <ResponsiveMasonry
               columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3, 1000: 4 }}
