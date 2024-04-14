@@ -1,55 +1,84 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-function BookDetails(props) {
+function BookDetails() {
   const navigate = useNavigate();
-  const [item, setItem] = useState([]);
+  const { SingleBook } = useSelector((state) => state.Library);
 
   useEffect(() => {
-    // Clone
-    let data = props.item;
-    // edit
-    let ArrData = { ...data };
-    // update
-    setItem(ArrData);
+    if (Object.keys(SingleBook).length === 0) {
+      navigate("/library");
+    }
     //eslint-disable-next-line
   }, []);
+
+  const GetFullImgaeSize = (src) => {
+    return src.split("&zoom=1").join();
+  };
 
   return (
     <React.Fragment>
       <div className="book-details">
-        <div className="container" data-aos="fade-right">
-          <div className="icon ">
-            <i
-              className="fa-solid fa-arrow-left"
-              onClick={() => navigate(-1)}
-            ></i>
-            <div className="left">
-              <div className="img-container">
-                <img
-                  src={
-                    item.volumeInfo?.imageLinks &&
-                    item.volumeInfo?.imageLinks.smallThumbnail
-                  }
-                  alt=""
-                />
-              </div>
-              <div className="info">
-                <h1>{item.volumeInfo?.title}</h1>
-                <h3>{item.volumeInfo?.authors}</h3>
-                <h4>
-                  {item.volumeInfo?.publisher}
-                  <span>{item.volumeInfo?.publishedDate}</span>
-                </h4>
-                <a href={item.volumeInfo?.previewLink}>
-                  <button className="btn-shape_2">More</button>
+        <div className="container">
+          <div className="img-container" data-aos="zoom-in">
+            <img
+              src={
+                SingleBook.volumeInfo?.imageLinks &&
+                GetFullImgaeSize(SingleBook.volumeInfo?.imageLinks.thumbnail)
+              }
+              alt={SingleBook.volumeInfo?.title}
+            />
+            {SingleBook.volumeInfo?.previewLink && (
+              <div className="MoreDetails">
+                <a href={SingleBook.volumeInfo?.previewLink}>
+                  <button className="btn-shape_2">More Details</button>
                 </a>
               </div>
-            </div>
+            )}
           </div>
-
-          <div className="right">
-            <p>{item.volumeInfo?.description}</p>
+          <div className="information" data-aos="fade-up">
+            <div className="info">
+              {SingleBook.volumeInfo?.title && (
+                <div className="title">
+                  <h1>{SingleBook.volumeInfo?.title}</h1>
+                  {SingleBook.volumeInfo?.subtitle && (
+                    <p>{SingleBook.volumeInfo?.subtitle}</p>
+                  )}
+                </div>
+              )}
+              {SingleBook.volumeInfo?.authors && (
+                <div className="authors">
+                  <h1>Author/s</h1>
+                  <ul>
+                    {SingleBook.volumeInfo?.authors.map((au) => (
+                      <li>
+                        <i className="fa-solid fa-user"></i>
+                        {au}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {SingleBook.volumeInfo?.publisher && (
+                <div className="publisher">
+                  <h1>Publisher : </h1>
+                  <p>{SingleBook.volumeInfo?.publisher}</p>
+                </div>
+              )}
+              {SingleBook.volumeInfo?.publishedDate && (
+                <div className="publishedDate">
+                  <h1>Published Date : </h1>
+                  <span>{SingleBook.volumeInfo?.publishedDate}</span>
+                </div>
+              )}
+            </div>
+            {SingleBook.volumeInfo?.description && (
+              <div className="description">
+                <h1>Book Description</h1>
+                <p>{SingleBook.volumeInfo?.description}</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

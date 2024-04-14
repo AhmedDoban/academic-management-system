@@ -10,6 +10,7 @@ import ParentSlice from "./Slices/ParentSlice";
 import NotesSlice from "./Slices/NotesSlice";
 import TodosSlice from "./Slices/TodosSlice";
 import ChatSlice from "./Slices/ChatSlice";
+import LibrarySlice from "./Slices/LibrarySlice";
 
 const Store = configureStore({
   reducer: {
@@ -24,6 +25,7 @@ const Store = configureStore({
     Notes: NotesSlice,
     Todos: TodosSlice,
     Chats: ChatSlice,
+    Library: LibrarySlice,
   },
 });
 

@@ -20,7 +20,7 @@ function ActivityRoom() {
             <Link className="box" to="drawing">
               <CardBlur>
                 <img
-                  src={require("../../../img/ActivityRoom/color-palette.png")}
+                  src={require("../../../img/ActivityRoom/art-and-design.png")}
                   alt="Drawing"
                 />
                 <span>Drawing</span>

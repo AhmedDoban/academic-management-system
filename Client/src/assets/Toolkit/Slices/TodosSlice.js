@@ -102,7 +102,6 @@ const TodosSlice = createSlice({
       const FindTodo = Todos.filter(
         (todo) => todo._id === action.payload._id
       )[0];
-      console.log(Todos);
       const index = Todos.indexOf(FindTodo);
       Todos[index] = {
         Title: action.payload.Title,

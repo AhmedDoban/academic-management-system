@@ -1,67 +1,36 @@
 import React, { useState, useEffect } from "react";
 import "./Library.css";
 import BookCard from "./bookCard";
-import axios from "axios";
-import { toast } from "react-toastify";
 import Dots from "../../components/Dots/Dots";
 import BookDetails from "./BookDetails";
-import { Routes } from "react-router-dom";
-import { Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import NotFounded from "../../components/Not Founded/NotFounded";
-
 import Mountain from "../Mountain Template/Mountain";
-import Toast_Handelar from "./../Toast_Handelar";
+import { useDispatch } from "react-redux";
+import Toast_Handelar from "../Toast_Handelar";
+import { GetBooks } from "../../../Toolkit/Slices/LibrarySlice";
 
 function Library() {
+  const Dispatch = useDispatch();
   let [search, setSearch] = useState("");
-  const [items, setItems] = useState([]);
-  const [item, setItem] = useState([]);
-  const [Empty, setEmpty] = useState(true);
 
-  useEffect(() => getData(), []);
-
-  const getData = async (e) => {
-    try {
-      await axios
-        .get(
-          "https://www.googleapis.com/books/v1/volumes?q=" +
-            (e ? e : "space") +
-            "&key=AIzaSyB1kPV9WkbAyngXClEvg3BBXN6ahnD-Nag" +
-            "&maxResults=40"
-        )
-        .then((response) => {
-          setItems(response.data.items);
-        });
-    } catch (err) {
-      Toast_Handelar("error", "we can't get books !");
-    }
-  };
-
-  let oneCall = (e) => {
-    if (Empty) {
-      getData();
-      setEmpty(false);
-    }
-  };
-  oneCall();
+  useEffect(() => {
+    Dispatch(GetBooks(search));
+    //eslint-disable-next-line
+  }, []);
 
   const searchBox = (e) => {
     if (e.key === "Enter") {
-      if (search) {
-        getData(search);
-        setSearch("");
-      } else {
-        toast.error("You Must Enter Book Name", {
-          autoClose: 15000,
-          theme: "colored",
-        });
-      }
+      searchButton();
     }
   };
-  const searchButton = (e) => {
+
+  const searchButton = () => {
     if (search) {
-      getData(search);
+      Dispatch(GetBooks(search));
       setSearch("");
+    } else {
+      Toast_Handelar("error", "You Must Enter Book Name");
     }
   };
 
@@ -93,12 +62,8 @@ function Library() {
           <Dots OtherStyle="bottom" />
 
           <Routes>
-            <Route
-              exact
-              path=""
-              element={<BookCard bookData={items} setItem={setItem} />}
-            />
-            <Route path=":id" element={<BookDetails item={item} />} />
+            <Route exact path="" element={<BookCard />} />
+            <Route path=":id" element={<BookDetails />} />
             <Route path="*" element={<NotFounded to="/NotFounded" />} />
           </Routes>
         </div>

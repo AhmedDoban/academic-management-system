@@ -1,6 +1,8 @@
 .Library {
   position: relative;
   background-color: var(--white-color);
+  min-height: 100vh;
+  transition: var(--main-transition);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # Library head-Section
@@ -274,60 +276,143 @@
 @media (max-width: 776px) {
   .book-details .container {
     flex-direction: column;
+    align-items: center;
   }
 }
-.book-details .container .icon {
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Library book details image
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.book-details .container .img-container {
+  position: relative;
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  gap: 10px;
+  width: 350px;
+  min-width: 350px;
+  max-width: 100%;
 }
-.book-details .container .left {
-  min-width: 300px;
+.book-details .container .img-container img {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+}
+.book-details .container .img-container .MoreDetails {
+  position: relative;
+  width: 100%;
+}
+.book-details .container .img-container .MoreDetails a button {
+  width: 100%;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Library book details information
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Library .container .information {
+  position: relative;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.book-details .container .left .img-container {
+.Library .container .information .info {
+  position: relative;
   display: flex;
+  flex-direction: column;
   gap: 10px;
 }
-.book-details .container i {
-  font-size: 25px;
-  color: var(--purple-color);
-  cursor: pointer;
-  transition: var(--main-transition);
+.Library .container .information .info .title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 14px;
+  color: var(--green-color);
+  text-align: center;
+  width: 100%;
 }
-.book-details .container i:hover {
-  color: var(--orange-color);
-}
-.book-details .container .left .info {
+.Library .container .information .info .authors {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
-.book-details .container .left .info h1 {
-  font-size: 18px;
-  color: var(--purple-color);
+.Library .container .information .info .authors h1 {
+  margin: 0;
+  font-size: 24px;
+  color: var(--main-p-color);
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid var(--main-p-color);
+  width: fit-content;
+  transition: var(--main-transition);
 }
-.book-details .container .left .info h3 {
-  color: var(--orange-color);
-}
-.book-details .container .left .info h4 {
-  color: var(--purple-color);
-}
-.book-details .container .left .info a button {
-  display: block;
-  width: 100%;
-}
-.book-details .container .right {
-  height: 100%;
+.Library .container .information .info .authors ul {
   position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 10px;
 }
-.book-details .container .right p {
-  width: 100%;
-  height: 100%;
+.Library .container .information .info .authors ul li {
   position: relative;
-  font-size: 15px;
-  letter-spacing: 1px;
+  display: flex;
+  flex-basis: 1;
+  gap: 10px;
+  align-items: center;
+  font-size: 16px;
+  color: var(--main-p-color);
   font-weight: bold;
-  text-align: justify;
+  transition: var(--main-transition);
+}
+.Library .container .information .info .authors ul li i {
+  position: relative;
+  width: 35px;
+  min-width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--main-white-alt);
+  color: #fff;
+  transition: var(--main-transition);
+}
+.Library .container .information .info .publisher {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+  text-transform: var(--main-transition);
+}
+.Library .container .information .info .publisher h1 {
+  color: var(--main-p-color);
+  font-size: 20px;
+  text-transform: var(--main-transition);
+}
+.Library .container .information .info .publishedDate {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: var(--main-p-color);
+  text-transform: var(--main-transition);
+}
+.Library .container .information .info .publishedDate h1 {
+  position: relative;
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--main-p-color);
+  text-transform: var(--main-transition);
+}
+.Library .container .information .description {
+  position: relative;
+  padding: 10px 0 0 0;
+  border-top: 1px solid var(--main-p-color);
+}
+.Library .container .information .description h1 {
+  position: relative;
+  color: var(--green-color);
 }

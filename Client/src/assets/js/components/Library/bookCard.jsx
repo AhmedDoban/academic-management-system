@@ -1,51 +1,55 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import LodingFeachData from "../../components/Loding Feach Data/LodingFeachData";
+import { useSelector, useDispatch } from "react-redux";
+import { getSingleBook } from "../../../Toolkit/Slices/LibrarySlice.js";
 
-function BookCard(props) {
+function BookCard() {
+  const Dispatch = useDispatch();
+  const { Books, loading } = useSelector((state) => state.Library);
+
   return (
     <React.Fragment>
       <div className="books">
-        {props.bookData.length > 0 ? (
+        {loading ? (
+          <LodingFeachData />
+        ) : (
           <div className="container" data-aos="fade-down">
-            {props.bookData.map((p) => {
+            {Books.map((Book) => {
               if (
-                p.volumeInfo.imageLinks &&
-                p.volumeInfo.imageLinks.smallThumbnail !== undefined &&
-                p.saleInfo.listPrice &&
-                p.saleInfo.listPrice.amount !== undefined
+                Book.volumeInfo.imageLinks &&
+                Book.volumeInfo.imageLinks.smallThumbnail !== undefined &&
+                Book.saleInfo.listPrice &&
+                Book.saleInfo.listPrice.amount !== undefined
               ) {
                 return (
-                  <>
-                    <Link
-                      to={p.volumeInfo.title}
-                      className="book"
-                      onClick={() => props.setItem(p)}
-                    >
-                      <div className="front">
-                        <div className="cover">
-                          <img
-                            src={
-                              p.volumeInfo.imageLinks &&
-                              p.volumeInfo.imageLinks.smallThumbnail
-                            }
-                            alt={p.volumeInfo.title}
-                          />
-                        </div>
+                  <Link
+                    to={Book.volumeInfo.title}
+                    className="book"
+                    key={Book.id}
+                    onClick={() => Dispatch(getSingleBook(Book))}
+                  >
+                    <div className="front">
+                      <div className="cover">
+                        <img
+                          src={
+                            Book.volumeInfo.imageLinks &&
+                            Book.volumeInfo.imageLinks.smallThumbnail
+                          }
+                          alt={Book.volumeInfo.title}
+                        />
                       </div>
-                      <div className="left-side">
-                        <h2>
-                          <span>{p.volumeInfo.title}</span>
-                        </h2>
-                      </div>
-                    </Link>
-                  </>
+                    </div>
+                    <div className="left-side">
+                      <h2>
+                        <span>{Book.volumeInfo.title}</span>
+                      </h2>
+                    </div>
+                  </Link>
                 );
               } else return null;
             })}
           </div>
-        ) : (
-          <LodingFeachData />
         )}
       </div>
     </React.Fragment>
