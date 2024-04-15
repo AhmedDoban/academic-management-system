@@ -1,0 +1,275 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# joinRoom
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.joinRoom {
+  position: relative;
+  background-color: #191b28;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# joinRoom bar-head 
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.joinRoom .bar-head {
+  position: relative;
+  padding: 20px 0;
+  background-color: #23263a;
+}
+.joinRoom .bar-head h1 {
+  color: #fff;
+  margin: 0;
+  text-transform: capitalize;
+}
+.joinRoom .bar-head .container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.joinRoom .bar-head .container .actionsFake {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.joinRoom .bar-head .container .actionsFake .bullet {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background-color: #1c1e2e;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# joinRoom body
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.joinRoom .body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.joinRoom .body .container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.joinRoom .body .container .box {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: #23263a;
+  border-radius: var(--main-border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.joinRoom .body .container .box img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.joinRoom .body .container .box video {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# joinRoom bar-bottom
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.joinRoom .bar-bottom {
+  position: relative;
+  padding: 20px 0;
+  background-color: #23263a;
+}
+.joinRoom .bar-bottom .container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.joinRoom .bar-bottom .container button {
+  position: relative;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  background-color: var(--main-color);
+  border: 0;
+  cursor: pointer;
+  outline: 0;
+  color: #fff;
+  border-radius: var(--main-border-radius);
+}
+.joinRoom .bar-bottom .container .actionsFake {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.joinRoom .bar-bottom .container .actionsFake .bullet {
+  position: relative;
+  width: 33px;
+  height: 33px;
+  background-color: #1c1e2e;
+  border-radius: var(--main-border-radius);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+}
+.joinRoom .bar-bottom .container .actionsFake .bullet i {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--main-transition);
+}
+.joinRoom .bar-bottom .container .actionsFake .bullet i.yes {
+  background-color: var(--main-color);
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# video call
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.video-container {
+  position: relative;
+  width: 100%;
+  background-color: #191b28;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column-reverse;
+  height: 100vh;
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Student Friends call controllers
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.video-container .controls {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  height: 10vh;
+  background-color: #1c1e2e;
+}
+.video-container .controls i {
+  background-color: var(--red-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 15px;
+  color: #fff;
+  cursor: pointer;
+  transition: var(--main-transition);
+  border-radius: var(--main-border-radius);
+  font-size: 18px;
+  text-transform: capitalize;
+}
+@media (max-width: 992px) {
+  .video-container .controls i span {
+    display: none;
+  }
+}
+.video-container .controls i span {
+  position: relative;
+  font-size: 14px;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+}
+.video-container .controls i.yes {
+  background-color: #1078f9;
+}
+.video-container .controls i.no {
+  background-color: #232736;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Student Friends call video container
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.videos {
+  position: relative;
+  height: 90vh;
+  width: 100vw;
+  margin: auto;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 10px 0 10px 10px;
+  border-bottom: 0.1px solid #2c2c4e;
+}
+
+.videos .other-users {
+  padding: 10px 5px;
+  position: relative;
+  width: 250px;
+  height: 90vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #1c1e2e;
+  border-bottom: 0.1px solid #2c2c4e;
+  border-left: 0.1px solid #2c2c4e;
+}
+
+.videos .other-users::-webkit-scrollbar-track,
+.videos .other-users::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+.videos .vid {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  border-radius: var(--main-border-radius);
+  overflow: hidden;
+  background-color: #000;
+}
+.videos .other-users .vid {
+  width: 100%;
+  min-height: 150px;
+  max-height: 151px;
+  border-radius: var(--main-border-radius);
+}
+@media (max-width: 992px) {
+  .videos {
+    flex-direction: column;
+    padding: 10px 10px 0 10px;
+  }
+  .videos .other-users {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    overflow-x: scroll;
+    flex-direction: row;
+    border-left: 0;
+    border-top: 0.1px solid #2c2c4e;
+  }
+  .videos .other-users .vid {
+    min-width: 150px;
+  }
+}

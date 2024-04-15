@@ -10,7 +10,7 @@ function ActivityRoom() {
     <React.Fragment>
       <Mountain>
         <div className="data">
-          <h1>Welcome To Activity Room</h1>
+          <h1>Activity Room</h1>
         </div>
       </Mountain>
       <div className="ActivityRoom">

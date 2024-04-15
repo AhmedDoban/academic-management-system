@@ -23,6 +23,7 @@ const Viedos = lazy(() => import("../components/videos/Videos"));
 const Summary = lazy(() => import("./Classes/Summary/Summary"));
 const Inquiries = lazy(() => import("./Classes/Inquiries/Inquiries"));
 const Chat = lazy(() => import("../components/Chat/Chat"));
+const VideoCall = lazy(() => import("../components/Video call/VideoCall"));
 
 // table page
 const StudentTablePage = lazy(() => import("./Table/StudentTablePage"));
@@ -137,6 +138,7 @@ const Student = (props) => {
                     <Route path="Summary" element={<Summary />} />
                     <Route path="Inquiries" element={<Inquiries />} />
                     <Route path="Chat" element={<Chat />} />
+                    <Route path="Video Call" element={<VideoCall />} />
                   </Route>
                   {/********** Table Page or join semester***********/}
                   <Route

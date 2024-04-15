@@ -25,6 +25,7 @@ const InquiriesCenter = lazy(() =>
   import("./Class/Inquiries Center/InquiriesCenter")
 );
 const Chat = lazy(() => import("../components/Chat/Chat"));
+const VideoCall = lazy(() => import("../components/Video call/VideoCall"));
 
 // library page
 const Library = lazy(() => import("../components/Library/Library"));
@@ -110,6 +111,8 @@ const Instructor = (props) => {
                       </Route>
                       {/********** Chats Page ***********/}
                       <Route path="Chat" element={<Chat />} />
+                      {/********** Video Call Page ***********/}
+                      <Route path="video call" element={<VideoCall />} />
                     </Route>
                   </Route>
                   {/********** Library Page ***********/}

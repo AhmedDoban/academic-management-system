@@ -60,11 +60,7 @@ function SubjectData() {
             />
           </Link>
           {/***************** call Room  **********************/}
-          <Link
-            className="card"
-            to={`video call/${params.SubjectName}`}
-            data-aos="zoom-in"
-          >
+          <Link className="card" to={`video call`} data-aos="zoom-in">
             <h1>Call Room </h1>
             <Player
               autoplay={true}
