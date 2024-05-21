@@ -65,6 +65,7 @@ const io = new Server(AppServer, {
 });
 
 io.on("connection", (socket) => {
+  // chat socket io
   socket.on("online_Chat", (data) => {
     socket.join(data.Subject_id);
   });
