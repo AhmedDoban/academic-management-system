@@ -14,7 +14,7 @@ function Chat() {
   const Dispatch = useDispatch();
 
   const { Chats } = useSelector((state) => state.Chats);
-  
+
   const ScrollRef = useChatScroll(Chats);
 
   const [Typing, SetTyping] = useState(false);

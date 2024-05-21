@@ -1,0 +1,148 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Lobby
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Lobby {
+  position: relative;
+  background-color: #191b28;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # Lobby bar-head 
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Lobby .bar-head {
+  position: relative;
+  padding: 20px 0;
+  background-color: #23263a;
+}
+.Lobby .bar-head h1 {
+  color: #fff;
+  margin: 0;
+  text-transform: capitalize;
+}
+.Lobby .bar-head .container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.Lobby .bar-head .container .actionsFake {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.Lobby .bar-head .container .actionsFake .bullet {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background-color: #1c1e2e;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # Lobby body
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Lobby .body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Lobby .body .container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Lobby .body .container .box {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: #23263a;
+  border-radius: var(--main-border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Lobby .body .container .box img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.Lobby .body .container .box video {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0;
+}
+
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # Lobby bar-bottom
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Lobby .bar-bottom {
+  position: relative;
+  padding: 20px 0;
+  background-color: #23263a;
+}
+.Lobby .bar-bottom .container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.Lobby .bar-bottom .container button {
+  position: relative;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  background-color: var(--main-color);
+  border: 0;
+  cursor: pointer;
+  outline: 0;
+  color: #fff;
+  border-radius: var(--main-border-radius);
+}
+.Lobby .bar-bottom .container .actionsFake {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.Lobby .bar-bottom .container .actionsFake .bullet {
+  position: relative;
+  width: 33px;
+  height: 33px;
+  background-color: #1c1e2e;
+  border-radius: var(--main-border-radius);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+}
+.Lobby .bar-bottom .container .actionsFake .bullet i {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--main-transition);
+}
+.Lobby .bar-bottom .container .actionsFake .bullet i.yes {
+  background-color: var(--main-color);
+}
