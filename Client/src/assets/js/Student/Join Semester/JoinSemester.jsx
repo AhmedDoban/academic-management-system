@@ -182,7 +182,7 @@ function JoinSemester() {
                     <td data-label="Instructor" colSpan={2}>
                       {subject.Instructor.name}
                     </td>
-                    <td data-label="Instractpr Image">
+                    <td data-label="Instructor Image">
                       <img
                         src={subject.Instructor.Avatar}
                         alt={subject.Instructor.name}

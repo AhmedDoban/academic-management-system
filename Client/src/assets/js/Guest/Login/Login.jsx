@@ -18,6 +18,7 @@ function Login() {
   const { loading } = useSelector((state) => state.User);
 
   const options = [
+    // Student
     {
       value: "Student",
       label: (
@@ -34,6 +35,7 @@ function Login() {
       ),
       url: `${process.env.REACT_APP_API}/Student/Login`,
     },
+    // Instructor
     {
       value: "Instructor",
       label: (
@@ -50,6 +52,7 @@ function Login() {
       ),
       url: `${process.env.REACT_APP_API}/Instructor/Login`,
     },
+    // parent
     {
       value: "Parent",
       label: (
@@ -65,6 +68,23 @@ function Login() {
         </div>
       ),
       url: `${process.env.REACT_APP_API}/Parent/Login`,
+    },
+    // Admin
+    {
+      value: "Admin",
+      label: (
+        <div className="display-flex align-center gap-10">
+          <Player
+            autoplay={true}
+            loop={true}
+            controls={false}
+            src={require("../../../img/Players/Admin.json")}
+            style={{ width: 40, height: 40 }}
+          />
+          <p className="color-black">Admin</p>
+        </div>
+      ),
+      url: `${process.env.REACT_APP_API}/Admin/Login`,
     },
   ];
 

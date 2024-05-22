@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import Options from "./Options";
 import { HandleDelete } from "./CRUD";
 import LodingFeachData from "../../components/Loding Feach Data/LodingFeachData";
 import Sort from "./Sort/Sort";
 
 function CustomTable(props) {
-  const api = props.api;
   const [DATA, setDATA] = useState([]);
   const [View, SetView] = useState(30);
   const [Order, SetOrder] = useState("ASC");
-
-  useEffect(() => {
-    axios.get(api).then((reasponse) => setDATA(reasponse.data));
-  }, [HandleDelete]);
 
   // Sort Table
   const SortTable = (col) => {

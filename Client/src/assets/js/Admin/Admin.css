@@ -7,31 +7,6 @@
 }
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# Admin-pages-container
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.Admin-pages-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding: 20px;
-}
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# admin Home page
-ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.AdminHome {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 30px;
-}
-@media (max-width: 992px) {
-  .AdminHome {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-  }
-}
-
-/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # CustomTable
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .CustomTable table {

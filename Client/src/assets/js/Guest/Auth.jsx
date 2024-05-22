@@ -1,6 +1,6 @@
 import React from "react";
 import Student from "../Student/student";
-import Admin from "../Admin/Home/admin";
+import Admin from "../Admin/Admin";
 import Instructor from "../Instructor/Instructor";
 import Parent from "../Parent/Parent";
 

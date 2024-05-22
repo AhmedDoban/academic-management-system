@@ -14,7 +14,7 @@ import {
   useRemoteUsers,
 } from "agora-rtc-react";
 
-const appId = "1ab3f923ed67455f81c8e4252d91fbc5";
+const appId = process.env.REACT_APP_AGORA_RTC;
 
 const Room = ({ inCall, setInCall, trackState }) => {
   const params = useParams();
