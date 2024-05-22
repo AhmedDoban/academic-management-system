@@ -47,8 +47,8 @@ Router.route("/Password").post(
   JWT.Verify_Token,
   Verify_User("STUDENT", "ADMIN"),
   [
-    body("Token").notEmpty().withMessage("Name is Required"),
-    body("_id").notEmpty().withMessage("Mobile is Required"),
+    body("Token").notEmpty().withMessage("Token is Required"),
+    body("_id").notEmpty().withMessage("_id is Required"),
     body("OldPassword")
       .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g)
       .withMessage("Password is not Valid"),

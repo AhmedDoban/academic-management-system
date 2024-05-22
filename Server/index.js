@@ -18,6 +18,7 @@ import Exams from "./App/Routes/Exams.js";
 import Notes from "./App/Routes/Notes.js";
 import Todos from "./App/Routes/Todos.js";
 import Chats from "./App/Routes/Chats.js";
+import Admin from "./App/Routes/Admin.js";
 
 // File System
 import path from "path";
@@ -48,6 +49,7 @@ App.use("/API/Exams", Exams);
 App.use("/API/Notes", Notes);
 App.use("/API/Todos", Todos);
 App.use("/API/Chats", Chats);
+App.use("/API/Admin", Admin);
 App.use("*", (Req, Res) => {
   Res.status(200).json({
     Status: "Faild",
