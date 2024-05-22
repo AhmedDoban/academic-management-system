@@ -47,9 +47,21 @@ const Instructor = (props) => {
       <div className="page p-relative">
         <SideBar>
           <li>
+            <NavLink to="/">
+              <i className="fa-solid fa-graduation-cap fa-fw"></i>
+              <span>Class Room</span>
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="subjects">
               <i className="fa-solid fa-flask"></i>
               <span>subjects</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="library">
+              <i className="fa-solid fa-book"></i>
+              <span>Library</span>
             </NavLink>
           </li>
         </SideBar>

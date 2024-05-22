@@ -57,28 +57,20 @@ const Student = (props) => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
-  const sidebar = useRef(null);
   //eslint-disable-next-line
-  const [active, setActive] = useState("fa-solid fa-bars");
-  const open = useCallback(
-    (e) => {
-      e.stopPropagation();
-      sidebar.current.classList.toggle("open");
-      sidebar.current.classList.contains("open")
-        ? setActive("fa-solid fa-xmark")
-        : setActive("fa-solid fa-bars");
-    },
-    [sidebar]
-  );
+
   return (
     <React.Fragment>
       <div className="page p-relative">
         <SideBar>
           <li>
-            <NavLink
-              to={IsInsemester ? "table" : "Join semester"}
-              onClick={open}
-            >
+            <NavLink to="/">
+              <i className="fa-solid fa-graduation-cap fa-fw"></i>
+              <span>Class Room</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={IsInsemester ? "table" : "Join semester"}>
               <i
                 className={
                   IsInsemester
@@ -90,21 +82,27 @@ const Student = (props) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="actvity-room" onClick={open}>
+            <NavLink to="actvity-room">
               <i className="fa-solid fa-broom"></i>
               <span>Activity Room</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to="todo" onClick={open}>
+            <NavLink to="todo">
               <i className="fa-solid fa-check"></i>
               <span>Todo</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to="notes" onClick={open}>
+            <NavLink to="notes">
               <i className="fa-solid fa-note-sticky"></i>
               <span>Notes</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="library">
+              <i className="fa-solid fa-book"></i>
+              <span>Library</span>
             </NavLink>
           </li>
         </SideBar>

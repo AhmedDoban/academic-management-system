@@ -13,7 +13,7 @@ import {
   HandleChandeAvatar,
 } from "../../../Toolkit/Slices/UserSlice";
 
-function SettingPage(props) {
+function SettingPage() {
   const { user, changeAvatar } = useSelector((state) => state.User);
   const [File, setFile] = useState(null);
   const Dispatch = useDispatch();
@@ -39,6 +39,10 @@ function SettingPage(props) {
     Dispatch(HandleChandeAvatar(URL.createObjectURL(File)));
   };
 
+  const FirstName = () => {
+    return user.name ? user.name.split(" ")[0] : "";
+  };
+
   return (
     <React.Fragment>
       <div className="InstructorSettingPage">
@@ -59,7 +63,7 @@ function SettingPage(props) {
               </label>
             </div>
             <h1>
-              Dr : {user.name.split(" ")[0]}{" "}
+              Dr : {FirstName()}{" "}
               {changeAvatar.status && (
                 <button
                   onClick={() => HandeAvatarGlobal()}

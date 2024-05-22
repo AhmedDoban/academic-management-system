@@ -98,20 +98,7 @@ const SideBar = ({ children }) => {
               <span></span>
             </label>
           </li>
-
-          <li>
-            <NavLink to="/" onClick={open}>
-              <i className="fa-solid fa-graduation-cap fa-fw"></i>
-              <span>Class Room</span>
-            </NavLink>
-          </li>
           {children}
-          <li>
-            <NavLink to="library" onClick={open}>
-              <i className="fa-solid fa-book"></i>
-              <span>Library</span>
-            </NavLink>
-          </li>
           <li>
             <NavLink to="setting" onClick={open}>
               <i className="fa-solid fa-gear fa-fw"></i>

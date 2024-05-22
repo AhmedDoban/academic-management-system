@@ -1,8 +1,9 @@
 import React, { lazy, Suspense } from "react";
-import { Outlet, Route, Routes } from "react-router-dom";
+import { NavLink, Outlet, Route, Routes } from "react-router-dom";
 import "./Admin.css";
 import Home from "./Home/Home";
 import Loading from "../components/Loading/Loading";
+import SideBar from "../components/SideBar/SideBar";
 
 // Students
 const Students = lazy(() => import("./Student/Students"));
@@ -22,10 +23,44 @@ const AddNewInstructor = lazy(() =>
 );
 
 const NotFounded = lazy(() => import("../components/Not Founded/NotFounded"));
+
 function Admin() {
   return (
     <React.Fragment>
       <div className="Admin">
+        <SideBar>
+          <li>
+            <NavLink to="/">
+              <i className="fa-solid fa-house"></i>
+              <span>Dashboard</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/Students">
+              <i className="fa-solid fa-user-graduate"></i>
+              <span>Students</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/Instructors">
+              <i className="fa-solid fa-chalkboard-user"></i>
+              <span>Instructors</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/Parents">
+              <i className="fa-solid fa-person-breastfeeding"></i>
+              <span>Parents</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/Admins">
+              <i className="fa-solid fa-user-gear"></i>
+              <span>Admins</span>
+            </NavLink>
+          </li>
+        </SideBar>
+
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="Students" element={<Outlet />}>
@@ -48,5 +83,4 @@ function Admin() {
     </React.Fragment>
   );
 }
-
 export default Admin;

@@ -39,6 +39,9 @@ function SettingPage(props) {
     Dispatch(HandleChandeAvatar(URL.createObjectURL(File)));
   };
 
+  const FirstName = () => {
+    return user.name ? user.name.split(" ")[0] : "";
+  };
   return (
     <React.Fragment>
       <div className="StudentSettingPage">
@@ -59,7 +62,7 @@ function SettingPage(props) {
               </label>
             </div>
             <h1>
-              Stu : {user.name.split(" ")[0]}{" "}
+              Stu : {FirstName()}{" "}
               {changeAvatar.status && (
                 <button
                   onClick={() => HandeAvatarGlobal()}
