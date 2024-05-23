@@ -35,6 +35,7 @@ function Slider() {
             <img
               src={require("../../../../img/slider/slide1.png")}
               alt="slide 1 "
+              loading="lazy"
             />
           </div>
         </div>
@@ -61,7 +62,8 @@ function Slider() {
           <div className="right-content" data-aos="fade-left">
             <img
               src={require("../../../../img/slider/slide2.png")}
-              alt="slide 1 "
+              alt="slide 2 "
+              loading="lazy"
             />
           </div>
         </div>
@@ -87,7 +89,8 @@ function Slider() {
           <div className="right-content" data-aos="fade-left">
             <img
               src={require("../../../../img/slider/slide3.png")}
-              alt="slide 1 "
+              alt="slide 3 "
+              loading="lazy"
             />
           </div>
         </div>
@@ -113,7 +116,8 @@ function Slider() {
           <div className="right-content" data-aos="fade-left">
             <img
               src={require("../../../../img/slider/slide4.png")}
-              alt="slide 1 "
+              alt="slide 4 "
+              loading="lazy"
             />
           </div>
         </div>
@@ -138,7 +142,8 @@ function Slider() {
           <div className="right-content" data-aos="fade-left">
             <img
               src={require("../../../../img/slider/slide5.png")}
-              alt="slide 1 "
+              alt="slide 5 "
+              loading="lazy"
             />
           </div>
         </div>

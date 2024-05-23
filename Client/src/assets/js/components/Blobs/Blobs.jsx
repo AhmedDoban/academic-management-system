@@ -9,20 +9,23 @@ const Blobs = (props) => {
             require("../../../img/blob/Signin blob/circle-scatter-Web.svg")
               .default
           }
-          alt=""
+          alt="circle"
+          loading="lazy"
         />
         <img
           src={
             require("../../../img/blob/Signin blob/blob-top-web.svg").default
           }
-          alt=""
+          alt="circle"
+          loading="lazy"
         />
         <img
           src={
             require("../../../img/blob/Signin blob/circle-scatter-orange-web.svg")
               .default
           }
-          alt=""
+          alt="circle"
+          loading="lazy"
         />
       </div>
       <div className="Blobs-general mob">
@@ -31,20 +34,23 @@ const Blobs = (props) => {
             require("../../../img/blob/Signin blob/circle-scatter-mob.svg")
               .default
           }
-          alt=""
+          alt="circle"
+          loading="lazy"
         />
         <img
           src={
             require("../../../img/blob/Signin blob/blob-top-mob.svg").default
           }
-          alt=""
+          alt="circle"
+          loading="lazy"
         />
         <img
           src={
             require("../../../img/blob/Signin blob/circle-scatter-orange-mob.svg")
               .default
           }
-          alt=""
+          alt="circle"
+          loading="lazy"
         />
       </div>
     </React.Fragment>

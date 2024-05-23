@@ -42,6 +42,7 @@ function WhatOffer() {
               <img
                 src={require("../../../../img/wtOFFER/wt1.png")}
                 alt="offer"
+                loading="lazy"
               />
             </div>
           </div>
@@ -52,6 +53,7 @@ function WhatOffer() {
               <img
                 src={require("../../../../img/wtOFFER/wt3.png")}
                 alt="offer"
+                loading="lazy"
               />
             </div>
             <div className="left">
@@ -90,6 +92,7 @@ function WhatOffer() {
               <img
                 src={require("../../../../img/wtOFFER/wt2.png")}
                 alt="offer"
+                loading="lazy"
               />
             </div>
           </div>
