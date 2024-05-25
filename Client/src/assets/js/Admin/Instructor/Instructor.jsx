@@ -1,11 +1,22 @@
-import React, { useState } from "react";
-import CustomTable from "../components/CustomTable";
+import React, { useEffect, useState } from "react";
 import CustomAdminInputsHead from "../components/Custom Admin Input Head/CustomAdminInputsHead";
 import Mountain from "../../components/Mountain Template/Mountain";
 import "./Instructor.css";
+import { useDispatch, useSelector } from "react-redux";
+import { GetAdminDashBoadrdData } from "../../../Toolkit/Slices/AdminSlice";
+import CustomTable from "./../components/Custom Table/CustomTable";
 
 function Instructor() {
   const [Serach, SetSearch] = useState("");
+
+  const Dispatch = useDispatch();
+  const { Instructors } = useSelector((state) => state.Admin);
+
+  useEffect(() => {
+    Dispatch(GetAdminDashBoadrdData());
+    //eslint-disable-next-line
+  }, []);
+
   return (
     <React.Fragment>
       <Mountain>
@@ -18,19 +29,14 @@ function Instructor() {
           <div className="Instructor-container">
             <CustomAdminInputsHead
               Title="Instructors"
-              searchName="Search For Instructors Name"
               linkTo="AddNewInstructor"
               Serach={Serach}
               SetSearch={SetSearch}
             />
             <div className="data">
               <CustomTable
-                type="Instructors"
-                api={`${process.env.REACT_APP_API}/admin/select_all_Instructorss.php`}
-                col1="Name"
-                col2="Instructors Code"
-                col3="Instructors Nat Id"
-                api_Delete=""
+                ViewData={Instructors}
+                Type="Instructors"
                 Serach={Serach}
               />
             </div>

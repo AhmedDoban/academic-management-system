@@ -1,11 +1,4 @@
-import React, {
-  useEffect,
-  lazy,
-  Suspense,
-  useState,
-  useRef,
-  useCallback,
-} from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 
 import { Route, Routes, Navigate, Outlet, NavLink } from "react-router-dom";
 
@@ -56,8 +49,6 @@ const Student = (props) => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
-
-  //eslint-disable-next-line
 
   return (
     <React.Fragment>

@@ -2,22 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./CustomAdminInputsHead.css";
 
-function CustomAdminInputsHead(props) {
+function CustomAdminInputsHead({ Serach, SetSearch, linkTo, Title }) {
   return (
     <React.Fragment>
       <div className="CustomAdminInputsHead">
-        <div className="card" data-aos="zoom-in">
+        <div className="card">
           <input
             type="search"
             id="Search"
-            value={props.Serach}
-            onChange={(e) => props.SetSearch(e.target.value)}
+            value={Serach}
+            onChange={(e) => SetSearch(e.target.value)}
             placeholder=" "
           />
           <label htmlFor="Search">Search . . .</label>
         </div>
-        <div className="card" data-aos="zoom-in">
-          <Link to={props.linkTo}>Add New {props.Title}</Link>
+        <div className="card">
+          <Link to={linkTo}>Add New {Title}</Link>
         </div>
       </div>
     </React.Fragment>

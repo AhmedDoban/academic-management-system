@@ -1,0 +1,178 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# CustomTable
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.CustomTable table {
+  position: relative;
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: var(--white-color);
+  border-radius: 10px;
+  width: 100%;
+  margin: 20px auto;
+  overflow: hidden;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # CustomTable
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.CustomTable .sort-table {
+  display: none;
+}
+@media (max-width: 992px) {
+  .CustomTable .sort-table {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+  .CustomTable .sort-table select {
+    width: 100%;
+    padding: 0 20px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 0;
+  }
+  .CustomTable .sort-table select option {
+    cursor: pointer;
+    border-radius: none;
+    background-color: #111111;
+    color: #fff;
+  }
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # CustomTable see more
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.CustomTable .See-More {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: var(--main-color);
+  font-size: 18px;
+  border: 1px dashed var(--main-p-color);
+  cursor: pointer;
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
+}
+.CustomTable .See-More:hover {
+  background-color: var(--main-color);
+  color: #fff;
+  border: 1px dashed var(--main-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # CustomTable table th , td
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.CustomTable table th i {
+  font-size: 14px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+
+.CustomTable table th,
+.CustomTable table td {
+  text-align: left;
+  font-size: 15px;
+  color: var(--main-p-color);
+  line-height: 1.2;
+  font-weight: unset;
+  padding: 10px;
+}
+.CustomTable table td img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.CustomTable tr:nth-child(odd) {
+  background-color: var(--white-color);
+}
+/* Background-color of the even rows */
+.CustomTable tr:nth-child(even) {
+  background-color: var(--main-white-alt);
+}
+.CustomTable table th {
+  position: relative;
+  font-size: 18px;
+  color: var(--main-text-color);
+  line-height: 1.2;
+  font-weight: unset;
+  height: 40px;
+  background: var(--white-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+  # CustomTable options
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.CustomTable table tr .Options {
+  display: flex;
+  gap: 5px;
+}
+.CustomTable table tr .Options a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--main-p-color);
+  width: 35px;
+  height: 35px;
+  border-radius: var(--main-border-radius);
+  transition: var(--main-transition);
+  font-size: 18px;
+}
+.CustomTable table tr .Options a:hover {
+  color: var(--red-color);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+    # Custom Table  Screen Media
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+@media (max-width: 992px) {
+  /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+     # CustomTable  thead remove
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+  .CustomTable table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+     # Custom Table   table th , td
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+  .CustomTable table tr {
+    position: relative;
+    width: 100%;
+    display: grid;
+  }
+  .CustomTable table td {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .CustomTable table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--main-p-color);
+  }
+  /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+     # Custom Table   options
+  ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+  .CustomTable table tr .Options {
+    justify-content: flex-end;
+  }
+  .CustomTable table tr .Options a {
+    font-size: 14px;
+  }
+}

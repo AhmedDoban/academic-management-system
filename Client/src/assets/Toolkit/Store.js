@@ -11,6 +11,7 @@ import NotesSlice from "./Slices/NotesSlice";
 import TodosSlice from "./Slices/TodosSlice";
 import ChatSlice from "./Slices/ChatSlice";
 import LibrarySlice from "./Slices/LibrarySlice";
+import AdminSlice from "./Slices/AdminSlice";
 
 const Store = configureStore({
   reducer: {
@@ -26,6 +27,7 @@ const Store = configureStore({
     Todos: TodosSlice,
     Chats: ChatSlice,
     Library: LibrarySlice,
+    Admin: AdminSlice,
   },
 });
 

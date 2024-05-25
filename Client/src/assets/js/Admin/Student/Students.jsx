@@ -1,11 +1,23 @@
 import React, { useState } from "react";
-import CustomTable from "../components/CustomTable";
+import CustomTable from "./../components/Custom Table/CustomTable";
 import CustomAdminInputsHead from "../components/Custom Admin Input Head/CustomAdminInputsHead";
 import Mountain from "../../components/Mountain Template/Mountain";
 import "./Student.css";
+import { useEffect } from "react";
+import { GetAdminDashBoadrdData } from "../../../Toolkit/Slices/AdminSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function StudentControl() {
   const [Serach, SetSearch] = useState("");
+
+  const Dispatch = useDispatch();
+  const { Students } = useSelector((state) => state.Admin);
+
+  useEffect(() => {
+    Dispatch(GetAdminDashBoadrdData());
+    //eslint-disable-next-line
+  }, []);
+
   return (
     <React.Fragment>
       <Mountain>
@@ -18,20 +30,15 @@ function StudentControl() {
           <div className="Students-container">
             <CustomAdminInputsHead
               Title="Student"
-              searchName="Search For Student Name"
               linkTo="addNewStudent"
               Serach={Serach}
               SetSearch={SetSearch}
             />
             <div className="data">
               <CustomTable
-                type="student"
-                api={`${process.env.REACT_APP_API}/admin/select_all_students.php`}
-                col1="Name"
-                col2="Student Code"
-                col3="student Nat Id"
-                api_Delete=""
                 Serach={Serach}
+                ViewData={Students}
+                Type="Students"
               />
             </div>
           </div>
