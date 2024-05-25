@@ -1,4 +1,7 @@
 import Admin_Model from "../Model/Admin_Model.js";
+import Parent_Model from "../Model/Parent_Model.js";
+import Student_Model from "../Model/Student_Model.js";
+import Instructor_Model from "../Model/Instructor_Model.js";
 import { validationResult } from "express-validator";
 import Codes from "../utils/Codes.js";
 import JWT from "../Utils/JWT.js";
@@ -154,8 +157,45 @@ const Get_Specific_Admin = async (Req, Res) => {
     });
   }
 };
+
+// Get Admin Status from database
+const Get_Admin_Status = async (Req, Res) => {
+  try {
+    // GEt Admin Data From the Data Base
+    const Admin = await Admin_Model.aggregate([{ $match: {} }]);
+    const Parent = await Parent_Model.aggregate([{ $match: {} }]);
+    const Instructor = await Instructor_Model.aggregate([{ $match: {} }]);
+    const Students = await Student_Model.aggregate([{ $match: {} }]);
+
+    return Res.json({
+      Status: Codes.SUCCESS,
+      Status_Code: Codes.SUCCESS_CODE,
+      Data: {
+        Admin: Admin,
+        Parent: Parent,
+        Instructor: Instructor,
+        Students: Students,
+        Status: {
+          Admin: Admin.length,
+          Parent: Parent.length,
+          Instructor: Instructor.length,
+          Students: Students.length,
+        },
+      },
+    });
+  } catch (err) {
+    console.log(err);
+    Res.json({
+      Status: Codes.FAILD,
+      Status_Code: Codes.FAILD_CODE,
+      message: "Sorry Something went wrong please try again later !",
+    });
+  }
+};
+
 export default {
   Admin_Login,
   Get_Specific_Admin,
   Admin_Register,
+  Get_Admin_Status,
 };

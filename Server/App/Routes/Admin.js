@@ -8,6 +8,13 @@ import upload_Avatar from "../Multer/Avatars.js";
 
 const Router = express.Router();
 
+// Routes Handelar /API/Admin/Status
+Router.route("/Status").get(
+  JWT.Verify_Token,
+  Verify_User("ADMIN"),
+  Admin_controllers.Get_Admin_Status
+);
+
 // Routes Handelar /API/Admin/Login
 Router.route("/Login").post(
   [
