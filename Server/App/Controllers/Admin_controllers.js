@@ -52,7 +52,6 @@ const Admin_Login = async (Req, Res) => {
       }
     }
   } catch (err) {
-    console.log(err);
     // Error in serching handelar
     return Res.json({
       Status: Codes.FAILD,
@@ -110,7 +109,6 @@ const Admin_Register = async (Req, Res) => {
       });
     }
   } catch (err) {
-    console.log(err);
     // Error in serching handelar
     return Res.json({
       Status: Codes.FAILD,
@@ -184,8 +182,35 @@ const Get_Admin_Status = async (Req, Res) => {
       },
     });
   } catch (err) {
-    console.log(err);
     Res.json({
+      Status: Codes.FAILD,
+      Status_Code: Codes.FAILD_CODE,
+      message: "Sorry Something went wrong please try again later !",
+    });
+  }
+};
+
+// get single Student
+const Get_Specific_Student = async (Req, Res) => {
+  const Student_id = Req.params.Student_id;
+
+  try {
+    const Student = await Student_Model.findOne({ _id: Student_id });
+    if (Student !== null) {
+      return Res.json({
+        Status: Codes.SUCCESS,
+        Status_Code: Codes.SUCCESS_CODE,
+        Data: Student,
+      });
+    } else {
+      return Res.json({
+        Status: Codes.FAILD,
+        Status_Code: Codes.FAILD_CODE,
+        message: "Student Not Founded !",
+      });
+    }
+  } catch (err) {
+    return Res.json({
       Status: Codes.FAILD,
       Status_Code: Codes.FAILD_CODE,
       message: "Sorry Something went wrong please try again later !",
@@ -198,4 +223,5 @@ export default {
   Get_Specific_Admin,
   Admin_Register,
   Get_Admin_Status,
+  Get_Specific_Student,
 };

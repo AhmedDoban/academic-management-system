@@ -48,6 +48,13 @@ Router.route("/Register").post(
   Admin_controllers.Admin_Register
 );
 
+// Routes Handelar /API/Admin/Student/:id
+Router.route("/Student/:Student_id").get(
+  JWT.Verify_Token,
+  Verify_User("ADMIN"),
+  Admin_controllers.Get_Specific_Student
+);
+
 // Routes Handelar /API/Admin/Admint_id
 Router.route("/:Admin_id").post(
   JWT.Verify_Token,
