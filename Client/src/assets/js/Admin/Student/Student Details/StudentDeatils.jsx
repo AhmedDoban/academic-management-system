@@ -1,50 +1,128 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./StudentDeatils.css";
+import Mountain from "./../../../components/Mountain Template/Mountain";
+import { useDispatch, useSelector } from "react-redux";
+import { GetSingleStudent } from "../../../../Toolkit/Slices/AdminSlice";
 
 function StudentDeatils() {
   const params = useParams();
-  const [Student, setStudent] = useState([]);
+  const { SingleStudent } = useSelector((state) => state.Admin);
+
+  const Dispatch = useDispatch();
+  useEffect(() => {
+    Dispatch(GetSingleStudent(params.id));
+    //eslint-disable-next-line
+  }, []);
 
   return (
     <React.Fragment>
       <div className="StudentDeatils">
+        <Mountain>
+          <div className="data">
+            <h1>Information</h1>
+          </div>
+        </Mountain>
         <div className="container">
-          <div className="data" data-aos="zoom-in" data-aos-easing="linear">
-            <div className="editButton">Edit</div>
-            <h1 className="title">Information</h1>
-            <div className="item">
-              <img
-                // src={require("../../../img/user.png")}
-                alt=""
-                className="itemImg"
-              />
-              <div className="details">
-                <h1 className="itemTitle">{Student.student_name}</h1>
-                <div className="detailItem">
-                  <span className="itemKey">Student ID :</span>
-                  <span className="itemValue">{Student.student_id}</span>
+          <div className="Information-Data-box">
+            <div className="UserImage">
+              <label htmlFor="UserAvatar" className="UserAvatar">
+                <input type="file" id="UserAvatar" hidden />
+                <img src={SingleStudent.Avatar} alt={SingleStudent.name} />
+              </label>
+              <div className="actions">
+                <button>
+                  <span>Remove</span>
+                </button>
+                <button>
+                  <span>Update</span>
+                </button>
+              </div>
+            </div>
+            <div className="details">
+              <h1 className="itemTitle">{SingleStudent.name}</h1>
+              <div className="detailItem">
+                <label className="itemKey">Name </label>
+                <input
+                  type="text"
+                  className="itemValue"
+                  value={SingleStudent.name}
+                />
+              </div>
+              <div className="detailItem">
+                <label className="itemKey">National Id </label>
+                <input
+                  type="text"
+                  className="itemValue"
+                  value={SingleStudent.national_ID}
+                />
+              </div>
+              <div className="detailItem">
+                <label className="itemKey">Phone </label>
+                <input
+                  type="text"
+                  className="itemValue"
+                  value={SingleStudent.Mobile}
+                />
+              </div>
+              <div className="detailItem">
+                <label className="itemKey">Location </label>
+                <input
+                  type="text"
+                  className="itemValue"
+                  value={SingleStudent.Location}
+                />
+              </div>
+              <div className="detailItem">
+                <label className="itemKey">Email </label>
+                <input
+                  type="email"
+                  className="itemValue"
+                  value={SingleStudent.email}
+                />
+              </div>
+              <div className="detailItem">
+                <label className="itemKey">Parent Id </label>
+                <input
+                  type="text"
+                  className="itemValue"
+                  value={SingleStudent.parent_national_ID}
+                />
+              </div>
+              <div className="detailItem">
+                <label className="itemKey">GPA </label>
+                <p className="GpaProcess">
+                  {SingleStudent?.Gpa?.Hours_X_Creadit /
+                    SingleStudent?.Gpa?.All_Semester_Hours}
+                </p>
+              </div>
+              <div className="detailItem">
+                <label className="itemKey">In semester </label>
+                <div className="inSemester-actions">
+                  <div className="inSemester-actions-box">
+                    <input
+                      type="radio"
+                      name="IsInSemester"
+                      id="InSemester"
+                      checked={SingleStudent.IsInsemester}
+                      hidden
+                    />
+                    <label htmlFor="InSemester">Yes</label>
+                  </div>
+                  <div className="inSemester-actions-box">
+                    <input
+                      type="radio"
+                      name="IsInSemester"
+                      id="NotInSemester"
+                      checked={!SingleStudent.IsInsemester}
+                      hidden
+                    />
+                    <label htmlFor="NotInSemester">No</label>
+                  </div>
                 </div>
-                <div className="detailItem">
-                  <span className="itemKey">Phone :</span>
-                  <span className="itemValue">+20 11111111111</span>
-                </div>
-                <div className="detailItem">
-                  <span className="itemKey">company :</span>
-                  <span className="itemValue">FCI - TU</span>
-                </div>
-                <div className="detailItem">
-                  <span className="itemKey">Student nat ID :</span>
-                  <span className="itemValue">{Student.student_nat_id}</span>
-                </div>
-                <div className="detailItem">
-                  <span className="itemKey">Student Code :</span>
-                  <span className="itemValue">{Student.student_code}</span>
-                </div>
-                <div className="detailItem">
-                  <span className="itemKey">Parent Id :</span>
-                  <span className="itemValue">{Student.parent_id}</span>
-                </div>
+              </div>
+              <div className="detailItem">
+                <button>Save Changes</button>
               </div>
             </div>
           </div>

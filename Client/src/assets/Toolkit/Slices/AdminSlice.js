@@ -15,7 +15,26 @@ export const GetAdminDashBoadrdData = createAsyncThunk(
           },
         }
       );
-      console.log(Data.data);
+      return Data.data;
+    } catch (err) {
+      Toast_Handelar("error", "Sorry we can't get your Chats !");
+    }
+  }
+);
+
+export const GetSingleStudent = createAsyncThunk(
+  "GetSingleStudent",
+  async (payload) => {
+    const { Token } = JSON.parse(localStorage.getItem("Token"));
+    try {
+      const Data = await axios.get(
+        `${process.env.REACT_APP_API}/Admin/Student/${payload}`,
+        {
+          headers: {
+            Authorization: Token,
+          },
+        }
+      );
       return Data.data;
     } catch (err) {
       Toast_Handelar("error", "Sorry we can't get your Chats !");
@@ -28,9 +47,13 @@ const AdminSlice = createSlice({
   initialState: {
     Loading: false,
     Students: [],
+    SingleStudent: {},
     Parents: [],
+    SingleParent: {},
     Instructors: [],
+    SingleInstructor: {},
     Admins: [],
+    SingleAdmin: {},
     Status: {
       Students: 0,
       Parent: 0,
@@ -50,12 +73,21 @@ const AdminSlice = createSlice({
       State.Loading = false;
       if (action.payload !== undefined) {
         if (action.payload.Status !== "Faild") {
-          console.log(action.payload.Data);
           State.Students = action.payload.Data.Students;
           State.Parents = action.payload.Data.Parents;
           State.Instructors = action.payload.Data.Instructor;
           State.Admins = action.payload.Data.Admins;
           State.Status = action.payload.Data.Status;
+        } else {
+          Toast_Handelar("error", action.payload.message);
+        }
+      }
+    });
+    builder.addCase(GetSingleStudent.fulfilled, (State, action) => {
+      State.Loading = false;
+      if (action.payload !== undefined) {
+        if (action.payload.Status !== "Faild") {
+          State.SingleStudent = action.payload.Data;
         } else {
           Toast_Handelar("error", action.payload.message);
         }

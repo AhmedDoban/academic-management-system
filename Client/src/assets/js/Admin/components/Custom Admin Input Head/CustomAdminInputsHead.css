@@ -57,7 +57,7 @@
 .CustomAdminInputsHead .card input[type="Search"]:focus ~ label,
 .CustomAdminInputsHead
   .card
-  input[type="text"]:not(:placeholder-shown)
+  input[type="Search"]:not(:placeholder-shown)
   ~ label {
   top: 0;
   color: var(--main-color);
