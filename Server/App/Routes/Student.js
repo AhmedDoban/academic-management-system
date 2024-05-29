@@ -78,10 +78,21 @@ Router.route("/UpdataAvatar").post(
   Verify_User("STUDENT", "ADMIN"),
   [
     upload_Avatar.single("Avatar"),
-    body("Token").notEmpty().withMessage("Name is Required"),
-    body("_id").notEmpty().withMessage("Mobile is Required"),
+    body("Token").notEmpty().withMessage("Token is Required"),
+    body("_id").notEmpty().withMessage("_id is Required"),
   ],
   Student_controllers.Change_Student_Avatar
+);
+
+// Routes Handelar /API/Student/RemoveAvatar
+Router.route("/RemoveAvatar").post(
+  JWT.Verify_Token,
+  Verify_User("STUDENT", "ADMIN"),
+  [
+    body("Token").notEmpty().withMessage("Token is Required"),
+    body("_id").notEmpty().withMessage("_id is Required"),
+  ],
+  Student_controllers.Delete_Student_Avatar
 );
 
 // Routes Handelar /API/Student/Student_id
