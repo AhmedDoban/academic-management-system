@@ -1,19 +1,68 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./StudentDeatils.css";
 import Mountain from "./../../../components/Mountain Template/Mountain";
 import { useDispatch, useSelector } from "react-redux";
-import { GetSingleStudent } from "../../../../Toolkit/Slices/AdminSlice";
+import {
+  GetSingleStudent,
+  StudentAdminChandeAvatar,
+  StudentAdminRemoveAvatar,
+} from "../../../../Toolkit/Slices/AdminSlice";
+import Toast_Handelar from "../../../components/Toast_Handelar";
+import Swal from "sweetalert2";
 
 function StudentDeatils() {
   const params = useParams();
-  const { SingleStudent } = useSelector((state) => state.Admin);
-
   const Dispatch = useDispatch();
+  const { SingleStudent } = useSelector((state) => state.Admin);
+  const [Image, SetImage] = useState(null);
+
   useEffect(() => {
     Dispatch(GetSingleStudent(params.id));
     //eslint-disable-next-line
   }, []);
+
+  const HandleCHangeImage = (file) => {
+    const NewFile = file.target.files[0];
+    if (NewFile.type.split("/")[0] === "image") {
+      if ((NewFile.size / 1000).toFixed(0) >= 1028) {
+        Toast_Handelar("error", "File size cannot exceed more than 1MB");
+      } else {
+        SetImage(URL.createObjectURL(NewFile));
+        Dispatch(
+          StudentAdminChandeAvatar({
+            _id: SingleStudent._id,
+            File: NewFile,
+            Token: SingleStudent.Token,
+          })
+        );
+      }
+    } else {
+      Toast_Handelar("error", "File Must be an image !");
+    }
+  };
+
+  const HandleRemoveImage = () => {
+    Swal.fire({
+      title: "Are you sure ?",
+      text: "You want to Delete this Avatar !",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: '<i class="fa-solid fa-check"></i>',
+      cancelButtonText: '<i class="fas fa-times"></i>',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Dispatch(
+          StudentAdminRemoveAvatar({
+            _id: SingleStudent._id,
+            Token: SingleStudent.Token,
+          })
+        );
+      }
+    });
+  };
 
   return (
     <React.Fragment>
@@ -27,11 +76,19 @@ function StudentDeatils() {
           <div className="Information-Data-box">
             <div className="UserImage">
               <label htmlFor="UserAvatar" className="UserAvatar">
-                <input type="file" id="UserAvatar" hidden />
-                <img src={SingleStudent.Avatar} alt={SingleStudent.name} />
+                <input
+                  type="file"
+                  id="UserAvatar"
+                  hidden
+                  onChange={(file) => HandleCHangeImage(file)}
+                />
+                <img
+                  src={Image ? Image : SingleStudent.Avatar}
+                  alt={SingleStudent.name}
+                />
               </label>
               <div className="actions">
-                <button>
+                <button onClick={() => HandleRemoveImage()}>
                   <span>Remove</span>
                 </button>
                 <button>

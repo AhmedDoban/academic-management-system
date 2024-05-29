@@ -42,6 +42,72 @@ export const GetSingleStudent = createAsyncThunk(
   }
 );
 
+export const StudentAdminChandeAvatar = createAsyncThunk(
+  "StudentAdminChandeAvatar",
+  async (payload) => {
+    const { Token } = JSON.parse(localStorage.getItem("Token"));
+
+    try {
+      await axios
+        .post(
+          `${process.env.REACT_APP_API}/Student/UpdataAvatar`,
+          {
+            _id: payload._id,
+            Token: payload.Token,
+            Avatar: payload.File,
+          },
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: Token,
+            },
+          }
+        )
+        .then((res) => {
+          if (res.data.Status !== "Faild") {
+            Toast_Handelar("success", res.data.message);
+          } else {
+            Toast_Handelar("error", res.data.message);
+          }
+        });
+    } catch (err) {
+      Toast_Handelar("error", "Sorry we can't get your data !");
+    }
+  }
+);
+
+export const StudentAdminRemoveAvatar = createAsyncThunk(
+  "StudentAdminRemoveAvatar",
+  async (payload) => {
+    const { Token } = JSON.parse(localStorage.getItem("Token"));
+
+    try {
+      await axios
+        .post(
+          `${process.env.REACT_APP_API}/Student/RemoveAvatar`,
+          {
+            _id: payload._id,
+            Token: payload.Token,
+          },
+          {
+            headers: {
+              Authorization: Token,
+            },
+          }
+        )
+        .then((res) => {
+          if (res.data.Status !== "Faild") {
+            Toast_Handelar("success", res.data.message);
+          } else {
+            Toast_Handelar("error", res.data.message);
+          }
+        });
+    } catch (err) {
+      Toast_Handelar("error", "Sorry we can't get your data !");
+    }
+  }
+);
+
 const AdminSlice = createSlice({
   name: "AdminSlice",
   initialState: {
